@@ -43,31 +43,13 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            background: 
+            background:
                 radial-gradient(ellipse at 20% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
                 radial-gradient(ellipse at 50% 50%, rgba(20, 20, 30, 1) 0%, var(--bg-primary) 100%);
         }
 
-        .lightning-bolt {
-            position: fixed;
-            width: 2px;
-            height: 100px;
-            background: linear-gradient(to bottom, transparent, var(--lightning), transparent);
-            opacity: 0;
-            animation: lightning 8s infinite;
-            z-index: 1;
-        }
-
-        .lightning-bolt:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .lightning-bolt:nth-child(2) { left: 30%; animation-delay: 2s; }
-        .lightning-bolt:nth-child(3) { left: 70%; animation-delay: 4s; }
-        .lightning-bolt:nth-child(4) { left: 90%; animation-delay: 6s; }
-
-        @keyframes lightning {
-            0%, 95%, 100% { opacity: 0; transform: translateY(-100px); }
-            96%, 98% { opacity: 0.8; transform: translateY(100vh); }
-        }
+        /* Lightning bolts removed - was causing visual glitch */
 
         .container {
             max-width: 900px;
@@ -99,7 +81,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--accent);
-            box-shadow: 
+            box-shadow:
                 0 0 40px var(--accent-glow),
                 0 0 80px rgba(139, 92, 246, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -107,7 +89,7 @@
 
         .avatar:hover {
             transform: scale(1.05);
-            box-shadow: 
+            box-shadow:
                 0 0 60px var(--accent-glow),
                 0 0 120px rgba(139, 92, 246, 0.3);
         }
@@ -424,12 +406,8 @@
     </style>
 </head>
 <body>
-    <!-- Lightning effect -->
+    <!-- Background effect -->
     <div class="lightning-bg"></div>
-    <div class="lightning-bolt"></div>
-    <div class="lightning-bolt"></div>
-    <div class="lightning-bolt"></div>
-    <div class="lightning-bolt"></div>
 
     <!-- Hero -->
     <section class="hero">
@@ -441,8 +419,8 @@
             <h1>supersocks</h1>
             <p class="tagline">Energy Engineer by day. <span class="highlight">Solo builder</span> by night.</p>
             <p class="hero-quote">
-                "I wear compression socks every day because of Klippel-Trenaunay syndrome. 
-                Each morning they remind me I'm alive — and I have no time to waste."
+                "I wear compression socks every day because of Klippel-Trenaunay syndrome.
+                Each morning they remind me I'm alive, and I have no time to waste."
             </p>
         </div>
         <div class="scroll-indicator">
@@ -461,28 +439,28 @@
                 <div class="story-block">
                     <h3><span class="emoji">🎓</span> The Non-Linear Path</h3>
                     <p>
-                        Vocational diploma → Technical degree → Prep school → Engineering school → Business school. 
+                        Vocational diploma → Technical degree → Prep school → Engineering school → Business school.
                         Not the typical Silicon Valley story. Just a hungry wolf who refused to stay in his lane.
                     </p>
                 </div>
                 <div class="story-block">
                     <h3><span class="emoji">⚡</span> Day Job: Energy</h3>
                     <p>
-                        I sell massive machines that generate electricity. Industrial scale. Real impact. 
+                        I sell massive machines that generate electricity. Industrial scale. Real impact.
                         But the 9-to-5 never killed the builder in me.
                     </p>
                 </div>
                 <div class="story-block">
                     <h3><span class="emoji">🛠️</span> Night Mode: Building</h3>
                     <p>
-                        WordPress, Shopify, automation, AI — always building something. Early adopter of every tool 
+                        WordPress, Shopify, automation, AI... always building something. Early adopter of every tool
                         that makes me more efficient. First for myself, then for others.
                     </p>
                 </div>
                 <div class="story-block">
                     <h3><span class="emoji">🚀</span> The Mission</h3>
                     <p>
-                        2026: One person can build a $1M company. I'm proving it. 
+                        2026: One person can build a $1M company. I'm proving it.
                         Sharing the journey, learning in public, building in the open.
                     </p>
                 </div>
@@ -499,7 +477,7 @@
                     <div class="project-icon">🦊</div>
                     <h3>Cogefox</h3>
                     <p>
-                        AI-powered sports betting analysis. We compare today's odds with 50,000+ historical matches 
+                        AI-powered sports betting analysis. We compare today's odds with 50,000+ historical matches
                         to find value bets. 75%+ success rate.
                     </p>
                     <span class="project-link">
@@ -513,7 +491,7 @@
                     <div class="project-icon">⚡</div>
                     <h3>Watts Else</h3>
                     <p>
-                        Your compass in the energy transition jungle. Guides, tools, and daily satirical comics 
+                        Your compass in the energy transition jungle. Guides, tools, and daily satirical comics
                         about renewable energy in France.
                     </p>
                     <span class="project-link">
