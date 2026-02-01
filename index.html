@@ -137,15 +137,179 @@
 
         .hero-quote {
             max-width: 500px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             font-style: italic;
             margin-bottom: 40px;
             line-height: 1.6;
-            padding: 20px;
-            border-left: 2px solid var(--accent);
+            padding: 24px;
+            border-left: 3px solid var(--accent);
             background: var(--bg-card);
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* Project badges */
+        .project-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .badge-growing {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .badge-new {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+
+        .project-metrics {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(20, 20, 30, 0.8) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 20px;
+            padding: 48px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .newsletter p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 20px;
+            background: var(--bg-primary);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--accent);
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .newsletter-form button {
+            padding: 14px 28px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+
+        /* Goal Tracker */
+        .goal-tracker {
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .goal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .goal-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .goal-values {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .goal-current {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .goal-target {
+            color: var(--text-secondary);
+        }
+
+        .goal-bar {
+            height: 8px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .goal-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #c4b5fd);
+            border-radius: 4px;
+            transition: width 0.5s ease;
         }
 
         .scroll-indicator {
@@ -402,6 +566,22 @@
             .story-block, .project-card {
                 padding: 24px;
             }
+
+            .newsletter {
+                padding: 32px 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+
+            .project-metrics {
+                justify-content: space-around;
+            }
         }
     </style>
 </head>
@@ -463,6 +643,18 @@
                         2026: One person can build a $1M company. I'm proving it.
                         Sharing the journey, learning in public, building in the open.
                     </p>
+                    <div class="goal-tracker">
+                        <div class="goal-header">
+                            <span class="goal-label">2026 Revenue Goal</span>
+                            <span class="goal-values">
+                                <span class="goal-current">$0</span>
+                                <span class="goal-target"> / $1M ARR</span>
+                            </span>
+                        </div>
+                        <div class="goal-bar">
+                            <div class="goal-progress" style="width: 0%;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -474,12 +666,23 @@
             <h2 class="section-title">What I'm Building</h2>
             <div class="projects-grid">
                 <a href="https://cogefox.com" target="_blank" class="project-card cogefox">
+                    <span class="project-badge badge-growing">🚀 Growing</span>
                     <div class="project-icon">🦊</div>
                     <h3>Cogefox</h3>
                     <p>
                         AI-powered sports betting analysis. We compare today's odds with 50,000+ historical matches
                         to find value bets. 75%+ success rate.
                     </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">50K+</div>
+                            <div class="metric-label">Matches analyzed</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">75%</div>
+                            <div class="metric-label">Win rate</div>
+                        </div>
+                    </div>
                     <span class="project-link">
                         Visit cogefox.com
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -488,12 +691,23 @@
                     </span>
                 </a>
                 <a href="https://wattselse.com" target="_blank" class="project-card wattselse">
+                    <span class="project-badge badge-new">⚡ Main Focus</span>
                     <div class="project-icon">⚡</div>
                     <h3>Watts Else</h3>
                     <p>
                         Your compass in the energy transition jungle. Guides, tools, and daily satirical comics
                         about renewable energy in France.
                     </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">1,600+</div>
+                            <div class="metric-label">Companies tracked</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Daily</div>
+                            <div class="metric-label">Comics</div>
+                        </div>
+                    </div>
                     <span class="project-link">
                         Visit wattselse.com
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -501,6 +715,20 @@
                         </svg>
                     </span>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="projects">
+        <div class="container">
+            <div class="newsletter">
+                <h3>🧦 Follow the $1M Journey</h3>
+                <p>One email per week. Real numbers, real lessons, zero bullshit.</p>
+                <form class="newsletter-form" action="#" method="POST">
+                    <input type="email" placeholder="your@email.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
         </div>
     </section>
