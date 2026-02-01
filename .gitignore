@@ -1,5 +1,8 @@
 # Dependencies
 node_modules/
+
+# Vercel (DO NOT USE)
+.vercel/
 .pnp
 .pnp.js
 
