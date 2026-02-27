@@ -765,8 +765,9 @@ function renderCard(a) {
   const ago = timeAgo(d);
   const cat = a.category || 'other';
   const color = a.source.color || '#00dcff';
+  const articleUrl = `article.html?id=${encodeURIComponent(a.id)}`;
 
-  return `<a class="card" href="${esc(a.link)}" target="_blank" rel="noopener"
+  return `<a class="card" href="${articleUrl}"
     data-src="${esc(a.source.id)}" data-cat="${esc(cat)}"
     style="--src-color:${color}">
     <div class="card-top">
