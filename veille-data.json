@@ -1,12 +1,12 @@
 {
-  "generated": "2026-02-27T19:45:45.383933+00:00",
+  "generated": "2026-02-27T20:33:02.230346+00:00",
   "count": 264,
   "sources": 17,
   "articles": [
     {
       "id": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-february-2026/",
       "title": "Find out what’s new in the Gemini app in February's Gemini Drop.",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Drops_8_Stich_Static_1920x1080.max-600x600.format-webp.webp\">Gemini Drops is our regular monthly update on how to get the most out of the Gemini app.",
+      "excerpt": "Gemini Drops is our regular monthly update on how to get the most out of the Gemini app.",
       "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-february-2026/",
       "date": "2026-02-27T17:00:00+00:00",
       "category": "model",
@@ -71,7 +71,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/products/gemini-app/lyria-3-year-of-the-fire-horse/",
       "title": "Create personalized “Year of the Fire Horse” musical tracks with Gemini",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero_t8aLCG9.max-600x600.format-webp.webp\">Celebrate the Year of the Fire Horse with personalized musical greetings created directly in the Gemini app.",
+      "excerpt": "Celebrate the Year of the Fire Horse with personalized musical greetings created directly in the Gemini app.",
       "link": "https://blog.google/innovation-and-ai/products/gemini-app/lyria-3-year-of-the-fire-horse/",
       "date": "2026-02-27T03:26:00+00:00",
       "category": "model",
@@ -97,7 +97,7 @@
     {
       "id": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/",
       "title": "Google and the Massachusetts AI Hub are launching a new AI training initiative for the Commonwealth.",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/691A1377_1920x1080.max-600x600.format-webp.webp\">Google is partnering with the Massachusetts AI Hub to provide every Baystater with no-cost access to Google’s AI training.",
+      "excerpt": "Google is partnering with the Massachusetts AI Hub to provide every Baystater with no-cost access to Google’s AI training.",
       "link": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/",
       "date": "2026-02-26T18:55:00+00:00",
       "category": "model",
@@ -123,7 +123,7 @@
     {
       "id": "https://blog.google/products-and-platforms/products/translate/translation-context-ai-update/",
       "title": "Get more context and understand translations more deeply with new AI-powered updates in Translate.",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Translate_TextTranslate_1920x10.max-600x600.format-webp.webp\">New alternatives, “understand” and “ask” buttons in Google Translate help you navigate the complexities of natural language.",
+      "excerpt": "New alternatives, “understand” and “ask” buttons in Google Translate help you navigate the complexities of natural language.",
       "link": "https://blog.google/products-and-platforms/products/translate/translation-context-ai-update/",
       "date": "2026-02-26T18:00:00+00:00",
       "category": "model",
@@ -162,7 +162,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/products/google-ai-career-tools/",
       "title": "3 Google AI tools that helped me get my new job",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Job.max-600x600.format-webp.webp\">From analysis paralysis to a new role, see how one Googler used 3 AI tools to navigate a career lattice.",
+      "excerpt": "From analysis paralysis to a new role, see how one Googler used 3 AI tools to navigate a career lattice.",
       "link": "https://blog.google/innovation-and-ai/products/google-ai-career-tools/",
       "date": "2026-02-26T17:00:00+00:00",
       "category": "product",
@@ -175,7 +175,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-nano-banana-2/",
       "title": "Build with Nano Banana 2, our best image generation and editing model",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/BuildWith_Hero.max-600x600.format-webp.webp\">Nano Banana 2 (Gemini 3.1 Flash Image) delivers Pro-level intelligence and fidelity for all image applications.",
+      "excerpt": "Nano Banana 2 (Gemini 3.1 Flash Image) delivers Pro-level intelligence and fidelity for all image applications.",
       "link": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-nano-banana-2/",
       "date": "2026-02-26T16:00:00+00:00",
       "category": "model",
@@ -188,7 +188,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/",
       "title": "Nano Banana 2: Combining Pro capabilities with lightning-fast speed",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/NB2_Hero.max-600x600.format-webp.webp\">Our latest image generation model offers advanced world knowledge, production-ready specs, subject consistency and more, all at Flash speed.",
+      "excerpt": "Our latest image generation model offers advanced world knowledge, production-ready specs, subject consistency and more, all at Flash speed.",
       "link": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/",
       "date": "2026-02-26T16:00:00+00:00",
       "category": "model",
@@ -279,7 +279,7 @@
     {
       "id": "https://aws.amazon.com/blogs/machine-learning/building-intelligent-event-agents-using-amazon-bedrock-agentcore-and-amazon-bedrock-knowledge-bases/",
       "title": "Building intelligent event agents using Amazon Bedrock AgentCore and Amazon Bedrock Knowledge Bases",
-      "excerpt": "This post demonstrates how to quickly deploy a production-ready event assistant using the components of Amazon Bedrock AgentCore. We'll build an intelligent companion that remembers attendee preferences and builds personalized experiences over time, while Amazon Bedrock AgentCore handles the heavy lifting of production deployment:&nbsp;Amazon Bedro",
+      "excerpt": "This post demonstrates how to quickly deploy a production-ready event assistant using the components of Amazon Bedrock AgentCore. We'll build an intelligent companion that remembers attendee preferences and builds personalized experiences over time, while Amazon Bedrock AgentCore handles the heavy lifting of production deployment: Amazon Bedrock Ag",
       "link": "https://aws.amazon.com/blogs/machine-learning/building-intelligent-event-agents-using-amazon-bedrock-agentcore-and-amazon-bedrock-knowledge-bases/",
       "date": "2026-02-25T19:51:08+00:00",
       "category": "product",
@@ -292,7 +292,7 @@
     {
       "id": "https://blog.google/products-and-platforms/products/search/circle-to-search-february-2026/",
       "title": "See the whole picture and find the look with Circle to Search",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FTL__Try_On_Blog_header.max-600x600.format-webp.webp\">We’ve updated Circle to Search so you can now explore multiple items in a single image.",
+      "excerpt": "We’ve updated Circle to Search so you can now explore multiple items in a single image.",
       "link": "https://blog.google/products-and-platforms/products/search/circle-to-search-february-2026/",
       "date": "2026-02-25T18:00:00+00:00",
       "category": "model",
@@ -305,7 +305,7 @@
     {
       "id": "https://blog.google/products-and-platforms/platforms/android/samsung-unpacked-2026/",
       "title": "A more intelligent Android on Samsung Galaxy S26",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_header_2096x1182_withoutte.max-600x600.format-webp.webp\">At Samsung Unpacked 2026, we showcased how Samsung Galaxy S26 devices are getting the latest in Android’s AI features.",
+      "excerpt": "At Samsung Unpacked 2026, we showcased how Samsung Galaxy S26 devices are getting the latest in Android’s AI features.",
       "link": "https://blog.google/products-and-platforms/platforms/android/samsung-unpacked-2026/",
       "date": "2026-02-25T18:00:00+00:00",
       "category": "product",
@@ -318,7 +318,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/products/gemini-app/android-multi-step-tasks/",
       "title": "Let Gemini handle your multi-step daily tasks on Android.",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/1920x1080_nq6jy78.max-600x600.format-webp.webp\">Launching soon for Pixel 10 and Samsung Galaxy S26 Series, you can offload multi-step tasks to Gemini.",
+      "excerpt": "Launching soon for Pixel 10 and Samsung Galaxy S26 Series, you can offload multi-step tasks to Gemini.",
       "link": "https://blog.google/innovation-and-ai/products/gemini-app/android-multi-step-tasks/",
       "date": "2026-02-25T18:00:00+00:00",
       "category": "model",
@@ -539,7 +539,7 @@
     {
       "id": "https://blog.google/products-and-platforms/products/gemini/tips-prompting-lyria-3/",
       "title": "6 tips for prompting Lyria 3 in the Gemini app",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/tips_for_prompting_Lyria_3_Hero.max-600x600.format-webp.webp\">Learn more about Lyria 3, Google DeepMind’s newest generative AI that can help you create your own tunes.",
+      "excerpt": "Learn more about Lyria 3, Google DeepMind’s newest generative AI that can help you create your own tunes.",
       "link": "https://blog.google/products-and-platforms/products/gemini/tips-prompting-lyria-3/",
       "date": "2026-02-23T17:00:00+00:00",
       "category": "model",
@@ -656,7 +656,7 @@
     {
       "id": "https://aws.amazon.com/blogs/machine-learning/integrate-external-tools-with-amazon-quick-agents-using-model-context-protocol-mcp/",
       "title": "Integrate external tools with Amazon Quick Agents using Model Context Protocol (MCP)",
-      "excerpt": "In this post, you’ll use a six-step checklist to build a new MCP server or validate and adjust an existing MCP server for Amazon&nbsp;Quick integration.&nbsp;The Amazon&nbsp;Quick User Guide describes the MCP client behavior and constraints. This is a “How to” guide for detailed implementation required by 3P partners to integrate with Amazon Quick ",
+      "excerpt": "In this post, you’ll use a six-step checklist to build a new MCP server or validate and adjust an existing MCP server for Amazon Quick integration. The Amazon Quick User Guide describes the MCP client behavior and constraints. This is a “How to” guide for detailed implementation required by 3P partners to integrate with Amazon Quick with MCP.",
       "link": "https://aws.amazon.com/blogs/machine-learning/integrate-external-tools-with-amazon-quick-agents-using-model-context-protocol-mcp/",
       "date": "2026-02-20T16:26:21+00:00",
       "category": "model",
@@ -773,7 +773,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
       "title": "Gemini 3.1 Pro: A smarter model for your most complex tasks",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3.1_pro_keyword_header_d.max-600x600.format-webp.webp\">3.1 Pro is designed for tasks where a simple answer isn’t enough.",
+      "excerpt": "3.1 Pro is designed for tasks where a simple answer isn’t enough.",
       "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
       "date": "2026-02-19T16:00:00+00:00",
       "category": "model",
@@ -799,10 +799,10 @@
     {
       "id": "https://blog.google/company-news/inside-google/message-ceo/sundar-pichai-ai-impact-summit-2026/",
       "title": "“No technology has me dreaming bigger than AI”",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI-Google_2.max-600x600.format-webp.webp\">Sundar Pichai gave remarks at the opening ceremony of the AI Impact Summit. Read a transcript of his speech.",
+      "excerpt": "Sundar Pichai gave remarks at the opening ceremony of the AI Impact Summit. Read a transcript of his speech.",
       "link": "https://blog.google/company-news/inside-google/message-ceo/sundar-pichai-ai-impact-summit-2026/",
       "date": "2026-02-19T04:30:00+00:00",
-      "category": "product",
+      "category": "other",
       "source": {
         "id": "google",
         "name": "Google AI",
@@ -812,7 +812,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-collection/",
       "title": "AI Impact Summit 2026",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Collection_Hero-2.max-600x600.format-webp.webp\">A look at the partnerships and investments Google announced at the AI Impact Summit 2026.",
+      "excerpt": "A look at the partnerships and investments Google announced at the AI Impact Summit 2026.",
       "link": "https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-collection/",
       "date": "2026-02-19T04:30:00+00:00",
       "category": "product",
@@ -903,7 +903,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/",
       "title": "A new way to express yourself: Gemini can now create music",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/0217_KeywordHeaderFinalc.max-600x600.format-webp.webp\">Lyria 3 is now available in the Gemini app. Create custom, high-quality 30-second tracks from text and images.",
+      "excerpt": "Lyria 3 is now available in the Gemini app. Create custom, high-quality 30-second tracks from text and images.",
       "link": "https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/",
       "date": "2026-02-18T16:00:00+00:00",
       "category": "model",
@@ -929,7 +929,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-india/",
       "title": "AI Impact Summit 2026: How we’re partnering to make AI work for everyone",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI-Summit-Hero.max-600x600.format-webp.webp\">An overview of Google’s new global partnerships and funding announcements at the AI Impact Summit in India.",
+      "excerpt": "An overview of Google’s new global partnerships and funding announcements at the AI Impact Summit in India.",
       "link": "https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-india/",
       "date": "2026-02-18T10:30:00+00:00",
       "category": "product",
@@ -994,7 +994,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/products/responsible-ai-2026-report-ongoing-work/",
       "title": "Our 2026 Responsible AI Progress Report",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Stocksy_7137793.max-600x600.format-webp.webp\">A look at our 2026 Responsible AI Progress Report.",
+      "excerpt": "A look at our 2026 Responsible AI Progress Report.",
       "link": "https://blog.google/innovation-and-ai/products/responsible-ai-2026-report-ongoing-work/",
       "date": "2026-02-17T22:30:00+00:00",
       "category": "safety",
@@ -1020,7 +1020,7 @@
     {
       "id": "https://blog.google/products-and-platforms/products/education/gemini-features-for-students/",
       "title": "5 ways Gemini can help students work smarter",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/HeroAsset.max-600x600.format-webp.webp\">Check out Gemini features that help students learn complex subjects, study for exams and prepare for their careers.",
+      "excerpt": "Check out Gemini features that help students learn complex subjects, study for exams and prepare for their careers.",
       "link": "https://blog.google/products-and-platforms/products/education/gemini-features-for-students/",
       "date": "2026-02-13T18:00:00+00:00",
       "category": "model",
@@ -1033,10 +1033,10 @@
     {
       "id": "https://blog.google/products-and-platforms/devices/pixel/pixel-camera-photo-tips-lunar-new-year/",
       "title": "Take a look at these incredible photos from Lunar New Year celebrations.",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/PXL_20260204_021005833.max-600x600.format-webp.webp\">Check out all of the photos captured on the latest Pixel series phones in Taiwan for Lunar New Year.",
+      "excerpt": "Check out all of the photos captured on the latest Pixel series phones in Taiwan for Lunar New Year.",
       "link": "https://blog.google/products-and-platforms/devices/pixel/pixel-camera-photo-tips-lunar-new-year/",
       "date": "2026-02-13T16:00:00+00:00",
-      "category": "product",
+      "category": "other",
       "source": {
         "id": "gemini",
         "name": "Google Gemini",
@@ -1137,7 +1137,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/",
       "title": "Gemini 3 Deep Think: Advancing science, research and engineering",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_deep-think_keyword_hea.max-600x600.format-webp.webp\">We’re releasing a major upgrade to Gemini 3 Deep Think, our specialized reasoning mode.",
+      "excerpt": "We’re releasing a major upgrade to Gemini 3 Deep Think, our specialized reasoning mode.",
       "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/",
       "date": "2026-02-12T16:13:00+00:00",
       "category": "model",
@@ -1202,7 +1202,7 @@
     {
       "id": "https://blog.google/products-and-platforms/products/photos/ask-button-ask-photos-tips/",
       "title": "9 fun questions to try asking Google Photos",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/2025-Travel-Trends_hero.max-600x600.format-webp.webp\">Learn more about Google Photos’ new Ask button as well as other functions of its Ask Photos feature.",
+      "excerpt": "Learn more about Google Photos’ new Ask button as well as other functions of its Ask Photos feature.",
       "link": "https://blog.google/products-and-platforms/products/photos/ask-button-ask-photos-tips/",
       "date": "2026-02-10T17:00:00+00:00",
       "category": "product",
@@ -1241,7 +1241,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/technology/safety-security/safer-internet-day-2026-kids-teens/",
       "title": "Helping kids and teens learn and grow online on Safer Internet Day",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Helpingkidsteens_Hero.max-600x600.format-webp.webp\">We’re sharing our latest updates designed to support families, kids and teens in the digital world.",
+      "excerpt": "We’re sharing our latest updates designed to support families, kids and teens in the digital world.",
       "link": "https://blog.google/innovation-and-ai/technology/safety-security/safer-internet-day-2026-kids-teens/",
       "date": "2026-02-10T02:30:00+00:00",
       "category": "model",
@@ -1267,10 +1267,10 @@
     {
       "id": "https://blog.google/company-news/outreach-and-initiatives/accessibility/natively-adaptive-interfaces-ai-accessibility/",
       "title": "Natively Adaptive Interfaces: A new framework for AI accessibility",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Natively_Adaptive_Interfaces_He.max-600x600.format-webp.webp\">Learn how Google's NAI framework uses AI to make technology more adaptive, inclusive and helpful for everyone.",
+      "excerpt": "Learn how Google's NAI framework uses AI to make technology more adaptive, inclusive and helpful for everyone.",
       "link": "https://blog.google/company-news/outreach-and-initiatives/accessibility/natively-adaptive-interfaces-ai-accessibility/",
       "date": "2026-02-05T17:00:00+00:00",
-      "category": "product",
+      "category": "other",
       "source": {
         "id": "google",
         "name": "Google AI",
@@ -1293,7 +1293,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/us-ski-snowboard-tool-winter-olympics-2026/",
       "title": "How Google Cloud is helping Team USA elevate their tricks with AI",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/helping_Team_USA_Hero.max-600x600.format-webp.webp\">Google Cloud built an industry-first AI tool to help U.S. Ski and Snowboard athletes.",
+      "excerpt": "Google Cloud built an industry-first AI tool to help U.S. Ski and Snowboard athletes.",
       "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/us-ski-snowboard-tool-winter-olympics-2026/",
       "date": "2026-02-05T16:00:00+00:00",
       "category": "product",
@@ -1306,7 +1306,7 @@
     {
       "id": "https://blog.google/company-news/inside-google/company-announcements/gemini-ad-new-home/",
       "title": "Watch our new Gemini ad ahead of football’s biggest weekend",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SB_2026_New_Home_16_9_Thumbnail.max-600x600.format-webp.webp\">Learn more about Google’s new ad that will run during football’s Big Game on February 8.",
+      "excerpt": "Learn more about Google’s new ad that will run during football’s Big Game on February 8.",
       "link": "https://blog.google/company-news/inside-google/company-announcements/gemini-ad-new-home/",
       "date": "2026-02-05T14:30:00+00:00",
       "category": "model",
@@ -1319,10 +1319,10 @@
     {
       "id": "https://blog.google/innovation-and-ai/products/google-ai-updates-january-2026/",
       "title": "The latest AI news we announced in January",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/LatestAI_v5.max-600x600.format-webp.webp\">Google AI announcements from January",
+      "excerpt": "Google AI announcements from January",
       "link": "https://blog.google/innovation-and-ai/products/google-ai-updates-january-2026/",
       "date": "2026-02-04T16:55:00+00:00",
-      "category": "product",
+      "category": "other",
       "source": {
         "id": "google",
         "name": "Google AI",
@@ -1384,10 +1384,10 @@
     {
       "id": "https://blog.google/innovation-and-ai/technology/ai/ai-to-preserve-endangered-species/",
       "title": "How we’re helping preserve the genetic information of endangered species with AI",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Terria-Clay_Collage_hero.max-600x600.format-webp.webp\">Scientists are working to sequence the genome of every known species on Earth.",
+      "excerpt": "Scientists are working to sequence the genome of every known species on Earth.",
       "link": "https://blog.google/innovation-and-ai/technology/ai/ai-to-preserve-endangered-species/",
       "date": "2026-02-02T18:00:00+00:00",
-      "category": "product",
+      "category": "other",
       "source": {
         "id": "google",
         "name": "Google AI",
@@ -1397,7 +1397,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/kaggle-game-arena-updates/",
       "title": "Advancing AI benchmarking with Game Arena",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/kaggle_Gsmes_Hero.max-600x600.format-webp.webp\">We’re expanding Game Arena with Poker and Werewolf, while Gemini 3 Pro and Flash top our chess leaderboard.",
+      "excerpt": "We’re expanding Game Arena with Poker and Werewolf, while Gemini 3 Pro and Flash top our chess leaderboard.",
       "link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/kaggle-game-arena-updates/",
       "date": "2026-02-02T17:00:00+00:00",
       "category": "model",
@@ -1410,7 +1410,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-budget-planning-tips/",
       "title": "10 ways to plan your 2026 budget with Gemini",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Budget_with_Gemini_hero.max-600x600.format-webp.webp\">Learn how to use simple Gemini prompts to create a 2026 budget, find hidden savings and organize your spending.",
+      "excerpt": "Learn how to use simple Gemini prompts to create a 2026 budget, find hidden savings and organize your spending.",
       "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-budget-planning-tips/",
       "date": "2026-02-02T16:00:00+00:00",
       "category": "model",
@@ -1423,7 +1423,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-january-2026/",
       "title": "Find out what’s new in the Gemini app in January's Gemini Drop.",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Drops_social.max-600x600.format-webp.webp\">Gemini Drops is our regular monthly update on how to get the most out of the Gemini app.",
+      "excerpt": "Gemini Drops is our regular monthly update on how to get the most out of the Gemini app.",
       "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-january-2026/",
       "date": "2026-01-30T17:00:00+00:00",
       "category": "model",
@@ -1462,7 +1462,7 @@
     {
       "id": "https://blog.google/products-and-platforms/products/chrome/gemini-3-auto-browse/",
       "title": "The new era of browsing: Putting Gemini to work in Chrome",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/chrome_rollercoaster.max-600x600.format-webp.webp\">Learn more about new agentic capabilities coming to Chrome, powered by Gemini 3.",
+      "excerpt": "Learn more about new agentic capabilities coming to Chrome, powered by Gemini 3.",
       "link": "https://blog.google/products-and-platforms/products/chrome/gemini-3-auto-browse/",
       "date": "2026-01-28T18:00:00+00:00",
       "category": "model",
@@ -1501,7 +1501,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/technology/developers-tools/agentic-vision-gemini-3-flash/",
       "title": "Introducing Agentic Vision in Gemini 3 Flash",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/agentic-vision-gemini-3_flash_b.max-600x600.format-webp.webp\">Agentic Vision, a new capability introduced in Gemini 3 Flash, converts image understanding from a static act into an agentic process",
+      "excerpt": "Agentic Vision, a new capability introduced in Gemini 3 Flash, converts image understanding from a static act into an agentic process",
       "link": "https://blog.google/innovation-and-ai/technology/developers-tools/agentic-vision-gemini-3-flash/",
       "date": "2026-01-27T19:00:00+00:00",
       "category": "model",
@@ -1514,7 +1514,7 @@
     {
       "id": "https://blog.google/innovation-and-ai/technology/developers-tools/gdp-premium-ai-pro-ultra/",
       "title": "New developer tools for Google AI Pro and Ultra subscribers",
-      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/0029-GDP-Google-One-Announcemen.max-600x600.format-webp.webp\">Google Developer Program (GDP) premium benefits are now included in Google AI Pro and Google AI Ultra.",
+      "excerpt": "Google Developer Program (GDP) premium benefits are now included in Google AI Pro and Google AI Ultra.",
       "link": "https://blog.google/innovation-and-ai/technology/developers-tools/gdp-premium-ai-pro-ultra/",
       "date": "2026-01-27T18:10:00+00:00",
       "category": "product",
@@ -2541,7 +2541,7 @@
     {
       "id": "http://blog.research.google/feeds/1569605132526995799/comments/default",
       "title": "Generative AI to quantify uncertainty in weather forecasting",
-      "excerpt": "<span class=\"byline-author\">Posted by Lizao (Larry) Li, Software Engineer, and Rob Carver, Research Scientist, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglI5U51vvhkA4cAuVvMLn0TbbL5pdlFL-LO1sNnqLyUieA6A88I5HrhJlszxR1GKQqSK5wsdlATDKSy6EC1BsNF7tzS6oVlFLtau13mVFLk954nFu85HDMP3PrQboG4eXExEtUjEuDRFpcrMqE_",
+      "excerpt": "Posted by Lizao (Larry) Li, Software Engineer, and Rob Carver, Research Scientist, Google Research Accurate weather forecasts can have a direct impact on people’s lives, from helping make routine decisions, like what to pack for a day’s activities, to informing urgent actions, for example, protecting people in the face of hazardous weather conditio",
       "link": "http://blog.research.google/feeds/1569605132526995799/comments/default",
       "date": "",
       "category": "research",
@@ -2554,7 +2554,7 @@
     {
       "id": "http://blog.research.google/feeds/1799535679952845079/comments/default",
       "title": "AutoBNN: Probabilistic time series forecasting with compositional bayesian neural networks",
-      "excerpt": "<span class=\"byline-author\">Posted by Urs Köster, Software Engineer, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd5Wc54p1HvgIokpazxDsMo1u6i9wg3ovpNOiFc4-wYwebETvjs9-hm2wxZ4osNbBAxhet8To3hwGg-whFScksHQB_BP1kS4Z8Cu7FQT2bjVtJl4trPid-OxCyYocwyRTN66tuvAedu9z0FepBg4zZvmLbLxY6uuib8p5jVH2kfb3RxT_HMABsKMXuSFX",
+      "excerpt": "Posted by Urs Köster, Software Engineer, Google Research Time series problems are ubiquitous, from forecasting weather and traffic patterns to understanding economic trends. Bayesian approaches start with an assumption about the data's patterns (prior probability), collecting evidence (e.g., new time series data), and continuously updating that ass",
       "link": "http://blog.research.google/feeds/1799535679952845079/comments/default",
       "date": "",
       "category": "research",
@@ -2567,7 +2567,7 @@
     {
       "id": "http://blog.research.google/feeds/7061041222399769838/comments/default",
       "title": "Computer-aided diagnosis for lung cancer screening",
-      "excerpt": "<span class=\"byline-author\">Posted by Atilla Kiraly, Software Engineer, and Rory Pilgrim, Product Manager, Google Research </span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFpuCd82OUmuS2oG2cVir_ZgeOyUpFndr-kCq8V4pDv6fzxeyViBJymfVt5FFUqgkM_X57msxNv84XBtaXs2FsD7R8_tNqtH6D8X_KiMtZRaJ37JphQsvM35_gIk-4Tn2eEYvrInjMLV5ouwhRJv3O",
+      "excerpt": "Posted by Atilla Kiraly, Software Engineer, and Rory Pilgrim, Product Manager, Google Research Lung cancer is the leading cause of cancer-related deaths globally with 1.8 million deaths reported in 2020. Late diagnosis dramatically reduces the chances of survival. Lung cancer screening via computed tomography (CT), which provides a detailed 3D imag",
       "link": "http://blog.research.google/feeds/7061041222399769838/comments/default",
       "date": "",
       "category": "research",
@@ -2580,7 +2580,7 @@
     {
       "id": "http://blog.research.google/feeds/4615278636568583418/comments/default",
       "title": "Using AI to expand global access to reliable flood forecasts",
-      "excerpt": "<span class=\"byline-author\">Posted by Yossi Matias, VP Engineering &amp; Research, and Grey Nearing, Research Scientist, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgABDUlqCHMxNY-QfEftM_9yPy1z4jr1odB-_kSP79yjk6igtpPJNFIocQOKDRnZ3VLmqrI9tqX-dCHpcYtnSx96y9X9V9knp1CiAREvfgZX71D0XpWZNgPdZOI7aMW3POigHJ2rLe",
+      "excerpt": "Posted by Yossi Matias, VP Engineering & Research, and Grey Nearing, Research Scientist, Google Research Floods are the most common natural disaster , and are responsible for roughly $50 billion in annual financial damages worldwide. The rate of flood-related disasters has more than doubled since the year 2000 partly due to climate change . Nearly ",
       "link": "http://blog.research.google/feeds/4615278636568583418/comments/default",
       "date": "",
       "category": "research",
@@ -2593,7 +2593,7 @@
     {
       "id": "http://blog.research.google/feeds/520087429457973735/comments/default",
       "title": "ScreenAI: A visual language model for UI and visually-situated language understanding",
-      "excerpt": "<span class=\"byline-author\">Posted by Srinivas Sunkara and Gilles Baechler, Software Engineers, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoXlMR7pAKRRnyKZT8C40i6mPX0KKNGT6AFNvFOFIhZ7BD0rXaU3NS_aqISTGq9S_d0zozgcO0HR_v3R6Msm4uUDkaBFsFVx-miaDL6L0UhSz1Is8_L_iFjtvNE5OX9HX98t92b3r-rLQfJG1RrzVW354NdVUlIJVR",
+      "excerpt": "Posted by Srinivas Sunkara and Gilles Baechler, Software Engineers, Google Research Screen user interfaces (UIs) and infographics, such as charts, diagrams and tables, play important roles in human communication and human-machine interaction as they facilitate rich and interactive user experiences. UIs and infographics share similar design principl",
       "link": "http://blog.research.google/feeds/520087429457973735/comments/default",
       "date": "",
       "category": "model",
@@ -2606,7 +2606,7 @@
     {
       "id": "http://blog.research.google/feeds/4328167517765145678/comments/default",
       "title": "SCIN: A new resource for representative dermatology images",
-      "excerpt": "<span class=\"byline-author\">Posted by Pooja Rao, Research Scientist, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_fSTMFxLAMHLJ0rw7OAddGSPMW2tRl8kmTr2mWiiJunKxB8ZflMJeWkBmB5IqCD2LvRoikpN7OYnZO3CdKpArGn32b4o-T8ZD6XCPxmUBtE1-sPBi6J05y5_UrfbWSMTjNpldKYzM3xjXoC0iWU7q_a7Ktfi2S1hVHLY8uq1986yp_pgEjQn3elNuSUb",
+      "excerpt": "Posted by Pooja Rao, Research Scientist, Google Research Health datasets play a crucial role in research and medical education, but it can be challenging to create a dataset that represents the real world. For example, dermatology conditions are diverse in their appearance and severity and manifest differently across skin tones. Yet, existing derma",
       "link": "http://blog.research.google/feeds/4328167517765145678/comments/default",
       "date": "",
       "category": "research",
@@ -2619,7 +2619,7 @@
     {
       "id": "http://blog.research.google/feeds/757976001746578714/comments/default",
       "title": "MELON: Reconstructing 3D objects from images with unknown poses",
-      "excerpt": "<span class=\"byline-author\">Posted by Mark Matthews, Senior Software Engineer, and Dmitry Lagun, Research Scientist, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8LjCbKjfNXVUyCpGiZysx_pNF5BK8p5VBCJXXPaz_Bb75CW-33weoMh0YaNcn4AdmGN-Pufd_XlsRzo2MWZLQxqgtri7Nip9tXoGX0CritvRKF-63StOWxp_gVaY-MTnOk9IvJdVt_Cc",
+      "excerpt": "Posted by Mark Matthews, Senior Software Engineer, and Dmitry Lagun, Research Scientist, Google Research A person's prior experience and understanding of the world generally enables them to easily infer what an object looks like in whole, even if only looking at a few 2D pictures of it. Yet the capacity for a computer to reconstruct the shape of an",
       "link": "http://blog.research.google/feeds/757976001746578714/comments/default",
       "date": "",
       "category": "research",
@@ -2632,7 +2632,7 @@
     {
       "id": "http://blog.research.google/feeds/977556648557231190/comments/default",
       "title": "HEAL: A framework for health equity assessment of machine learning performance",
-      "excerpt": "<span class=\"byline-author\">Posted by Mike Schaekermann, Research Scientist, Google Research, and Ivor Horn, Chief Health Equity Officer &amp; Director, Google Core</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYi3V0CsXup8WA6SSjPagoMWfkIpbr9oRWEaUM1vIWOX8_TsZs6ikqOn6qIGbqUzAPhOxwhEPNfWSkECIxRz5fJ629cRGScLraFn2CSw53Sr5",
+      "excerpt": "Posted by Mike Schaekermann, Research Scientist, Google Research, and Ivor Horn, Chief Health Equity Officer & Director, Google Core Health equity is a major societal concern worldwide with disparities having many causes. These sources include limitations in access to healthcare, differences in clinical treatment, and even fundamental differences i",
       "link": "http://blog.research.google/feeds/977556648557231190/comments/default",
       "date": "",
       "category": "research",
@@ -2645,7 +2645,7 @@
     {
       "id": "http://blog.research.google/feeds/7868032799856333119/comments/default",
       "title": "Cappy: Outperforming and boosting large multi-task language models with a small scorer",
-      "excerpt": "<span class=\"byline-author\">Posted by Yun Zhu and Lijuan Liu, Software Engineers, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFNlqVAnwoYdZ97LvC4-ipR6FeOc4o9udsTUtNBBWl5Y4XHclcrz3kTCibizteSBc_xsVLh-pyRiCCNfIzTDHEs7VsJcUMCk0EjUxzvKITKCncdx1y7u9JXGkXM6TyoZY5RhUt2l_up-Us0yIV-0-EUvHsjOlFNSSNgNHlpwK1PAliqc",
+      "excerpt": "Posted by Yun Zhu and Lijuan Liu, Software Engineers, Google Research Large language model (LLM) advancements have led to a new paradigm that unifies various natural language processing (NLP) tasks within an instruction-following framework. This paradigm is exemplified by recent multi-task LLMs, such as T0 , FLAN , and OPT-IML . First, multi-task d",
       "link": "http://blog.research.google/feeds/7868032799856333119/comments/default",
       "date": "",
       "category": "model",
@@ -2658,7 +2658,7 @@
     {
       "id": "http://blog.research.google/feeds/6090481872694489715/comments/default",
       "title": "Talk like a graph: Encoding graphs for large language models",
-      "excerpt": "<span class=\"byline-author\">Posted by Bahare Fatemi and Bryan Perozzi, Research Scientists, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8L7r_SCzFsKsWegtrn8_EOoO2imefs-V_GVHzbM0Xw7GmAxoXIIX0RtpJ2JvloeenxcKCNmhCH_VXRMpu8b5dJP39UkhMJS0wP86TUftZtUi-hfj6tZdVEn30MZAeQEx762q1vN-q4DWP2EdOBIHy_CgNFMcliaJYnzxZ",
+      "excerpt": "Posted by Bahare Fatemi and Bryan Perozzi, Research Scientists, Google Research Imagine all the things around you — your friends, tools in your kitchen, or even the parts of your bike. They are all connected in different ways. In computer science, the term graph is used to describe connections between objects. Graphs consist of nodes (the objects t",
       "link": "http://blog.research.google/feeds/6090481872694489715/comments/default",
       "date": "",
       "category": "model",
@@ -2671,7 +2671,7 @@
     {
       "id": "http://blog.research.google/feeds/470840348983280912/comments/default",
       "title": "Chain-of-table: Evolving tables in the reasoning chain for table understanding",
-      "excerpt": "<span class=\"byline-author\">Posted by Zilong Wang, Student Researcher, and Chen-Yu Lee, Research Scientist, Cloud AI Team</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1smBN07qkS32Aop4if0AeINQQea0Grv8dw7GiRFBNoHBlgkkftynVBNjO6BckpF4vq8d0VqC1v0LoeFAVFqOLrBGlqvMNiCMUtIhHxVvsBjbPxvZLcNcD_Sa1sI_bDlqDLWn_C39MbPNm8VUjr2vhTB",
+      "excerpt": "Posted by Zilong Wang, Student Researcher, and Chen-Yu Lee, Research Scientist, Cloud AI Team People use tables every day to organize and interpret complex information in a structured, easily accessible format. Due to the ubiquity of such tables, reasoning over tabular data has long been a central topic in natural language processing (NLP). Researc",
       "link": "http://blog.research.google/feeds/470840348983280912/comments/default",
       "date": "",
       "category": "research",
@@ -2684,7 +2684,7 @@
     {
       "id": "http://blog.research.google/feeds/1106624361649572376/comments/default",
       "title": "Health-specific embedding tools for dermatology and pathology",
-      "excerpt": "<span class=\"byline-author\">Posted by Dave Steiner, Clinical Research Scientist, Google Health, and Rory Pilgrim, Product Manager, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9zSpggPrlQvV-c0Lc2Sd79B58CwY0kDPJjgQfh-2SR8kiZuXO9A7LWZQ80zCqDNkYHm_IyNSQXF9xUOS-vPg8eJxkPR6HHuFr2VxoaAiAeG4J4ca6Pl8s9Jx1VX3tj",
+      "excerpt": "Posted by Dave Steiner, Clinical Research Scientist, Google Health, and Rory Pilgrim, Product Manager, Google Research There’s a worldwide shortage of access to medical imaging expert interpretation across specialties including radiology , dermatology and pathology . Machine learning (ML) technology can help ease this burden by powering tools that ",
       "link": "http://blog.research.google/feeds/1106624361649572376/comments/default",
       "date": "",
       "category": "research",
@@ -2697,7 +2697,7 @@
     {
       "id": "http://blog.research.google/feeds/1765359719068432739/comments/default",
       "title": "Social learning: Collaborative learning with large language models",
-      "excerpt": "<span class=\"byline-author\">Posted by Amirkeivan Mohtashami, Research Intern, and Florian Hartmann, Software Engineer, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicN2GYOp9oUj5x0F20i550WuF5KmpD8iRqrdHmJFU_HmkdFY3RBF4mfn_99q8jtEPVm56a4NfjMGFJ79y3rygqjX46h23tlzSDde7iEbp8ytHsPa5-IsNKFFituSoPmtGk666gjyypT",
+      "excerpt": "Posted by Amirkeivan Mohtashami, Research Intern, and Florian Hartmann, Software Engineer, Google Research Large language models (LLMs) have significantly improved the state of the art for solving tasks specified using natural language, often reaching performance close to that of people. As these models increasingly enable assistive agents, it coul",
       "link": "http://blog.research.google/feeds/1765359719068432739/comments/default",
       "date": "",
       "category": "model",
@@ -2710,10 +2710,10 @@
     {
       "id": "http://blog.research.google/feeds/8393293208018757284/comments/default",
       "title": "Croissant: a metadata format for ML-ready datasets",
-      "excerpt": "<span class=\"byline-author\">Posted by Omar Benjelloun, Software Engineer, Google Research, and Peter Mattson, Software Engineer, Google Core ML and President, MLCommons Association</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj09uSTHgWmPgOkD9W1nZZj5i8uW_-pgxm-T1O5PSacF-EKvHIeIwhMr7Rgft7O3A2Rk94GWe8WboO3dUlxrqt1xz9x4I2",
+      "excerpt": "Posted by Omar Benjelloun, Software Engineer, Google Research, and Peter Mattson, Software Engineer, Google Core ML and President, MLCommons Association Machine learning (ML) practitioners looking to reuse existing datasets to train an ML model often spend a lot of time understanding the data, making sense of its organization, or figuring out what ",
       "link": "http://blog.research.google/feeds/8393293208018757284/comments/default",
       "date": "",
-      "category": "research",
+      "category": "model",
       "source": {
         "id": "deepmind",
         "name": "DeepMind",
@@ -2723,7 +2723,7 @@
     {
       "id": "http://blog.research.google/feeds/2754526782497247497/comments/default",
       "title": "Google at APS 2024",
-      "excerpt": "<span class=\"byline-author\">Posted by Kate Weber and Shannon Leon, Google Research, Quantum AI Team</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy22Hfq3RN4qRUJcSMUpIau4ueOIcQ219mDvfu4FNJ9kf5PBMUI0x4Uf9BhoIHtnFUhtvE72GCVYixldOZRSeePJfef0P87Pc_djQeGIZOhyxv9nKsQCc57357tr3npWdS5fyWxiGjex4NxMpOIB2JE1Z2qXdLnzLkFM075WstFJD7",
+      "excerpt": "Posted by Kate Weber and Shannon Leon, Google Research, Quantum AI Team Today the 2024 March Meeting of the American Physical Society (APS) kicks off in Minneapolis, MN. A premier conference on topics ranging across physics and related fields, APS 2024 brings together researchers, students, and industry professionals to share their discoveries and ",
       "link": "http://blog.research.google/feeds/2754526782497247497/comments/default",
       "date": "",
       "category": "research",
@@ -2853,7 +2853,7 @@
     {
       "id": "http://blog.research.google/feeds/1695264277638670894/comments/default",
       "title": "VideoPrism: A foundational visual encoder for video understanding",
-      "excerpt": "<span class=\"byline-author\">Posted by Long Zhao, Senior Research Scientist, and Ting Liu, Senior Staff Software Engineer, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4kKy9Vqp7LE__mAG3METzRxmp6Z5PCH8AyfXzxQ_mNeIgOwYitblprQbb1fOTSUDgNgdmgsm7QwyXgkBcUDs2iIkxGue1n1sxdaomCyAo_eZD1-NFJEbn0fct-gJSNNs_MXHQQC",
+      "excerpt": "Posted by Long Zhao, Senior Research Scientist, and Ting Liu, Senior Staff Software Engineer, Google Research An astounding number of videos are available on the Web, covering a variety of content from everyday moments people share to historical moments to scientific observations, each of which contains a unique record of the world. The right tools",
       "link": "http://blog.research.google/feeds/1695264277638670894/comments/default",
       "date": "",
       "category": "research",
@@ -2866,7 +2866,7 @@
     {
       "id": "http://blog.research.google/feeds/4343235509909091741/comments/default",
       "title": "Advances in private training for production on-device language models",
-      "excerpt": "<span class=\"byline-author\">Posted by Zheng Xu, Research Scientist, and Yanxiang Zhang, Software Engineer, Google</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifnCZ_XGUoUG0hESM0dF5B8Rsoqo4YrT_-uv0hlDM1iTADhtEEyEvBM4hOWT0rxgpVtZKyuFoj2xeXmkeXwGe-XTmvBuwBDJOCqgN8Ba7Wcjh_s1seWUaCRl1xNpNe_6MqxcFFZoAvhfCge5vq9UATjXG_BnTiGd",
+      "excerpt": "Posted by Zheng Xu, Research Scientist, and Yanxiang Zhang, Software Engineer, Google Language models (LMs) trained to predict the next word given input text are the key technology for many applications [ 1 , 2 ]. In Gboard , LMs are used to improve users’ typing experience by supporting features like next word prediction (NWP), Smart Compose , sma",
       "link": "http://blog.research.google/feeds/4343235509909091741/comments/default",
       "date": "",
       "category": "model",
@@ -2879,7 +2879,7 @@
     {
       "id": "http://blog.research.google/feeds/5605933033299261025/comments/default",
       "title": "Learning the importance of training data under concept drift",
-      "excerpt": "<span class=\"byline-author\">Posted by Nishant Jain, Pre-doctoral Researcher, and Pradeep Shenoy, Research Scientist, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUeskw4YD6cFTpLaRnv7OwMsljyeipfAb1riYxIuBsiWd6TBmUXMJ4QoI9tlvUzWX9NzBbEjz3-P2Zl2kuXe5BrVclmqQFrLButoya5phiEELq1azrhsIaGaCz-ov_jXaMsFrGRDE0Ejo",
+      "excerpt": "Posted by Nishant Jain, Pre-doctoral Researcher, and Pradeep Shenoy, Research Scientist, Google Research The constantly changing nature of the world around us poses a significant challenge for the development of AI models. Often, models are trained on longitudinal data with the hope that the training data used will accurately represent inputs the m",
       "link": "http://blog.research.google/feeds/5605933033299261025/comments/default",
       "date": "",
       "category": "model",
@@ -2892,7 +2892,7 @@
     {
       "id": "http://blog.research.google/feeds/5933365460125094774/comments/default",
       "title": "DP-Auditorium: A flexible library for auditing differential privacy",
-      "excerpt": "<span class=\"byline-author\">Posted by Mónica Ribero Díaz, Research Scientist, Google Research</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNVpxjk-jj1rIYQ8AM3A-Syqxd3d8L8-wIy8NWwyobCXmTRK7mY9h94aJYgFCiC0gnehVFFoM8-in8HsOZjfhoNce03nbsrN5fxY07wADV6ULPC0POGmCc-8eL3OqA9KrDyzQxN38JKvh6xCmLV6FZ1g0UfaXtKORhtTy0WuJexlPqV6P2c9",
+      "excerpt": "Posted by Mónica Ribero Díaz, Research Scientist, Google Research Differential privacy (DP) is a property of randomized mechanisms that limit the influence of any individual user’s information while processing and analyzing data. DP offers a robust solution to address growing concerns about data protection, enabling technologies across industries a",
       "link": "http://blog.research.google/feeds/5933365460125094774/comments/default",
       "date": "",
       "category": "research",
@@ -2905,7 +2905,7 @@
     {
       "id": "http://blog.research.google/feeds/3264694155710647310/comments/default",
       "title": "Graph neural networks in TensorFlow",
-      "excerpt": "<span class=\"byline-author\">Posted by Dustin Zelle, Software Engineer, Google Research, and Arno Eigenwillig, Software Engineer, CoreML</span> <img src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcnTwrjg8cyZhVY1c-qi2ZEenIrDlkmlKlX0GsAuiKiIoxUu6i-phANh8tsCG4mUm5i-7t3zdLwuwn5DCcuQI5FKq-C3eibPnuqfoLuKFUsx-I3Ovim1Teps_JKiKZH7XqgHupnsOa",
+      "excerpt": "Posted by Dustin Zelle, Software Engineer, Google Research, and Arno Eigenwillig, Software Engineer, CoreML Objects and their relationships are ubiquitous in the world around us, and relationships can be as important to understanding an object as its own attributes viewed in isolation — take for example transportation networks, production networks,",
       "link": "http://blog.research.google/feeds/3264694155710647310/comments/default",
       "date": "",
       "category": "research",

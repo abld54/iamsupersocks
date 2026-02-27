@@ -8,6 +8,7 @@ keeps a rolling 30-day window. Outputs veille-data.json.
 import json, os, re, sys, time
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
+from html import unescape
 from urllib.request import urlopen, Request
 from urllib.error import URLError
 from html.parser import HTMLParser
@@ -105,9 +106,17 @@ def detect_category(title, excerpt):
             return cat
     return "other"
 
+def clean_text(raw, maxlen=0):
+    """Strip HTML tags, decode entities, remove residual fragments."""
+    text = strip_tags(unescape(str(raw or "")))
+    # Remove any remaining HTML-like fragments (e.g. entity-decoded <img src=...>)
+    text = re.sub(r"<[^>]{0,600}>", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text[:maxlen] if maxlen else text
+
 def make_article(source, title, link, date_str, excerpt):
-    title = strip_tags(title).strip()[:250]
-    excerpt = strip_tags(excerpt).strip()[:350]
+    title = clean_text(title, 250)
+    excerpt = clean_text(excerpt, 350)
     link = link.strip()
     if not title or not link: return None
     return {
