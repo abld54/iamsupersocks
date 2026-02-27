@@ -12,292 +12,196 @@
   --bg:      #000000;
   --bg1:     #0a0a0f;
   --bg2:     #0f0f1a;
-  --border:  rgba(0,220,255,0.12);
-  --border2: rgba(0,220,255,0.25);
+  --bg3:     #12121f;
+  --border:  rgba(0,220,255,0.10);
+  --border2: rgba(0,220,255,0.22);
   --cyan:    #00dcff;
-  --cyan2:   rgba(0,220,255,0.07);
+  --cyan2:   rgba(0,220,255,0.06);
   --green:   #00ff88;
+  --green2:  rgba(0,255,136,0.06);
+  --yellow:  #ffd060;
+  --red:     #ff4444;
   --text:    #c9d1d9;
   --text2:   #8b949e;
   --text3:   #484f58;
   --white:   #ffffff;
   --mono:    'JetBrains Mono','Courier New',monospace;
   --sans:    'Inter',system-ui,sans-serif;
+  --radius:  0px;
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Scan lines */
+body { font-family:var(--sans); background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
 body::before {
-  content:'';
-  position:fixed; inset:0; z-index:0; pointer-events:none;
-  background: repeating-linear-gradient(
-    0deg, transparent, transparent 2px,
-    rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
-  );
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);
 }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
 /* ─── TOPBAR ─── */
 #topbar {
   position:sticky; top:0; z-index:100;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border2);
-  padding: 0 24px;
-  height: 52px;
-  display: flex; align-items:center; justify-content:space-between;
-  font-family: var(--mono);
+  background:rgba(0,0,0,0.94); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border2);
+  padding:0 24px; height:52px;
+  display:flex; align-items:center; justify-content:space-between;
+  font-family:var(--mono);
 }
 .bar-left { display:flex; align-items:center; gap:10px; }
-.bar-logo {
-  font-size:0.75rem; font-weight:700; letter-spacing:3px;
-  text-transform:uppercase; color:var(--white); text-decoration:none;
-}
+.bar-logo { font-size:0.75rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--white); text-decoration:none; }
 .bar-logo span { color:var(--cyan); }
 .bar-sep { color:var(--text3); font-size:0.65rem; }
-.bar-title { font-size:0.65rem; color:var(--text2); letter-spacing:2px; text-transform:uppercase; }
-.bar-back {
-  font-family: var(--mono); font-size:0.65rem; color:var(--text2);
-  letter-spacing:2px; text-transform:uppercase;
-  text-decoration:none; border:1px solid var(--border2);
-  padding:4px 12px; transition:all 0.2s;
-}
+.bar-section { font-size:0.65rem; color:var(--text2); letter-spacing:2px; text-transform:uppercase; text-decoration:none; }
+.bar-back { font-family:var(--mono); font-size:0.65rem; color:var(--text2); letter-spacing:2px; text-transform:uppercase; text-decoration:none; border:1px solid var(--border2); padding:4px 12px; transition:all 0.2s; }
 .bar-back:hover { color:var(--cyan); border-color:var(--cyan); }
 
 /* ─── LOADING / ERROR ─── */
-#loading, #error-state {
-  padding: 120px 24px;
-  text-align: center;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 2px;
-  color: var(--text3);
-}
-#error-state { color: #ef4444; }
+#loading,#error-state { padding:120px 24px; text-align:center; font-family:var(--mono); font-size:0.78rem; letter-spacing:2px; color:var(--text3); }
+#error-state { color:#ef4444; }
 
-/* ─── ARTICLE WRAP ─── */
-#article-wrap {
-  display: none;
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 64px 24px 120px;
-  position: relative; z-index: 1;
+/* ─── HERO ─── */
+#hero {
+  background:linear-gradient(180deg, #03080f 0%, var(--bg) 100%);
+  border-bottom:1px solid var(--border);
+  padding:48px 24px 40px;
+  position:relative; z-index:1;
 }
+#hero::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 60% 50% at 60% 50%, rgba(0,220,255,0.04) 0%, transparent 70%);
+}
+.hero-inner { max-width:900px; margin:0 auto; position:relative; }
+.hero-crumb { display:flex; align-items:center; gap:8px; font-family:var(--mono); font-size:0.58rem; color:var(--text3); letter-spacing:2px; text-transform:uppercase; margin-bottom:20px; }
+.hero-crumb a { color:var(--text3); text-decoration:none; }
+.hero-crumb a:hover { color:var(--cyan); }
+.hero-crumb-sep { color:var(--border2); }
 
-/* ─── BREADCRUMB ─── */
-.breadcrumb {
-  display: flex; align-items:center; gap:8px;
-  font-family: var(--mono); font-size:0.6rem; color:var(--text3);
-  letter-spacing:2px; text-transform:uppercase;
-  margin-bottom: 36px;
-}
-.breadcrumb a { color:var(--text3); text-decoration:none; }
-.breadcrumb a:hover { color:var(--cyan); }
-.breadcrumb-sep { color:var(--border2); }
+.hero-tags { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+.src-badge { font-family:var(--mono); font-size:0.6rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:3px 10px; border:1px solid; }
+.cat-badge { font-family:var(--mono); font-size:0.58rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 8px; border:1px solid; }
+.cat-badge.model    { color:#a78bfa; border-color:rgba(167,139,250,0.3); }
+.cat-badge.research { color:#60a5fa; border-color:rgba(96,165,250,0.3); }
+.cat-badge.safety   { color:#f87171; border-color:rgba(248,113,113,0.3); }
+.cat-badge.product  { color:#34d399; border-color:rgba(52,211,153,0.3); }
+.cat-badge.other    { color:var(--text2); border-color:var(--border2); }
+.score-badge { font-family:var(--mono); font-size:0.58rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 10px; border:1px solid rgba(0,255,136,0.3); color:var(--green); }
+.hero-time { font-family:var(--mono); font-size:0.58rem; color:var(--text3); letter-spacing:1px; margin-left:auto; }
 
-/* ─── META ROW ─── */
-.meta-row {
-  display: flex; align-items:center; gap:10px; flex-wrap:wrap;
-  margin-bottom: 24px;
-}
-.src-badge {
-  font-family: var(--mono); font-size:0.6rem; font-weight:700;
-  letter-spacing:2px; text-transform:uppercase;
-  padding:3px 10px; border:1px solid;
-}
-.cat-badge {
-  font-family: var(--mono); font-size:0.58rem; font-weight:700;
-  letter-spacing:1px; text-transform:uppercase;
-  padding:3px 8px; background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08); color:var(--text2);
-}
-.cat-badge.model    { color:#a78bfa; border-color:rgba(167,139,250,0.25); }
-.cat-badge.research { color:#60a5fa; border-color:rgba(96,165,250,0.25); }
-.cat-badge.safety   { color:#f87171; border-color:rgba(248,113,113,0.25); }
-.cat-badge.product  { color:#34d399; border-color:rgba(52,211,153,0.25); }
-.meta-time {
-  font-family: var(--mono); font-size:0.6rem; color:var(--text3);
-  letter-spacing:1px; margin-left:auto;
-}
+.hero-title { font-family:var(--mono); font-size:clamp(1.5rem,4vw,2.2rem); font-weight:700; color:var(--white); line-height:1.25; letter-spacing:-0.5px; margin-bottom:6px; }
+.hero-underline { height:2px; background:linear-gradient(90deg, var(--cyan) 0%, transparent 55%); opacity:0.5; margin-top:4px; }
+.hero-meta { display:flex; align-items:center; gap:16px; margin-top:16px; font-family:var(--mono); font-size:0.58rem; color:var(--text3); letter-spacing:1px; }
+.hero-domain { color:var(--text2); }
 
-/* ─── TITLE ─── */
-.article-title {
-  font-family: var(--mono); font-size:clamp(1.4rem,4vw,2rem);
-  font-weight:700; color:var(--white); line-height:1.3;
-  letter-spacing:-0.5px;
-  margin-bottom: 8px;
+/* ─── LAYOUT ─── */
+#page { position:relative; z-index:1; max-width:900px; margin:0 auto; padding:40px 24px 100px; display:grid; grid-template-columns:1fr 280px; gap:24px; align-items:start; }
+
+/* ─── SIGNAL FORT (highlight block) ─── */
+#signal-fort {
+  grid-column:1 / -1;
+  background:var(--bg1); border:1px solid var(--border2);
+  border-left:3px solid var(--green);
+  padding:24px 28px;
+  position:relative; overflow:hidden;
 }
-.title-underline {
-  height: 2px;
-  background: linear-gradient(90deg, var(--cyan) 0%, transparent 60%);
-  margin-bottom: 48px;
-  opacity: 0.6;
-}
+#signal-fort::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--green2) 0%,transparent 50%); pointer-events:none; }
+.sf-label { font-family:var(--mono); font-size:0.58rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--green); margin-bottom:12px; display:flex; align-items:center; gap:8px; position:relative; z-index:1; }
+.sf-label::before { content:'✦'; }
+.sf-text { font-family:var(--sans); font-size:1.05rem; font-weight:600; color:var(--white); line-height:1.5; position:relative; z-index:1; }
+.sf-text.placeholder { color:var(--text2); font-weight:400; font-size:0.9rem; font-style:italic; }
+
+/* ─── MAIN COLUMN ─── */
+#main-col { display:flex; flex-direction:column; gap:20px; min-width:0; }
 
 /* ─── SECTION BLOCK ─── */
 .section-block {
-  background: var(--bg1);
-  border: 1px solid var(--border);
-  border-left: 2px solid var(--cyan);
-  margin-bottom: 20px;
-  position: relative;
-  overflow: hidden;
+  background:var(--bg1); border:1px solid var(--border);
+  border-left:2px solid var(--cyan);
+  position:relative; overflow:hidden;
 }
-.section-block::before {
-  content:'';
-  position:absolute; inset:0; pointer-events:none;
-  background: linear-gradient(135deg, var(--cyan2) 0%, transparent 50%);
-}
-.section-block.signal {
-  border-left-color: var(--green);
-}
-.section-block.signal::before {
-  background: linear-gradient(135deg, rgba(0,255,136,0.04) 0%, transparent 50%);
-}
+.section-block::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--cyan2) 0%,transparent 50%); pointer-events:none; }
+.section-block.green { border-left-color:var(--green); }
+.section-block.green::before { background:linear-gradient(135deg,var(--green2) 0%,transparent 50%); }
+.section-block.amber { border-left-color:var(--yellow); }
+.section-block.amber::before { background:linear-gradient(135deg,rgba(255,208,96,0.05) 0%,transparent 50%); }
 
-.section-label {
-  font-family: var(--mono); font-size:0.6rem; font-weight:700;
-  letter-spacing:3px; text-transform:uppercase;
-  padding:12px 20px 0;
-  color:var(--cyan);
-  position: relative; z-index:1;
+.s-label {
+  font-family:var(--mono); font-size:0.58rem; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase; color:var(--cyan);
+  padding:14px 20px 0; position:relative; z-index:1;
+  display:flex; align-items:center; gap:8px;
 }
-.section-block.signal .section-label { color:var(--green); }
+.section-block.green .s-label { color:var(--green); }
+.section-block.amber .s-label { color:var(--yellow); }
+.ai-pill { font-family:var(--mono); font-size:0.5rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--green); border:1px solid rgba(0,255,136,0.25); padding:1px 7px; }
 
-.section-body {
-  padding: 16px 20px 20px;
-  position: relative; z-index:1;
-}
+.s-body { padding:12px 20px 20px; position:relative; z-index:1; }
+.s-text { font-family:var(--sans); font-size:0.88rem; color:var(--text); line-height:1.75; }
+.s-excerpt { font-family:var(--sans); font-size:0.8rem; color:var(--text2); line-height:1.6; border-left:2px solid var(--border2); padding-left:12px; margin-top:12px; font-style:italic; }
 
-/* Context paragraph */
-.ctx-text {
-  font-family: var(--sans); font-size:0.92rem;
-  color:var(--text); line-height:1.75;
-}
-.ctx-excerpt {
-  font-family: var(--sans); font-size:0.82rem;
-  color:var(--text2); line-height:1.6;
-  border-left:2px solid var(--border2);
-  padding-left:12px; margin-top:12px;
-  font-style:italic;
-}
+/* source meta */
+.s-meta { display:flex; flex-wrap:wrap; gap:16px; margin-top:16px; padding-top:14px; border-top:1px solid var(--border); }
+.s-meta-item { display:flex; flex-direction:column; gap:2px; }
+.s-meta-lbl { font-family:var(--mono); font-size:0.5rem; color:var(--text3); letter-spacing:2px; text-transform:uppercase; }
+.s-meta-val { font-family:var(--mono); font-size:0.68rem; color:var(--text2); }
 
-/* AI badge */
-.ai-badge {
-  display:inline-flex; align-items:center; gap:5px;
-  font-family:var(--mono); font-size:0.52rem; font-weight:700;
-  letter-spacing:2px; text-transform:uppercase;
-  color:var(--green); border:1px solid rgba(0,255,136,0.25);
-  padding:2px 8px; margin-left:auto;
-}
+/* themes */
+.theme-list { display:flex; flex-wrap:wrap; gap:6px; padding:14px 20px 18px; position:relative; z-index:1; }
+.theme-chip { font-family:var(--mono); font-size:0.6rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--cyan); border:1px solid var(--border2); padding:3px 10px; }
+.theme-chip:hover { background:var(--cyan2); }
 
-/* Context meta */
-.ctx-meta {
-  margin-top: 16px; padding-top:16px;
-  border-top: 1px solid var(--border);
-  display: flex; flex-wrap:wrap; gap:20px;
-}
-.ctx-meta-item {
-  display: flex; flex-direction:column; gap:2px;
-}
-.ctx-meta-lbl {
-  font-family:var(--mono); font-size:0.52rem; color:var(--text3);
-  letter-spacing:2px; text-transform:uppercase;
-}
-.ctx-meta-val {
-  font-family:var(--mono); font-size:0.72rem; color:var(--text2);
-}
+/* ─── SIDEBAR ─── */
+#side-col { display:flex; flex-direction:column; gap:16px; }
 
-/* Signal bullets */
-.signal-list {
-  list-style: none; display:flex; flex-direction:column; gap:12px;
+/* Go Deeper block */
+.go-deeper {
+  background:var(--bg1); border:1px solid var(--border2);
+  border-top:2px solid var(--cyan);
+  position:sticky; top:68px;
 }
-.signal-item {
-  display: flex; gap:12px; align-items:flex-start;
-}
-.signal-arrow {
-  font-family: var(--mono); font-size:0.8rem; color:var(--green);
-  flex-shrink:0; margin-top:1px;
-}
-.signal-text {
-  font-family: var(--sans); font-size:0.85rem;
-  color:var(--text); line-height:1.6;
-}
+.gd-header { padding:16px 20px 12px; border-bottom:1px solid var(--border); }
+.gd-title { font-family:var(--mono); font-size:0.65rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--white); display:flex; align-items:center; gap:8px; }
+.gd-title::before { content:'⚡'; font-size:0.75rem; }
+.gd-desc { font-family:var(--sans); font-size:0.72rem; color:var(--text2); margin-top:6px; line-height:1.5; }
 
-/* ─── DISCLAIMER ─── */
-.disclaimer {
-  font-family: var(--mono); font-size:0.58rem; color:var(--text3);
-  letter-spacing:1px; margin-bottom:32px; padding-left:4px;
-  opacity:0.7;
+.gd-btn {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px; border-bottom:1px solid var(--border);
+  text-decoration:none; transition:background 0.15s;
+  cursor:pointer; background:transparent; border-left:none; border-right:none; border-top:none; width:100%;
 }
+.gd-btn:last-of-type { border-bottom:none; }
+.gd-btn:hover { background:var(--cyan2); }
+.gd-btn-left { display:flex; align-items:center; gap:12px; }
+.gd-btn-icon { font-size:1rem; width:24px; text-align:center; }
+.gd-btn-info {}
+.gd-btn-name { font-family:var(--mono); font-size:0.65rem; font-weight:700; color:var(--white); letter-spacing:1px; display:block; }
+.gd-btn-type { font-family:var(--mono); font-size:0.55rem; color:var(--text3); letter-spacing:1px; text-transform:uppercase; display:block; margin-top:1px; }
+.gd-btn-arrow { font-family:var(--mono); font-size:0.7rem; color:var(--text3); }
+.gd-btn:hover .gd-btn-arrow { color:var(--cyan); }
 
-/* ─── CTA ─── */
-.cta-row {
-  display: flex; gap:12px; flex-wrap:wrap;
-  align-items:center;
-  margin-top: 40px;
-}
-.cta-primary {
-  display: inline-flex; align-items:center; gap:10px;
-  font-family: var(--mono); font-size:0.72rem; font-weight:700;
-  letter-spacing:2px; text-transform:uppercase;
-  color:var(--bg); background:var(--cyan);
-  padding:14px 28px;
-  text-decoration:none;
-  transition:all 0.2s; cursor:pointer; border:none;
-}
-.cta-primary:hover {
-  background:var(--white);
-  transform:translateX(3px);
-}
-.cta-secondary {
-  display: inline-flex; align-items:center; gap:8px;
-  font-family: var(--mono); font-size:0.65rem;
-  letter-spacing:2px; text-transform:uppercase;
-  color:var(--text2);
-  padding:14px 20px;
-  border:1px solid var(--border2);
-  text-decoration:none;
-  transition:all 0.2s;
-}
-.cta-secondary:hover { color:var(--cyan); border-color:var(--cyan); }
+/* Source block */
+.source-block { background:var(--bg1); border:1px solid var(--border); }
+.source-block .s-label { color:var(--text2); }
+.source-info { padding:0 20px 18px; position:relative; z-index:1; }
+.source-media { font-family:var(--mono); font-size:0.6rem; color:var(--text3); letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+.source-domain { font-family:var(--mono); font-size:0.72rem; color:var(--text2); margin-bottom:16px; }
+.source-cta { display:flex; align-items:center; gap:8px; font-family:var(--mono); font-size:0.65rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--bg); background:var(--cyan); padding:12px 18px; text-decoration:none; transition:all 0.2s; justify-content:center; }
+.source-cta:hover { background:var(--white); }
 
-/* Source domain pill */
-.src-domain {
-  font-family:var(--mono); font-size:0.55rem; color:var(--text3);
-  padding:3px 8px; border:1px solid var(--border);
-  letter-spacing:1px;
-}
-
-/* ─── RELATED / FOOTER ─── */
-#article-footer {
-  border-top:1px solid var(--border);
-  margin-top:80px; padding-top:20px;
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:12px;
-  font-family:var(--mono); font-size:0.6rem;
-  color:var(--text3); letter-spacing:2px;
-}
-#article-footer a { color:var(--text2); text-decoration:none; }
-#article-footer a:hover { color:var(--cyan); }
+/* ─── BOTTOM CTA ─── */
+#bottom-bar { grid-column:1 / -1; display:flex; gap:12px; flex-wrap:wrap; align-items:center; padding-top:12px; border-top:1px solid var(--border); margin-top:8px; }
+.btn-back { font-family:var(--mono); font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; color:var(--text2); padding:12px 20px; border:1px solid var(--border2); text-decoration:none; transition:all 0.2s; }
+.btn-back:hover { color:var(--cyan); border-color:var(--cyan); }
 
 /* ─── RESPONSIVE ─── */
-@media(max-width:600px) {
-  #article-wrap { padding:40px 16px 80px; }
-  .article-title { font-size:1.3rem; }
-  .cta-row { flex-direction:column; align-items:flex-start; }
-  .cta-primary, .cta-secondary { width:100%; justify-content:center; }
-  .ctx-meta { gap:12px; }
-  .bar-back span { display:none; }
+@media(max-width:700px) {
+  #page { grid-template-columns:1fr; padding:24px 16px 80px; gap:16px; }
+  #signal-fort { grid-column:1; }
+  #bottom-bar { grid-column:1; }
+  .hero-title { font-size:1.4rem; }
+  #hero { padding:36px 16px 28px; }
+  .hero-time { margin-left:0; }
+  .go-deeper { position:static; }
 }
 </style>
 </head>
@@ -308,17 +212,17 @@ body::before {
   <div class="bar-left">
     <a href="index.html" class="bar-logo">SUPER<span>SOCKS</span></a>
     <span class="bar-sep">/</span>
-    <a href="veille.html" class="bar-title" style="text-decoration:none;color:var(--text2)">AI_SIGNAL.EXE</a>
+    <a href="veille.html" class="bar-section">AI_SIGNAL.EXE</a>
     <span class="bar-sep">/</span>
-    <span class="bar-title">ARTICLE</span>
+    <span class="bar-section">ARTICLE</span>
   </div>
-  <a href="veille.html" class="bar-back">← <span>BACK TO FEED</span></a>
+  <a href="veille.html" class="bar-back">← BACK</a>
 </nav>
 
 <!-- LOADING -->
 <div id="loading">
-  <div>// FETCHING ARTICLE DATA</div>
-  <div style="margin-top:8px">// PARSING SIGNAL<span style="animation:blink 1s steps(1) infinite;display:inline">_</span></div>
+  <div>// FETCHING ARTICLE</div>
+  <div style="margin-top:8px;color:var(--text3)">// LOADING ANALYSIS<span style="animation:blink 1s steps(1) infinite;display:inline">_</span></div>
 </div>
 
 <!-- ERROR -->
@@ -327,307 +231,336 @@ body::before {
   <a href="veille.html" style="color:#ef4444;margin-top:16px;display:inline-block;font-size:0.65rem">← RETURN TO FEED</a>
 </div>
 
-<!-- ARTICLE -->
-<div id="article-wrap">
-
-  <div class="breadcrumb">
-    <a href="veille.html">AI_SIGNAL</a>
-    <span class="breadcrumb-sep">/</span>
-    <span id="bc-src">—</span>
-    <span class="breadcrumb-sep">/</span>
-    <span id="bc-cat">—</span>
-  </div>
-
-  <!-- META -->
-  <div class="meta-row">
-    <span class="src-badge" id="meta-src">—</span>
-    <span class="cat-badge" id="meta-cat">—</span>
-    <span class="src-domain" id="meta-domain">—</span>
-    <span class="meta-time" id="meta-time">—</span>
-  </div>
-
-  <!-- TITLE -->
-  <h1 class="article-title" id="article-title">—</h1>
-  <div class="title-underline"></div>
-
-  <!-- CONTEXT -->
-  <div class="section-block">
-    <div class="section-label" style="display:flex;align-items:center;gap:8px">
-      <span>// CONTEXT</span>
-      <span class="ai-badge" id="ai-badge" style="display:none">✦ GEMINI</span>
+<!-- HERO -->
+<div id="hero" style="display:none">
+  <div class="hero-inner">
+    <div class="hero-crumb">
+      <a href="veille.html">AI_SIGNAL</a>
+      <span class="hero-crumb-sep">/</span>
+      <span id="bc-src">—</span>
+      <span class="hero-crumb-sep">/</span>
+      <span id="bc-cat">—</span>
     </div>
-    <div class="section-body">
-      <p class="ctx-text" id="ctx-text">—</p>
-      <p class="ctx-excerpt" id="ctx-excerpt" style="display:none"></p>
-      <div class="ctx-meta">
-        <div class="ctx-meta-item">
-          <span class="ctx-meta-lbl">Source</span>
-          <span class="ctx-meta-val" id="ctx-source">—</span>
-        </div>
-        <div class="ctx-meta-item">
-          <span class="ctx-meta-lbl">Published</span>
-          <span class="ctx-meta-val" id="ctx-date">—</span>
-        </div>
-        <div class="ctx-meta-item">
-          <span class="ctx-meta-lbl">Category</span>
-          <span class="ctx-meta-val" id="ctx-cat">—</span>
+    <div class="hero-tags">
+      <span class="src-badge" id="tag-src">—</span>
+      <span class="cat-badge" id="tag-cat">—</span>
+      <span class="score-badge" id="tag-score" style="display:none"></span>
+      <span class="hero-time" id="tag-time">—</span>
+    </div>
+    <h1 class="hero-title" id="hero-title">—</h1>
+    <div class="hero-underline" id="hero-underline"></div>
+    <div class="hero-meta">
+      <span id="hero-date">—</span>
+      <span>·</span>
+      <span class="hero-domain" id="hero-domain">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div id="page" style="display:none">
+
+  <!-- SIGNAL FORT -->
+  <div id="signal-fort">
+    <div class="sf-label">SIGNAL FORT</div>
+    <p class="sf-text" id="sf-text">—</p>
+  </div>
+
+  <!-- MAIN COLUMN -->
+  <div id="main-col">
+
+    <!-- RÉSUMÉ -->
+    <div class="section-block">
+      <div class="s-label">
+        <span>// RÉSUMÉ</span>
+        <span class="ai-pill" id="ai-pill-summary" style="display:none">✦ AI</span>
+      </div>
+      <div class="s-body">
+        <p class="s-text" id="summary-text">—</p>
+        <p class="s-excerpt" id="summary-excerpt" style="display:none"></p>
+        <div class="s-meta">
+          <div class="s-meta-item"><span class="s-meta-lbl">Source</span><span class="s-meta-val" id="meta-src">—</span></div>
+          <div class="s-meta-item"><span class="s-meta-lbl">Published</span><span class="s-meta-val" id="meta-date">—</span></div>
+          <div class="s-meta-item"><span class="s-meta-lbl">Category</span><span class="s-meta-val" id="meta-cat">—</span></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- SIGNAL EXTRACTION -->
-  <div class="section-block signal">
-    <div class="section-label">// SIGNAL EXTRACTION</div>
-    <div class="section-body">
-      <ul class="signal-list" id="signal-list">
-        <!-- populated by JS -->
-      </ul>
+    <!-- CONTEXTE & ENJEUX -->
+    <div class="section-block" id="block-context" style="display:none">
+      <div class="s-label"><span>// CONTEXTE &amp; ENJEUX</span><span class="ai-pill">✦ AI</span></div>
+      <div class="s-body"><p class="s-text" id="context-text"></p></div>
     </div>
+
+    <!-- ANALYSE CRITIQUE -->
+    <div class="section-block green" id="block-critique" style="display:none">
+      <div class="s-label"><span>// ANALYSE CRITIQUE</span><span class="ai-pill">✦ AI</span></div>
+      <div class="s-body"><p class="s-text" id="critique-text"></p></div>
+    </div>
+
+    <!-- THÈMES -->
+    <div class="section-block amber" id="block-themes" style="display:none">
+      <div class="s-label">// THÈMES DÉTECTÉS</div>
+      <div class="theme-list" id="theme-list"></div>
+    </div>
+
+  </div><!-- /main-col -->
+
+  <!-- SIDEBAR -->
+  <div id="side-col">
+
+    <!-- GO DEEPER -->
+    <div class="go-deeper">
+      <div class="gd-header">
+        <div class="gd-title">Go Deeper</div>
+        <p class="gd-desc">Pre-configured prompts for contextual analysis.</p>
+      </div>
+      <a class="gd-btn" id="gd-chatgpt" href="#" target="_blank" rel="noopener">
+        <div class="gd-btn-left">
+          <span class="gd-btn-icon">⚡</span>
+          <div class="gd-btn-info">
+            <span class="gd-btn-name">ChatGPT</span>
+            <span class="gd-btn-type">Deep Dive &amp; Critique</span>
+          </div>
+        </div>
+        <span class="gd-btn-arrow">→</span>
+      </a>
+      <a class="gd-btn" id="gd-perplexity" href="#" target="_blank" rel="noopener">
+        <div class="gd-btn-left">
+          <span class="gd-btn-icon">◎</span>
+          <div class="gd-btn-info">
+            <span class="gd-btn-name">Perplexity</span>
+            <span class="gd-btn-type">Fact-Check &amp; Context</span>
+          </div>
+        </div>
+        <span class="gd-btn-arrow">→</span>
+      </a>
+      <a class="gd-btn" id="gd-claude" href="#" target="_blank" rel="noopener">
+        <div class="gd-btn-left">
+          <span class="gd-btn-icon">◈</span>
+          <div class="gd-btn-info">
+            <span class="gd-btn-name">Claude</span>
+            <span class="gd-btn-type">Strategic Analysis</span>
+          </div>
+        </div>
+        <span class="gd-btn-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- SOURCE ORIGINALE -->
+    <div class="source-block">
+      <div class="s-label" style="padding-bottom:10px">// SOURCE ORIGINALE</div>
+      <div class="source-info">
+        <div class="source-media" id="src-name">—</div>
+        <div class="source-domain" id="src-domain">—</div>
+        <a class="source-cta" id="src-link" href="#" target="_blank" rel="noopener">READ ORIGINAL →</a>
+      </div>
+    </div>
+
+  </div><!-- /side-col -->
+
+  <!-- BOTTOM BAR -->
+  <div id="bottom-bar">
+    <a href="veille.html" class="btn-back">← BACK TO FEED</a>
+    <span style="font-family:var(--mono);font-size:0.55rem;color:var(--text3);margin-left:auto" id="bottom-note"></span>
   </div>
 
-  <p class="disclaimer" id="disclaimer">// Signal extracted from source excerpt. AI analysis not applied — raw feed, no editorial filter.</p>
-
-  <!-- CTA -->
-  <div class="cta-row">
-    <a class="cta-primary" id="cta-link" href="#" target="_blank" rel="noopener">
-      READ ORIGINAL SOURCE →
-    </a>
-    <a class="cta-secondary" href="veille.html">
-      ← BACK TO FEED
-    </a>
-  </div>
-
-  <!-- FOOTER -->
-  <div id="article-footer">
-    <span>// AI_SIGNAL.EXE — <a href="veille.html">FULL FEED</a></span>
-    <span id="footer-src-info">—</span>
-    <a href="index.html">SUPERSOCKS ↗</a>
-  </div>
-
-</div>
-
-<style>
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-</style>
+</div><!-- /page -->
 
 <script>
-// ─── UTILS ───────────────────────────────────────────────────────────────────
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+// ── UTILS ────────────────────────────────────────────────────────────────────
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
 function timeAgo(d) {
   if (!d) return '—';
   const diff = Date.now() - new Date(d).getTime();
   const m = Math.floor(diff/60000);
-  if (m < 1) return 'just now';
-  if (m < 60) return m + 'm ago';
+  if (m<1) return 'just now';
+  if (m<60) return m+'m ago';
   const h = Math.floor(m/60);
-  if (h < 24) return h + 'h ago';
+  if (h<24) return h+'h ago';
   const days = Math.floor(h/24);
-  if (days < 30) return days + 'd ago';
-  return Math.floor(days/30) + 'mo ago';
+  if (days<30) return days+'d ago';
+  return Math.floor(days/30)+'mo ago';
 }
 
 function formatDate(d) {
   if (!d) return '—';
-  return new Date(d).toLocaleDateString('en-GB', {
-    year:'numeric', month:'long', day:'numeric'
-  });
+  return new Date(d).toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
 }
 
 function getDomain(url) {
-  try { return new URL(url).hostname.replace('www.',''); }
-  catch(e) { return '—'; }
+  try { return new URL(url).hostname.replace('www.',''); } catch(e) { return '—'; }
 }
 
-// ─── SIGNAL EXTRACTION ───────────────────────────────────────────────────────
-// Splits excerpt into meaningful sentences and picks the best ones as bullets.
-function extractSignals(title, excerpt, source, category) {
-  const signals = [];
+// Compute a relevance score based on source tier + recency + category
+function computeScore(article) {
+  const tier1 = ['anthropic','openai','gemini','google','deepmind','meta','xai'];
+  const tier2 = ['mistral','huggingface','nvidia','microsoft','aws','databricks','replicate'];
+  let score = 60;
+  if (tier1.includes(article.source.id)) score += 20;
+  else if (tier2.includes(article.source.id)) score += 10;
+  if (['model','research','safety'].includes(article.category)) score += 10;
+  const ageDays = (Date.now() - new Date(article.date||0).getTime()) / 86400000;
+  if (ageDays < 1) score += 10;
+  else if (ageDays < 3) score += 5;
+  else if (ageDays > 14) score -= 10;
+  return Math.min(99, Math.max(40, score));
+}
 
-  // 1. What: derive from excerpt sentences
-  if (excerpt) {
-    const raw = excerpt.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"');
-    const sentences = raw.match(/[^.!?]+[.!?]+/g) || [];
-    // Pick up to 3 distinct, non-trivial sentences
-    let picked = 0;
+// Build "Go Deeper" prompt URLs
+function buildPrompts(article) {
+  const t = article.title;
+  const src = article.source.name;
+  const excerpt = article.excerpt || '';
+
+  const chatgptPrompt = `You are analyzing an AI industry article. Title: "${t}" (Source: ${src}). ${excerpt ? 'Summary: '+excerpt : ''}\n\nProvide:\n1. Deep dive: what are the full implications of this development?\n2. Critical analysis: what are the potential weaknesses or blind spots?\n3. What to watch: what follow-up signals should I track?`;
+
+  const perplexityPrompt = `Fact-check and provide context for this AI news: "${t}" by ${src}. What are the verified facts, how does this compare to previous announcements from this organization, and what is the broader industry context?`;
+
+  const claudePrompt = `Strategic analysis of this AI development:\nTitle: "${t}"\nSource: ${src}\nCategory: ${article.category}\n${excerpt ? 'Excerpt: '+excerpt : ''}\n\nAnalyze: strategic implications, who benefits, who's threatened, what this signals about the direction of the AI industry in the next 12 months.`;
+
+  return {
+    chatgpt:   'https://chatgpt.com/?q=' + encodeURIComponent(chatgptPrompt),
+    perplexity:'https://www.perplexity.ai/?q=' + encodeURIComponent(perplexityPrompt),
+    claude:    'https://claude.ai/new?q=' + encodeURIComponent(claudePrompt),
+  };
+}
+
+// Fallback signal text if no AI analysis
+function fallbackSignal(title, excerpt) {
+  if (excerpt && excerpt.length > 20) {
+    const sentences = excerpt.match(/[^.!?]+[.!?]+/g) || [];
     for (const s of sentences) {
-      const trimmed = s.trim();
-      if (trimmed.length > 40 && picked < 2) {
-        signals.push({ icon:'→', text: trimmed });
-        picked++;
-      }
+      if (s.trim().length > 40) return s.trim();
     }
-    // If excerpt is one long sentence or we got nothing meaningful
-    if (picked === 0 && raw.trim().length > 0) {
-      signals.push({ icon:'→', text: raw.trim() });
-    }
+    return excerpt.trim().slice(0,200);
   }
-
-  // 2. Source context signal
-  const sourceHints = {
-    anthropic:    'Anthropic publishes safety-focused research alongside product updates. Their announcements often set the tone for responsible AI deployment.',
-    openai:       'OpenAI operates at the frontier of model capabilities and commercial deployment. High velocity of product and research drops.',
-    gemini:       'Google Gemini covers consumer and enterprise AI integrations. Watch for multimodal and search-related developments.',
-    google:       'Google AI Blog focuses on applied research across Google products — from Search to cloud infrastructure.',
-    deepmind:     'Google DeepMind research tends toward long-term, high-impact science. Lower volume, higher density per post.',
-    meta:         'Meta AI combines open-source releases with engineering deep-dives from their production systems.',
-    xai:          'xAI (Grok) publishes infrequently but with high signal — model releases and capability benchmarks.',
-    mistral:      'Mistral focuses on open-weight, efficient models. Often relevant for self-hosted and European AI contexts.',
-    huggingface:  'Hugging Face tracks the open-source ecosystem closely. Broad coverage: tools, models, community projects.',
-    nvidia:       'NVIDIA\'s announcements span hardware, software stack, and ecosystem partnerships — infrastructure-layer signal.',
-    microsoft:    'Microsoft AI covers enterprise integrations, Azure AI, and Copilot ecosystem developments.',
-    aws:          'AWS ML Blog targets practitioners: implementation guides, service announcements, architecture patterns.',
-    databricks:   'Databricks focuses on data+AI platforms, LLMOps, and enterprise ML pipelines.',
-    replicate:    'Replicate covers open model hosting, new model releases, and developer tooling.',
-    langchain:    'LangChain tracks agent frameworks, memory, and orchestration patterns for LLM applications.',
-    elevenlabs:   'ElevenLabs focuses on voice AI — TTS, cloning, audio generation capabilities.',
-    cohere:       'Cohere targets enterprise NLP: retrieval, classification, multilingual models.',
-    gradient:     'The Gradient provides deep analytical takes on ML research — slower pace, higher editorial depth.',
-  };
-  const hint = sourceHints[source.id] || null;
-  if (hint) {
-    signals.push({ icon:'◈', text: hint });
-  }
-
-  // 3. Category signal
-  const catHints = {
-    model:    'Model release: check benchmarks, context window, pricing tier, and API availability.',
-    research: 'Research paper: look for reproducibility, dataset availability, and practical applications.',
-    safety:   'Safety announcement: often signals policy shifts, red-teaming results, or regulatory positioning.',
-    product:  'Product update: assess integration complexity and potential workflow impact.',
-    other:    null,
-  };
-  const catHint = catHints[category] || null;
-  if (catHint) {
-    signals.push({ icon:'⊳', text: catHint });
-  }
-
-  return signals.slice(0, 4); // max 4 bullets
+  return title;
 }
 
-// ─── MAIN ────────────────────────────────────────────────────────────────────
+// ── MAIN ─────────────────────────────────────────────────────────────────────
 (async function() {
-  // Read article ID from URL
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
+  if (!id) { showError(); return; }
 
-  if (!id) {
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('error-state').style.display = 'block';
-    return;
-  }
-
-  // Fetch data
   let data;
   try {
     const res = await fetch('veille-data.json?t=' + Date.now());
     data = await res.json();
-  } catch(e) {
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('error-state').style.display = 'block';
-    return;
-  }
+  } catch(e) { showError(); return; }
 
-  // Find article
-  const article = (data.articles || []).find(a => a.id === id);
-  if (!article) {
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('error-state').style.display = 'block';
-    return;
-  }
+  const article = (data.articles||[]).find(a => a.id === id);
+  if (!article) { showError(); return; }
 
-  // Update page title
-  document.title = `${article.title} — AI Signal`;
+  document.title = article.title + ' — AI Signal';
 
-  // Update meta tags
-  const color = article.source.color || '#00dcff';
-  const cat = article.category || 'other';
+  const color  = article.source.color || '#00dcff';
+  const cat    = article.category || 'other';
   const domain = getDomain(article.link);
+  const score  = computeScore(article);
+  const ai     = article.analysis;
 
-  // Breadcrumb
+  // ── HERO ──────────────────────────────────────────────────────────────────
   document.getElementById('bc-src').textContent = article.source.name.toUpperCase();
   document.getElementById('bc-cat').textContent = cat.toUpperCase();
 
-  // Meta row
-  const srcBadge = document.getElementById('meta-src');
-  srcBadge.textContent = article.source.name;
-  srcBadge.style.color = color;
-  srcBadge.style.borderColor = color + '50';
+  const tagSrc = document.getElementById('tag-src');
+  tagSrc.textContent = article.source.name;
+  tagSrc.style.color = color; tagSrc.style.borderColor = color+'50';
 
-  const catBadge = document.getElementById('meta-cat');
-  catBadge.textContent = cat;
-  catBadge.className = `cat-badge ${cat}`;
+  const tagCat = document.getElementById('tag-cat');
+  tagCat.textContent = cat; tagCat.className = 'cat-badge ' + cat;
 
-  document.getElementById('meta-domain').textContent = domain;
-  document.getElementById('meta-time').textContent = timeAgo(article.date);
+  if (score >= 75) {
+    const sc = document.getElementById('tag-score');
+    sc.textContent = 'Relevance: ' + score + '%';
+    sc.style.display = 'inline-flex';
+  }
+  document.getElementById('tag-time').textContent = timeAgo(article.date);
+  document.getElementById('hero-title').textContent = article.title;
+  document.getElementById('hero-underline').style.background =
+    `linear-gradient(90deg, ${color} 0%, transparent 55%)`;
+  document.getElementById('hero-date').textContent = formatDate(article.date);
+  document.getElementById('hero-domain').textContent = domain;
 
-  // Title
-  document.getElementById('article-title').textContent = article.title;
+  // ── SIGNAL FORT ──────────────────────────────────────────────────────────
+  const sfEl = document.getElementById('sf-text');
+  if (ai && ai.signal) {
+    sfEl.textContent = ai.signal;
+  } else {
+    sfEl.textContent = fallbackSignal(article.title, article.excerpt);
+    sfEl.classList.add('placeholder');
+  }
 
-  // Context section
-  const hasAI = article.analysis && article.analysis.context && Array.isArray(article.analysis.signals);
-
-  if (hasAI) {
-    // AI-generated context
-    document.getElementById('ctx-text').textContent = article.analysis.context;
-    // Show original excerpt below as quote
+  // ── RÉSUMÉ ────────────────────────────────────────────────────────────────
+  if (ai && ai.summary) {
+    document.getElementById('summary-text').textContent = ai.summary;
+    document.getElementById('ai-pill-summary').style.display = 'inline-flex';
+    // show excerpt as quote below
     if (article.excerpt) {
-      const excerptEl = document.getElementById('ctx-excerpt');
-      excerptEl.textContent = '↳ ' + article.excerpt;
-      excerptEl.style.display = 'block';
+      const ex = document.getElementById('summary-excerpt');
+      ex.textContent = '↳ ' + article.excerpt;
+      ex.style.display = 'block';
     }
-    // Show Gemini badge
-    document.getElementById('ai-badge').style.display = 'inline-flex';
-    // Update disclaimer
-    document.getElementById('disclaimer').textContent =
-      '// Contextual analysis generated by Gemini ' + (article.analysis.model || '') + '. Always verify against the original source.';
   } else {
-    document.getElementById('ctx-text').textContent = article.excerpt || 'No excerpt available for this article.';
+    document.getElementById('summary-text').textContent = article.excerpt || 'No excerpt available.';
+  }
+  document.getElementById('meta-src').textContent  = article.source.name;
+  document.getElementById('meta-date').textContent = formatDate(article.date);
+  document.getElementById('meta-cat').textContent  = cat.charAt(0).toUpperCase() + cat.slice(1);
+
+  // ── CONTEXTE & ENJEUX ─────────────────────────────────────────────────────
+  if (ai && ai.context) {
+    document.getElementById('context-text').textContent = ai.context;
+    document.getElementById('block-context').style.display = 'block';
   }
 
-  document.getElementById('ctx-source').textContent = article.source.name;
-  document.getElementById('ctx-date').textContent = formatDate(article.date);
-  document.getElementById('ctx-cat').textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
-
-  // Signal extraction
-  const list = document.getElementById('signal-list');
-  if (hasAI) {
-    // Use AI-generated signals
-    list.innerHTML = article.analysis.signals.map(s => `
-      <li class="signal-item">
-        <span class="signal-arrow">→</span>
-        <span class="signal-text">${esc(s)}</span>
-      </li>
-    `).join('');
-  } else {
-    // Fallback: JS-based extraction
-    const signals = extractSignals(article.title, article.excerpt, article.source, cat);
-    if (signals.length === 0) {
-      list.innerHTML = '<li class="signal-item"><span class="signal-arrow">→</span><span class="signal-text" style="color:var(--text3)">No signal extracted. Read the original source.</span></li>';
-    } else {
-      list.innerHTML = signals.map(s => `
-        <li class="signal-item">
-          <span class="signal-arrow">${esc(s.icon)}</span>
-          <span class="signal-text">${esc(s.text)}</span>
-        </li>
-      `).join('');
-    }
+  // ── ANALYSE CRITIQUE ──────────────────────────────────────────────────────
+  if (ai && ai.critique) {
+    document.getElementById('critique-text').textContent = ai.critique;
+    document.getElementById('block-critique').style.display = 'block';
   }
 
-  // CTA
-  document.getElementById('cta-link').href = article.link;
+  // ── THÈMES ────────────────────────────────────────────────────────────────
+  const themes = (ai && ai.themes && ai.themes.length) ? ai.themes : [cat];
+  const themeList = document.getElementById('theme-list');
+  themeList.innerHTML = themes.map(t =>
+    `<span class="theme-chip">#${esc(t)}</span>`
+  ).join('');
+  document.getElementById('block-themes').style.display = 'block';
 
-  // Footer
-  document.getElementById('footer-src-info').textContent =
-    `SOURCE: ${article.source.name.toUpperCase()} — ${domain}`;
+  // ── GO DEEPER ─────────────────────────────────────────────────────────────
+  const prompts = buildPrompts(article);
+  document.getElementById('gd-chatgpt').href   = prompts.chatgpt;
+  document.getElementById('gd-perplexity').href = prompts.perplexity;
+  document.getElementById('gd-claude').href     = prompts.claude;
 
-  // Show
+  // ── SOURCE ────────────────────────────────────────────────────────────────
+  document.getElementById('src-name').textContent   = article.source.name.toUpperCase();
+  document.getElementById('src-domain').textContent = domain;
+  document.getElementById('src-link').href           = article.link;
+
+  // ── BOTTOM NOTE ───────────────────────────────────────────────────────────
+  if (ai && ai.model) {
+    document.getElementById('bottom-note').textContent =
+      '// Analysis by ' + ai.model;
+  } else {
+    document.getElementById('bottom-note').textContent =
+      '// AI analysis pending — next run in < 6h';
+  }
+
+  // ── SHOW ──────────────────────────────────────────────────────────────────
   document.getElementById('loading').style.display = 'none';
-  document.getElementById('article-wrap').style.display = 'block';
+  document.getElementById('hero').style.display    = 'block';
+  document.getElementById('page').style.display    = 'grid';
 })();
+
+function showError() {
+  document.getElementById('loading').style.display    = 'none';
+  document.getElementById('error-state').style.display = 'block';
+}
 </script>
 </body>
 </html>

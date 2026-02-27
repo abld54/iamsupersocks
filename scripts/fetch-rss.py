@@ -69,8 +69,8 @@ GEMINI_URL     = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMI
 MAX_TO_ANALYZE = 50   # per run — free tier: 15 RPM / 1500 RPD on Flash
 GEMINI_DELAY   = 1.2  # seconds between calls
 
-ANALYSIS_PROMPT = """You are a concise AI analyst for a developer-oriented tech news feed (iamsupersocks.com/veille).
-Analyze this AI industry article in English.
+ANALYSIS_PROMPT = """You are an AI analyst for a developer-oriented tech news feed (iamsupersocks.com).
+Analyze this AI industry article. Be sharp, specific, and critical. No filler phrases.
 
 Title: {title}
 Source: {source}
@@ -79,15 +79,17 @@ Excerpt: {excerpt}
 
 Respond ONLY with valid JSON (no markdown fences):
 {{
-  "context": "2-3 sentences explaining what this is about and why it matters in the current AI landscape",
-  "signals": [
-    "Key takeaway or implication #1",
-    "Key takeaway or implication #2",
-    "Key takeaway or implication #3"
-  ]
+  "signal": "The single most important takeaway in one punchy sentence. No filler.",
+  "summary": "2-3 sentences: what happened, what was announced, what changed.",
+  "context": "2-3 sentences: broader context, why this matters now, what landscape shift this belongs to.",
+  "critique": "2-3 sentences: what's notable, what's missing, what to watch, or what this signals about the industry direction. Be analytical, not descriptive.",
+  "themes": ["Theme1", "Theme2", "Theme3"]
 }}
 
-Be specific, technical when relevant, and critical. Avoid filler phrases like 'This article discusses...'."""
+Rules:
+- Never start with 'This article', 'The article', or 'This post'
+- Be technical when relevant
+- critique should add value beyond the summary — challenge, contextualize, or flag blind spots"""
 
 def call_gemini(title, excerpt, source_name, category):
     if not GEMINI_API_KEY:
@@ -111,11 +113,14 @@ def call_gemini(title, excerpt, source_name, category):
             resp = json.loads(r.read().decode("utf-8"))
         text = resp["candidates"][0]["content"]["parts"][0]["text"]
         result = json.loads(text)
-        if isinstance(result.get("context"), str) and isinstance(result.get("signals"), list):
+        if isinstance(result.get("signal"), str) and isinstance(result.get("summary"), str):
             return {
-                "context": result["context"][:600],
-                "signals": [str(s)[:300] for s in result["signals"][:4]],
-                "model": GEMINI_MODEL,
+                "signal":  result.get("signal",  "")[:300],
+                "summary": result.get("summary", "")[:600],
+                "context": result.get("context", "")[:600],
+                "critique":result.get("critique","")[:600],
+                "themes":  [str(t)[:60] for t in result.get("themes", [])[:6]],
+                "model":   GEMINI_MODEL,
             }
     except HTTPError as e:
         print(f"HTTP {e.code}", end=" ")
