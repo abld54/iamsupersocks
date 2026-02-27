@@ -1,8 +1,21 @@
 {
-  "generated": "2026-02-27T19:29:20.277563+00:00",
-  "count": 166,
-  "sources": 11,
+  "generated": "2026-02-27T19:45:45.383933+00:00",
+  "count": 264,
+  "sources": 17,
   "articles": [
+    {
+      "id": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-february-2026/",
+      "title": "Find out what’s new in the Gemini app in February's Gemini Drop.",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Drops_8_Stich_Static_1920x1080.max-600x600.format-webp.webp\">Gemini Drops is our regular monthly update on how to get the most out of the Gemini app.",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-february-2026/",
+      "date": "2026-02-27T17:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
+      }
+    },
     {
       "id": "https://openai.com/index/amazon-partnership",
       "title": "OpenAI and Amazon announce strategic partnership",
@@ -56,6 +69,32 @@
       }
     },
     {
+      "id": "https://blog.google/innovation-and-ai/products/gemini-app/lyria-3-year-of-the-fire-horse/",
+      "title": "Create personalized “Year of the Fire Horse” musical tracks with Gemini",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero_t8aLCG9.max-600x600.format-webp.webp\">Celebrate the Year of the Fire Horse with personalized musical greetings created directly in the Gemini app.",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-app/lyria-3-year-of-the-fire-horse/",
+      "date": "2026-02-27T03:26:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
+      }
+    },
+    {
+      "id": "https://www.databricks.com/blog/databricks-mwc-2026",
+      "title": "Databricks at MWC 2026",
+      "excerpt": "Telecom: An Industry at a CrossroadsIn a few days I’ll be heading to Mobile World...",
+      "link": "https://www.databricks.com/blog/databricks-mwc-2026",
+      "date": "2026-02-26T19:56:09+00:00",
+      "category": "other",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
+      }
+    },
+    {
       "id": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/",
       "title": "Google and the Massachusetts AI Hub are launching a new AI training initiative for the Commonwealth.",
       "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/691A1377_1920x1080.max-600x600.format-webp.webp\">Google is partnering with the Massachusetts AI Hub to provide every Baystater with no-cost access to Google’s AI training.",
@@ -65,7 +104,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -91,7 +130,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -121,6 +160,19 @@
       }
     },
     {
+      "id": "https://blog.google/innovation-and-ai/products/google-ai-career-tools/",
+      "title": "3 Google AI tools that helped me get my new job",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Job.max-600x600.format-webp.webp\">From analysis paralysis to a new role, see how one Googler used 3 AI tools to navigate a career lattice.",
+      "link": "https://blog.google/innovation-and-ai/products/google-ai-career-tools/",
+      "date": "2026-02-26T17:00:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
+      }
+    },
+    {
       "id": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-nano-banana-2/",
       "title": "Build with Nano Banana 2, our best image generation and editing model",
       "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/BuildWith_Hero.max-600x600.format-webp.webp\">Nano Banana 2 (Gemini 3.1 Flash Image) delivers Pro-level intelligence and fidelity for all image applications.",
@@ -130,7 +182,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -143,7 +195,20 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
+      }
+    },
+    {
+      "id": "https://www.databricks.com/blog/nasdaq-evestment-data-now-databricks-marketplace",
+      "title": "Nasdaq eVestment Data Now on Databricks Marketplace",
+      "excerpt": "An institutional mandate is essentially a high-stakes job description.When a large...",
+      "link": "https://www.databricks.com/blog/nasdaq-evestment-data-now-databricks-marketplace",
+      "date": "2026-02-26T16:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
       }
     },
     {
@@ -170,6 +235,19 @@
         "id": "openai",
         "name": "OpenAI",
         "color": "#10b981"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/you-dont-know-what-your-agent-will-do-until-its-in-production/",
+      "title": "You don’t know what your agent will do until it’s in production",
+      "excerpt": "You can't monitor agents like traditional software. Inputs are infinite, behavior is non-deterministic, and quality lives in the conversations themselves. This article explains what to monitor, how to scale evaluation, and how production traces become the foundation for continuous improvement.",
+      "link": "https://blog.langchain.com/you-dont-know-what-your-agent-will-do-until-its-in-production/",
+      "date": "2026-02-26T04:28:00+00:00",
+      "category": "research",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
       }
     },
     {
@@ -221,7 +299,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -234,7 +312,33 @@
       "source": {
         "id": "google",
         "name": "Google AI",
+        "color": "#34a853"
+      }
+    },
+    {
+      "id": "https://blog.google/innovation-and-ai/products/gemini-app/android-multi-step-tasks/",
+      "title": "Let Gemini handle your multi-step daily tasks on Android.",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/1920x1080_nq6jy78.max-600x600.format-webp.webp\">Launching soon for Pixel 10 and Samsung Galaxy S26 Series, you can offload multi-step tasks to Gemini.",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-app/android-multi-step-tasks/",
+      "date": "2026-02-25T18:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
         "color": "#4285f4"
+      }
+    },
+    {
+      "id": "https://www.databricks.com/blog/adaptive-data-governance-eu-regulatory-change",
+      "title": "Adaptive Data Governance for EU Regulatory Change",
+      "excerpt": "The European Commission has proposed a new Digital Package, including a “Digital...",
+      "link": "https://www.databricks.com/blog/adaptive-data-governance-eu-regulatory-change",
+      "date": "2026-02-25T07:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
       }
     },
     {
@@ -261,6 +365,19 @@
         "id": "meta",
         "name": "Meta AI",
         "color": "#0064e0"
+      }
+    },
+    {
+      "id": "https://www.databricks.com/blog/ai-first-approach-data-engineering-lakeflow-and-agent-bricks",
+      "title": "An AI-First Approach to Data Engineering with Lakeflow and Agent Bricks",
+      "excerpt": "Data engineers are increasingly focused on one core problem: using AI to improve...",
+      "link": "https://www.databricks.com/blog/ai-first-approach-data-engineering-lakeflow-and-agent-bricks",
+      "date": "2026-02-24T20:14:45+00:00",
+      "category": "product",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
       }
     },
     {
@@ -355,6 +472,19 @@
       }
     },
     {
+      "id": "https://replicate.com/blog/how-to-prompt-seedream-5",
+      "title": "How to prompt Seedream 5.0",
+      "excerpt": "Seedream 5.0 brings multi-step reasoning, example-based editing, and deep domain knowledge to image generation. Here's what you should know.",
+      "link": "https://replicate.com/blog/how-to-prompt-seedream-5",
+      "date": "2026-02-24T00:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
       "id": "https://aws.amazon.com/blogs/machine-learning/scaling-data-annotation-using-vision-language-models-to-power-physical-ai-systems/",
       "title": "Scaling data annotation using vision-language models to power physical AI systems",
       "excerpt": "In this post, we examine how Bedrock Robotics tackles this challenge. By joining the AWS Physical AI Fellowship, the startup partnered with the AWS Generative AI Innovation Center to apply vision-language models that analyze construction video footage, extract operational details, and generate labeled training datasets at scale, to improve data pre",
@@ -365,6 +495,19 @@
         "id": "aws",
         "name": "AWS ML",
         "color": "#ff9900"
+      }
+    },
+    {
+      "id": "https://www.databricks.com/blog/spark-declarative-pipelines-why-data-engineering-needs-become-end-end-declarative",
+      "title": "Spark Declarative Pipelines: Why Data Engineering Needs to Become End-to-End Declarative",
+      "excerpt": "Data engineering teams are under pressure to deliver higher quality data faster,...",
+      "link": "https://www.databricks.com/blog/spark-declarative-pipelines-why-data-engineering-needs-become-end-end-declarative",
+      "date": "2026-02-23T21:40:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
       }
     },
     {
@@ -391,6 +534,32 @@
         "id": "aws",
         "name": "AWS ML",
         "color": "#ff9900"
+      }
+    },
+    {
+      "id": "https://blog.google/products-and-platforms/products/gemini/tips-prompting-lyria-3/",
+      "title": "6 tips for prompting Lyria 3 in the Gemini app",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/tips_for_prompting_Lyria_3_Hero.max-600x600.format-webp.webp\">Learn more about Lyria 3, Google DeepMind’s newest generative AI that can help you create your own tunes.",
+      "link": "https://blog.google/products-and-platforms/products/gemini/tips-prompting-lyria-3/",
+      "date": "2026-02-23T17:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
+      }
+    },
+    {
+      "id": "https://www.databricks.com/blog/announcing-general-availability-zerobus-ingest-part-lakeflow-connect",
+      "title": "Announcing General Availability of Zerobus Ingest",
+      "excerpt": "As organizations scale real-time operational intelligence, traditional streaming...",
+      "link": "https://www.databricks.com/blog/announcing-general-availability-zerobus-ingest-part-lakeflow-connect",
+      "date": "2026-02-23T16:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
       }
     },
     {
@@ -430,6 +599,32 @@
         "id": "openai",
         "name": "OpenAI",
         "color": "#10b981"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/how-we-built-agent-builders-memory-system/",
+      "title": "How we built Agent Builder’s memory system",
+      "excerpt": "A key part of Agent Builder is its memory system. In this article we cover our rationale for prioritizing a memory system, technical details of how we built it, learnings from building the memory system, what the memory system enables, and discuss future work.",
+      "link": "https://blog.langchain.com/how-we-built-agent-builders-memory-system/",
+      "date": "2026-02-22T03:55:36+00:00",
+      "category": "other",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/agent-observability-powers-agent-evaluation/",
+      "title": "Agent Observability Powers Agent Evaluation",
+      "excerpt": "You can't build reliable agents without understanding how they reason, and you can't validate improvements without systematic evaluation.",
+      "link": "https://blog.langchain.com/agent-observability-powers-agent-evaluation/",
+      "date": "2026-02-22T03:51:44+00:00",
+      "category": "research",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
       }
     },
     {
@@ -511,6 +706,45 @@
       }
     },
     {
+      "id": "https://www.databricks.com/blog/ai-projects-operational-capability",
+      "title": "From AI projects to an operational capability",
+      "excerpt": "As enterprises move beyond pilots and proofs of concept, a new question is emerging...",
+      "link": "https://www.databricks.com/blog/ai-projects-operational-capability",
+      "date": "2026-02-19T23:00:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
+      }
+    },
+    {
+      "id": "https://www.databricks.com/blog/access-genie-everywhere",
+      "title": "Use Genie Everywhere with Enterprise OAuth",
+      "excerpt": "IntroDemocratizing data starts with making insights easy and secure to access. With...",
+      "link": "https://www.databricks.com/blog/access-genie-everywhere",
+      "date": "2026-02-19T18:50:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/how-to-use-memory-in-agent-builder/",
+      "title": "How to Use Memory in Agent Builder",
+      "excerpt": "By Jacob Talbot Agent Builder gets better the more you use it because it remembers your feedback. Every correction you make, preference you share, and approach that works well is something that your agent can hold onto and apply the next time. Memory is one of the things that makes",
+      "link": "https://blog.langchain.com/how-to-use-memory-in-agent-builder/",
+      "date": "2026-02-19T18:28:14+00:00",
+      "category": "product",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
+      }
+    },
+    {
       "id": "https://aws.amazon.com/blogs/machine-learning/build-ai-workflows-on-amazon-eks-with-union-ai-and-flyte/",
       "title": "Build AI workflows on Amazon EKS with Union.ai and Flyte",
       "excerpt": "In this post, we explain how you can use the Flyte Python SDK to orchestrate and scale AI/ML workflows. We explore how the Union.ai 2.0 system enables deployment of Flyte on Amazon Elastic Kubernetes Service (Amazon EKS), integrating seamlessly with AWS services like Amazon Simple Storage Service (Amazon S3), Amazon Aurora, AWS Identity and Access ",
@@ -537,6 +771,19 @@
       }
     },
     {
+      "id": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "title": "Gemini 3.1 Pro: A smarter model for your most complex tasks",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3.1_pro_keyword_header_d.max-600x600.format-webp.webp\">3.1 Pro is designed for tasks where a simple answer isn’t enough.",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "date": "2026-02-19T16:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
+      }
+    },
+    {
       "id": "https://openai.com/index/advancing-independent-research-ai-alignment",
       "title": "Advancing independent research on AI alignment",
       "excerpt": "OpenAI commits $7.5M to The Alignment Project to fund independent AI alignment research, strengthening global efforts to address AGI safety and security risks.",
@@ -559,7 +806,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -572,7 +819,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -602,6 +849,19 @@
       }
     },
     {
+      "id": "https://www.databricks.com/blog/flexible-node-types-are-now-generally-available",
+      "title": "Flexible Node Types Are Now Generally Available",
+      "excerpt": "Securing specific compute capacity can be challenging, especially during high-traffic...",
+      "link": "https://www.databricks.com/blog/flexible-node-types-are-now-generally-available",
+      "date": "2026-02-18T22:30:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
+      }
+    },
+    {
       "id": "https://openai.com/index/openai-for-india",
       "title": "Introducing OpenAI for India",
       "excerpt": "OpenAI for India expands AI access across the country—building local infrastructure, powering enterprises, and advancing workforce skills.",
@@ -612,6 +872,19 @@
         "id": "openai",
         "name": "OpenAI",
         "color": "#10b981"
+      }
+    },
+    {
+      "id": "https://www.databricks.com/blog/predictive-optimization-scale-year-innovation-and-whats-next",
+      "title": "Predictive Optimization at Scale: A Year of Innovation and What’s Next",
+      "excerpt": "IntroductionThe most performant, cost-effective lakehouse is one that optimizes itself...",
+      "link": "https://www.databricks.com/blog/predictive-optimization-scale-year-innovation-and-whats-next",
+      "date": "2026-02-18T20:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "databricks",
+        "name": "Databricks",
+        "color": "#ff3621"
       }
     },
     {
@@ -637,7 +910,20 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/new-in-agent-builder-all-new-agent-chat-file-uploads-tool-registry/",
+      "title": "New in Agent Builder: all new agent chat, file uploads + tool registry",
+      "excerpt": "Today, we're expanding what you can do with LangSmith Agent Builder . It’s an big update built around a simple idea: working with an agent should feel like working with a teammate. We rebuilt Agent Builder around this idea. There is now an always available agent (”",
+      "link": "https://blog.langchain.com/new-in-agent-builder-all-new-agent-chat-file-uploads-tool-registry/",
+      "date": "2026-02-18T15:55:08+00:00",
+      "category": "model",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
       }
     },
     {
@@ -650,7 +936,20 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/customers-monday/",
+      "title": "monday Service + LangSmith: Building a Code-First Evaluation Strategy from Day 1",
+      "excerpt": "Learn how monday Service developed an eval-driven development framework for their customer-facing service agents.",
+      "link": "https://blog.langchain.com/customers-monday/",
+      "date": "2026-02-18T08:05:53+00:00",
+      "category": "research",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
       }
     },
     {
@@ -680,6 +979,19 @@
       }
     },
     {
+      "id": "https://replicate.com/blog/recraft-v4",
+      "title": "Recraft V4: image generation with design taste",
+      "excerpt": "Recraft V4 generates art-directed images — and actual editable SVGs — with strong composition, accurate text rendering, and what the Recraft team calls \"design taste.\" Four models are available on Replicate now.",
+      "link": "https://replicate.com/blog/recraft-v4",
+      "date": "2026-02-18T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
       "id": "https://blog.google/innovation-and-ai/products/responsible-ai-2026-report-ongoing-work/",
       "title": "Our 2026 Responsible AI Progress Report",
       "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Stocksy_7137793.max-600x600.format-webp.webp\">A look at our 2026 Responsible AI Progress Report.",
@@ -689,6 +1001,45 @@
       "source": {
         "id": "google",
         "name": "Google AI",
+        "color": "#34a853"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/improving-deep-agents-with-harness-engineering/",
+      "title": "Improving Deep Agents with harness engineering",
+      "excerpt": "TLDR: Our coding agent went from Top 30 to Top 5 on Terminal Bench 2.0 . We only changed the harness. Here’s our approach to harness engineering (teaser: self-verification & tracing help a lot). The Goal of Harness Engineering The goal of a harness is to mold the",
+      "link": "https://blog.langchain.com/improving-deep-agents-with-harness-engineering/",
+      "date": "2026-02-17T16:15:28+00:00",
+      "category": "product",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
+      }
+    },
+    {
+      "id": "https://blog.google/products-and-platforms/products/education/gemini-features-for-students/",
+      "title": "5 ways Gemini can help students work smarter",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/HeroAsset.max-600x600.format-webp.webp\">Check out Gemini features that help students learn complex subjects, study for exams and prepare for their careers.",
+      "link": "https://blog.google/products-and-platforms/products/education/gemini-features-for-students/",
+      "date": "2026-02-13T18:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
+      }
+    },
+    {
+      "id": "https://blog.google/products-and-platforms/devices/pixel/pixel-camera-photo-tips-lunar-new-year/",
+      "title": "Take a look at these incredible photos from Lunar New Year celebrations.",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/PXL_20260204_021005833.max-600x600.format-webp.webp\">Check out all of the photos captured on the latest Pixel series phones in Taiwan for Lunar New Year.",
+      "link": "https://blog.google/products-and-platforms/devices/pixel/pixel-camera-photo-tips-lunar-new-year/",
+      "date": "2026-02-13T16:00:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
         "color": "#4285f4"
       }
     },
@@ -745,6 +1096,19 @@
       }
     },
     {
+      "id": "https://blog.langchain.com/on-agent-frameworks-and-agent-observability/",
+      "title": "On Agent Frameworks and Agent Observability",
+      "excerpt": "Every time LLMs get better, the same question comes back: \"Do you still need an agent framework?\" It's a fair question. The best way to build agents changes as the models get more performant and evolve, but fundamentally, the agent is a system around the model,",
+      "link": "https://blog.langchain.com/on-agent-frameworks-and-agent-observability/",
+      "date": "2026-02-13T02:23:40+00:00",
+      "category": "model",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
+      }
+    },
+    {
       "id": "https://huggingface.co/blog/custom-cuda-kernels-agent-skills",
       "title": "Custom Kernels for All from Codex and Claude",
       "excerpt": "",
@@ -758,6 +1122,19 @@
       }
     },
     {
+      "id": "https://blog.langchain.com/join-us-for-interrupt-the-agent-conference/",
+      "title": "Join us for Interrupt: The Agent Conference",
+      "excerpt": "Interrupt - The Agent Conference by LangChain - is where builders come to learn what's actually working in production. This year, we're bringing together more than 1,000 developers, product leaders, researchers, and founders to share what's coming next for agents—and how",
+      "link": "https://blog.langchain.com/join-us-for-interrupt-the-agent-conference/",
+      "date": "2026-02-12T17:42:03+00:00",
+      "category": "research",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
+      }
+    },
+    {
       "id": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/",
       "title": "Gemini 3 Deep Think: Advancing science, research and engineering",
       "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_deep-think_keyword_hea.max-600x600.format-webp.webp\">We’re releasing a major upgrade to Gemini 3 Deep Think, our specialized reasoning mode.",
@@ -767,7 +1144,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -832,7 +1209,33 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/the-two-patterns-by-which-agents-connect-sandboxes/",
+      "title": "The two patterns by which agents connect sandboxes",
+      "excerpt": "Thank you to Nuno Campos from Witan Labs, Tomas Beran and Mikayel Harutyunyan from E2B, Jonathan Wall from Runloop, and Ben Guo from Zo Computer for their review and comments. TL;DR: More and more agents need a workspace: a computer where they can run code, install packages, and access",
+      "link": "https://blog.langchain.com/the-two-patterns-by-which-agents-connect-sandboxes/",
+      "date": "2026-02-10T16:32:35+00:00",
+      "category": "other",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/langsmith-is-now-available-in-google-cloud-marketplace/",
+      "title": "LangSmith is Now Available in Google Cloud Marketplace",
+      "excerpt": "Today, we're thrilled to announce that LangSmith, the agent engineering platform from LangChain, is available in Google Cloud Marketplace. Google Cloud customers can now procure LangSmith through their existing Google Cloud accounts, enabling seamless billing, simplified procurement, and the ability to draw down on existing Google Cloud commitments",
+      "link": "https://blog.langchain.com/langsmith-is-now-available-in-google-cloud-marketplace/",
+      "date": "2026-02-10T02:47:44+00:00",
+      "category": "product",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
       }
     },
     {
@@ -845,7 +1248,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -871,7 +1274,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -897,7 +1300,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -910,7 +1313,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -923,7 +1326,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -988,7 +1391,7 @@
       "source": {
         "id": "google",
         "name": "Google AI",
-        "color": "#4285f4"
+        "color": "#34a853"
       }
     },
     {
@@ -1001,7 +1404,46 @@
       "source": {
         "id": "google",
         "name": "Google AI",
+        "color": "#34a853"
+      }
+    },
+    {
+      "id": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-budget-planning-tips/",
+      "title": "10 ways to plan your 2026 budget with Gemini",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Budget_with_Gemini_hero.max-600x600.format-webp.webp\">Learn how to use simple Gemini prompts to create a 2026 budget, find hidden savings and organize your spending.",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-budget-planning-tips/",
+      "date": "2026-02-02T16:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
         "color": "#4285f4"
+      }
+    },
+    {
+      "id": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-january-2026/",
+      "title": "Find out what’s new in the Gemini app in January's Gemini Drop.",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Drops_social.max-600x600.format-webp.webp\">Gemini Drops is our regular monthly update on how to get the most out of the Gemini app.",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-january-2026/",
+      "date": "2026-01-30T17:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/january-2026-langchain-newsletter/",
+      "title": "January 2026: LangChain Newsletter",
+      "excerpt": "Read about the latest product updates, events, and content from the LangChain team",
+      "link": "https://blog.langchain.com/january-2026-langchain-newsletter/",
+      "date": "2026-01-30T02:27:28+00:00",
+      "category": "model",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
       }
     },
     {
@@ -1018,6 +1460,32 @@
       }
     },
     {
+      "id": "https://blog.google/products-and-platforms/products/chrome/gemini-3-auto-browse/",
+      "title": "The new era of browsing: Putting Gemini to work in Chrome",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/chrome_rollercoaster.max-600x600.format-webp.webp\">Learn more about new agentic capabilities coming to Chrome, powered by Gemini 3.",
+      "link": "https://blog.google/products-and-platforms/products/chrome/gemini-3-auto-browse/",
+      "date": "2026-01-28T18:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/context-management-for-deepagents/",
+      "title": "Context Management for Deep Agents",
+      "excerpt": "By Chester Curme and Mason Daugherty As the addressable task length of AI agents continues to grow , effective context management becomes critical to prevent context rot and to manage LLMs’ finite memory constraints. The Deep Agents SDK is LangChain’s open source, batteries-included agent harness . It provides an",
+      "link": "https://blog.langchain.com/context-management-for-deepagents/",
+      "date": "2026-01-28T16:11:29+00:00",
+      "category": "model",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
+      }
+    },
+    {
       "id": "https://huggingface.co/blog/upskill",
       "title": "We Got Claude to Build CUDA Kernels and teach open models!",
       "excerpt": "",
@@ -1028,6 +1496,32 @@
         "id": "huggingface",
         "name": "HuggingFace",
         "color": "#ff9500"
+      }
+    },
+    {
+      "id": "https://blog.google/innovation-and-ai/technology/developers-tools/agentic-vision-gemini-3-flash/",
+      "title": "Introducing Agentic Vision in Gemini 3 Flash",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/agentic-vision-gemini-3_flash_b.max-600x600.format-webp.webp\">Agentic Vision, a new capability introduced in Gemini 3 Flash, converts image understanding from a static act into an agentic process",
+      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/agentic-vision-gemini-3-flash/",
+      "date": "2026-01-27T19:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
+      }
+    },
+    {
+      "id": "https://blog.google/innovation-and-ai/technology/developers-tools/gdp-premium-ai-pro-ultra/",
+      "title": "New developer tools for Google AI Pro and Ultra subscribers",
+      "excerpt": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/0029-GDP-Google-One-Announcemen.max-600x600.format-webp.webp\">Google Developer Program (GDP) premium benefits are now included in Google AI Pro and Google AI Ultra.",
+      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/gdp-premium-ai-pro-ultra/",
+      "date": "2026-01-27T18:10:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "color": "#4285f4"
       }
     },
     {
@@ -1067,6 +1561,32 @@
         "id": "huggingface",
         "name": "HuggingFace",
         "color": "#ff9500"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/introducing-agent-builder-template-library/",
+      "title": "Deploy agents instantly with Agent Builder templates",
+      "excerpt": "Introducing the Agent Builder Template Library: a collection of ready-to-deploy agents for common tasks, equipped with the tools you already use.",
+      "link": "https://blog.langchain.com/introducing-agent-builder-template-library/",
+      "date": "2026-01-21T17:00:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
+      }
+    },
+    {
+      "id": "https://blog.langchain.com/building-multi-agent-applications-with-deep-agents/",
+      "title": "Building Multi-Agent Applications with Deep Agents",
+      "excerpt": "Breaking down complex tasks across specialized agents is one of the most effective approaches to building capable AI systems. In this post, we'll show you how to build multi-agent systems with Deep Agents.",
+      "link": "https://blog.langchain.com/building-multi-agent-applications-with-deep-agents/",
+      "date": "2026-01-21T16:30:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "langchain",
+        "name": "LangChain",
+        "color": "#1c3a5e"
       }
     },
     {
@@ -1148,6 +1668,32 @@
       }
     },
     {
+      "id": "https://replicate.com/blog/isaac-01",
+      "title": "Run Isaac 0.1 on Replicate",
+      "excerpt": "Isaac 0.1 is a lightweight, grounded vision-language model built for real-world perception.",
+      "link": "https://replicate.com/blog/isaac-01",
+      "date": "2025-11-26T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/run-flux-2-on-replicate",
+      "title": "Run FLUX.2 on Replicate",
+      "excerpt": "FLUX.2 brings professional-grade image generation and editing with unprecedented detail, multi-reference support, and enterprise efficiency.",
+      "link": "https://replicate.com/blog/run-flux-2-on-replicate",
+      "date": "2025-11-25T00:00:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
       "id": "https://engineering.fb.com/2025/11/21/data-infrastructure/zoomer-powering-ai-performance-meta-intelligent-debugging-optimization/",
       "title": "Zoomer: Powering AI Performance at Meta’s Scale Through Intelligent Debugging and Optimization",
       "excerpt": "We’re introducing Zoomer, Meta’s comprehensive, automated debugging and optimization platform for AI. Zoomer works across all of our training and inference workloads at Meta and provides deep performance insights that enable energy savings, workflow acceleration, and efficiency gains in our AI infrastructure. Zoomer has delivered training time redu",
@@ -1158,6 +1704,45 @@
         "id": "meta",
         "name": "Meta AI",
         "color": "#0064e0"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/how-to-prompt-nano-banana-pro",
+      "title": "How to prompt Nano Banana Pro",
+      "excerpt": "Nano Banana Pro brings powerful new capabilities in image generation and editing. Here are the main prompt tricks you should know.",
+      "link": "https://replicate.com/blog/how-to-prompt-nano-banana-pro",
+      "date": "2025-11-20T00:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/retro-diffusions-pixel-art-models-are-now-on-replicate",
+      "title": "Retro Diffusion's pixel art models are now on Replicate",
+      "excerpt": "Generate game assets, sprites, tiles, and pixel art with Retro Diffusion's suite of carefully crafted models.",
+      "link": "https://replicate.com/blog/retro-diffusions-pixel-art-models-are-now-on-replicate",
+      "date": "2025-11-19T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/replicate-cloudflare",
+      "title": "Replicate is joining Cloudflare",
+      "excerpt": "",
+      "link": "https://replicate.com/blog/replicate-cloudflare",
+      "date": "2025-11-17T00:00:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
       }
     },
     {
@@ -1187,6 +1772,32 @@
       }
     },
     {
+      "id": "https://replicate.com/blog/datalab-marker-and-ocr-fast-parsing",
+      "title": "Extract text from documents and images with Datalab Marker and OCR",
+      "excerpt": "Turn whole documents into markdown or grab line-level polygons with two new models from Datalab.",
+      "link": "https://replicate.com/blog/datalab-marker-and-ocr-fast-parsing",
+      "date": "2025-10-21T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/veo-3-1",
+      "title": "How to prompt Veo 3.1",
+      "excerpt": "Google's Veo 3.1 brings powerful new video generation capabilities including reference images, first/last frame control, and enhanced image-to-video. Here's everything you need to know.",
+      "link": "https://replicate.com/blog/veo-3-1",
+      "date": "2025-10-16T00:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
       "id": "https://engineering.fb.com/2025/10/14/data-center-engineering/how-meta-is-leveraging-ai-to-improve-the-quality-of-scope-3-emission-estimates-for-it-hardware/",
       "title": "How Meta Is Leveraging AI To Improve the Quality of Scope 3 Emission Estimates for IT Hardware",
       "excerpt": "As we focus on our goal of achieving net zero emissions in 2030, we also aim to create a common taxonomy for the entire industry to measure carbon emissions. We’re sharing details on a new methodology we presented at the 2025 OCP regional EMEA summit that leverages AI to improve our understanding of our IT [...] Read More... The post How Meta Is Le",
@@ -1200,6 +1811,45 @@
       }
     },
     {
+      "id": "https://replicate.com/blog/2025-10-02-ibm-granite-4-models",
+      "title": "IBM's Granite 4.0 is now on Replicate",
+      "excerpt": "",
+      "link": "https://replicate.com/blog/2025-10-02-ibm-granite-4-models",
+      "date": "2025-10-02T00:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/compare-image-editing-models",
+      "title": "Which image editing model should I use?",
+      "excerpt": "Here is the ultimate comparison post on all the latest image editing models.",
+      "link": "https://replicate.com/blog/compare-image-editing-models",
+      "date": "2025-09-23T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/new-search-api",
+      "title": "Introducing our new search API",
+      "excerpt": "Find the best models and collections with a single API call.",
+      "link": "https://replicate.com/blog/new-search-api",
+      "date": "2025-09-16T16:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
       "id": "https://blogs.nvidia.com/blog/uk-llm-nemotron/",
       "title": "Reaching Across the Isles: UK-LLM Brings AI to UK Languages With NVIDIA Nemotron",
       "excerpt": "Celtic languages — including Cornish, Irish, Scottish Gaelic and Welsh — are the U.K.’s oldest living languages. To empower their speakers, the UK-LLM sovereign AI initiative is building an AI model based on NVIDIA Nemotron that can reason in both English and Welsh, a language spoken by about 850,000 people in Wales today. Enabling high-quality Rea",
@@ -1210,6 +1860,19 @@
         "id": "nvidia",
         "name": "NVIDIA",
         "color": "#76b900"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/torch-compile-caching",
+      "title": "Torch compile caching for inference speed",
+      "excerpt": "Cache your compiled models for faster boot and inference times",
+      "link": "https://replicate.com/blog/torch-compile-caching",
+      "date": "2025-09-08T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
       }
     },
     {
@@ -1252,6 +1915,58 @@
       }
     },
     {
+      "id": "https://replicate.com/blog/remote-mcp-server",
+      "title": "Announcing Replicate's remote MCP server",
+      "excerpt": "Use our MCP to discover, compare, and run models from apps like Claude, Cursor, and VS Code.",
+      "link": "https://replicate.com/blog/remote-mcp-server",
+      "date": "2025-08-10T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/veo-3-image",
+      "title": "How to prompt Veo 3 with images",
+      "excerpt": "You'll be surprised what you can do with AI video now.",
+      "link": "https://replicate.com/blog/veo-3-image",
+      "date": "2025-08-01T00:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/wan-22",
+      "title": "Open source video is back",
+      "excerpt": "Wan 2.2 is our fastest, cheapest video model.",
+      "link": "https://replicate.com/blog/wan-22",
+      "date": "2025-07-31T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/generate-consistent-characters",
+      "title": "Generate consistent characters",
+      "excerpt": "We compare the best image models for generating consistent characters from a single reference image.",
+      "link": "https://replicate.com/blog/generate-consistent-characters",
+      "date": "2025-07-21T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
       "id": "https://blogs.nvidia.com/blog/isambard-ai/",
       "title": "Isambard-AI, the UK’s Most Powerful AI Supercomputer, Goes Live",
       "excerpt": "The University of Bristol’s Isambard-AI, powered by NVIDIA Grace Hopper Superchips, delivers 21 exaflops of AI performance, making it the fastest system in the U.K. and among the most energy-efficient globally.",
@@ -1265,6 +1980,32 @@
       }
     },
     {
+      "id": "https://replicate.com/blog/bria",
+      "title": "Bria is now on Replicate",
+      "excerpt": "We've partnered with Bria to bring a suite of commercial-grade image generation and editing models to Replicate. Built entirely on licensed data, Bria’s tools are designed for enterprises and developers building safely with visual AI.",
+      "link": "https://replicate.com/blog/bria",
+      "date": "2025-07-17T10:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/flux-kontext-optimization",
+      "title": "How we optimized FLUX.1 Kontext [dev]",
+      "excerpt": "A deep-dive into the Taylor Seer optimization technique",
+      "link": "https://replicate.com/blog/flux-kontext-optimization",
+      "date": "2025-07-15T16:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
+      }
+    },
+    {
       "id": "https://blogs.nvidia.com/blog/gaming-gpu-ceramics/",
       "title": "A Gaming GPU Helps Crack the Code on a Thousand-Year Cultural Conversation",
       "excerpt": "Ceramics — the humble mix of earth, fire and artistry — have been part of a global conversation for millennia. From Tang Dynasty trade routes to Renaissance palaces, from museum vitrines to high-stakes auction floors, they’ve carried culture across borders, evolving into status symbols, commodities and pieces of contested history. Their value has b",
@@ -1275,6 +2016,19 @@
         "id": "nvidia",
         "name": "NVIDIA",
         "color": "#76b900"
+      }
+    },
+    {
+      "id": "https://replicate.com/blog/compare-ai-video-models",
+      "title": "Compare AI video models",
+      "excerpt": "It's hard keeping up with every new video model. In this post we'll help you pick the best one for your needs.",
+      "link": "https://replicate.com/blog/compare-ai-video-models",
+      "date": "2025-07-07T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "replicate",
+        "name": "Replicate",
+        "color": "#6366f1"
       }
     },
     {
@@ -1742,7 +2496,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -1755,7 +2509,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -1768,7 +2522,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -1781,7 +2535,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -1989,7 +2743,7 @@
       "source": {
         "id": "mistral",
         "name": "Mistral",
-        "color": "#f59e0b"
+        "color": "#ff7043"
       }
     },
     {
@@ -2002,7 +2756,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -2015,7 +2769,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -2028,7 +2782,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -2041,7 +2795,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -2054,7 +2808,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -2067,7 +2821,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -2080,7 +2834,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -2093,7 +2847,7 @@
       "source": {
         "id": "anthropic",
         "name": "Anthropic",
-        "color": "#b87333"
+        "color": "#d4a27a"
       }
     },
     {
@@ -2159,6 +2913,526 @@
         "id": "deepmind",
         "name": "DeepMind",
         "color": "#5c9bff"
+      }
+    },
+    {
+      "id": "https://x.ai/news/xai-joins-spacex",
+      "title": "xAI joins SpaceX",
+      "excerpt": "",
+      "link": "https://x.ai/news/xai-joins-spacex",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-imagine-api",
+      "title": "Grok Imagine API",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-imagine-api",
+      "date": "",
+      "category": "product",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/series-e",
+      "title": "xAI Raises $20B Series E",
+      "excerpt": "",
+      "link": "https://x.ai/news/series-e",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-business",
+      "title": "Introducing Grok Business and Grok Enterprise",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-business",
+      "date": "",
+      "category": "product",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-collections-api",
+      "title": "Grok Collections API",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-collections-api",
+      "date": "",
+      "category": "product",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/us-gov-dept-of-war",
+      "title": "Supporting the DOW's mission with AI",
+      "excerpt": "",
+      "link": "https://x.ai/news/us-gov-dept-of-war",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-voice-agent-api",
+      "title": "Grok Voice Agent API",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-voice-agent-api",
+      "date": "",
+      "category": "product",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/el-salvador-partnership",
+      "title": "xAI and El Salvador Pioneer the World's First Nationwide AI Education Program",
+      "excerpt": "",
+      "link": "https://x.ai/news/el-salvador-partnership",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-4-1-fast",
+      "title": "Grok 4.1 Fast and Agent Tools API",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-4-1-fast",
+      "date": "",
+      "category": "product",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-goes-global",
+      "title": "Grok goes Global with KSA",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-goes-global",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-4-1",
+      "title": "Grok 4.1",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-4-1",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/onegov",
+      "title": "Expanding xAI for Government with GSA OneGov",
+      "excerpt": "",
+      "link": "https://x.ai/news/onegov",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-4-fast",
+      "title": "Grok 4 Fast",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-4-fast",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-code-fast-1",
+      "title": "Grok Code Fast 1",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-code-fast-1",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/government",
+      "title": "Announcing xAI for Government",
+      "excerpt": "",
+      "link": "https://x.ai/news/government",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-3",
+      "title": "Grok 3 Beta — The Age of Reasoning Agents",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-3",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/series-c",
+      "title": "xAI raises $6B Series C",
+      "excerpt": "",
+      "link": "https://x.ai/news/series-c",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-1212",
+      "title": "Bringing Grok to Everyone",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-1212",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-image-generation-release",
+      "title": "Grok Image Generation Release",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-image-generation-release",
+      "date": "",
+      "category": "model",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/api",
+      "title": "API Public Beta",
+      "excerpt": "",
+      "link": "https://x.ai/news/api",
+      "date": "",
+      "category": "product",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/introducing-expressive-mode",
+      "title": "Introducing Expressive Mode for ElevenAgents",
+      "excerpt": "More expressive voice agents, built for real-world customer conversations.",
+      "link": "https://elevenlabs.io/blog/introducing-expressive-mode",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/introducing-elevenlabs-for-government",
+      "title": "Introducing ElevenLabs for Government",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/introducing-elevenlabs-for-government",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/series-d",
+      "title": "ElevenLabs raises $500M Series D at $11B valuation",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/series-d",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/klarna",
+      "title": "Klarna reduces Time to Resolution by 10X with ElevenAgents",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/klarna",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/eleven-v3-is-now-generally-available",
+      "title": "Eleven v3 is Now Generally Available",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/eleven-v3-is-now-generally-available",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/revolut",
+      "title": "Revolut selects ElevenLabs Agents to bolster customer support",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/revolut",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/deutsche-telekom-and-elevenlabs-announce-partnership",
+      "title": "Deutsche Telekom and ElevenLabs announce partnership",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/deutsche-telekom-and-elevenlabs-announce-partnership",
+      "date": "",
+      "category": "product",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/we-are-on-the-grid",
+      "title": "We are on the grid",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/we-are-on-the-grid",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/introducing-scribe-v2",
+      "title": "Introducing Scribe v2",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/introducing-scribe-v2",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/introducing-the-eleven-album",
+      "title": "Introducing The Eleven Album",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/introducing-the-eleven-album",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/masterclass",
+      "title": "MasterClass brings AI instructors to life with ElevenLabs",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/masterclass",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/liberty-global-partnership",
+      "title": "We’re partnering with Liberty Global to accelerate voice AI expansion across Europe",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/liberty-global-partnership",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/introducing-elevenlabs-image-and-video",
+      "title": "Introducing ElevenLabs Image & Video",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/introducing-elevenlabs-image-and-video",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/toyota",
+      "title": "Toyota engages fans with AI-powered Brock Purdy experience",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/toyota",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/tvs-motor-multimodal-agents",
+      "title": "TVS Motor Company deploys multimodal AI agents using ElevenLabs",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/tvs-motor-multimodal-agents",
+      "date": "",
+      "category": "product",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/elevenlabs-welcomes-matthew-mcconaughey-as-new-investor",
+      "title": "ElevenLabs Welcomes Matthew McConaughey as New Investor",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/elevenlabs-welcomes-matthew-mcconaughey-as-new-investor",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/introducing-scribe-v2-realtime",
+      "title": "Introducing Scribe v2 Realtime",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/introducing-scribe-v2-realtime",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/harvey",
+      "title": "Harvey and ElevenLabs Partner to Give Lawyers a Global Voice",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/harvey",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/announcing-partnership-with-sir-michael-caine-to-newly-launched-iconic-marketplace",
+      "title": "Announcing Partnership with Sir Michael Caine to Newly Launched Iconic Marketplace",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/announcing-partnership-with-sir-michael-caine-to-newly-launched-iconic-marketplace",
+      "date": "",
+      "category": "model",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/honoring-veterans-and-their-voices-lt-col-thomas-brittinghams-story",
+      "title": "Honoring veterans and their voices: Lt Col Thomas Brittingham’s story",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/honoring-veterans-and-their-voices-lt-col-thomas-brittinghams-story",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
       }
     }
   ]

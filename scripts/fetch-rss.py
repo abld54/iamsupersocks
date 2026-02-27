@@ -16,18 +16,27 @@ from html.parser import HTMLParser
 # Sources
 # ---------------------------------------------------------------------------
 SOURCES = [
-    {"id": "anthropic",  "name": "Anthropic",      "color": "#b87333", "type": "scrape", "url": "https://www.anthropic.com/news"},
-    {"id": "openai",     "name": "OpenAI",          "color": "#10b981", "type": "rss",    "url": "https://openai.com/blog/rss.xml"},
-    {"id": "google",     "name": "Google AI",       "color": "#4285f4", "type": "rss",    "url": "https://blog.google/technology/ai/rss/"},
-    {"id": "deepmind",   "name": "DeepMind",        "color": "#5c9bff", "type": "rss",    "url": "https://blog.research.google/atom.xml"},
-    {"id": "huggingface","name": "HuggingFace",     "color": "#ff9500", "type": "rss",    "url": "https://huggingface.co/blog/feed.xml"},
-    {"id": "mistral",    "name": "Mistral",         "color": "#f59e0b", "type": "scrape", "url": "https://mistral.ai/fr/news"},
-    {"id": "meta",       "name": "Meta AI",         "color": "#0064e0", "type": "rss",    "url": "https://engineering.fb.com/category/ml-applications/feed/"},
-    {"id": "nvidia",     "name": "NVIDIA",          "color": "#76b900", "type": "rss",    "url": "https://blogs.nvidia.com/blog/category/deep-learning/feed/"},
-    {"id": "microsoft",  "name": "Microsoft AI",    "color": "#00a4ef", "type": "rss",    "url": "https://blogs.microsoft.com/ai/feed/"},
-    {"id": "aws",        "name": "AWS ML",          "color": "#ff9900", "type": "rss",    "url": "https://aws.amazon.com/blogs/machine-learning/feed/"},
-    {"id": "gradient",   "name": "The Gradient",    "color": "#a855f7", "type": "rss",    "url": "https://thegradient.pub/rss/"},
-    {"id": "cohere",     "name": "Cohere",          "color": "#39d353", "type": "scrape", "url": "https://cohere.com/blog"},
+    # ── Tier 1: Major Labs ──
+    {"id": "anthropic",   "name": "Anthropic",       "color": "#d4a27a", "type": "scrape", "url": "https://www.anthropic.com/news"},
+    {"id": "openai",      "name": "OpenAI",           "color": "#10b981", "type": "rss",    "url": "https://openai.com/blog/rss.xml"},
+    {"id": "gemini",      "name": "Google Gemini",    "color": "#4285f4", "type": "rss",    "url": "https://blog.google/products/gemini/rss/"},
+    {"id": "google",      "name": "Google AI",        "color": "#34a853", "type": "rss",    "url": "https://blog.google/technology/ai/rss/"},
+    {"id": "deepmind",    "name": "DeepMind",         "color": "#5c9bff", "type": "rss",    "url": "https://blog.research.google/atom.xml"},
+    {"id": "meta",        "name": "Meta AI",          "color": "#0064e0", "type": "rss",    "url": "https://engineering.fb.com/category/ml-applications/feed/"},
+    {"id": "xai",         "name": "xAI",              "color": "#e5e5e5", "type": "scrape", "url": "https://x.ai/news"},
+    {"id": "mistral",     "name": "Mistral",          "color": "#ff7043", "type": "scrape", "url": "https://mistral.ai/fr/news"},
+    # ── Tier 2: Models & Infra ──
+    {"id": "huggingface", "name": "HuggingFace",      "color": "#ff9500", "type": "rss",    "url": "https://huggingface.co/blog/feed.xml"},
+    {"id": "nvidia",      "name": "NVIDIA",           "color": "#76b900", "type": "rss",    "url": "https://blogs.nvidia.com/blog/category/deep-learning/feed/"},
+    {"id": "microsoft",   "name": "Microsoft AI",     "color": "#00a4ef", "type": "rss",    "url": "https://blogs.microsoft.com/ai/feed/"},
+    {"id": "aws",         "name": "AWS ML",           "color": "#ff9900", "type": "rss",    "url": "https://aws.amazon.com/blogs/machine-learning/feed/"},
+    {"id": "databricks",  "name": "Databricks",       "color": "#ff3621", "type": "rss",    "url": "https://www.databricks.com/feed"},
+    {"id": "replicate",   "name": "Replicate",        "color": "#6366f1", "type": "rss",    "url": "https://replicate.com/blog/rss"},
+    # ── Tier 3: Tools & Research ──
+    {"id": "langchain",   "name": "LangChain",        "color": "#1c3a5e", "type": "rss",    "url": "https://blog.langchain.com/rss/"},
+    {"id": "elevenlabs",  "name": "ElevenLabs",       "color": "#f5c518", "type": "scrape", "url": "https://elevenlabs.io/blog"},
+    {"id": "cohere",      "name": "Cohere",           "color": "#39d353", "type": "scrape", "url": "https://cohere.com/blog"},
+    {"id": "gradient",    "name": "The Gradient",     "color": "#a855f7", "type": "rss",    "url": "https://thegradient.pub/rss/"},
 ]
 
 # Category detection keywords
@@ -191,6 +200,49 @@ def scrape_mistral(html, source):
         if a: articles.append(a)
     return articles[:MAX_PER_SOURCE]
 
+def scrape_xai(html, source):
+    articles = []
+    seen = set()
+    # Pattern: href="/news/SLUG"
+    for href, inner in re.findall(r'href=["\'](/news/[a-z0-9\-]+)["\'][^>]*>(.*?)</a>', html, re.DOTALL):
+        if href in seen: continue
+        seen.add(href)
+        t = re.search(r"<h[1-4][^>]*>(.*?)</h[1-4]>", inner, re.DOTALL)
+        title = strip_tags(t.group(1)) if t else ""
+        if not title:
+            texts = [strip_tags(x) for x in re.findall(r">([^<]{20,})<", inner)]
+            title = max(texts, key=len) if texts else ""
+        if len(title) < 8: continue
+        date_m = re.search(r'datetime=["\']([^"\']+)["\']', inner)
+        desc_m = re.search(r"<p[^>]*>(.*?)</p>", inner, re.DOTALL)
+        a = make_article(source, title, f"https://x.ai{href}",
+                         date_m.group(1) if date_m else "",
+                         desc_m.group(1) if desc_m else "")
+        if a: articles.append(a)
+    return articles[:MAX_PER_SOURCE]
+
+def scrape_elevenlabs(html, source):
+    articles = []
+    seen = set()
+    for href, inner in re.findall(r'href=["\'](/blog/[a-z0-9\-]+)["\'][^>]*>(.*?)</a>', html, re.DOTALL):
+        if href in seen: continue
+        seen.add(href)
+        # skip category pages
+        if href.startswith("/blog/category") or href == "/blog": continue
+        t = re.search(r"<h[1-4][^>]*>(.*?)</h[1-4]>", inner, re.DOTALL)
+        title = strip_tags(t.group(1)) if t else ""
+        if not title:
+            texts = [strip_tags(x) for x in re.findall(r">([^<]{20,})<", inner)]
+            title = max(texts, key=len) if texts else ""
+        if len(title) < 8: continue
+        date_m = re.search(r'datetime=["\']([^"\']+)["\']', inner)
+        desc_m = re.search(r"<p[^>]*>(.*?)</p>", inner, re.DOTALL)
+        a = make_article(source, title, f"https://elevenlabs.io{href}",
+                         date_m.group(1) if date_m else "",
+                         desc_m.group(1) if desc_m else "")
+        if a: articles.append(a)
+    return articles[:MAX_PER_SOURCE]
+
 def scrape_cohere(html, source):
     articles = []
     seen = set()
@@ -222,6 +274,10 @@ def fetch_source(src):
             articles = scrape_anthropic(html, src)
         elif src["id"] == "mistral":
             articles = scrape_mistral(html, src)
+        elif src["id"] == "xai":
+            articles = scrape_xai(html, src)
+        elif src["id"] == "elevenlabs":
+            articles = scrape_elevenlabs(html, src)
         elif src["id"] == "cohere":
             articles = scrape_cohere(html, src)
         else:
