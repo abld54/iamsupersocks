@@ -22,9 +22,9 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Fetch feeds & analyze with Gemini
+      - name: Fetch feeds & analyze with Grok
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
         run: python scripts/fetch-rss.py
 
       - name: Commit updated data

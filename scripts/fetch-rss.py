@@ -66,57 +66,59 @@ MAX_TOTAL = 400
 TIMEOUT = 15
 
 # ---------------------------------------------------------------------------
-# Gemini AI Analysis
+# Grok AI Analysis (style Watts Else — FR)
 # ---------------------------------------------------------------------------
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_MODEL   = "gemini-2.0-flash"
-GEMINI_URL     = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
-MAX_TO_ANALYZE = 50   # per run — free tier: 15 RPM / 1500 RPD on Flash
-GEMINI_DELAY   = 1.2  # seconds between calls
+GROK_API_KEY   = os.environ.get("GROK_API_KEY", "")
+GROK_MODEL     = "grok-3-mini"
+GROK_URL       = "https://api.x.ai/v1/chat/completions"
+MAX_TO_ANALYZE = 50   # per run
+GROK_DELAY     = 0.8  # seconds between calls
 
-ANALYSIS_PROMPT = """You are an AI analyst for a developer-oriented tech news feed (iamsupersocks.com).
-Analyze this AI industry article. Be sharp, specific, and critical. No filler phrases.
+ANALYSIS_PROMPT = """Tu es analyste IA pour un feed de veille tech (iamsupersocks.com).
+Analyse cet article sur l'industrie de l'IA. Sois précis, critique, sans remplissage.
 
-Title: {title}
-Source: {source}
-Category: {category}
-Excerpt: {excerpt}
+Titre : {title}
+Source : {source}
+Catégorie : {category}
+Extrait : {excerpt}
 
-Respond ONLY with valid JSON (no markdown fences):
+Réponds UNIQUEMENT avec du JSON valide (sans balises markdown) :
 {{
-  "signal": "The single most important takeaway in one punchy sentence. No filler.",
-  "summary": "2-3 sentences: what happened, what was announced, what changed.",
-  "context": "2-3 sentences: broader context, why this matters now, what landscape shift this belongs to.",
-  "critique": "2-3 sentences: what's notable, what's missing, what to watch, or what this signals about the industry direction. Be analytical, not descriptive.",
-  "themes": ["Theme1", "Theme2", "Theme3"]
+  "signal": "L'information clé en une phrase percutante. Pas de tournure générique.",
+  "summary": "2-3 phrases : ce qui s'est passé, ce qui a été annoncé, ce qui a changé.",
+  "context": "2-3 phrases : contexte plus large, pourquoi c'est important maintenant, dans quelle dynamique de marché ça s'inscrit.",
+  "critique": "2-3 phrases : ce qui est notable, ce qui manque, ce que ça révèle sur la direction de l'industrie. Analytique, pas descriptif.",
+  "themes": ["Thème1", "Thème2", "Thème3"]
 }}
 
-Rules:
-- Never start with 'This article', 'The article', or 'This post'
-- Be technical when relevant
-- critique should add value beyond the summary — challenge, contextualize, or flag blind spots"""
+Règles :
+- Ne jamais commencer par 'Cet article', 'Cette annonce', 'Ce post'
+- Technique quand c'est pertinent
+- La critique doit apporter de la valeur au-delà du résumé — challenger, contextualiser, signaler les angles morts"""
 
-def call_gemini(title, excerpt, source_name, category):
-    if not GEMINI_API_KEY:
+def call_grok(title, excerpt, source_name, category):
+    if not GROK_API_KEY:
         return None
     prompt = ANALYSIS_PROMPT.format(
         title=title[:300], excerpt=excerpt[:500],
         source=source_name, category=category
     )
     body = json.dumps({
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "responseMimeType": "application/json",
-            "maxOutputTokens": 400,
-            "temperature": 0.4,
-        },
+        "model": GROK_MODEL,
+        "messages": [{"role": "user", "content": prompt}],
+        "response_format": {"type": "json_object"},
+        "max_tokens": 500,
+        "temperature": 0.4,
     }).encode("utf-8")
-    url = f"{GEMINI_URL}?key={GEMINI_API_KEY}"
-    req = Request(url, data=body, headers={"Content-Type": "application/json"}, method="POST")
+    req = Request(GROK_URL, data=body, headers={
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {GROK_API_KEY}",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+    }, method="POST")
     try:
-        with urlopen(req, timeout=20) as r:
+        with urlopen(req, timeout=25) as r:
             resp = json.loads(r.read().decode("utf-8"))
-        text = resp["candidates"][0]["content"]["parts"][0]["text"]
+        text = resp["choices"][0]["message"]["content"]
         result = json.loads(text)
         if isinstance(result.get("signal"), str) and isinstance(result.get("summary"), str):
             return {
@@ -125,7 +127,7 @@ def call_gemini(title, excerpt, source_name, category):
                 "context": result.get("context", "")[:600],
                 "critique":result.get("critique","")[:600],
                 "themes":  [str(t)[:60] for t in result.get("themes", [])[:6]],
-                "model":   GEMINI_MODEL,
+                "model":   GROK_MODEL,
             }
     except HTTPError as e:
         print(f"HTTP {e.code}", end=" ")
@@ -400,7 +402,7 @@ def main():
             a["analysis"] = prev["analysis"]
         existing_map[a["id"]] = a
 
-    # ── Gemini AI analysis for new articles ──────────────────────────────────
+    # ── Grok AI analysis for new articles ────────────────────────────────────
     already_analyzed = {a["id"] for a in existing if a.get("analysis")}
     fresh_ids        = {a["id"] for a in fresh}
     need_analysis    = [
@@ -411,23 +413,26 @@ def main():
     need_analysis.sort(key=lambda x: x.get("date", ""), reverse=True)
     need_analysis = need_analysis[:MAX_TO_ANALYZE]
 
-    if not GEMINI_API_KEY:
-        print("\n[!] GEMINI_API_KEY not set — skipping AI analysis")
+    if not GROK_API_KEY:
+        print("\n[!] GROK_API_KEY not set — skipping AI analysis")
     elif need_analysis:
-        print(f"\n=== Gemini Analysis ({len(need_analysis)} new articles) ===")
+        print(f"\n=== Grok Analysis ({len(need_analysis)} new articles) ===")
         ok_count = 0
         for i, a in enumerate(need_analysis):
-            label = a["title"][:55] + ("…" if len(a["title"]) > 55 else "")
-            print(f"  [{i+1:02d}/{len(need_analysis)}] {label:<58}", end=" ", flush=True)
-            analysis = call_gemini(a["title"], a["excerpt"], a["source"]["name"], a["category"])
-            if analysis:
-                existing_map[a["id"]]["analysis"] = analysis
-                ok_count += 1
-                print("✓")
-            else:
-                print("SKIP")
+            try:
+                label = (a["title"][:55] + "...") if len(a["title"]) > 55 else a["title"]
+                print(f"  [{i+1:02d}/{len(need_analysis)}] {label:<58}", end=" ", flush=True)
+                analysis = call_grok(a["title"], a["excerpt"], a["source"]["name"], a["category"])
+                if analysis:
+                    existing_map[a["id"]]["analysis"] = analysis
+                    ok_count += 1
+                    print("OK")
+                else:
+                    print("SKIP")
+            except Exception as loop_err:
+                print(f"LOOP_ERR({str(loop_err)[:40]})")
             if i < len(need_analysis) - 1:
-                time.sleep(GEMINI_DELAY)
+                time.sleep(GROK_DELAY)
         print(f"  => {ok_count}/{len(need_analysis)} analyzed")
     else:
         print("\n[✓] No new articles to analyze")

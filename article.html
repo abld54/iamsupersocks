@@ -545,10 +545,10 @@ function fallbackSignal(title, excerpt) {
   // ── BOTTOM NOTE ───────────────────────────────────────────────────────────
   if (ai && ai.model) {
     document.getElementById('bottom-note').textContent =
-      '// Analysis by ' + ai.model;
+      '// Analyse par ' + ai.model + ' — vérifier avant de partager';
   } else {
     document.getElementById('bottom-note').textContent =
-      '// AI analysis pending — next run in < 6h';
+      '// Analyse IA en cours — prochain run < 6h';
   }
 
   // ── SHOW ──────────────────────────────────────────────────────────────────
