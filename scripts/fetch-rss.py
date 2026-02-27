@@ -6,6 +6,11 @@ keeps a rolling 30-day window. Outputs veille-data.json.
 """
 
 import json, os, re, sys, time
+# Force UTF-8 output on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from html import unescape
