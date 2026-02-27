@@ -10,7 +10,8 @@ from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from html import unescape
 from urllib.request import urlopen, Request
-from urllib.error import URLError
+from urllib.error import URLError, HTTPError
+from urllib.parse import urlencode
 from html.parser import HTMLParser
 
 # ---------------------------------------------------------------------------
@@ -58,6 +59,69 @@ MAX_PER_SOURCE = 20
 ROLLING_DAYS = 30
 MAX_TOTAL = 400
 TIMEOUT = 15
+
+# ---------------------------------------------------------------------------
+# Gemini AI Analysis
+# ---------------------------------------------------------------------------
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_MODEL   = "gemini-2.0-flash"
+GEMINI_URL     = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
+MAX_TO_ANALYZE = 50   # per run — free tier: 15 RPM / 1500 RPD on Flash
+GEMINI_DELAY   = 1.2  # seconds between calls
+
+ANALYSIS_PROMPT = """You are a concise AI analyst for a developer-oriented tech news feed (iamsupersocks.com/veille).
+Analyze this AI industry article in English.
+
+Title: {title}
+Source: {source}
+Category: {category}
+Excerpt: {excerpt}
+
+Respond ONLY with valid JSON (no markdown fences):
+{{
+  "context": "2-3 sentences explaining what this is about and why it matters in the current AI landscape",
+  "signals": [
+    "Key takeaway or implication #1",
+    "Key takeaway or implication #2",
+    "Key takeaway or implication #3"
+  ]
+}}
+
+Be specific, technical when relevant, and critical. Avoid filler phrases like 'This article discusses...'."""
+
+def call_gemini(title, excerpt, source_name, category):
+    if not GEMINI_API_KEY:
+        return None
+    prompt = ANALYSIS_PROMPT.format(
+        title=title[:300], excerpt=excerpt[:500],
+        source=source_name, category=category
+    )
+    body = json.dumps({
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "responseMimeType": "application/json",
+            "maxOutputTokens": 400,
+            "temperature": 0.4,
+        },
+    }).encode("utf-8")
+    url = f"{GEMINI_URL}?key={GEMINI_API_KEY}"
+    req = Request(url, data=body, headers={"Content-Type": "application/json"}, method="POST")
+    try:
+        with urlopen(req, timeout=20) as r:
+            resp = json.loads(r.read().decode("utf-8"))
+        text = resp["candidates"][0]["content"]["parts"][0]["text"]
+        result = json.loads(text)
+        if isinstance(result.get("context"), str) and isinstance(result.get("signals"), list):
+            return {
+                "context": result["context"][:600],
+                "signals": [str(s)[:300] for s in result["signals"][:4]],
+                "model": GEMINI_MODEL,
+            }
+    except HTTPError as e:
+        print(f"HTTP {e.code}", end=" ")
+    except Exception as e:
+        print(f"ERR({str(e)[:40]})", end=" ")
+    return None
 
 # ---------------------------------------------------------------------------
 # Utils
@@ -319,9 +383,44 @@ def main():
     # Index existing by id
     existing_map = {a["id"]: a for a in existing if a.get("date", "") >= cutoff or not a.get("date")}
 
-    # Override with fresh data
+    # Override with fresh data (preserve analysis if already present)
     for a in fresh:
+        prev = existing_map.get(a["id"])
+        if prev and prev.get("analysis"):
+            a["analysis"] = prev["analysis"]
         existing_map[a["id"]] = a
+
+    # ── Gemini AI analysis for new articles ──────────────────────────────────
+    already_analyzed = {a["id"] for a in existing if a.get("analysis")}
+    fresh_ids        = {a["id"] for a in fresh}
+    need_analysis    = [
+        existing_map[aid] for aid in (fresh_ids - already_analyzed)
+        if aid in existing_map and existing_map[aid].get("excerpt")
+    ]
+    # Prioritize recent articles
+    need_analysis.sort(key=lambda x: x.get("date", ""), reverse=True)
+    need_analysis = need_analysis[:MAX_TO_ANALYZE]
+
+    if not GEMINI_API_KEY:
+        print("\n[!] GEMINI_API_KEY not set — skipping AI analysis")
+    elif need_analysis:
+        print(f"\n=== Gemini Analysis ({len(need_analysis)} new articles) ===")
+        ok_count = 0
+        for i, a in enumerate(need_analysis):
+            label = a["title"][:55] + ("…" if len(a["title"]) > 55 else "")
+            print(f"  [{i+1:02d}/{len(need_analysis)}] {label:<58}", end=" ", flush=True)
+            analysis = call_gemini(a["title"], a["excerpt"], a["source"]["name"], a["category"])
+            if analysis:
+                existing_map[a["id"]]["analysis"] = analysis
+                ok_count += 1
+                print("✓")
+            else:
+                print("SKIP")
+            if i < len(need_analysis) - 1:
+                time.sleep(GEMINI_DELAY)
+        print(f"  => {ok_count}/{len(need_analysis)} analyzed")
+    else:
+        print("\n[✓] No new articles to analyze")
 
     merged = list(existing_map.values())
 
