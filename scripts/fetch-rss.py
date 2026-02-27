@@ -1,0 +1,284 @@
+#!/usr/bin/env python3
+"""
+AI Signal — Feed Fetcher
+Fetches from 12 sources (RSS + HTML scrape), merges with existing data,
+keeps a rolling 30-day window. Outputs veille-data.json.
+"""
+
+import json, os, re, sys, time
+from datetime import datetime, timezone, timedelta
+from email.utils import parsedate_to_datetime
+from urllib.request import urlopen, Request
+from urllib.error import URLError
+from html.parser import HTMLParser
+
+# ---------------------------------------------------------------------------
+# Sources
+# ---------------------------------------------------------------------------
+SOURCES = [
+    {"id": "anthropic",  "name": "Anthropic",      "color": "#b87333", "type": "scrape", "url": "https://www.anthropic.com/news"},
+    {"id": "openai",     "name": "OpenAI",          "color": "#10b981", "type": "rss",    "url": "https://openai.com/blog/rss.xml"},
+    {"id": "google",     "name": "Google AI",       "color": "#4285f4", "type": "rss",    "url": "https://blog.google/technology/ai/rss/"},
+    {"id": "deepmind",   "name": "DeepMind",        "color": "#5c9bff", "type": "rss",    "url": "https://blog.research.google/atom.xml"},
+    {"id": "huggingface","name": "HuggingFace",     "color": "#ff9500", "type": "rss",    "url": "https://huggingface.co/blog/feed.xml"},
+    {"id": "mistral",    "name": "Mistral",         "color": "#f59e0b", "type": "scrape", "url": "https://mistral.ai/fr/news"},
+    {"id": "meta",       "name": "Meta AI",         "color": "#0064e0", "type": "rss",    "url": "https://engineering.fb.com/category/ml-applications/feed/"},
+    {"id": "nvidia",     "name": "NVIDIA",          "color": "#76b900", "type": "rss",    "url": "https://blogs.nvidia.com/blog/category/deep-learning/feed/"},
+    {"id": "microsoft",  "name": "Microsoft AI",    "color": "#00a4ef", "type": "rss",    "url": "https://blogs.microsoft.com/ai/feed/"},
+    {"id": "aws",        "name": "AWS ML",          "color": "#ff9900", "type": "rss",    "url": "https://aws.amazon.com/blogs/machine-learning/feed/"},
+    {"id": "gradient",   "name": "The Gradient",    "color": "#a855f7", "type": "rss",    "url": "https://thegradient.pub/rss/"},
+    {"id": "cohere",     "name": "Cohere",          "color": "#39d353", "type": "scrape", "url": "https://cohere.com/blog"},
+]
+
+# Category detection keywords
+CATEGORIES = {
+    "model":    ["model", "gpt", "claude", "gemini", "llm", "release", "launch", "version", "update", "benchmark", "mistral", "llama", "phi", "qwen", "weights", "open source"],
+    "research": ["paper", "research", "study", "findings", "dataset", "training", "architecture", "attention", "transformer", "experiment", "arxiv", "preprint", "evaluation"],
+    "safety":   ["safety", "alignment", "constitutional", "responsible", "risk", "bias", "red team", "policy", "harm", "trust", "interpretability", "fairness"],
+    "product":  ["api", "product", "pricing", "enterprise", "partnership", "integration", "deploy", "platform", "cloud", "service", "app", "tool", "plugin", "feature"],
+}
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+    "Accept": "application/xml,text/xml,application/rss+xml,application/atom+xml,text/html,*/*;q=0.9",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+
+MAX_PER_SOURCE = 20
+ROLLING_DAYS = 30
+MAX_TOTAL = 400
+TIMEOUT = 15
+
+# ---------------------------------------------------------------------------
+# Utils
+# ---------------------------------------------------------------------------
+def fetch_url(url, timeout=TIMEOUT):
+    req = Request(url, headers=HEADERS)
+    with urlopen(req, timeout=timeout) as r:
+        charset = "utf-8"
+        ct = r.headers.get("Content-Type", "")
+        m = re.search(r"charset=([^\s;]+)", ct)
+        if m:
+            charset = m.group(1)
+        return r.read().decode(charset, errors="replace")
+
+def strip_tags(html):
+    class S(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.parts = []
+        def handle_data(self, d):
+            self.parts.append(d)
+        def get(self):
+            return re.sub(r"\s+", " ", " ".join(self.parts)).strip()
+    s = S(); s.feed(str(html)); return s.get()
+
+def parse_date_str(raw):
+    if not raw: return ""
+    raw = raw.strip()
+    for fmt in ("%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%dT%H:%M:%S",
+                "%Y-%m-%d %H:%M:%S", "%Y-%m-%d"):
+        try:
+            s = raw[:len(fmt.replace("%z",""))]
+            dt = datetime.strptime(raw, fmt) if "%z" in fmt else datetime.strptime(raw, fmt).replace(tzinfo=timezone.utc)
+            return dt.astimezone(timezone.utc).isoformat()
+        except: pass
+    try:
+        dt = parsedate_to_datetime(raw)
+        return dt.astimezone(timezone.utc).isoformat()
+    except: pass
+    return ""
+
+def detect_category(title, excerpt):
+    text = (title + " " + excerpt).lower()
+    for cat, kws in CATEGORIES.items():
+        if any(kw in text for kw in kws):
+            return cat
+    return "other"
+
+def make_article(source, title, link, date_str, excerpt):
+    title = strip_tags(title).strip()[:250]
+    excerpt = strip_tags(excerpt).strip()[:350]
+    link = link.strip()
+    if not title or not link: return None
+    return {
+        "id": link,
+        "title": title,
+        "excerpt": excerpt,
+        "link": link,
+        "date": parse_date_str(date_str),
+        "category": detect_category(title, excerpt),
+        "source": {"id": source["id"], "name": source["name"], "color": source["color"]},
+    }
+
+# ---------------------------------------------------------------------------
+# RSS/Atom parser
+# ---------------------------------------------------------------------------
+def parse_feed(xml, source):
+    articles = []
+    is_atom = bool(re.search(r"<feed[\s>]", xml[:1000]))
+
+    if is_atom:
+        for m in re.finditer(r"<entry[^>]*>(.*?)</entry>", xml, re.DOTALL):
+            e = m.group(1)
+            title = re.search(r"<title[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", e, re.DOTALL)
+            link  = re.search(r'<link[^>]+href=["\']([^"\']+)["\']', e) or re.search(r"<link[^>]*>([^<]+)</link>", e, re.DOTALL)
+            date  = re.search(r"<published>(.*?)</published>", e, re.DOTALL) or re.search(r"<updated>(.*?)</updated>", e, re.DOTALL)
+            desc  = re.search(r"<summary[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</summary>", e, re.DOTALL) or re.search(r"<content[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</content>", e, re.DOTALL)
+            a = make_article(source,
+                title.group(1) if title else "",
+                link.group(1) if link else "",
+                date.group(1) if date else "",
+                desc.group(1) if desc else "")
+            if a: articles.append(a)
+    else:
+        for m in re.finditer(r"<item[^>]*>(.*?)</item>", xml, re.DOTALL):
+            it = m.group(1)
+            title = re.search(r"<title[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", it, re.DOTALL)
+            link  = re.search(r"<link[^>]*>([^<]+)</link>", it, re.DOTALL)
+            date  = re.search(r"<pubDate[^>]*>(.*?)</pubDate>", it, re.DOTALL)
+            desc  = re.search(r"<description[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</description>", it, re.DOTALL)
+            a = make_article(source,
+                title.group(1) if title else "",
+                (link.group(1) if link else "").strip(),
+                date.group(1) if date else "",
+                desc.group(1) if desc else "")
+            if a: articles.append(a)
+
+    return articles[:MAX_PER_SOURCE]
+
+# ---------------------------------------------------------------------------
+# HTML scrapers
+# ---------------------------------------------------------------------------
+def scrape_anthropic(html, source):
+    articles = []
+    seen = set()
+    # Pattern: <a href="/news/SLUG">...<div>title</div>...</a>
+    for href, inner in re.findall(r'href=["\'](/news/[a-z0-9\-]+)["\'][^>]*>(.*?)</a>', html, re.DOTALL):
+        if href in seen or href == "/news": continue
+        seen.add(href)
+        # title from h1/h2/h3/strong or first decent text node
+        t = re.search(r"<h[1-4][^>]*>(.*?)</h[1-4]>", inner, re.DOTALL)
+        title = strip_tags(t.group(1)) if t else ""
+        if not title:
+            # fallback: grab longest text span
+            texts = [strip_tags(x) for x in re.findall(r">([^<]{20,})<", inner)]
+            title = max(texts, key=len) if texts else ""
+        if len(title) < 8: continue
+        date_m = re.search(r'datetime=["\']([^"\']+)["\']', inner)
+        desc_m = re.search(r"<p[^>]*>(.*?)</p>", inner, re.DOTALL)
+        a = make_article(source, title, f"https://www.anthropic.com{href}",
+                         date_m.group(1) if date_m else "",
+                         desc_m.group(1) if desc_m else "")
+        if a: articles.append(a)
+    return articles[:MAX_PER_SOURCE]
+
+def scrape_mistral(html, source):
+    articles = []
+    seen = set()
+    for href, inner in re.findall(r'href=["\']((?:https://mistral\.ai)?/(?:fr/)?news/[^"\'?#]+)["\'][^>]*>(.*?)</a>', html, re.DOTALL):
+        if href in seen: continue
+        seen.add(href)
+        t = re.search(r"<h[1-4][^>]*>(.*?)</h[1-4]>", inner, re.DOTALL)
+        title = strip_tags(t.group(1)) if t else ""
+        if len(title) < 8: continue
+        full_url = href if href.startswith("http") else f"https://mistral.ai{href}"
+        date_m = re.search(r'datetime=["\']([^"\']+)["\']', inner)
+        desc_m = re.search(r"<p[^>]*>(.*?)</p>", inner, re.DOTALL)
+        a = make_article(source, title, full_url,
+                         date_m.group(1) if date_m else "",
+                         desc_m.group(1) if desc_m else "")
+        if a: articles.append(a)
+    return articles[:MAX_PER_SOURCE]
+
+def scrape_cohere(html, source):
+    articles = []
+    seen = set()
+    for href, inner in re.findall(r'href=["\']((?:https://cohere\.com)?/blog/[^"\'?#]+)["\'][^>]*>(.*?)</a>', html, re.DOTALL):
+        if href in seen: continue
+        seen.add(href)
+        t = re.search(r"<h[1-4][^>]*>(.*?)</h[1-4]>", inner, re.DOTALL)
+        title = strip_tags(t.group(1)) if t else ""
+        if len(title) < 8: continue
+        full_url = href if href.startswith("http") else f"https://cohere.com{href}"
+        date_m = re.search(r'datetime=["\']([^"\']+)["\']', inner)
+        desc_m = re.search(r"<p[^>]*>(.*?)</p>", inner, re.DOTALL)
+        a = make_article(source, title, full_url,
+                         date_m.group(1) if date_m else "",
+                         desc_m.group(1) if desc_m else "")
+        if a: articles.append(a)
+    return articles[:MAX_PER_SOURCE]
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+def fetch_source(src):
+    print(f"  [{src['id']:12s}] ", end="", flush=True)
+    try:
+        html = fetch_url(src["url"])
+        if src["type"] == "rss":
+            articles = parse_feed(html, src)
+        elif src["id"] == "anthropic":
+            articles = scrape_anthropic(html, src)
+        elif src["id"] == "mistral":
+            articles = scrape_mistral(html, src)
+        elif src["id"] == "cohere":
+            articles = scrape_cohere(html, src)
+        else:
+            articles = []
+        print(f"OK  {len(articles)} articles")
+        return articles
+    except Exception as e:
+        print(f"FAIL  {str(e)[:60]}")
+        return []
+
+def load_existing(path):
+    if not os.path.exists(path): return []
+    with open(path, encoding="utf-8") as f:
+        d = json.load(f)
+    return d.get("articles", [])
+
+def main():
+    out_path = os.path.join(os.path.dirname(__file__), "..", "veille-data.json")
+    print("=== AI Signal Feed Fetcher ===\n")
+
+    # Fetch all sources
+    fresh = []
+    for src in SOURCES:
+        fresh.extend(fetch_source(src))
+
+    # Merge with existing (rolling window)
+    existing = load_existing(out_path)
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=ROLLING_DAYS)).isoformat()
+
+    # Index existing by id
+    existing_map = {a["id"]: a for a in existing if a.get("date", "") >= cutoff or not a.get("date")}
+
+    # Override with fresh data
+    for a in fresh:
+        existing_map[a["id"]] = a
+
+    merged = list(existing_map.values())
+
+    # Sort by date descending
+    def sort_key(a):
+        return a.get("date") or "0000"
+    merged.sort(key=sort_key, reverse=True)
+
+    # Cap total
+    merged = merged[:MAX_TOTAL]
+
+    output = {
+        "generated": datetime.now(timezone.utc).isoformat(),
+        "count": len(merged),
+        "sources": len(set(a["source"]["id"] for a in merged)),
+        "articles": merged,
+    }
+
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+
+    print(f"\n=> {len(merged)} articles total | {output['sources']} sources | saved to veille-data.json")
+
+if __name__ == "__main__":
+    main()
