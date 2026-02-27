@@ -385,6 +385,8 @@
             /* Nav */
             #mainNav { padding: 12px 16px; }
             .nav-logo { font-size: 1.1rem; letter-spacing: 2px; }
+            .nav-links { display: none !important; }
+            .nav-hamburger { display: flex !important; }
 
             /* Hero */
             .hero { padding: 60px 0 50px; }
@@ -413,6 +415,10 @@
             .story-icon { font-size: 2rem; justify-content: flex-start; }
             .story-content h3 { font-size: 1.1rem; }
             .story-content p { font-size: 0.9rem; }
+
+            /* Section spacing */
+            section { padding-top: 60px; }
+            .hero { padding-top: 60px; }
 
             /* Projects */
             .projects-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -463,10 +469,10 @@
             <a href="#" class="nav-logo">SUPER<span>SOCKS</span></a>
         </div>
         <div class="mobile-panel-links" style="display:flex; flex-direction:column; gap:30px;">
-            <a href="#artifacts" onclick="closeMobileMenu()" class="magic-font">Artifacts</a>
-            <a href="#archives" onclick="closeMobileMenu()" class="magic-font">Archives</a>
-            <a href="veille.html" class="magic-font" style="color:var(--primary);">AI Signal</a>
-            <a href="#connect" onclick="closeMobileMenu()" class="magic-font">Summon</a>
+            <a href="#artifacts" onclick="closeMobileMenu()" class="magic-font" style="color:var(--text); text-decoration:none; transition:color 0.3s;" onmouseenter="this.style.color='var(--secondary)'" onmouseleave="this.style.color='var(--text)'">Artifacts</a>
+            <a href="#archives" onclick="closeMobileMenu()" class="magic-font" style="color:var(--text); text-decoration:none; transition:color 0.3s;" onmouseenter="this.style.color='var(--secondary)'" onmouseleave="this.style.color='var(--text)'">Archives</a>
+            <a href="veille.html" class="magic-font" style="color:var(--primary); text-decoration:none;">AI Signal</a>
+            <a href="#connect" onclick="closeMobileMenu()" class="magic-font" style="color:var(--text); text-decoration:none; transition:color 0.3s; border:1px solid var(--primary); padding:12px 20px; text-align:center;" onmouseenter="this.style.background='var(--primary)';this.style.color='#000'" onmouseleave="this.style.background='transparent';this.style.color='var(--text)'">Summon</a>
         </div>
     </div>
 
