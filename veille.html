@@ -302,6 +302,127 @@ body::before {
 }
 #stb:hover { background:var(--cyan); color:#000; }
 
+/* ─── HERO ─── */
+#hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 24px;
+  background: var(--bg);
+  border-bottom: 2px solid var(--border2);
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content:'';
+  position:absolute; inset:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,220,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,220,255,0.04) 1px, transparent 1px);
+  background-size:48px 48px;
+}
+#hero::after {
+  content:'';
+  position:absolute;
+  top:-200px; right:-200px;
+  width:600px; height:600px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(0,220,255,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+  width: 100%;
+}
+.hero-tag {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--cyan);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 10px;
+  opacity: 0.8;
+}
+.hero-tag::before { content:'//'; opacity:0.5; }
+.hero-tag-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--green); box-shadow:0 0 6px var(--green);
+  animation:blink 1.5s ease-in-out infinite;
+  flex-shrink:0;
+}
+.hero-h1 {
+  font-family: var(--mono);
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 28px;
+  letter-spacing: -3px;
+}
+.hero-h1 em {
+  font-style: normal;
+  color: var(--cyan);
+  text-shadow: 0 0 30px rgba(0,220,255,0.4);
+}
+.hero-desc {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--text2);
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 40px;
+  border-left: 2px solid var(--border2);
+  padding-left: 20px;
+}
+.hero-sources {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.hero-src {
+  font-family: var(--mono);
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 12px;
+  border: 1px solid;
+  white-space: nowrap;
+  clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+}
+.hero-actions {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 0.75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  padding: 14px 28px;
+  background: var(--cyan); color: #000;
+  text-decoration: none;
+  transition: all 0.2s;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.hero-cta:hover { background: #fff; transform: translateX(4px); }
+.hero-cta-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--text2); text-decoration: none;
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.hero-cta-ghost:hover { color: var(--cyan); }
+.hero-meta {
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--text3);
+  letter-spacing: 1px;
+}
+.hero-meta strong { color: var(--text2); }
+
 /* ─── RESPONSIVE ─── */
 @media(max-width:1100px) { #grid { grid-template-columns:repeat(2,1fr); } }
 @media(max-width:720px) {
@@ -309,6 +430,10 @@ body::before {
   #main { padding:16px; }
   .bar-right .bar-stat:not(:first-child) { display:none; }
   #statsstrip { gap:20px; }
+  #hero { min-height:auto; padding:60px 20px; }
+  .hero-h1 { font-size:2.4rem; letter-spacing:-2px; }
+  .hero-desc { font-size:0.9rem; }
+  .hero-cta { padding:12px 20px; }
 }
 </style>
 </head>
@@ -328,6 +453,44 @@ body::before {
     <span class="bar-stat">UPDATED <strong id="b-age">—</strong></span>
   </div>
 </nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <span class="hero-tag-dot"></span>
+      AI_SIGNAL.EXE — Intelligence Briefing
+    </div>
+    <h1 class="hero-h1">Lab announcements.<br><em>No noise.</em></h1>
+    <p class="hero-desc">
+      Every major AI lab publishes research, models, and product updates daily.
+      Most of it drowns in newsletters, Twitter threads, and marketing spin.
+      AI Signal cuts through — direct RSS &amp; blog feeds, updated every 6 hours,
+      no editorial filter, no commentary.
+    </p>
+    <div class="hero-sources">
+      <span class="hero-src" style="color:#d4a27a;border-color:rgba(212,162,122,0.3)">Anthropic</span>
+      <span class="hero-src" style="color:#10a37f;border-color:rgba(16,163,127,0.3)">OpenAI</span>
+      <span class="hero-src" style="color:#4285f4;border-color:rgba(66,133,244,0.3)">Google AI</span>
+      <span class="hero-src" style="color:#00bcd4;border-color:rgba(0,188,212,0.3)">DeepMind</span>
+      <span class="hero-src" style="color:#f59e0b;border-color:rgba(245,158,11,0.3)">HuggingFace</span>
+      <span class="hero-src" style="color:#ff6b35;border-color:rgba(255,107,53,0.3)">Mistral</span>
+      <span class="hero-src" style="color:#0082fb;border-color:rgba(0,130,251,0.3)">Meta AI</span>
+      <span class="hero-src" style="color:#76b900;border-color:rgba(118,185,0,0.3)">Nvidia</span>
+      <span class="hero-src" style="color:#00a4ef;border-color:rgba(0,164,239,0.3)">Microsoft</span>
+      <span class="hero-src" style="color:#a855f7;border-color:rgba(168,85,247,0.3)">+ more</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#statsstrip" class="hero-cta">Enter the feed →</a>
+      <a href="index.html" class="hero-cta-ghost">← Back to supersocks</a>
+    </div>
+    <div class="hero-meta">
+      // Auto-updated every 6h via GitHub Actions ·
+      <strong id="hero-count">—</strong> articles indexed ·
+      <strong id="hero-src-count">—</strong> active sources
+    </div>
+  </div>
+</section>
 
 <!-- STATS STRIP -->
 <div id="statsstrip">
@@ -509,6 +672,8 @@ function updateStats(data) {
   document.getElementById('s-model').textContent = cats.model;
   document.getElementById('s-research').textContent = cats.research;
   document.getElementById('s-product').textContent = cats.product;
+  document.getElementById('hero-count').textContent = count;
+  document.getElementById('hero-src-count').textContent = sources;
   document.getElementById('s-updated').textContent = age;
 }
 
