@@ -143,6 +143,33 @@
         }
         .nav-links a:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
         
+        /* AI Signal nav item */
+        .nav-signal {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 7px;
+            color: #00dcff !important;
+            border: 1px solid rgba(0,220,255,0.35) !important;
+            padding: 6px 16px !important;
+            letter-spacing: 2px;
+            font-size: 0.72rem !important;
+            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s !important;
+        }
+        .nav-signal:hover {
+            background: rgba(0,220,255,0.08) !important;
+            border-color: #00dcff !important;
+            box-shadow: 0 0 20px rgba(0,220,255,0.25);
+            color: #00dcff !important;
+            text-shadow: none !important;
+        }
+        .nav-signal .w1 { animation: sigwave 2s ease-in-out infinite 0s; }
+        .nav-signal .w2 { animation: sigwave 2s ease-in-out infinite 0.35s; }
+        .nav-signal .w3 { animation: sigwave 2s ease-in-out infinite 0.7s; }
+        @keyframes sigwave {
+            0%,100% { opacity:1; }
+            50%      { opacity:0.1; }
+        }
+
         .nav-cta {
             border: 1px solid var(--primary) !important;
             padding: 8px 24px !important;
@@ -580,7 +607,17 @@
         <ul class="nav-links">
             <li><a href="#artifacts">Artifacts</a></li>
             <li><a href="#archives">Archives</a></li>
-            <li><a href="veille.html">AI Signal</a></li>
+            <li>
+                <a href="veille.html" class="nav-signal">
+                    <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="7" cy="11" r="1.6" fill="#00dcff"/>
+                        <path class="w1" d="M4.2 8.2a4 4 0 0 1 5.6 0" stroke="#00dcff" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+                        <path class="w2" d="M1.8 5.8a7.5 7.5 0 0 1 10.4 0" stroke="#00dcff" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                        <path class="w3" d="M0 3.5a10.5 10.5 0 0 1 14 0" stroke="#00dcff" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                    </svg>
+                    AI SIGNAL
+                </a>
+            </li>
             <li><a href="#connect" class="nav-cta">Summon Me</a></li>
         </ul>
         <button class="nav-hamburger" onclick="openMobileMenu()" aria-label="Menu" style="background:none; border:none; color:var(--primary); font-size:1.5rem; display:none;">
@@ -597,7 +634,15 @@
         <div class="mobile-panel-links" style="display:flex; flex-direction:column; gap:30px;">
             <a href="#artifacts" onclick="closeMobileMenu()" class="magic-font" style="color:var(--text); text-decoration:none; transition:color 0.3s;" onmouseenter="this.style.color='var(--secondary)'" onmouseleave="this.style.color='var(--text)'">Artifacts</a>
             <a href="#archives" onclick="closeMobileMenu()" class="magic-font" style="color:var(--text); text-decoration:none; transition:color 0.3s;" onmouseenter="this.style.color='var(--secondary)'" onmouseleave="this.style.color='var(--text)'">Archives</a>
-            <a href="veille.html" class="magic-font" style="color:var(--primary); text-decoration:none;">AI Signal</a>
+            <a href="veille.html" class="nav-signal magic-font" style="text-decoration:none; justify-content:center;">
+                <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="7" cy="11" r="1.6" fill="#00dcff"/>
+                    <path class="w1" d="M4.2 8.2a4 4 0 0 1 5.6 0" stroke="#00dcff" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+                    <path class="w2" d="M1.8 5.8a7.5 7.5 0 0 1 10.4 0" stroke="#00dcff" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                    <path class="w3" d="M0 3.5a10.5 10.5 0 0 1 14 0" stroke="#00dcff" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                </svg>
+                AI SIGNAL
+            </a>
             <a href="#connect" onclick="closeMobileMenu()" class="magic-font" style="color:var(--text); text-decoration:none; transition:color 0.3s; border:1px solid var(--primary); padding:12px 20px; text-align:center;" onmouseenter="this.style.background='var(--primary)';this.style.color='#000'" onmouseleave="this.style.background='transparent';this.style.color='var(--text)'">Summon</a>
         </div>
     </div>
