@@ -32,6 +32,14 @@ SOURCES = [
     {"id": "meta",        "name": "Meta AI",          "color": "#0064e0", "type": "rss",    "url": "https://engineering.fb.com/category/ml-applications/feed/"},
     {"id": "xai",         "name": "xAI",              "color": "#e5e5e5", "type": "scrape", "url": "https://x.ai/news"},
     {"id": "mistral",     "name": "Mistral",          "color": "#ff7043", "type": "scrape", "url": "https://mistral.ai/fr/news"},
+    # ── Tier 1b: Rising Labs ──
+    {"id": "perplexity",  "name": "Perplexity AI",    "color": "#20c997", "type": "rss",    "url": "https://blog.perplexity.ai/feed"},
+    {"id": "groq",        "name": "Groq",             "color": "#f97316", "type": "scrape", "url": "https://groq.com/blog/"},
+    {"id": "together",    "name": "Together AI",      "color": "#8b5cf6", "type": "scrape", "url": "https://www.together.ai/blog"},
+    {"id": "runway",      "name": "Runway",           "color": "#ec4899", "type": "scrape", "url": "https://runwayml.com/research"},
+    {"id": "stability",   "name": "Stability AI",     "color": "#ff6b9d", "type": "scrape", "url": "https://stability.ai/news"},
+    {"id": "character",   "name": "Character AI",     "color": "#7c3aed", "type": "scrape", "url": "https://blog.character.ai"},
+    {"id": "scale",       "name": "Scale AI",         "color": "#14b8a6", "type": "scrape", "url": "https://scale.com/blog"},
     # ── Tier 2: Models & Infra ──
     {"id": "huggingface", "name": "HuggingFace",      "color": "#ff9500", "type": "rss",    "url": "https://huggingface.co/blog/feed.xml"},
     {"id": "nvidia",      "name": "NVIDIA",           "color": "#76b900", "type": "rss",    "url": "https://blogs.nvidia.com/blog/category/deep-learning/feed/"},
@@ -45,14 +53,21 @@ SOURCES = [
     {"id": "cohere",      "name": "Cohere",           "color": "#39d353", "type": "scrape", "url": "https://cohere.com/blog"},
     {"id": "gradient",    "name": "The Gradient",     "color": "#a855f7", "type": "rss",    "url": "https://thegradient.pub/rss/"},
     # ── Tier 4: Twitter/X Signals (via Nitter RSS) ──
-    {"id": "tw_karpathy", "name": "Karpathy",       "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/karpathy/rss"},
-    {"id": "tw_lecun",    "name": "Yann LeCun",     "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/ylecun/rss"},
-    {"id": "tw_altman",   "name": "Sam Altman",     "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/sama/rss"},
-    {"id": "tw_openai",   "name": "OpenAI (X)",     "color": "#10b981", "type": "twitter", "url": "https://nitter.net/OpenAI/rss"},
-    {"id": "tw_anthropic","name": "Anthropic (X)",  "color": "#d4a27a", "type": "twitter", "url": "https://nitter.net/AnthropicAI/rss"},
-    {"id": "tw_deepmind", "name": "DeepMind (X)",   "color": "#5c9bff", "type": "twitter", "url": "https://nitter.net/GoogleDeepMind/rss"},
-    {"id": "tw_mistral",  "name": "Mistral (X)",    "color": "#ff7043", "type": "twitter", "url": "https://nitter.net/MistralAI/rss"},
-    {"id": "tw_demis",    "name": "Demis Hassabis", "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/demishassabis/rss"},
+    {"id": "tw_karpathy",  "name": "Karpathy",        "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/karpathy/rss"},
+    {"id": "tw_lecun",     "name": "Yann LeCun",      "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/ylecun/rss"},
+    {"id": "tw_altman",    "name": "Sam Altman",      "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/sama/rss"},
+    {"id": "tw_openai",    "name": "OpenAI (X)",      "color": "#10b981", "type": "twitter", "url": "https://nitter.net/OpenAI/rss"},
+    {"id": "tw_anthropic", "name": "Anthropic (X)",   "color": "#d4a27a", "type": "twitter", "url": "https://nitter.net/AnthropicAI/rss"},
+    {"id": "tw_deepmind",  "name": "DeepMind (X)",    "color": "#5c9bff", "type": "twitter", "url": "https://nitter.net/GoogleDeepMind/rss"},
+    {"id": "tw_mistral",   "name": "Mistral (X)",     "color": "#ff7043", "type": "twitter", "url": "https://nitter.net/MistralAI/rss"},
+    {"id": "tw_demis",     "name": "Demis Hassabis",  "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/demishassabis/rss"},
+    {"id": "tw_emollick",  "name": "Ethan Mollick",   "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/emollick/rss"},
+    {"id": "tw_marcus",    "name": "Gary Marcus",     "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/GaryMarcus/rss"},
+    {"id": "tw_perplexity","name": "Perplexity (X)",  "color": "#20c997", "type": "twitter", "url": "https://nitter.net/perplexity_ai/rss"},
+    {"id": "tw_groq",      "name": "Groq (X)",        "color": "#f97316", "type": "twitter", "url": "https://nitter.net/GroqInc/rss"},
+    {"id": "tw_stability", "name": "Stability (X)",   "color": "#ff6b9d", "type": "twitter", "url": "https://nitter.net/StabilityAI/rss"},
+    {"id": "tw_runway",    "name": "Runway (X)",      "color": "#ec4899", "type": "twitter", "url": "https://nitter.net/runwayai/rss"},
+    {"id": "tw_charai",    "name": "Character AI (X)","color": "#7c3aed", "type": "twitter", "url": "https://nitter.net/character_ai/rss"},
 ]
 
 # Category detection keywords
@@ -151,15 +166,26 @@ def call_grok(title, excerpt, source_name, category):
 # ---------------------------------------------------------------------------
 # Utils
 # ---------------------------------------------------------------------------
-def fetch_url(url, timeout=TIMEOUT):
+def fetch_url(url, timeout=TIMEOUT, _redirects=0):
+    """Fetch URL, manually following 307/308 redirects (urllib misses these)."""
     req = Request(url, headers=HEADERS)
-    with urlopen(req, timeout=timeout) as r:
-        charset = "utf-8"
-        ct = r.headers.get("Content-Type", "")
-        m = re.search(r"charset=([^\s;]+)", ct)
-        if m:
-            charset = m.group(1)
-        return r.read().decode(charset, errors="replace")
+    try:
+        with urlopen(req, timeout=timeout) as r:
+            charset = "utf-8"
+            ct = r.headers.get("Content-Type", "")
+            m = re.search(r"charset=([^\s;]+)", ct)
+            if m:
+                charset = m.group(1)
+            return r.read().decode(charset, errors="replace")
+    except HTTPError as e:
+        if e.code in (301, 302, 307, 308) and _redirects < 5:
+            loc = e.headers.get("Location", "")
+            if loc:
+                if not loc.startswith("http"):
+                    from urllib.parse import urljoin
+                    loc = urljoin(url, loc)
+                return fetch_url(loc, timeout=timeout, _redirects=_redirects + 1)
+        raise
 
 def strip_tags(html):
     class S(HTMLParser):
@@ -359,6 +385,41 @@ def scrape_cohere(html, source):
         if a: articles.append(a)
     return articles[:MAX_PER_SOURCE]
 
+def scrape_generic(html, source):
+    """Generic blog/news scraper — used for labs without dedicated scrapers.
+    Matches <a href> blocks whose path contains /blog/, /news/, /research/, /post/.
+    """
+    articles = []
+    seen = set()
+    domain_m = re.match(r"(https?://[^/]+)", source["url"])
+    base = domain_m.group(1) if domain_m else ""
+    pattern = re.compile(
+        r'href=["\'](' + re.escape(base) + r'/(?:blog|news|research|posts?|articles?|updates?)/[^"\'?#]{4,})["\'][^>]*>(.*?)</a>',
+        re.DOTALL
+    )
+    # Also try relative paths
+    pattern2 = re.compile(
+        r'href=["\'](/(?:blog|news|research|posts?|articles?|updates?)/[^"\'?#]{4,})["\'][^>]*>(.*?)</a>',
+        re.DOTALL
+    )
+    matches = pattern.findall(html) + [(base + h, i) for h, i in pattern2.findall(html)]
+    for href, inner in matches:
+        if href in seen: continue
+        seen.add(href)
+        t = re.search(r"<h[1-4][^>]*>(.*?)</h[1-4]>", inner, re.DOTALL)
+        title = strip_tags(t.group(1)) if t else ""
+        if not title:
+            texts = [strip_tags(x) for x in re.findall(r">([^<]{20,})<", inner)]
+            title = max(texts, key=len) if texts else ""
+        if len(title) < 8: continue
+        date_m = re.search(r'datetime=["\']([^"\']+)["\']', inner)
+        desc_m = re.search(r"<p[^>]*>(.*?)</p>", inner, re.DOTALL)
+        a = make_article(source, title, href,
+                         date_m.group(1) if date_m else "",
+                         desc_m.group(1) if desc_m else "")
+        if a: articles.append(a)
+    return articles[:MAX_PER_SOURCE]
+
 # ---------------------------------------------------------------------------
 # Twitter/X via Nitter RSS
 # ---------------------------------------------------------------------------
@@ -421,16 +482,16 @@ def fetch_source(src):
             articles = parse_twitter_nitter(html, src)
         elif src["type"] == "rss":
             articles = parse_feed(html, src)
-        elif src["id"] == "anthropic":
-            articles = scrape_anthropic(html, src)
-        elif src["id"] == "mistral":
-            articles = scrape_mistral(html, src)
-        elif src["id"] == "xai":
-            articles = scrape_xai(html, src)
-        elif src["id"] == "elevenlabs":
-            articles = scrape_elevenlabs(html, src)
-        elif src["id"] == "cohere":
-            articles = scrape_cohere(html, src)
+        elif src["type"] == "scrape":
+            SCRAPERS = {
+                "anthropic":  scrape_anthropic,
+                "mistral":    scrape_mistral,
+                "xai":        scrape_xai,
+                "elevenlabs": scrape_elevenlabs,
+                "cohere":     scrape_cohere,
+            }
+            fn = SCRAPERS.get(src["id"], scrape_generic)
+            articles = fn(html, src)
         else:
             articles = []
         print(f"OK  {len(articles)} articles")
