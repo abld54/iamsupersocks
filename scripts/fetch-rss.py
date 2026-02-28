@@ -363,9 +363,10 @@ def scrape_cohere(html, source):
 # Twitter/X via Nitter RSS
 # ---------------------------------------------------------------------------
 def parse_twitter_nitter(xml, source):
-    """Parse Nitter RSS feed into articles. Filters replies and short tweets."""
+    """Parse Nitter RSS feed. Filters replies, RTs, thread dupes, short tweets."""
     articles = []
-    seen = set()
+    seen_urls   = set()
+    seen_titles = set()  # dedup thread continuations by first 80 chars
     for m in re.finditer(r"<item[^>]*>(.*?)</item>", xml, re.DOTALL):
         it = m.group(1)
         title_m = re.search(r"<title[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", it, re.DOTALL)
@@ -376,7 +377,7 @@ def parse_twitter_nitter(xml, source):
         tweet_text = unescape(title_m.group(1)).strip() if title_m else ""
         link_url   = (link_m.group(1) if link_m else "").strip()
 
-        # Skip replies, thread continuations, and retweets
+        # Skip replies and retweets
         if tweet_text.startswith("R to @"):
             continue
         if tweet_text.startswith("RT by @") or tweet_text.startswith("RT @"):
@@ -384,19 +385,24 @@ def parse_twitter_nitter(xml, source):
         # Strip "Pinned:" marker
         if tweet_text.startswith("Pinned:"):
             tweet_text = tweet_text[7:].strip()
-        # Skip short/empty tweets (replies, link-only, etc.)
+        # Skip short/empty tweets
         if len(tweet_text) < 60:
             continue
 
         # Convert nitter URL → x.com URL for stable IDs
         twitter_url = re.sub(r"https://nitter\.[^/]+/", "https://x.com/", link_url).replace("#m", "")
-        if not twitter_url or twitter_url in seen:
+        if not twitter_url or twitter_url in seen_urls:
             continue
-        seen.add(twitter_url)
 
-        # Full tweet text as excerpt; clean HTML from description
+        # Dedup thread continuations (same opening 80 chars = same thread/topic)
+        title_key = re.sub(r"\s+", " ", tweet_text[:80].lower().strip())
+        if title_key in seen_titles:
+            continue
+
+        seen_urls.add(twitter_url)
+        seen_titles.add(title_key)
+
         excerpt = clean_text(desc_m.group(1), 350) if desc_m else tweet_text[:350]
-
         a = make_article(source, tweet_text[:250], twitter_url,
                          date_m.group(1) if date_m else "",
                          excerpt)
@@ -503,6 +509,18 @@ def main():
     def sort_key(a):
         return a.get("date") or "0000"
     merged.sort(key=sort_key, reverse=True)
+
+    # Dedup Twitter thread tweets: keep first occurrence by title prefix
+    seen_tw_titles = set()
+    deduped = []
+    for a in merged:
+        if a.get("source", {}).get("id", "").startswith("tw_"):
+            key = re.sub(r"\s+", " ", a["title"][:80].lower().strip())
+            if key in seen_tw_titles:
+                continue
+            seen_tw_titles.add(key)
+        deduped.append(a)
+    merged = deduped
 
     # Cap total
     merged = merged[:MAX_TOTAL]
