@@ -445,43 +445,6 @@
             animation: signal-blink 1.5s ease-in-out infinite;
         }
 
-        /* === NEWSLETTER === */
-        .newsletter-box {
-            background: #0a0a0f;
-            border: 1px solid var(--border-red);
-            padding: 60px 40px;
-            text-align: center;
-            position: relative; overflow: hidden;
-            max-width: 800px; margin: 60px auto;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-        }
-        .newsletter-box::after {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(230, 57, 70, 0.05) 0%, transparent 100%);
-            pointer-events: none;
-        }
-        .newsletter-box button:hover { background: var(--secondary) !important; color: #fff !important; box-shadow: 0 0 20px var(--secondary-glow); }
-
-        .newsletter-form {
-            display: flex; gap: 16px; max-width: 500px; margin: 0 auto;
-        }
-        .newsletter-form input {
-            flex: 1; padding: 16px 24px;
-            background: #000;
-            border: 2px solid #2a2a30;
-            color: #fff; font-size: 1rem; outline: none;
-            transition: border-color 0.3s;
-        }
-        .newsletter-form input:focus { border-color: var(--primary); }
-        .newsletter-form button {
-            padding: 16px 32px;
-            background: var(--primary);
-            border: none; color: #000; font-weight: 900; font-size: 1rem;
-            text-transform: uppercase; cursor: pointer; transition: all 0.3s;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-        }
-        .newsletter-form button:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary); }
-
         /* === CONNECT === */
         .social-grid { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
         .social-link {
@@ -578,10 +541,7 @@
             .project-card { padding: 24px 20px; }
             .project-title { font-size: 1.4rem; }
 
-            /* Newsletter */
-            .newsletter-box { padding: 32px 20px; margin: 40px 0; }
-            .newsletter-form { flex-direction: column; gap: 12px; }
-            .newsletter-form button { clip-path: none; padding: 16px; }
+
 
             /* Footer */
             footer { padding: 40px 0 30px; }
@@ -797,18 +757,6 @@
                         <p>When Paris sleeps, the artisan awakens. From the first WordPress spells at 16 to the complex AI artifacts I forge today, every project is a step toward total independence. I build to never have to ask for permission again.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- NEWSLETTER -->
-        <section>
-            <div class="newsletter-box">
-                <h3 class="magic-font">Summoning Circle</h3>
-                <p class="serif-font">One message per week. Deep insights into building, engineering, and the pursuit of mastery. No fillers, just power.</p>
-                <form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/iamsupersocks" method="post" style="display:flex; gap:15px; max-width:500px; margin:0 auto;">
-                    <input type="email" name="email" placeholder="Your secret address..." required style="flex:1; background:rgba(255,255,255,0.05); border:1px solid var(--border); padding:15px; color:#fff; font-family:'Inter'; outline:none;">
-                    <button type="submit" style="background:var(--primary); border:none; padding:0 30px; font-family:'Cinzel'; font-weight:700; cursor:pointer; color:#000; transition:0.3s;">Join</button>
-                </form>
             </div>
         </section>
 
