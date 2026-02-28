@@ -1,8 +1,34 @@
 {
-  "generated": "2026-02-28T14:18:15.766510+00:00",
-  "count": 391,
+  "generated": "2026-02-28T16:48:59.312339+00:00",
+  "count": 394,
   "sources": 33,
   "articles": [
+    {
+      "id": "https://x.com/emollick/status/2027774533587873815",
+      "title": "I have no inside information about what happened with the government, Anthropic & OpenAI yesterday, but AI is only going to get more disruptive & what we saw publicly (sudden escalations, lack of transparency, lack of clarity), was a bad pattern for",
+      "excerpt": "I have no inside information about what happened with the government, Anthropic & OpenAI yesterday, but AI is only going to get more disruptive & what we saw publicly (sudden escalations, lack of transparency, lack of clarity), was a bad pattern for navigating the decisions ahead",
+      "link": "https://x.com/emollick/status/2027774533587873815",
+      "date": "2026-02-28T15:54:57+00:00",
+      "category": "product",
+      "source": {
+        "id": "tw_emollick",
+        "name": "Ethan Mollick",
+        "color": "#1d9bf0"
+      }
+    },
+    {
+      "id": "https://x.com/GaryMarcus/status/2027774084243984651",
+      "title": "Capitalism: the market decides Oligarchy: connections and donations decide Last night the US completed its transition from the former to the latter.",
+      "excerpt": "Capitalism: the market decides Oligarchy: connections and donations decide Last night the US completed its transition from the former to the latter.",
+      "link": "https://x.com/GaryMarcus/status/2027774084243984651",
+      "date": "2026-02-28T15:53:10+00:00",
+      "category": "product",
+      "source": {
+        "id": "tw_marcus",
+        "name": "Gary Marcus",
+        "color": "#1d9bf0"
+      }
+    },
     {
       "id": "https://x.com/GaryMarcus/status/2027634517704642894",
       "title": "The whole thing was a scam. The fix was in from the start. Per @nytimes, Sam was negotiating with the Pentagon Wednesday - before he announced his support for Dario - before Trump had denounced Anthropic - but after Brockman had donated 25M to Tru",
@@ -4647,6 +4673,19 @@
       "excerpt": "We've doubled the Vibe context limit from 100k to 200k. Happy shipping! → uv tool install mistral-vibe Video",
       "link": "https://x.com/MistralAI/status/1998785548714991788",
       "date": "2025-12-10T16:03:05+00:00",
+      "category": "model",
+      "source": {
+        "id": "tw_mistral",
+        "name": "Mistral (X)",
+        "color": "#ff7043"
+      }
+    },
+    {
+      "id": "https://x.com/MistralAI/status/1998407332502405347",
+      "title": "Introducing the Devstral 2 coding model family. Two sizes, both open source. Also, meet Mistral Vibe, a native CLI, enabling end-to-end automation. 🧵",
+      "excerpt": "Introducing the Devstral 2 coding model family. Two sizes, both open source. Also, meet Mistral Vibe, a native CLI, enabling end-to-end automation. 🧵",
+      "link": "https://x.com/MistralAI/status/1998407332502405347",
+      "date": "2025-12-09T15:00:11+00:00",
       "category": "model",
       "source": {
         "id": "tw_mistral",
