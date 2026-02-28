@@ -71,7 +71,7 @@ TIMEOUT = 15
 GROK_API_KEY   = os.environ.get("GROK_API_KEY", "")
 GROK_MODEL     = "grok-3-mini"
 GROK_URL       = "https://api.x.ai/v1/chat/completions"
-MAX_TO_ANALYZE = 50   # per run
+MAX_TO_ANALYZE = 100  # per run (bumped for full re-analysis)
 GROK_DELAY     = 0.8  # seconds between calls
 
 ANALYSIS_PROMPT = """Tu es analyste IA pour un feed de veille tech (iamsupersocks.com).
