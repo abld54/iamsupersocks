@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-28T09:52:33.563204+00:00",
+  "generated": "2026-02-28T06:49:48.209774+00:00",
   "count": 267,
   "sources": 17,
   "articles": [
@@ -201,6 +201,19 @@
           "Litiges technologiques"
         ],
         "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://openai.com/index/update-on-mental-health-related-work",
+      "title": "An update on our mental health-related work",
+      "excerpt": "OpenAI shares updates on its mental health safety work, including parental controls, trusted contacts, improved distress detection, and recent litigation developments.",
+      "link": "https://openai.com/index/update-on-mental-health-related-work",
+      "date": "2026-02-27T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "openai",
+        "name": "OpenAI",
+        "color": "#10b981"
       }
     },
     {
@@ -2660,18 +2673,6 @@
         "id": "gemini",
         "name": "Google Gemini",
         "color": "#4285f4"
-      },
-      "analysis": {
-        "signal": "Google is embedding Gemini 3's agentic capabilities into Chrome, transforming standard browsing into an AI-powered, autonomous experience.",
-        "summary": "Google announced the integration of Gemini 3 into Chrome, introducing new agentic capabilities that enable AI to perform tasks autonomously within the browser. This includes features like enhanced automation for searches and interactions, marking a shift towards more intelligent web navigation. As a result, users can expect improved efficiency in daily browsing activities.",
-        "context": "This integration comes as AI companies race to embed models into everyday applications to capture user engagement in a saturated market. It's especially relevant now with the growing adoption of AI assistants, driving demand for seamless tools that boost productivity amid economic pressures for efficiency. In market dynamics, it positions Google to compete directly with rivals like Microsoft Edge's AI features, potentially accelerating the evolution of browsers as central AI hubs.",
-        "critique": "Notably, this move underscores Google's aggressive push to monetize AI through core products, but it overlooks potential compatibility issues with existing extensions, which could fragment user experiences. It reveals a broader industry trend towards agentic AI that prioritizes proactive systems over user oversight, yet fails to address emerging regulatory challenges like EU AI laws that demand transparency. Ultimately, while innovative, it highlights a blind spot in balancing rapid deployment with ethical safeguards to prevent AI-driven browsing from exacerbating privacy vulnerabilities.",
-        "themes": [
-          "AI Browser Integration",
-          "Agentic Capabilities",
-          "Tech Competition in AI"
-        ],
-        "model": "grok-3-mini"
       }
     },
     {
@@ -2685,18 +2686,6 @@
         "id": "langchain",
         "name": "LangChain",
         "color": "#1c3a5e"
-      },
-      "analysis": {
-        "signal": "LangChain's Deep Agents SDK offers a critical open-source solution to combat context rot in AI agents amid growing task complexities and LLM memory limits.",
-        "summary": "LangChain introduced the Deep Agents SDK, an open-source tool for effective context management in AI agents. It aims to prevent context rot and handle the finite memory constraints of large language models. This announcement expands LangChain's ecosystem by providing a ready-to-use harness for developers building advanced agents.",
-        "context": "AI agents are increasingly tackling longer, more complex tasks, making context management essential to avoid performance degradation. This is particularly relevant now as enterprises scale generative AI applications, where memory bottlenecks hinder real-time processing. It aligns with the market's shift towards specialized frameworks that enhance AI reliability in competitive landscapes like enterprise automation.",
-        "critique": "Notably, this SDK underscores the need for modular tools in AI development but risks oversimplifying integration with proprietary systems, potentially limiting its adoption. It reveals the industry's reactive approach to LLM scalability issues without addressing underlying architectural flaws, such as energy efficiency in memory handling. Overall, it highlights a trend of fragmentation in AI solutions, where open-source initiatives may accelerate innovation but expose gaps in standardized benchmarks.",
-        "themes": [
-          "Context Management",
-          "Open-Source AI Frameworks",
-          "LLM Memory Constraints"
-        ],
-        "model": "grok-3-mini"
       }
     },
     {
@@ -2723,18 +2712,6 @@
         "id": "gemini",
         "name": "Google Gemini",
         "color": "#4285f4"
-      },
-      "analysis": {
-        "signal": "Google's Gemini 3 Flash now features Agentic Vision, enabling dynamic and interactive image processing that shifts AI from passive analysis to autonomous action.",
-        "summary": "Google announced Agentic Vision as a new capability in their Gemini 3 Flash model, transforming traditional static image understanding into an agentic process where the AI can actively engage with visual data. This change allows for more autonomous interactions, potentially enhancing applications in areas like real-time analysis. As a result, Gemini models gain a competitive edge in handling complex visual tasks.",
-        "context": "The AI industry is accelerating towards agentic systems that mimic human-like decision-making, especially in vision tech amid the rise of multimodal models for applications like robotics and healthcare. This development is timely as companies race to integrate advanced vision capabilities to address growing demands in autonomous systems and edge computing. It fits into broader market dynamics where Google aims to counter advancements from competitors like OpenAI, who are also pushing boundaries in generative AI.",
-        "critique": "Notably, Agentic Vision could accelerate AI's practical utility by enabling real-time adaptations, but it overlooks potential integration challenges with existing frameworks, such as compatibility and computational overhead. This reveals Google's focus on iterative enhancements to maintain market share, yet it highlights an industry blind spot in addressing transparency and bias in vision models, which could undermine trust. Overall, it signals a directional pivot towards more autonomous AI, but without robust benchmarks, its true impact remains speculative.",
-        "themes": [
-          "Agentic AI",
-          "Vision Technology",
-          "Model Evolution"
-        ],
-        "model": "grok-3-mini"
       }
     },
     {
