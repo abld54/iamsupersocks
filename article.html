@@ -260,19 +260,19 @@ body::before {
 <!-- PAGE BODY -->
 <div id="page" style="display:none">
 
-  <!-- SIGNAL FORT -->
+  <!-- KEY SIGNAL -->
   <div id="signal-fort">
-    <div class="sf-label">SIGNAL FORT</div>
+    <div class="sf-label">KEY SIGNAL</div>
     <p class="sf-text" id="sf-text">—</p>
   </div>
 
   <!-- MAIN COLUMN -->
   <div id="main-col">
 
-    <!-- RÉSUMÉ -->
+    <!-- SUMMARY -->
     <div class="section-block">
       <div class="s-label">
-        <span>// RÉSUMÉ</span>
+        <span>// SUMMARY</span>
         <span class="ai-pill" id="ai-pill-summary" style="display:none">✦ AI</span>
       </div>
       <div class="s-body">
@@ -286,21 +286,21 @@ body::before {
       </div>
     </div>
 
-    <!-- CONTEXTE & ENJEUX -->
+    <!-- CONTEXT & STAKES -->
     <div class="section-block" id="block-context" style="display:none">
-      <div class="s-label"><span>// CONTEXTE &amp; ENJEUX</span><span class="ai-pill">✦ AI</span></div>
+      <div class="s-label"><span>// CONTEXT &amp; STAKES</span><span class="ai-pill">✦ AI</span></div>
       <div class="s-body"><p class="s-text" id="context-text"></p></div>
     </div>
 
-    <!-- ANALYSE CRITIQUE -->
+    <!-- CRITICAL ANALYSIS -->
     <div class="section-block green" id="block-critique" style="display:none">
-      <div class="s-label"><span>// ANALYSE CRITIQUE</span><span class="ai-pill">✦ AI</span></div>
+      <div class="s-label"><span>// CRITICAL ANALYSIS</span><span class="ai-pill">✦ AI</span></div>
       <div class="s-body"><p class="s-text" id="critique-text"></p></div>
     </div>
 
-    <!-- THÈMES -->
+    <!-- THEMES -->
     <div class="section-block amber" id="block-themes" style="display:none">
-      <div class="s-label">// THÈMES DÉTECTÉS</div>
+      <div class="s-label">// DETECTED THEMES</div>
       <div class="theme-list" id="theme-list"></div>
     </div>
 
@@ -545,10 +545,10 @@ function fallbackSignal(title, excerpt) {
   // ── BOTTOM NOTE ───────────────────────────────────────────────────────────
   if (ai && ai.model) {
     document.getElementById('bottom-note').textContent =
-      '// Analyse par ' + ai.model + ' — vérifier avant de partager';
+      '// Analysis by ' + ai.model + ' — verify before sharing';
   } else {
     document.getElementById('bottom-note').textContent =
-      '// Analyse IA en cours — prochain run < 6h';
+      '// AI analysis pending — next run < 6h';
   }
 
   // ── SHOW ──────────────────────────────────────────────────────────────────

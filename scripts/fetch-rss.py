@@ -44,6 +44,15 @@ SOURCES = [
     {"id": "elevenlabs",  "name": "ElevenLabs",       "color": "#f5c518", "type": "scrape", "url": "https://elevenlabs.io/blog"},
     {"id": "cohere",      "name": "Cohere",           "color": "#39d353", "type": "scrape", "url": "https://cohere.com/blog"},
     {"id": "gradient",    "name": "The Gradient",     "color": "#a855f7", "type": "rss",    "url": "https://thegradient.pub/rss/"},
+    # ── Tier 4: Twitter/X Signals (via Nitter RSS) ──
+    {"id": "tw_karpathy", "name": "Karpathy",       "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/karpathy/rss"},
+    {"id": "tw_lecun",    "name": "Yann LeCun",     "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/ylecun/rss"},
+    {"id": "tw_altman",   "name": "Sam Altman",     "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/sama/rss"},
+    {"id": "tw_openai",   "name": "OpenAI (X)",     "color": "#10b981", "type": "twitter", "url": "https://nitter.net/OpenAI/rss"},
+    {"id": "tw_anthropic","name": "Anthropic (X)",  "color": "#d4a27a", "type": "twitter", "url": "https://nitter.net/AnthropicAI/rss"},
+    {"id": "tw_deepmind", "name": "DeepMind (X)",   "color": "#5c9bff", "type": "twitter", "url": "https://nitter.net/GoogleDeepMind/rss"},
+    {"id": "tw_mistral",  "name": "Mistral (X)",    "color": "#ff7043", "type": "twitter", "url": "https://nitter.net/MistralAI/rss"},
+    {"id": "tw_demis",    "name": "Demis Hassabis", "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/demishassabis/rss"},
 ]
 
 # Category detection keywords
@@ -66,35 +75,36 @@ MAX_TOTAL = 400
 TIMEOUT = 15
 
 # ---------------------------------------------------------------------------
-# Grok AI Analysis (style Watts Else — FR)
+# Grok AI Analysis (EN — AI Signal)
 # ---------------------------------------------------------------------------
 GROK_API_KEY   = os.environ.get("GROK_API_KEY", "")
 GROK_MODEL     = "grok-3-mini"
 GROK_URL       = "https://api.x.ai/v1/chat/completions"
-MAX_TO_ANALYZE = 50   # per run
+MAX_TO_ANALYZE = 50  # per run
 GROK_DELAY     = 0.8  # seconds between calls
 
-ANALYSIS_PROMPT = """Tu es analyste IA pour un feed de veille tech (iamsupersocks.com).
-Analyse cet article sur l'industrie de l'IA. Sois précis, critique, sans remplissage.
+ANALYSIS_PROMPT = """You are an AI industry analyst for a tech intelligence feed (iamsupersocks.com).
+IMPORTANT: Always respond in English regardless of the source article language.
+Analyze this AI industry article. Be precise, critical, no filler.
 
-Titre : {title}
-Source : {source}
-Catégorie : {category}
-Extrait : {excerpt}
+Title: {title}
+Source: {source}
+Category: {category}
+Excerpt: {excerpt}
 
-Réponds UNIQUEMENT avec du JSON valide (sans balises markdown) :
+Respond ONLY with valid JSON (no markdown):
 {{
-  "signal": "L'information clé en une phrase percutante. Pas de tournure générique.",
-  "summary": "2-3 phrases : ce qui s'est passé, ce qui a été annoncé, ce qui a changé.",
-  "context": "2-3 phrases : contexte plus large, pourquoi c'est important maintenant, dans quelle dynamique de marché ça s'inscrit.",
-  "critique": "2-3 phrases : ce qui est notable, ce qui manque, ce que ça révèle sur la direction de l'industrie. Analytique, pas descriptif.",
-  "themes": ["Thème1", "Thème2", "Thème3"]
+  "signal": "The key insight in one sharp sentence. No generic phrasing.",
+  "summary": "2-3 sentences: what happened, what was announced, what changed.",
+  "context": "2-3 sentences: broader context, why this matters now, what market dynamic it fits into.",
+  "critique": "2-3 sentences: what's notable, what's missing, what this reveals about the industry's direction. Analytical, not descriptive.",
+  "themes": ["Theme1", "Theme2", "Theme3"]
 }}
 
-Règles :
-- Ne jamais commencer par 'Cet article', 'Cette annonce', 'Ce post'
-- Technique quand c'est pertinent
-- La critique doit apporter de la valeur au-delà du résumé — challenger, contextualiser, signaler les angles morts"""
+Rules:
+- Never start with 'This article', 'This announcement', 'This post'
+- Technical when relevant
+- Critique must add value beyond the summary — challenge, contextualize, flag blind spots"""
 
 def call_grok(title, excerpt, source_name, category):
     if not GROK_API_KEY:
@@ -105,7 +115,10 @@ def call_grok(title, excerpt, source_name, category):
     )
     body = json.dumps({
         "model": GROK_MODEL,
-        "messages": [{"role": "user", "content": prompt}],
+        "messages": [
+            {"role": "system", "content": "You are a sharp AI industry analyst. Always respond in English, regardless of the source language."},
+            {"role": "user", "content": prompt}
+        ],
         "response_format": {"type": "json_object"},
         "max_tokens": 500,
         "temperature": 0.4,
@@ -347,13 +360,60 @@ def scrape_cohere(html, source):
     return articles[:MAX_PER_SOURCE]
 
 # ---------------------------------------------------------------------------
+# Twitter/X via Nitter RSS
+# ---------------------------------------------------------------------------
+def parse_twitter_nitter(xml, source):
+    """Parse Nitter RSS feed into articles. Filters replies and short tweets."""
+    articles = []
+    seen = set()
+    for m in re.finditer(r"<item[^>]*>(.*?)</item>", xml, re.DOTALL):
+        it = m.group(1)
+        title_m = re.search(r"<title[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", it, re.DOTALL)
+        link_m  = re.search(r"<link[^>]*>([^<]+)</link>", it, re.DOTALL)
+        date_m  = re.search(r"<pubDate[^>]*>(.*?)</pubDate>", it, re.DOTALL)
+        desc_m  = re.search(r"<description[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</description>", it, re.DOTALL)
+
+        tweet_text = unescape(title_m.group(1)).strip() if title_m else ""
+        link_url   = (link_m.group(1) if link_m else "").strip()
+
+        # Skip replies, thread continuations, and retweets
+        if tweet_text.startswith("R to @"):
+            continue
+        if tweet_text.startswith("RT by @") or tweet_text.startswith("RT @"):
+            continue
+        # Strip "Pinned:" marker
+        if tweet_text.startswith("Pinned:"):
+            tweet_text = tweet_text[7:].strip()
+        # Skip short/empty tweets (replies, link-only, etc.)
+        if len(tweet_text) < 60:
+            continue
+
+        # Convert nitter URL → x.com URL for stable IDs
+        twitter_url = re.sub(r"https://nitter\.[^/]+/", "https://x.com/", link_url).replace("#m", "")
+        if not twitter_url or twitter_url in seen:
+            continue
+        seen.add(twitter_url)
+
+        # Full tweet text as excerpt; clean HTML from description
+        excerpt = clean_text(desc_m.group(1), 350) if desc_m else tweet_text[:350]
+
+        a = make_article(source, tweet_text[:250], twitter_url,
+                         date_m.group(1) if date_m else "",
+                         excerpt)
+        if a:
+            articles.append(a)
+    return articles[:MAX_PER_SOURCE]
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def fetch_source(src):
-    print(f"  [{src['id']:12s}] ", end="", flush=True)
+    print(f"  [{src['id']:16s}] ", end="", flush=True)
     try:
         html = fetch_url(src["url"])
-        if src["type"] == "rss":
+        if src["type"] == "twitter":
+            articles = parse_twitter_nitter(html, src)
+        elif src["type"] == "rss":
             articles = parse_feed(html, src)
         elif src["id"] == "anthropic":
             articles = scrape_anthropic(html, src)
