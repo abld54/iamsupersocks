@@ -642,7 +642,7 @@
             </div>
             <h2 class="signal-headline">The <span>AI Signal</span></h2>
             <p class="signal-sub">
-                AI intelligence, without the noise. 400+ articles from 33 labs, analyzed by Grok AI — updated every 6 hours. The epicenter of this site.
+                AI intelligence, without the noise. Articles from the top AI labs, analyzed by Grok — updated every 6 hours. The epicenter of this site.
             </p>
             <div class="signal-stats">
                 <div>
@@ -674,14 +674,14 @@
                 <a href="veille.html" class="project-card signal-card">
                     <span class="signal-card-badge">LIVE</span>
                     <h3 class="project-title">AI Signal</h3>
-                    <p class="project-desc">The intelligence layer of the lab. 33 sources, Grok AI analysis, no noise — just the signals that matter. Updated every 6 hours.</p>
+                    <p class="project-desc">The intelligence layer of the lab. Grok AI analysis, no noise — just the signals that matter. Updated every 6 hours.</p>
                     <div class="project-metrics">
                         <div class="metric-item">
                             <span class="metric-val" id="idx-count2">400+</span>
                             <span class="metric-lbl">Signals</span>
                         </div>
                         <div class="metric-item">
-                            <span class="metric-val">33</span>
+                            <span class="metric-val" id="idx-sources2">33</span>
                             <span class="metric-lbl">Sources</span>
                         </div>
                     </div>
@@ -905,10 +905,11 @@
                     age = diff < 1 ? '< 1h' : diff + 'h';
                 }
                 const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-                set('idx-count',   count);
-                set('idx-sources', sources);
-                set('idx-age',     age);
-                set('idx-count2',  count + '+');
+                set('idx-count',    count);
+                set('idx-sources',  sources);
+                set('idx-age',      age);
+                set('idx-count2',   count + '+');
+                set('idx-sources2', sources);
             } catch(e) {}
         })();
     </script>
