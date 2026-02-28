@@ -283,6 +283,137 @@ body::before {
   letter-spacing:2px; display:none;
 }
 
+/* ─── CTA AI_NOISE ─── */
+#cta-noise {
+  position: relative;
+  margin: 80px 0 0;
+  padding: 100px 24px;
+  overflow: hidden;
+  background: var(--bg1);
+  border-top: 1px solid rgba(0,220,255,0.18);
+  border-bottom: 1px solid rgba(0,220,255,0.08);
+}
+#cta-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 110%, rgba(0,220,255,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 30% at 20% 50%, rgba(0,255,136,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cta-scan {
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,220,255,0.012) 2px, rgba(0,220,255,0.012) 4px
+  );
+}
+.cta-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+  position: relative; z-index: 1;
+}
+.cta-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: var(--cyan);
+  animation: cta-pulse 2.5s ease-in-out infinite;
+}
+@keyframes cta-pulse {
+  0%,100% { opacity:1; text-shadow: 0 0 10px rgba(0,220,255,0.5); }
+  50%      { opacity:0.5; text-shadow: none; }
+}
+.cta-headline {
+  font-family: var(--sans);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+.cta-headline em {
+  font-style: normal;
+  color: var(--cyan);
+}
+.cta-divider {
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.5;
+}
+.cta-body {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text2);
+  max-width: 580px;
+}
+.cta-tags {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  margin-top: 4px;
+}
+.cta-tag {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--text3);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 18px 48px;
+  background: transparent;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+.cta-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  z-index: 0;
+}
+.cta-btn:hover::before { transform: scaleX(1); }
+.cta-btn:hover {
+  color: #000;
+  box-shadow: 0 0 40px rgba(0,220,255,0.35), 0 0 80px rgba(0,220,255,0.1);
+}
+.cta-btn-text, .cta-arrow {
+  position: relative; z-index: 1;
+}
+.cta-arrow {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.cta-btn:hover .cta-arrow { transform: translateX(5px); }
+@media (max-width:600px) {
+  #cta-noise { padding: 70px 20px; }
+  .cta-headline { font-size: 1.7rem; }
+  .cta-btn { padding: 16px 32px; }
+}
+
 /* ─── FOOTER ─── */
 #footer {
   margin-top:40px; padding:20px 24px;
@@ -723,6 +854,34 @@ body::before {
   </div>
   <div id="grid"></div>
 </div>
+
+<!-- AI_NOISE CTA -->
+<section id="cta-noise">
+  <div class="cta-scan"></div>
+  <div class="cta-inner">
+    <div class="cta-label">// AI_NOISE — PARIS</div>
+    <h2 class="cta-headline">La veille c'est bien.<br><em>Passer à l'action c'est mieux.</em></h2>
+    <div class="cta-divider"></div>
+    <p class="cta-body">
+      Je monte un groupe de passionnés d'IA sur Paris. Pas un énième serveur Discord qui finit en cimetière de liens. Un vrai groupe de gens qui utilisent l'IA dans leur métier&nbsp;— et qui veulent avancer ensemble.
+    </p>
+    <p class="cta-body">
+      L'idée&nbsp;: se retrouver, partager ce qui marche, tester des outils, confronter les usages. Des expertises métier différentes, une curiosité commune. Le format et la plateforme restent à décider ensemble.
+    </p>
+    <div class="cta-tags">
+      <span class="cta-tag">ÉNERGIE</span>
+      <span class="cta-tag">FINANCE</span>
+      <span class="cta-tag">DEV</span>
+      <span class="cta-tag">SALES</span>
+      <span class="cta-tag">JURIDIQUE</span>
+      <span class="cta-tag">CRÉA</span>
+    </div>
+    <a href="#" class="cta-btn" target="_blank" rel="noopener">
+      <span class="cta-btn-text">VOIR LE POST</span>
+      <span class="cta-arrow">→</span>
+    </a>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <div id="footer">
