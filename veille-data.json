@@ -1,6 +1,6 @@
 {
-  "generated": "2026-02-27T21:43:56.479554+00:00",
-  "count": 265,
+  "generated": "2026-02-28T02:28:26.436792+00:00",
+  "count": 267,
   "sources": 17,
   "articles": [
     {
@@ -176,6 +176,19 @@
           "Personalization"
         ],
         "model": "gemini-2.0-flash"
+      }
+    },
+    {
+      "id": "https://openai.com/index/update-on-mental-health-related-work",
+      "title": "An update on our mental health-related work",
+      "excerpt": "OpenAI shares updates on its mental health safety work, including parental controls, trusted contacts, improved distress detection, and recent litigation developments.",
+      "link": "https://openai.com/index/update-on-mental-health-related-work",
+      "date": "2026-02-27T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "openai",
+        "name": "OpenAI",
+        "color": "#10b981"
       }
     },
     {
@@ -2666,18 +2679,6 @@
         "id": "gemini",
         "name": "Google Gemini",
         "color": "#4285f4"
-      },
-      "analysis": {
-        "signal": "Google is integrating Gemini 3's agentic capabilities into Chrome to enable proactive, autonomous browsing features.",
-        "summary": "Google announced the addition of agentic capabilities to Chrome, powered by Gemini 3, which will allow the browser to perform tasks independently. This includes enhancements for more intelligent interactions during web use. As a result, browsing is set to become more dynamic and user-assisting.",
-        "context": "This integration builds on the ongoing AI race in consumer software, where browsers are evolving into intelligent platforms to boost user productivity. It's timely as users demand seamless AI tools for daily tasks, amid market dynamics where companies like Microsoft are embedding similar features in Edge. In the broader tech landscape, this reflects a shift towards AI as a core component of web infrastructure.",
-        "critique": "This announcement highlights Google's aggressive push to monopolize AI in everyday applications, but it fails to address potential risks like over-reliance on cloud-dependent agents that could expose users to latency or security vulnerabilities. What's missing is a deeper examination of how these capabilities integrate with existing browser standards, revealing an industry trend of prioritizing innovation speed over interoperability and long-term ethical considerations. Overall, it underscores a direction where tech giants favor ecosystem lock-in, potentially widening the gap for smaller playe",
-        "themes": [
-          "AI Browser Integration",
-          "Agentic Capabilities",
-          "Tech Competition"
-        ],
-        "model": "grok-3-mini"
       }
     },
     {
@@ -2691,18 +2692,6 @@
         "id": "langchain",
         "name": "LangChain",
         "color": "#1c3a5e"
-      },
-      "analysis": {
-        "signal": "LangChain lance un SDK open source pour gérer les contraintes de mémoire des LLMs et prévenir la dégradation du contexte dans les agents AI.",
-        "summary": "L'extrait met en lumière l'importance croissante de la gestion du contexte pour les agents AI face à l'allongement des tâches. LangChain annonce le Deep Agents SDK, une solution complète et open source pour contourner les limites de mémoire des LLMs. Cela vise à améliorer l'efficacité des agents en évitant le 'context rot'.",
-        "context": "Avec l'évolution rapide des agents AI vers des tâches plus complexes, la gestion de la mémoire devient un enjeu critique pour maintenir leur performance. Cette initiative est pertinente dans un marché où les LLMs sont de plus en plus intégrés à des applications réelles, mais leurs contraintes techniques freinent l'innovation. Elle s'inscrit dans la dynamique open source qui democratise les outils AI, favorisant une concurrence accrue entre les fournisseurs de frameworks.",
-        "critique": "Notable, ce SDK pourrait accélérer l'adoption d'agents AI robustes en abordant un goulot d'étranglement technique courant, mais il omet de discuter des benchmarks comparatifs avec des alternatives comme ceux de Hugging Face. Cela révèle une tendance industrielle vers la modularité des outils AI pour scaler les applications, pourtant, il expose un angle mort potentiel sur les vulnérabilités de sécurité inhérentes aux agents autonomes gérant du contexte sensible. En fin de compte, cela questionne la durabilité de l'open source dans un secteur dominé par des géants comme Google, qui pourraient in",
-        "themes": [
-          "Gestion du contexte AI",
-          "SDK open source",
-          "Contraintes de mémoire LLMs"
-        ],
-        "model": "grok-3-mini"
       }
     },
     {
@@ -2729,18 +2718,6 @@
         "id": "gemini",
         "name": "Google Gemini",
         "color": "#4285f4"
-      },
-      "analysis": {
-        "signal": "Google introduit Agentic Vision dans Gemini 3 Flash, transformant la compréhension d'images en un processus agentique dynamique et interactif.",
-        "summary": "Gemini 3 Flash de Google a annoncé une nouvelle capacité nommée Agentic Vision, qui convertit l'analyse d'images d'un processus statique en un système agentique capable d'actions autonomes. Cela permet une meilleure interaction avec les données visuelles, marquant un pas en avant dans les fonctionnalités des modèles IA. Cette évolution change la manière dont les IA gèrent les tâches visuelles, en les rendant plus proactives.",
-        "context": "Dans un marché de l'IA en pleine compétition, où les modèles multimodaux gagnent en importance pour des applications comme la reconnaissance en temps réel, cette annonce renforce la position de Google face à des rivaux comme OpenAI. Elle s'inscrit dans la dynamique croissante des AI agents, qui visent à automatiser des décisions complexes, surtout avec l'essor des technologies embarquées. Cela est crucial maintenant pour anticiper les besoins en IA interactive dans des secteurs comme l'automobile ou la santé.",
-        "critique": "Ce qui est notable, c'est que Agentic Vision pourrait accélérer l'adoption d'IA plus autonome, mais elle risque de surpromettre sans preuves concrètes de scalabilité technique. Ce qui manque, ce sont des benchmarks comparatifs ou des cas d'usage réels, révélant potentiellement des angles morts en matière de fiabilité dans des environnements imprévisibles. Cela démontre que Google priorise l'innovation marketing pour maintenir sa dominance, mais cela pourrait exposer des faiblesses éthiques dans la gestion des erreurs d'agents IA.",
-        "themes": [
-          "Agentic AI",
-          "Vision par IA",
-          "Innovation Google"
-        ],
-        "model": "grok-3-mini"
       }
     },
     {
@@ -4665,6 +4642,19 @@
         "id": "elevenlabs",
         "name": "ElevenLabs",
         "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://www.anthropic.com/news/statement-comments-secretary-war",
+      "title": "Statement on the comments from Secretary of War Pete Hegseth",
+      "excerpt": "Anthropic's response to the Secretary of War and advice to customers.",
+      "link": "https://www.anthropic.com/news/statement-comments-secretary-war",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "color": "#d4a27a"
       }
     }
   ]
