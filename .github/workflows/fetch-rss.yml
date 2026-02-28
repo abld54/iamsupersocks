@@ -25,6 +25,7 @@ jobs:
       - name: Fetch feeds & analyze with Grok
         env:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+        timeout-minutes: 12
         run: python scripts/fetch-rss.py
 
       - name: Commit updated data

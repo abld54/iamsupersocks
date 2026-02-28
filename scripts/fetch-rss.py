@@ -5,7 +5,8 @@ Fetches from 12 sources (RSS + HTML scrape), merges with existing data,
 keeps a rolling 30-day window. Outputs veille-data.json.
 """
 
-import json, os, re, sys, time
+import json, os, re, sys, time, socket
+socket.setdefaulttimeout(20)  # global fallback — prevents any urllib call from hanging
 # Force UTF-8 output on Windows
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
