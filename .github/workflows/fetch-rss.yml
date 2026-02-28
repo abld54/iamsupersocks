@@ -33,4 +33,5 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add veille-data.json
           git diff --staged --quiet || git commit -m "chore: update AI signal data [skip ci]"
+          git pull --rebase origin main
           git push
