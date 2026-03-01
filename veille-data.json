@@ -1,8 +1,47 @@
 {
-  "generated": "2026-03-01T15:39:25.585607+00:00",
+  "generated": "2026-03-01T17:39:58.671880+00:00",
   "count": 400,
   "sources": 32,
   "articles": [
+    {
+      "id": "https://x.com/GaryMarcus/status/2028143619417448611",
+      "title": "tl;dr of something worth reading: OpenAI is full of shit, and perfectly happy to be using their unreliable tech for war. #DeleteChatGPT",
+      "excerpt": "tl;dr of something worth reading: OpenAI is full of shit, and perfectly happy to be using their unreliable tech for war. #DeleteChatGPT Andreas Kirsch 🇺🇦 (@BlackHC) I'm speechless at OpenAI releasing that contract excerpt and acting as if there aren't gaping holes that could be exploited far beyond their stated \"red lines.\" I'm not a lawyer, but th",
+      "link": "https://x.com/GaryMarcus/status/2028143619417448611",
+      "date": "2026-03-01T16:21:34+00:00",
+      "category": "model",
+      "source": {
+        "id": "tw_marcus",
+        "name": "Gary Marcus",
+        "color": "#1d9bf0"
+      }
+    },
+    {
+      "id": "https://x.com/GaryMarcus/status/2028143088624161150",
+      "title": "It’s not just the AI that will be taking our jobs. It’s the AI that will be making life or death decisions. And the AI that might lead to needless escalation, maybe even nuclear war. #DeleteChatGPT",
+      "excerpt": "It’s not just the AI that will be taking our jobs. It’s the AI that will be making life or death decisions. And the AI that might lead to needless escalation, maybe even nuclear war. #DeleteChatGPT Klara (@klara_sjo) This is the AI that will be taking our jobs Video — https://nitter.net/klara_sjo/status/2027856823965913281#m",
+      "link": "https://x.com/GaryMarcus/status/2028143088624161150",
+      "date": "2026-03-01T16:19:28+00:00",
+      "category": "model",
+      "source": {
+        "id": "tw_marcus",
+        "name": "Gary Marcus",
+        "color": "#1d9bf0"
+      }
+    },
+    {
+      "id": "https://x.com/GaryMarcus/status/2028142726248804452",
+      "title": "The race to shove AI into everything is grossly premature, because the tech fundamentally lack reliability. Meanwhile, the chance that we will get straight answers is probably close to zero. (Altman, for his part, doesn’t seem to care.)",
+      "excerpt": "The race to shove AI into everything is grossly premature, because the tech fundamentally lack reliability. Meanwhile, the chance that we will get straight answers is probably close to zero. (Altman, for his part, doesn’t seem to care.) Tyler Austin Harper (@Tyler_A_Harper) Genuine question for people who might have a better grasp on how Claude is",
+      "link": "https://x.com/GaryMarcus/status/2028142726248804452",
+      "date": "2026-03-01T16:18:01+00:00",
+      "category": "model",
+      "source": {
+        "id": "tw_marcus",
+        "name": "Gary Marcus",
+        "color": "#1d9bf0"
+      }
+    },
     {
       "id": "https://x.com/emollick/status/2027966367551361507",
       "title": "This paper is one of the first to test AI skills and the results seem to suggest that yes, they have high practical value. They use pretty mediocre skills (6.2/12 quality rating) harvested mostly from places like Github, and still get large boosts,",
@@ -4960,18 +4999,6 @@
         "id": "gemini",
         "name": "Google Gemini",
         "color": "#4285f4"
-      },
-      "analysis": {
-        "signal": "Google's January Gemini Drop continues their strategy of monthly app enhancements to boost user engagement in the competitive AI assistant market.",
-        "summary": "Google announced the January edition of Gemini Drops, a regular update series for the Gemini app, focusing on new features and tips to optimize user experience. The excerpt highlights ongoing improvements without specifying exact changes, emphasizing practical advice for app utilization. This follows their pattern of iterative releases to refine AI interactions.",
-        "context": "In the fast-evolving AI industry, such updates are crucial for maintaining user interest amid rivals like ChatGPT and Microsoft's Copilot, which frequently roll out competing features. This reflects a broader market dynamic where companies prioritize rapid iterations to adapt to user feedback and technological advancements. As AI integration into daily apps accelerates, these drops help Google solidify its position in consumer-facing AI tools.",
-        "critique": "Notably, the generic nature of this announcement sidesteps detailed technical insights, potentially alienating advanced users who seek specifics on model improvements or performance metrics. It reveals Google's emphasis on accessibility over innovation depth, which might overlook critical areas like addressing AI biases or scalability challenges in real-world applications. This approach signals an industry-wide risk of update fatigue, where frequent but shallow releases could dilute the perceived value of genuine breakthroughs.",
-        "themes": [
-          "AI Iteration",
-          "User Engagement",
-          "Market Competition"
-        ],
-        "model": "grok-3-mini"
       }
     },
     {
@@ -7702,57 +7729,6 @@
       "link": "https://www.together.ai/blog/together-ai-and-meta-partner-to-bring-pytorch-reinforcement-learning-to-the-ai-native-cloud",
       "date": "",
       "category": "product",
-      "source": {
-        "id": "together",
-        "name": "Together AI",
-        "color": "#8b5cf6"
-      }
-    },
-    {
-      "id": "https://www.together.ai/blog/torchforge-reinforcement-learning-pipelines",
-      "title": "How to run TorchForge reinforcement learning pipelines in the Together AI Native Cloud",
-      "excerpt": "By",
-      "link": "https://www.together.ai/blog/torchforge-reinforcement-learning-pipelines",
-      "date": "",
-      "category": "product",
-      "source": {
-        "id": "together",
-        "name": "Together AI",
-        "color": "#8b5cf6"
-      },
-      "analysis": {
-        "signal": "Together AI is streamlining reinforcement learning workflows by natively supporting TorchForge in their cloud, potentially accelerating AI development cycles for specialized applications.",
-        "summary": "Together AI published a guide detailing how to execute TorchForge reinforcement learning pipelines within their Native Cloud environment. This announcement highlights new integration capabilities that enable users to run RL models more efficiently. As a result, developers can now leverage Together AI's infrastructure for faster deployment and scaling of AI projects.",
-        "context": "Reinforcement learning is gaining traction in AI for complex decision-making tasks, making tools like TorchForge essential amid increasing demand for autonomous systems. This move by Together AI aligns with the broader market shift towards specialized cloud platforms that reduce friction in AI experimentation. It fits into the competitive dynamics where providers are differentiating through ecosystem integrations to capture enterprise users seeking scalable solutions.",
-        "critique": "While this integration is notable for simplifying RL pipelines, it overlooks potential compatibility issues with other frameworks, which could hinder broader adoption in a fragmented AI landscape. It reveals the industry's rush towards proprietary ecosystems for lock-in advantages, but fails to address critical aspects like security protocols for cloud-based RL training. This approach might accelerate innovation for Together AI's users yet risks alienating those prioritizing open standards and multi-cloud flexibility.",
-        "themes": [
-          "Cloud-Native AI",
-          "Reinforcement Learning Integration",
-          "Ecosystem Expansion"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://www.together.ai/blog/announcing-together-ai-startup-accelerator",
-      "title": "Announcing the Together AI Startup Accelerator, purpose-built for AI Native Apps",
-      "excerpt": "By",
-      "link": "https://www.together.ai/blog/announcing-together-ai-startup-accelerator",
-      "date": "",
-      "category": "product",
-      "source": {
-        "id": "together",
-        "name": "Together AI",
-        "color": "#8b5cf6"
-      }
-    },
-    {
-      "id": "https://www.together.ai/blog/nvidia-blackwell-test-drive",
-      "title": "Salesforce, Zoom, InVideo Train Faster with Together AI Turbocharged with NVIDIA Blackwell",
-      "excerpt": "By",
-      "link": "https://www.together.ai/blog/nvidia-blackwell-test-drive",
-      "date": "",
-      "category": "other",
       "source": {
         "id": "together",
         "name": "Together AI",
