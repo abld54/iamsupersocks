@@ -351,8 +351,21 @@ body::before {
   transition: color 0.2s;
 }
 .src-clickable:hover { color: var(--cyan); }
-.strip-item.clickable { cursor: pointer; transition: opacity 0.2s; }
-.strip-item.clickable:hover { opacity: 0.7; }
+.strip-item.clickable { cursor: pointer; transition: all 0.2s; }
+.strip-item.clickable:hover { opacity: 0.8; }
+.strip-sources-cta { cursor:pointer; transition:all 0.2s; padding:4px 12px; border:1px solid transparent; border-radius:2px; }
+.strip-sources-cta:hover { border-color:var(--cyan); background:rgba(0,220,255,0.05); }
+
+/* ─── SOURCES CTA BUTTON (topbar) ─── */
+.bar-sources-btn {
+  background:none; border:1px solid var(--cyan); color:var(--cyan);
+  font-family:var(--mono); font-size:0.62rem; letter-spacing:2px;
+  padding:5px 14px; cursor:pointer; transition:all 0.2s;
+  white-space:nowrap;
+}
+.bar-sources-btn strong { color:var(--white); }
+.bar-sources-btn:hover { background:var(--cyan); color:#000; }
+.bar-sources-btn:hover strong { color:#000; }
 
 /* ─── CTA AI_NOISE ─── */
 #cta-noise {
@@ -913,7 +926,7 @@ body::before {
   <div class="bar-right">
     <span class="live-dot">LIVE</span>
     <span class="bar-stat"><strong id="b-count">—</strong> ARTICLES</span>
-    <span class="bar-stat src-clickable" onclick="openSrcModal()" title="View all sources"><strong id="b-src">—</strong> SOURCES</span>
+    <button class="bar-sources-btn" onclick="openSrcModal()"><strong id="b-src">—</strong> SOURCES ›</button>
     <span class="bar-stat">UPDATED <strong id="b-age">—</strong></span>
   </div>
 </nav>
@@ -998,9 +1011,9 @@ body::before {
     <div class="strip-lbl">Articles</div>
   </div>
   <div class="strip-divider"></div>
-  <div class="strip-item clickable" onclick="openSrcModal()" title="View all sources">
-    <div class="strip-val" id="s-src">—</div>
-    <div class="strip-lbl">Sources ↗</div>
+  <div class="strip-item strip-sources-cta" onclick="openSrcModal()" title="View all sources">
+    <div class="strip-val" id="s-src" style="color:var(--cyan)">—</div>
+    <div class="strip-lbl" style="color:var(--cyan);border-bottom:1px solid var(--cyan)">VIEW ALL SOURCES →</div>
   </div>
   <div class="strip-divider"></div>
   <div class="strip-item">
