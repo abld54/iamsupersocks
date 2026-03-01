@@ -712,6 +712,105 @@ body::before {
   .c-card { padding:20px 16px; }
   .c-sources-wrap { padding:16px; }
 }
+
+/* ─── ARTICLE PANEL VIEWER ─── */
+#panel-overlay {
+  display:none; position:fixed; inset:0; z-index:200;
+  background:rgba(0,0,0,0.6); backdrop-filter:blur(3px);
+}
+#panel-overlay.open { display:block; }
+
+#article-panel {
+  position:fixed; top:0; right:-100%; bottom:0; z-index:201;
+  width:min(680px, 100vw);
+  background:var(--bg1); border-left:1px solid var(--border2);
+  overflow-y:auto; transition:right 0.3s cubic-bezier(0.4,0,0.2,1);
+  display:flex; flex-direction:column;
+}
+#article-panel.open { right:0; }
+#article-panel::-webkit-scrollbar { width:4px; }
+#article-panel::-webkit-scrollbar-thumb { background:rgba(0,220,255,0.2); }
+
+#panel-header {
+  position:sticky; top:0; z-index:10;
+  background:rgba(10,10,15,0.96); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:12px 20px; display:flex; align-items:center; gap:12px;
+  font-family:var(--mono); font-size:0.62rem; letter-spacing:2px;
+}
+#panel-close {
+  margin-left:auto; cursor:pointer;
+  background:none; border:1px solid var(--border2); color:var(--text2);
+  font-family:var(--mono); font-size:0.6rem; letter-spacing:2px;
+  padding:5px 12px; cursor:pointer; transition:all 0.2s;
+}
+#panel-close:hover { color:var(--cyan); border-color:var(--cyan); }
+#panel-nav { display:flex; gap:8px; }
+.panel-nav-btn {
+  background:none; border:1px solid var(--border); color:var(--text3);
+  font-family:var(--mono); font-size:0.7rem; padding:4px 10px;
+  cursor:pointer; transition:all 0.2s;
+}
+.panel-nav-btn:hover:not(:disabled) { color:var(--cyan); border-color:var(--cyan); }
+.panel-nav-btn:disabled { opacity:0.3; cursor:default; }
+
+#panel-body { padding:28px 28px 60px; flex:1; }
+
+.panel-source-row { display:flex; align-items:center; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
+.panel-src-badge { font-family:var(--mono); font-size:0.65rem; letter-spacing:1px; border:1px solid; padding:3px 10px; }
+.panel-cat-badge { font-family:var(--mono); font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; padding:3px 10px; }
+.panel-cat-badge.model    { color:#00dcff; background:rgba(0,220,255,0.08); }
+.panel-cat-badge.research { color:#a78bfa; background:rgba(167,139,250,0.08); }
+.panel-cat-badge.safety   { color:#f97316; background:rgba(249,115,22,0.08); }
+.panel-cat-badge.product  { color:#00ff88; background:rgba(0,255,136,0.08); }
+.panel-cat-badge.other    { color:#8b949e; background:rgba(139,148,158,0.08); }
+.panel-date { font-family:var(--mono); font-size:0.6rem; color:var(--text3); margin-left:auto; }
+
+#panel-title { font-size:1.35rem; font-weight:700; line-height:1.4; color:var(--white); margin-bottom:20px; }
+
+#panel-excerpt { color:var(--text2); font-size:0.875rem; line-height:1.7; margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid var(--border); }
+
+.panel-section-label {
+  font-family:var(--mono); font-size:0.58rem; color:var(--cyan); letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:14px; display:flex; align-items:center; gap:8px;
+}
+.panel-section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+#panel-signal-box {
+  background:rgba(0,220,255,0.04); border:1px solid rgba(0,220,255,0.15);
+  padding:16px 20px; margin-bottom:24px; font-size:0.9rem; line-height:1.6;
+  color:var(--text);
+}
+.panel-signal-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:8px; vertical-align:middle; }
+
+#panel-analysis-grid { display:grid; gap:14px; margin-bottom:28px; }
+.panel-analysis-card { background:var(--bg2); border:1px solid var(--border); padding:16px; }
+.panel-analysis-card h4 { font-family:var(--mono); font-size:0.6rem; color:var(--text3); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+.panel-analysis-card p { font-size:0.82rem; line-height:1.65; color:var(--text2); }
+
+#panel-themes { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
+.panel-theme { font-family:var(--mono); font-size:0.6rem; color:var(--text3); border:1px solid var(--border); padding:4px 10px; letter-spacing:1px; }
+
+#panel-cta { display:flex; gap:12px; flex-wrap:wrap; padding-top:24px; border-top:1px solid var(--border); }
+.panel-cta-primary {
+  flex:1; min-width:140px; text-align:center; padding:12px 20px;
+  background:var(--cyan); color:#000; font-family:var(--mono); font-size:0.7rem;
+  font-weight:700; letter-spacing:2px; text-decoration:none; transition:opacity 0.2s;
+}
+.panel-cta-primary:hover { opacity:0.85; }
+.panel-cta-secondary {
+  flex:1; min-width:120px; text-align:center; padding:12px 20px;
+  background:none; border:1px solid var(--border2); color:var(--text2);
+  font-family:var(--mono); font-size:0.65rem; letter-spacing:2px;
+  text-decoration:none; transition:all 0.2s; cursor:pointer;
+}
+.panel-cta-secondary:hover { color:var(--cyan); border-color:var(--cyan); }
+
+@media (max-width:600px) {
+  #article-panel { width:100vw; }
+  #panel-body { padding:20px 16px 60px; }
+  #panel-title { font-size:1.1rem; }
+}
 </style>
 </head>
 <body>
@@ -917,6 +1016,60 @@ body::before {
   </div>
 </section>
 
+<!-- ARTICLE PANEL VIEWER -->
+<div id="panel-overlay" onclick="closePanel()"></div>
+<div id="article-panel" role="dialog" aria-modal="true">
+  <div id="panel-header">
+    <span style="color:var(--cyan)">// ARTICLE</span>
+    <div id="panel-nav">
+      <button class="panel-nav-btn" id="panel-prev" onclick="panelNav(-1)" title="Previous">← PREV</button>
+      <button class="panel-nav-btn" id="panel-next" onclick="panelNav(+1)" title="Next">NEXT →</button>
+    </div>
+    <button id="panel-close" onclick="closePanel()">✕ CLOSE</button>
+  </div>
+  <div id="panel-body">
+    <div id="panel-loading" style="padding:60px;text-align:center;font-family:var(--mono);color:var(--text3);font-size:0.75rem;letter-spacing:3px;">// LOADING...</div>
+    <div id="panel-content" style="display:none">
+      <div class="panel-source-row">
+        <span class="panel-src-badge" id="panel-src-badge"></span>
+        <span class="panel-cat-badge" id="panel-cat-badge"></span>
+        <span class="panel-date" id="panel-date"></span>
+      </div>
+      <div id="panel-title"></div>
+      <div id="panel-excerpt"></div>
+
+      <!-- AI Analysis -->
+      <div id="panel-ai-section" style="display:none">
+        <div class="panel-section-label">Grok AI Analysis</div>
+        <div id="panel-signal-box">
+          <span class="panel-signal-dot" id="panel-signal-dot"></span>
+          <span id="panel-signal-text"></span>
+        </div>
+        <div id="panel-analysis-grid">
+          <div class="panel-analysis-card" id="panel-summary-card" style="display:none">
+            <h4>Summary</h4>
+            <p id="panel-summary"></p>
+          </div>
+          <div class="panel-analysis-card" id="panel-context-card" style="display:none">
+            <h4>Context</h4>
+            <p id="panel-context"></p>
+          </div>
+          <div class="panel-analysis-card" id="panel-critique-card" style="display:none">
+            <h4>Critique</h4>
+            <p id="panel-critique"></p>
+          </div>
+        </div>
+        <div id="panel-themes"></div>
+      </div>
+
+      <div id="panel-cta">
+        <a id="panel-read-btn" href="#" target="_blank" rel="noopener" class="panel-cta-primary">→ READ ORIGINAL</a>
+        <a id="panel-share-btn" href="#" class="panel-cta-secondary" onclick="copyPanelLink(event)">⎘ COPY LINK</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <div id="footer">
   <span>// AI_SIGNAL.EXE — LABS ONLY, NO NOISE</span>
@@ -958,11 +1111,11 @@ function renderCard(a) {
   const ago = timeAgo(d);
   const cat = a.category || 'other';
   const color = a.source.color || '#00dcff';
-  const articleUrl = `article.html?id=${encodeURIComponent(a.id)}`;
 
-  return `<a class="card" href="${articleUrl}"
-    data-src="${esc(a.source.id)}" data-cat="${esc(cat)}"
-    style="--src-color:${color}">
+  return `<a class="card" href="article.html?id=${encodeURIComponent(a.id)}"
+    data-src="${esc(a.source.id)}" data-cat="${esc(cat)}" data-id="${esc(a.id)}"
+    style="--src-color:${color}"
+    onclick="return openPanel(event, '${esc(a.id)}')">
     <div class="card-top">
       <div class="card-badges">
         <span class="src-badge" style="color:${color};border-color:${color}30">${esc(a.source.name)}</span>
@@ -972,9 +1125,158 @@ function renderCard(a) {
     </div>
     <div class="card-title">${esc(a.title)}</div>
     ${a.excerpt ? `<p class="card-excerpt">${esc(a.excerpt)}</p>` : ''}
-    <div class="card-foot"><span>Read</span><span class="card-foot-arrow">→</span></div>
+    <div class="card-foot"><span>View</span><span class="card-foot-arrow">→</span></div>
   </a>`;
 }
+
+// ── ARTICLE PANEL ──
+let panelIndex = -1;
+
+function getFilteredIds() {
+  return getFiltered().map(a => a.id);
+}
+
+function openPanel(event, id) {
+  if (event) event.preventDefault();
+  const article = all.find(a => a.id === id);
+  if (!article) return false;
+
+  // Find index in current filtered list
+  const ids = getFilteredIds();
+  panelIndex = ids.indexOf(id);
+
+  populatePanel(article);
+  document.getElementById('panel-overlay').classList.add('open');
+  document.getElementById('article-panel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Update URL without navigation
+  history.pushState({ panelId: id }, '', '?id=' + encodeURIComponent(id));
+  updatePanelNav();
+  return false;
+}
+
+function closePanel() {
+  document.getElementById('panel-overlay').classList.remove('open');
+  document.getElementById('article-panel').classList.remove('open');
+  document.body.style.overflow = '';
+  history.pushState({}, '', location.pathname);
+  panelIndex = -1;
+}
+
+function panelNav(dir) {
+  const ids = getFilteredIds();
+  const next = panelIndex + dir;
+  if (next < 0 || next >= ids.length) return;
+  panelIndex = next;
+  const article = all.find(a => a.id === ids[panelIndex]);
+  if (!article) return;
+  populatePanel(article);
+  history.pushState({ panelId: article.id }, '', '?id=' + encodeURIComponent(article.id));
+  updatePanelNav();
+  document.getElementById('article-panel').scrollTop = 0;
+}
+
+function updatePanelNav() {
+  const ids = getFilteredIds();
+  document.getElementById('panel-prev').disabled = panelIndex <= 0;
+  document.getElementById('panel-next').disabled = panelIndex >= ids.length - 1;
+}
+
+function populatePanel(a) {
+  const color = a.source.color || '#00dcff';
+  const cat   = a.category || 'other';
+  const d     = a.date ? new Date(a.date) : null;
+
+  // Show content, hide loading
+  document.getElementById('panel-loading').style.display = 'none';
+  document.getElementById('panel-content').style.display = 'block';
+
+  // Source badge
+  const srcBadge = document.getElementById('panel-src-badge');
+  srcBadge.textContent = a.source.name;
+  srcBadge.style.color = color;
+  srcBadge.style.borderColor = color + '60';
+
+  // Cat badge
+  const catBadge = document.getElementById('panel-cat-badge');
+  catBadge.textContent = cat;
+  catBadge.className = 'panel-cat-badge ' + cat;
+
+  // Date
+  document.getElementById('panel-date').textContent = d
+    ? d.toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' })
+    : '';
+
+  // Title + excerpt
+  document.getElementById('panel-title').textContent = a.title;
+  const excerptEl = document.getElementById('panel-excerpt');
+  excerptEl.textContent = a.excerpt || '';
+  excerptEl.style.display = a.excerpt ? 'block' : 'none';
+
+  // AI Analysis
+  const ai = a.analysis;
+  const aiSection = document.getElementById('panel-ai-section');
+  if (ai && ai.signal) {
+    aiSection.style.display = 'block';
+    // Signal color based on content
+    const sig = ai.signal.toLowerCase();
+    const sigColor = sig.includes('bullish') || sig.includes('major') ? '#00ff88'
+                   : sig.includes('bearish') || sig.includes('risk') ? '#ff4444'
+                   : '#00dcff';
+    document.getElementById('panel-signal-dot').style.background = sigColor;
+    document.getElementById('panel-signal-text').textContent = ai.signal;
+
+    const show = (id, cardId, val) => {
+      const el = document.getElementById(id);
+      const card = document.getElementById(cardId);
+      if (val) { el.textContent = val; card.style.display = 'block'; }
+      else { card.style.display = 'none'; }
+    };
+    show('panel-summary',  'panel-summary-card',  ai.summary);
+    show('panel-context',  'panel-context-card',  ai.context);
+    show('panel-critique', 'panel-critique-card', ai.critique);
+
+    // Themes
+    const themesEl = document.getElementById('panel-themes');
+    if (ai.themes && ai.themes.length) {
+      themesEl.style.display = 'flex';
+      themesEl.innerHTML = ai.themes.map(t => `<span class="panel-theme">#${esc(t)}</span>`).join('');
+    } else {
+      themesEl.style.display = 'none';
+    }
+  } else {
+    aiSection.style.display = 'none';
+  }
+
+  // CTA
+  document.getElementById('panel-read-btn').href = a.link || a.id;
+}
+
+function copyPanelLink(e) {
+  e.preventDefault();
+  const url = location.href;
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = document.getElementById('panel-share-btn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    setTimeout(() => btn.textContent = orig, 1500);
+  });
+}
+
+// Keyboard nav
+document.addEventListener('keydown', e => {
+  if (document.getElementById('article-panel').classList.contains('open')) {
+    if (e.key === 'Escape') closePanel();
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') panelNav(+1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   panelNav(-1);
+  }
+});
+
+// Open panel on load if ?id= in URL
+window.addEventListener('popstate', () => {
+  if (!location.search.includes('id=')) closePanel();
+});
 
 function getFiltered() {
   return all.filter(a =>
@@ -1131,6 +1433,10 @@ async function init() {
     updateStats(data);
     populateDynamicSources();
     render();
+
+    // Open panel if ?id= in URL
+    const urlId = new URLSearchParams(location.search).get('id');
+    if (urlId) openPanel(null, urlId);
   } catch(e) {
     loading.style.display = 'none';
     err.style.display = 'block';
