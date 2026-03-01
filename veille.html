@@ -745,26 +745,7 @@ body::before {
       AI Signal pulls direct from the source — RSS &amp; blog scraping,
       auto-categorized, updated every 6 hours. No filter, no commentary.
     </p>
-    <div class="hero-sources">
-      <span class="hero-src" style="color:#d4a27a;border-color:rgba(212,162,122,0.3)">Anthropic</span>
-      <span class="hero-src" style="color:#10b981;border-color:rgba(16,185,129,0.3)">OpenAI</span>
-      <span class="hero-src" style="color:#4285f4;border-color:rgba(66,133,244,0.3)">Gemini</span>
-      <span class="hero-src" style="color:#34a853;border-color:rgba(52,168,83,0.3)">Google AI</span>
-      <span class="hero-src" style="color:#5c9bff;border-color:rgba(92,155,255,0.3)">DeepMind</span>
-      <span class="hero-src" style="color:#0064e0;border-color:rgba(0,100,224,0.3)">Meta AI</span>
-      <span class="hero-src" style="color:#e5e5e5;border-color:rgba(229,229,229,0.2)">xAI</span>
-      <span class="hero-src" style="color:#ff7043;border-color:rgba(255,112,67,0.3)">Mistral</span>
-      <span class="hero-src" style="color:#ff9500;border-color:rgba(255,149,0,0.3)">HuggingFace</span>
-      <span class="hero-src" style="color:#76b900;border-color:rgba(118,185,0,0.3)">NVIDIA</span>
-      <span class="hero-src" style="color:#00a4ef;border-color:rgba(0,164,239,0.3)">Microsoft</span>
-      <span class="hero-src" style="color:#ff9900;border-color:rgba(255,153,0,0.3)">AWS ML</span>
-      <span class="hero-src" style="color:#ff3621;border-color:rgba(255,54,33,0.3)">Databricks</span>
-      <span class="hero-src" style="color:#6366f1;border-color:rgba(99,102,241,0.3)">Replicate</span>
-      <span class="hero-src" style="color:#60a5fa;border-color:rgba(96,165,250,0.3)">LangChain</span>
-      <span class="hero-src" style="color:#f5c518;border-color:rgba(245,197,24,0.3)">ElevenLabs</span>
-      <span class="hero-src" style="color:#39d353;border-color:rgba(57,211,83,0.3)">Cohere</span>
-      <span class="hero-src" style="color:#a855f7;border-color:rgba(168,85,247,0.3)">The Gradient</span>
-    </div>
+    <div class="hero-sources" id="hero-sources-dynamic"></div>
     <div class="hero-actions">
       <a href="#comprendre" class="hero-cta">How it works →</a>
       <a href="#statsstrip" class="hero-cta-ghost">Skip to feed ↓</a>
@@ -797,7 +778,7 @@ body::before {
       <div class="c-card">
         <div class="c-icon">⏱</div>
         <div class="c-title">Auto-refreshed</div>
-        <div class="c-desc">A GitHub Actions bot runs every 6 hours, fetches all sources, merges with the existing 30-day rolling archive, and commits the JSON.</div>
+        <div class="c-desc">An automated bot runs every 2 hours, fetches all sources, runs Grok AI analysis, stores everything in a database, and pushes to GitHub.</div>
         <div class="c-stat" id="c-age">—</div>
         <div class="c-stat-lbl">Last update</div>
       </div>
@@ -816,26 +797,8 @@ body::before {
         <div class="c-stat-lbl">Active sources</div>
       </div>
       <!-- sources full-width row -->
-      <div class="c-sources-wrap">
+      <div class="c-sources-wrap" id="c-sources-dynamic">
         <span style="font-family:var(--mono);font-size:0.6rem;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-right:8px;">Sources →</span>
-        <span class="c-src-chip" style="color:#d4a27a;border-color:rgba(212,162,122,0.3)">Anthropic</span>
-        <span class="c-src-chip" style="color:#10b981;border-color:rgba(16,185,129,0.3)">OpenAI</span>
-        <span class="c-src-chip" style="color:#4285f4;border-color:rgba(66,133,244,0.3)">Google Gemini</span>
-        <span class="c-src-chip" style="color:#34a853;border-color:rgba(52,168,83,0.3)">Google AI</span>
-        <span class="c-src-chip" style="color:#5c9bff;border-color:rgba(92,155,255,0.3)">DeepMind</span>
-        <span class="c-src-chip" style="color:#0064e0;border-color:rgba(0,100,224,0.3)">Meta AI</span>
-        <span class="c-src-chip" style="color:#e5e5e5;border-color:rgba(229,229,229,0.2)">xAI / Grok</span>
-        <span class="c-src-chip" style="color:#ff7043;border-color:rgba(255,112,67,0.3)">Mistral</span>
-        <span class="c-src-chip" style="color:#ff9500;border-color:rgba(255,149,0,0.3)">HuggingFace</span>
-        <span class="c-src-chip" style="color:#76b900;border-color:rgba(118,185,0,0.3)">NVIDIA</span>
-        <span class="c-src-chip" style="color:#00a4ef;border-color:rgba(0,164,239,0.3)">Microsoft AI</span>
-        <span class="c-src-chip" style="color:#ff9900;border-color:rgba(255,153,0,0.3)">AWS ML</span>
-        <span class="c-src-chip" style="color:#ff3621;border-color:rgba(255,54,33,0.3)">Databricks</span>
-        <span class="c-src-chip" style="color:#6366f1;border-color:rgba(99,102,241,0.3)">Replicate</span>
-        <span class="c-src-chip" style="color:#60a5fa;border-color:rgba(96,165,250,0.3)">LangChain</span>
-        <span class="c-src-chip" style="color:#f5c518;border-color:rgba(245,197,24,0.3)">ElevenLabs</span>
-        <span class="c-src-chip" style="color:#39d353;border-color:rgba(57,211,83,0.3)">Cohere</span>
-        <span class="c-src-chip" style="color:#a855f7;border-color:rgba(168,85,247,0.3)">The Gradient</span>
       </div>
     </div>
   </div>
@@ -880,24 +843,6 @@ body::before {
   <div class="filter-row" id="src-filters">
     <span class="filter-label">&gt; SOURCE:</span>
     <button class="fbtn active" data-src="all">ALL</button>
-    <button class="fbtn" data-src="anthropic">ANTHROPIC</button>
-    <button class="fbtn" data-src="openai">OPENAI</button>
-    <button class="fbtn" data-src="gemini">GEMINI</button>
-    <button class="fbtn" data-src="google">GOOGLE AI</button>
-    <button class="fbtn" data-src="deepmind">DEEPMIND</button>
-    <button class="fbtn" data-src="meta">META AI</button>
-    <button class="fbtn" data-src="xai">xAI</button>
-    <button class="fbtn" data-src="mistral">MISTRAL</button>
-    <button class="fbtn" data-src="huggingface">HF</button>
-    <button class="fbtn" data-src="nvidia">NVIDIA</button>
-    <button class="fbtn" data-src="microsoft">MICROSOFT</button>
-    <button class="fbtn" data-src="aws">AWS ML</button>
-    <button class="fbtn" data-src="databricks">DATABRICKS</button>
-    <button class="fbtn" data-src="replicate">REPLICATE</button>
-    <button class="fbtn" data-src="langchain">LANGCHAIN</button>
-    <button class="fbtn" data-src="elevenlabs">ELEVENLABS</button>
-    <button class="fbtn" data-src="cohere">COHERE</button>
-    <button class="fbtn" data-src="gradient">THE GRADIENT</button>
   </div>
   <!-- Row 2: categories -->
   <div class="filter-row" id="cat-filters">
@@ -1084,6 +1029,59 @@ function updateStats(data) {
   document.getElementById('s-updated').textContent = age;
 }
 
+// ── DYNAMIC SOURCES (hero, comprendre, filters) ──
+function populateDynamicSources() {
+  // Collect unique sources with counts, sorted by count desc
+  const srcMap = {};
+  all.forEach(a => {
+    const s = a.source;
+    if (!s || !s.id) return;
+    if (!srcMap[s.id]) srcMap[s.id] = { id: s.id, name: s.name, color: s.color || '#00dcff', count: 0 };
+    srcMap[s.id].count++;
+  });
+  const sorted = Object.values(srcMap).sort((a,b) => b.count - a.count);
+  // Only show non-twitter sources in hero/comprendre (twitter shown in modal)
+  const blogs = sorted.filter(s => !s.id.startsWith('tw_'));
+
+  // Hero sources
+  const heroEl = document.getElementById('hero-sources-dynamic');
+  if (heroEl) {
+    heroEl.innerHTML = blogs.map(s =>
+      `<span class="hero-src" style="color:${s.color};border-color:${s.color}30">${esc(s.name)}</span>`
+    ).join('');
+  }
+
+  // Comprendre sources
+  const cEl = document.getElementById('c-sources-dynamic');
+  if (cEl) {
+    const label = cEl.querySelector('span');
+    cEl.innerHTML = '';
+    if (label) cEl.appendChild(label);
+    cEl.innerHTML += blogs.map(s =>
+      `<span class="c-src-chip" style="color:${s.color};border-color:${s.color}30">${esc(s.name)}</span>`
+    ).join('');
+  }
+
+  // Filter buttons
+  const filterEl = document.getElementById('src-filters');
+  if (filterEl) {
+    filterEl.innerHTML = '<span class="filter-label">&gt; SOURCE:</span>' +
+      '<button class="fbtn active" data-src="all">ALL</button>' +
+      sorted.map(s =>
+        `<button class="fbtn" data-src="${esc(s.id)}">${esc(s.name).toUpperCase()}</button>`
+      ).join('');
+    // Re-bind click handlers
+    filterEl.querySelectorAll('.fbtn[data-src]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterEl.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeSrc = btn.dataset.src;
+        render();
+      });
+    });
+  }
+}
+
 // ── SOURCES MODAL ──
 function openSrcModal() {
   // Build source lists from loaded articles
@@ -1131,6 +1129,7 @@ async function init() {
 
     loading.style.display = 'none';
     updateStats(data);
+    populateDynamicSources();
     render();
   } catch(e) {
     loading.style.display = 'none';
@@ -1140,14 +1139,7 @@ async function init() {
 }
 
 // ── FILTERS ──
-document.getElementById('src-filters').addEventListener('click', e => {
-  const b = e.target.closest('.fbtn');
-  if (!b) return;
-  document.querySelectorAll('#src-filters .fbtn').forEach(x => x.classList.remove('active'));
-  b.classList.add('active');
-  activeSrc = b.dataset.src;
-  render();
-});
+// src-filters click handler is now in populateDynamicSources()
 
 document.getElementById('cat-filters').addEventListener('click', e => {
   const b = e.target.closest('.fbtn');
