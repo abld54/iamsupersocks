@@ -54,11 +54,23 @@ SOURCES = [
     {"id": "aws",         "name": "AWS ML",           "color": "#ff9900", "type": "rss",    "url": "https://aws.amazon.com/blogs/machine-learning/feed/"},
     {"id": "databricks",  "name": "Databricks",       "color": "#ff3621", "type": "rss",    "url": "https://www.databricks.com/feed"},
     {"id": "replicate",   "name": "Replicate",        "color": "#6366f1", "type": "rss",    "url": "https://replicate.com/blog/rss"},
+    {"id": "apple_ml",    "name": "Apple ML",         "color": "#a2aaad", "type": "rss",    "url": "https://machinelearning.apple.com/rss.xml"},
+    {"id": "pytorch",     "name": "PyTorch",          "color": "#ee4c2c", "type": "rss",    "url": "https://pytorch.org/blog/feed.xml"},
+    {"id": "anyscale",    "name": "Anyscale",         "color": "#0098ff", "type": "rss",    "url": "https://www.anyscale.com/blog/rss.xml"},
+    {"id": "openrouter",  "name": "OpenRouter",       "color": "#6d28d9", "type": "rss",    "url": "https://openrouter.ai/blog/rss"},
+    {"id": "wandb",       "name": "Weights & Biases", "color": "#ffbe00", "type": "rss",    "url": "https://wandb.ai/fully-connected/rss.xml"},
     # ── Tier 3: Tools & Research ──
     {"id": "langchain",   "name": "LangChain",        "color": "#1c3a5e", "type": "rss",    "url": "https://blog.langchain.com/rss/"},
     {"id": "elevenlabs",  "name": "ElevenLabs",       "color": "#f5c518", "type": "scrape", "url": "https://elevenlabs.io/blog"},
     {"id": "cohere",      "name": "Cohere",           "color": "#39d353", "type": "scrape", "url": "https://cohere.com/blog"},
     {"id": "gradient",    "name": "The Gradient",     "color": "#a855f7", "type": "rss",    "url": "https://thegradient.pub/rss/"},
+    # ── Tier 4: Media & Newsletters ──
+    {"id": "techcrunch",  "name": "TechCrunch AI",    "color": "#0a9e01", "type": "rss",    "url": "https://techcrunch.com/category/artificial-intelligence/feed/"},
+    {"id": "verge_ai",    "name": "The Verge AI",     "color": "#e5127d", "type": "rss",    "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"},
+    {"id": "mit_ai",      "name": "MIT AI News",      "color": "#a31f34", "type": "rss",    "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml"},
+    {"id": "deeplearn_ai","name": "DeepLearning.AI",  "color": "#0056d2", "type": "rss",    "url": "https://blog.deeplearning.ai/rss.xml"},
+    {"id": "importai",    "name": "Import AI",        "color": "#e74c3c", "type": "rss",    "url": "https://importai.substack.com/feed"},
+    {"id": "arxiv_ai",    "name": "arXiv cs.AI",      "color": "#b31b1b", "type": "rss",    "url": "http://arxiv.org/rss/cs.AI"},
     # ── Tier 4: Twitter/X Signals (via Nitter RSS) ──
     {"id": "tw_karpathy",  "name": "Karpathy",        "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/karpathy/rss"},
     {"id": "tw_lecun",     "name": "Yann LeCun",      "color": "#1d9bf0", "type": "twitter", "url": "https://nitter.net/ylecun/rss"},
