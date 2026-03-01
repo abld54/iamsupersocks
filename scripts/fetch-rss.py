@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 AI Signal — Feed Fetcher
-Fetches from 12 sources (RSS + HTML scrape), merges with existing data,
-keeps a rolling 30-day window. Outputs veille-data.json.
+Fetches from 40+ sources (RSS + HTML scrape + Twitter/Nitter).
+DB (OuiHeberg PostgreSQL) = source of truth, unlimited history.
+veille-data.json = generated from DB for the frontend.
 """
 
 import json, os, re, sys, time, socket
@@ -90,9 +91,7 @@ HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-MAX_PER_SOURCE = 20
-ROLLING_DAYS = 30
-MAX_TOTAL = 400
+MAX_PER_SOURCE = 30
 TIMEOUT = 15
 
 # ---------------------------------------------------------------------------
@@ -590,48 +589,85 @@ def fetch_source(src):
         print(f"FAIL  {str(e)[:60]}")
         return []
 
-def load_existing(path):
-    if not os.path.exists(path): return []
-    with open(path, encoding="utf-8") as f:
-        d = json.load(f)
-    return d.get("articles", [])
+def load_all_from_db():
+    """Load all articles from DB (source of truth)."""
+    if not HAS_PSYCOPG2 or not DB_CONFIG.get("password"):
+        return {}
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT id, title, excerpt, link, date, category,
+                   source_id, source_name, source_color,
+                   analysis_signal, analysis_summary, analysis_context,
+                   analysis_critique, analysis_themes, analysis_model
+            FROM ai_signal_articles ORDER BY date DESC
+        """)
+        rows = cur.fetchall()
+        conn.close()
+        result = {}
+        for r in rows:
+            a = {
+                "id": r[0], "title": r[1], "excerpt": r[2], "link": r[3],
+                "date": r[4].isoformat() if r[4] else "",
+                "category": r[5],
+                "source": {"id": r[6], "name": r[7], "color": r[8]},
+            }
+            if r[9]:  # has analysis
+                a["analysis"] = {
+                    "signal": r[9], "summary": r[10], "context": r[11],
+                    "critique": r[12],
+                    "themes": r[13] if isinstance(r[13], list) else json.loads(r[13] or "[]"),
+                    "model": r[14],
+                }
+            result[a["id"]] = a
+        print(f"[DB] Loaded {len(result)} articles from DB")
+        return result
+    except Exception as e:
+        print(f"[DB] Load failed: {e}")
+        return {}
 
 def main():
     out_path = os.path.join(os.path.dirname(__file__), "..", "veille-data.json")
     print("=== AI Signal Feed Fetcher ===\n")
 
-    # Fetch all sources
+    # ── Step 1: Fetch fresh articles from all sources ────────────────────────
     fresh = []
     for src in SOURCES:
         fresh.extend(fetch_source(src))
 
-    # Merge with existing (rolling window)
-    existing = load_existing(out_path)
-    cutoff = (datetime.now(timezone.utc) - timedelta(days=ROLLING_DAYS)).isoformat()
+    # ── Step 2: Load existing articles from DB (source of truth) ─────────────
+    db_articles = load_all_from_db()
 
-    # Index existing by id
-    existing_map = {a["id"]: a for a in existing if a.get("date", "") >= cutoff or not a.get("date")}
+    # Fallback: if DB is unavailable, load from JSON
+    if not db_articles:
+        print("[DB] Fallback — loading from veille-data.json")
+        if os.path.exists(out_path):
+            with open(out_path, encoding="utf-8") as f:
+                d = json.load(f)
+            db_articles = {a["id"]: a for a in d.get("articles", [])}
 
-    # Override with fresh data (preserve analysis if already present)
+    # ── Step 3: Merge fresh into DB articles (preserve analysis) ─────────────
+    new_count = 0
     for a in fresh:
-        prev = existing_map.get(a["id"])
+        prev = db_articles.get(a["id"])
         if prev and prev.get("analysis"):
             a["analysis"] = prev["analysis"]
-        existing_map[a["id"]] = a
+        if a["id"] not in db_articles:
+            new_count += 1
+        db_articles[a["id"]] = a
+    print(f"\n=> {new_count} new articles added | {len(db_articles)} total in DB")
 
-    # ── Grok AI analysis for new articles ────────────────────────────────────
-    already_analyzed = {a["id"] for a in existing if a.get("analysis")}
-    fresh_ids        = {a["id"] for a in fresh}
-    need_analysis    = [
-        existing_map[aid] for aid in (fresh_ids - already_analyzed)
-        if aid in existing_map and existing_map[aid].get("excerpt")
+    # ── Step 4: Grok AI analysis on unanalyzed articles ──────────────────────
+    need_analysis = [
+        a for a in db_articles.values()
+        if not a.get("analysis") and a.get("excerpt")
     ]
-    # Prioritize recent articles
     need_analysis.sort(key=lambda x: x.get("date", ""), reverse=True)
     need_analysis = need_analysis[:MAX_TO_ANALYZE]
 
     if not GROK_API_KEY:
-        print("\n[!] GROK_API_KEY not set — skipping AI analysis")
+        print("[!] GROK_API_KEY not set — skipping AI analysis")
     elif need_analysis:
         print(f"\n=== Grok Analysis ({len(need_analysis)} new articles) ===")
         ok_count = 0
@@ -641,7 +677,7 @@ def main():
                 print(f"  [{i+1:02d}/{len(need_analysis)}] {label:<58}", end=" ", flush=True)
                 analysis = call_grok(a["title"], a["excerpt"], a["source"]["name"], a["category"])
                 if analysis:
-                    existing_map[a["id"]]["analysis"] = analysis
+                    db_articles[a["id"]]["analysis"] = analysis
                     ok_count += 1
                     print("OK")
                 else:
@@ -654,42 +690,35 @@ def main():
     else:
         print("\n[✓] No new articles to analyze")
 
-    merged = list(existing_map.values())
+    # ── Step 5: Push all articles to DB ──────────────────────────────────────
+    all_articles = list(db_articles.values())
+    push_to_db(all_articles)
 
-    # Sort by date descending
-    def sort_key(a):
-        return a.get("date") or "0000"
-    merged.sort(key=sort_key, reverse=True)
+    # ── Step 6: Generate JSON for frontend (all articles, sorted) ────────────
+    all_articles.sort(key=lambda a: a.get("date") or "0000", reverse=True)
 
-    # Dedup Twitter thread tweets: keep first occurrence by title prefix
+    # Dedup Twitter thread tweets
     seen_tw_titles = set()
     deduped = []
-    for a in merged:
+    for a in all_articles:
         if a.get("source", {}).get("id", "").startswith("tw_"):
             key = re.sub(r"\s+", " ", a["title"][:80].lower().strip())
             if key in seen_tw_titles:
                 continue
             seen_tw_titles.add(key)
         deduped.append(a)
-    merged = deduped
-
-    # Cap total
-    merged = merged[:MAX_TOTAL]
 
     output = {
         "generated": datetime.now(timezone.utc).isoformat(),
-        "count": len(merged),
-        "sources": len(set(a["source"]["id"] for a in merged)),
-        "articles": merged,
+        "count": len(deduped),
+        "sources": len(set(a["source"]["id"] for a in deduped)),
+        "articles": deduped,
     }
 
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"\n=> {len(merged)} articles total | {output['sources']} sources | saved to veille-data.json")
-
-    # ── Push to DB (unlimited history, no rolling window) ────────────────────
-    push_to_db(list(existing_map.values()))
+    print(f"\n=> {len(deduped)} articles total | {output['sources']} sources | saved to veille-data.json")
 
 if __name__ == "__main__":
     main()
