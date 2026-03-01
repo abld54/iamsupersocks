@@ -508,6 +508,55 @@ body::before {
 }
 #stb:hover { background:var(--cyan); color:#000; }
 
+/* ─── PROGRESS BAR ─── */
+#scroll-progress {
+  position:fixed; top:52px; left:0; right:0; z-index:99; height:3px;
+  background:transparent; pointer-events:none;
+}
+#scroll-progress-bar {
+  height:100%; width:0%; background:linear-gradient(90deg,var(--cyan),var(--green));
+  transition:width 0.1s linear; box-shadow:0 0 8px var(--cyan);
+}
+#scroll-counter {
+  position:fixed; top:56px; right:16px; z-index:99;
+  font-family:var(--mono); font-size:0.58rem; letter-spacing:2px;
+  color:var(--cyan); background:rgba(0,0,0,0.85); backdrop-filter:blur(6px);
+  border:1px solid var(--border); padding:4px 10px;
+  display:none; pointer-events:none;
+}
+
+/* ─── SEARCH ─── */
+#search-wrap {
+  padding:0 16px 12px; display:flex; align-items:center; gap:10px;
+}
+#search-input {
+  flex:1; background:var(--bg1); border:1px solid var(--border);
+  color:var(--text); font-family:var(--mono); font-size:0.72rem;
+  padding:10px 14px; letter-spacing:1px; outline:none;
+  transition:border-color 0.2s;
+}
+#search-input:focus { border-color:var(--cyan); }
+#search-input::placeholder { color:var(--text3); }
+#search-count {
+  font-family:var(--mono); font-size:0.58rem; color:var(--text3);
+  letter-spacing:2px; white-space:nowrap;
+}
+
+/* ─── DAY SEPARATOR ─── */
+.day-separator {
+  grid-column:1/-1; display:flex; align-items:center; gap:14px;
+  padding:20px 0 8px; font-family:var(--mono);
+}
+.day-separator:first-child { padding-top:0; }
+.day-sep-line { flex:1; height:1px; background:var(--border); }
+.day-sep-label {
+  font-size:0.62rem; letter-spacing:3px; text-transform:uppercase;
+  color:var(--cyan); white-space:nowrap;
+}
+.day-sep-count {
+  font-size:0.55rem; color:var(--text3); letter-spacing:1px;
+}
+
 /* ─── HERO (full viewport) ─── */
 #hero {
   height: calc(100vh - 52px);
@@ -816,6 +865,10 @@ body::before {
 <body>
 
 <!-- TOP BAR -->
+<!-- PROGRESS BAR -->
+<div id="scroll-progress"><div id="scroll-progress-bar"></div></div>
+<div id="scroll-counter"></div>
+
 <nav id="topbar">
   <div class="bar-left">
     <a href="index.html" class="bar-logo">SUPER<span>SOCKS</span></a>
@@ -954,6 +1007,12 @@ body::before {
   </div>
 </div>
 
+<!-- SEARCH -->
+<div id="search-wrap">
+  <input id="search-input" type="text" placeholder="> search articles... (title, source, category, keywords)" autocomplete="off" spellcheck="false">
+  <span id="search-count"></span>
+</div>
+
 <!-- MAIN -->
 <div id="main">
   <div id="loading" style="padding:80px;text-align:center;font-family:var(--mono);color:var(--text3);font-size:0.8rem;letter-spacing:3px;">
@@ -1077,13 +1136,14 @@ body::before {
   <a href="index.html">← SUPERSOCKS</a>
 </div>
 
-<button id="stb" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="stb" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
 // ── STATE ──
 let all = [];
 let activeSrc = 'all';
 let activeCat = 'all';
+let searchQuery = '';
 
 // ── UTILS ──
 function timeAgo(d) {
@@ -1279,16 +1339,37 @@ window.addEventListener('popstate', () => {
 });
 
 function getFiltered() {
-  return all.filter(a =>
+  let result = all.filter(a =>
     (activeSrc === 'all' || a.source.id === activeSrc) &&
     (activeCat === 'all' || a.category === activeCat)
   );
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    const terms = q.split(/\s+/).filter(Boolean);
+    result = result.filter(a => {
+      const blob = [
+        a.title, a.source.name, a.source.id, a.category, a.excerpt || '',
+        a.analysis?.signal || '', a.analysis?.summary || '',
+        ...(a.analysis?.themes || [])
+      ].join(' ').toLowerCase();
+      return terms.every(t => blob.includes(t));
+    });
+  }
+  return result;
 }
 
 function render() {
   const grid = document.getElementById('grid');
   const empty = document.getElementById('empty');
   const items = getFiltered();
+  const searchCount = document.getElementById('search-count');
+
+  // Update search count
+  if (searchQuery || activeSrc !== 'all' || activeCat !== 'all') {
+    searchCount.textContent = items.length + ' / ' + all.length + ' ARTICLES';
+  } else {
+    searchCount.textContent = '';
+  }
 
   if (items.length === 0) {
     grid.innerHTML = '';
@@ -1296,7 +1377,38 @@ function render() {
     return;
   }
   empty.style.display = 'none';
-  grid.innerHTML = items.map(renderCard).join('');
+
+  // Group by day
+  const days = new Map();
+  items.forEach(a => {
+    const d = a.date ? a.date.toISOString().slice(0,10) : '1970-01-01';
+    if (!days.has(d)) days.set(d, []);
+    days.get(d).push(a);
+  });
+
+  let html = '';
+  const now = new Date();
+  const todayStr = now.toISOString().slice(0,10);
+  const yestStr = new Date(now - 86400000).toISOString().slice(0,10);
+
+  for (const [dateStr, articles] of days) {
+    let label;
+    if (dateStr === todayStr) label = 'TODAY';
+    else if (dateStr === yestStr) label = 'YESTERDAY';
+    else {
+      const dt = new Date(dateStr + 'T12:00:00');
+      label = dt.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric' }).toUpperCase();
+    }
+    html += `<div class="day-separator">
+      <span class="day-sep-line"></span>
+      <span class="day-sep-label">${label}</span>
+      <span class="day-sep-count">${articles.length} articles</span>
+      <span class="day-sep-line"></span>
+    </div>`;
+    html += articles.map(renderCard).join('');
+  }
+
+  grid.innerHTML = html;
 }
 
 function updateStats(data) {
@@ -1456,9 +1568,41 @@ document.getElementById('cat-filters').addEventListener('click', e => {
   render();
 });
 
-// ── SCROLL ──
+// ── SEARCH ──
+let searchTimer;
+document.getElementById('search-input').addEventListener('input', e => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchQuery = e.target.value.trim();
+    render();
+  }, 200);
+});
+
+// ── SCROLL + PROGRESS ──
 window.addEventListener('scroll', () => {
-  document.getElementById('stb').style.display = window.scrollY > 400 ? 'flex' : 'none';
+  const scrollY = window.scrollY;
+  const stb = document.getElementById('stb');
+  stb.style.display = scrollY > 400 ? 'flex' : 'none';
+
+  // Progress bar
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docH > 0 ? Math.min(100, (scrollY / docH) * 100) : 0;
+  document.getElementById('scroll-progress-bar').style.width = pct + '%';
+
+  // Scroll counter — show visible article index
+  const counter = document.getElementById('scroll-counter');
+  if (scrollY > 300) {
+    const cards = document.querySelectorAll('#grid .card');
+    const total = cards.length;
+    let currentIdx = 0;
+    for (let i = 0; i < cards.length; i++) {
+      if (cards[i].getBoundingClientRect().top < window.innerHeight / 2) currentIdx = i + 1;
+    }
+    counter.style.display = 'block';
+    counter.textContent = currentIdx + ' / ' + total;
+  } else {
+    counter.style.display = 'none';
+  }
 });
 
 init();
