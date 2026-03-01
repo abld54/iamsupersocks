@@ -6,6 +6,11 @@ keeps a rolling 30-day window. Outputs veille-data.json.
 """
 
 import json, os, re, sys, time, socket
+try:
+    import psycopg2, psycopg2.extras
+    HAS_PSYCOPG2 = True
+except ImportError:
+    HAS_PSYCOPG2 = False
 socket.setdefaulttimeout(20)  # global fallback — prevents any urllib call from hanging
 # Force UTF-8 output on Windows
 if hasattr(sys.stdout, 'reconfigure'):
@@ -98,6 +103,80 @@ GROK_MODEL     = "grok-3-mini"
 GROK_URL       = "https://api.x.ai/v1/chat/completions"
 MAX_TO_ANALYZE = 40  # per run (reduced to avoid xAI rate limits)
 GROK_DELAY     = 1.5  # seconds between calls (increased to avoid rate limits)
+
+# ---------------------------------------------------------------------------
+# Database (OuiHeberg PostgreSQL)
+# ---------------------------------------------------------------------------
+DB_CONFIG = {
+    "host":     os.environ.get("COGEFOX_DB_HOST", "45.140.164.244"),
+    "port":     int(os.environ.get("COGEFOX_DB_PORT", 25543)),
+    "dbname":   os.environ.get("COGEFOX_DB_NAME", "prediction_api"),
+    "user":     os.environ.get("COGEFOX_DB_USER", "ouiheberg"),
+    "password": os.environ.get("COGEFOX_DB_PASS", ""),
+}
+
+UPSERT_SQL = """
+INSERT INTO ai_signal_articles
+    (id, title, excerpt, link, date, category,
+     source_id, source_name, source_color,
+     analysis_signal, analysis_summary, analysis_context,
+     analysis_critique, analysis_themes, analysis_model,
+     fetched_at, updated_at)
+VALUES
+    (%(id)s, %(title)s, %(excerpt)s, %(link)s, %(date)s, %(category)s,
+     %(source_id)s, %(source_name)s, %(source_color)s,
+     %(analysis_signal)s, %(analysis_summary)s, %(analysis_context)s,
+     %(analysis_critique)s, %(analysis_themes)s, %(analysis_model)s,
+     NOW(), NOW())
+ON CONFLICT (id) DO UPDATE SET
+    title             = EXCLUDED.title,
+    excerpt           = EXCLUDED.excerpt,
+    category          = EXCLUDED.category,
+    analysis_signal   = COALESCE(EXCLUDED.analysis_signal,   ai_signal_articles.analysis_signal),
+    analysis_summary  = COALESCE(EXCLUDED.analysis_summary,  ai_signal_articles.analysis_summary),
+    analysis_context  = COALESCE(EXCLUDED.analysis_context,  ai_signal_articles.analysis_context),
+    analysis_critique = COALESCE(EXCLUDED.analysis_critique, ai_signal_articles.analysis_critique),
+    analysis_themes   = COALESCE(EXCLUDED.analysis_themes,   ai_signal_articles.analysis_themes),
+    analysis_model    = COALESCE(EXCLUDED.analysis_model,    ai_signal_articles.analysis_model),
+    updated_at        = NOW()
+"""
+
+def push_to_db(articles):
+    if not HAS_PSYCOPG2:
+        print("[DB] psycopg2 not installed — skipping DB push")
+        return
+    if not DB_CONFIG.get("password"):
+        print("[DB] No DB password — skipping DB push")
+        return
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cur = conn.cursor()
+        rows = []
+        for a in articles:
+            ana = a.get("analysis") or {}
+            rows.append({
+                "id":               a["id"],
+                "title":            a.get("title", ""),
+                "excerpt":          a.get("excerpt", ""),
+                "link":             a.get("link", a["id"]),
+                "date":             a.get("date") or None,
+                "category":         a.get("category", "other"),
+                "source_id":        a.get("source", {}).get("id", ""),
+                "source_name":      a.get("source", {}).get("name", ""),
+                "source_color":     a.get("source", {}).get("color", ""),
+                "analysis_signal":  ana.get("signal"),
+                "analysis_summary": ana.get("summary"),
+                "analysis_context": ana.get("context"),
+                "analysis_critique":ana.get("critique"),
+                "analysis_themes":  json.dumps(ana.get("themes", [])) if ana.get("themes") else None,
+                "analysis_model":   ana.get("model"),
+            })
+        psycopg2.extras.execute_batch(cur, UPSERT_SQL, rows, page_size=100)
+        conn.commit()
+        conn.close()
+        print(f"[DB] ✓ {len(rows)} articles upserted")
+    except Exception as e:
+        print(f"[DB] ERR: {e}")
 
 ANALYSIS_PROMPT = """You are an AI industry analyst for a tech intelligence feed (iamsupersocks.com).
 IMPORTANT: Always respond in English regardless of the source article language.
@@ -608,6 +687,9 @@ def main():
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     print(f"\n=> {len(merged)} articles total | {output['sources']} sources | saved to veille-data.json")
+
+    # ── Push to DB (unlimited history, no rolling window) ────────────────────
+    push_to_db(list(existing_map.values()))
 
 if __name__ == "__main__":
     main()
