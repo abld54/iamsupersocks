@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-01T13:40:00.652980+00:00",
+  "generated": "2026-03-01T15:39:25.585607+00:00",
   "count": 400,
   "sources": 32,
   "articles": [
@@ -5339,6 +5339,19 @@
       }
     },
     {
+      "id": "https://x.com/MistralAI/status/1998407332502405347",
+      "title": "Introducing the Devstral 2 coding model family. Two sizes, both open source. Also, meet Mistral Vibe, a native CLI, enabling end-to-end automation. 🧵",
+      "excerpt": "Introducing the Devstral 2 coding model family. Two sizes, both open source. Also, meet Mistral Vibe, a native CLI, enabling end-to-end automation. 🧵",
+      "link": "https://x.com/MistralAI/status/1998407332502405347",
+      "date": "2025-12-09T15:00:11+00:00",
+      "category": "model",
+      "source": {
+        "id": "tw_mistral",
+        "name": "Mistral (X)",
+        "color": "#ff7043"
+      }
+    },
+    {
       "id": "https://replicate.com/blog/isaac-01",
       "title": "Run Isaac 0.1 on Replicate",
       "excerpt": "Isaac 0.1 is a lightweight, grounded vision-language model built for real-world perception.",
@@ -7740,19 +7753,6 @@
       "link": "https://www.together.ai/blog/nvidia-blackwell-test-drive",
       "date": "",
       "category": "other",
-      "source": {
-        "id": "together",
-        "name": "Together AI",
-        "color": "#8b5cf6"
-      }
-    },
-    {
-      "id": "https://www.together.ai/blog/together-ai-announcing-305m-series-b",
-      "title": "Together AI Announces $305M Series B to Scale AI Acceleration Cloud for Open Source and Enterprise AI",
-      "excerpt": "By",
-      "link": "https://www.together.ai/blog/together-ai-announcing-305m-series-b",
-      "date": "",
-      "category": "model",
       "source": {
         "id": "together",
         "name": "Together AI",
