@@ -1,12 +1,154 @@
 {
-  "generated": "2026-03-01T20:02:34.360276+00:00",
-  "count": 854,
+  "generated": "2026-03-01T21:53:13.918277+00:00",
+  "count": 866,
   "sources": 67,
   "articles": [
     {
+      "id": "https://www.zdnet.com/article/best-ps5-settings-improve-performance/",
+      "title": "The best PS5 settings to change if you want better performance (and privacy)",
+      "excerpt": "With a few simple adjustments, you can quickly upgrade your experience across gaming, streaming, and even online security.",
+      "link": "https://www.zdnet.com/article/best-ps5-settings-improve-performance/",
+      "date": "2026-03-01T21:47:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "zdnet_ai",
+        "name": "ZDNet AI",
+        "color": "#e11d48"
+      }
+    },
+    {
+      "id": "https://www.zdnet.com/article/honor-magic-v-6-hands-on-mwc-2026/",
+      "title": "I tried Honor's ultra-thin foldable phone at MWC 2026, and it's almost too powerful",
+      "excerpt": "The Honor Magic V6 packs a massive battery and razor-thin profile into a foldable that feels like a regular phone. But there's so much more to it.",
+      "link": "https://www.zdnet.com/article/honor-magic-v-6-hands-on-mwc-2026/",
+      "date": "2026-03-01T21:30:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "zdnet_ai",
+        "name": "ZDNet AI",
+        "color": "#e11d48"
+      },
+      "analysis": {
+        "signal": "Honor's Magic V6 demonstrates that foldable phones can achieve record battery life and slim designs, potentially accelerating their mainstream adoption by resolving key user pain points.",
+        "summary": "At MWC 2026, Honor showcased the Magic V6 foldable phone, featuring a massive battery and an ultra-thin profile that makes it feel like a traditional smartphone. The device sets new records in these areas, highlighting significant hardware improvements. This advancement could shift consumer perceptions, making foldables more competitive with standard phones.",
+        "context": "Foldable phones have faced challenges with battery efficiency and bulkiness, but the Magic V6's innovations address these amid a saturated smartphone market. This matters now as consumers demand longer battery life and portability, driving companies to differentiate through form factors. It fits into the dynamic of intensifying competition from Chinese manufacturers like Honor, who are disrupting global leaders with rapid hardware iterations.",
+        "critique": "Notably, the focus on battery and thinness overlooks critical factors like hinge durability and software optimization, which could undermine long-term reliability in real-world use. This reveals the industry's pattern of prioritizing flashy specs to generate buzz while potentially ignoring ecosystem integration, as seen in past foldable failures. It signals a directional push towards hardware normalization but exposes blind spots in addressing cost barriers and competitive software ecosystems that might hinder widespread adoption.",
+        "themes": [
+          "Hardware Innovation",
+          "Foldable Technology",
+          "Market Competition"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://x.com/ch402/status/2028216398443614693",
+      "title": "Very grateful to all the natsec law experts who are taking time over the weekend to provide independent legal commentary in this moment. A few that I've noticed (no doubt missing many)...",
+      "excerpt": "Very grateful to all the natsec law experts who are taking time over the weekend to provide independent legal commentary in this moment. A few that I've noticed (no doubt missing many)...",
+      "link": "https://x.com/ch402/status/2028216398443614693",
+      "date": "2026-03-01T21:10:46+00:00",
+      "category": "other",
+      "source": {
+        "id": "tw_chrisolah",
+        "name": "Chris Olah (X)",
+        "color": "#a3e635"
+      }
+    },
+    {
+      "id": "https://x.com/levelsio/status/2028214820718236120",
+      "title": "Anyone know why my OpenClaw died today? Is it rate limited by Anthropic? I already upgraded it to 2026.2.26",
+      "excerpt": "Anyone know why my OpenClaw died today? Is it rate limited by Anthropic? I already upgraded it to 2026.2.26",
+      "link": "https://x.com/levelsio/status/2028214820718236120",
+      "date": "2026-03-01T21:04:30+00:00",
+      "category": "other",
+      "source": {
+        "id": "tw_pieter",
+        "name": "Pieter Levels (X)",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "https://x.com/GaryMarcus/status/2028213757395272096",
+      "title": "Why does Graham always hype Altman when there are so many legitimate questions that can be raised about Altman? I don’t get it.",
+      "excerpt": "Why does Graham always hype Altman when there are so many legitimate questions that can be raised about Altman? I don’t get it. Paul Graham (@paulg) Incidentally, how many CEOs would have the confidence to do an AMA about this topic at this moment? — https://nitter.net/paulg/status/2027908286146875591#m",
+      "link": "https://x.com/GaryMarcus/status/2028213757395272096",
+      "date": "2026-03-01T21:00:16+00:00",
+      "category": "other",
+      "source": {
+        "id": "tw_marcus",
+        "name": "Gary Marcus",
+        "color": "#1d9bf0"
+      }
+    },
+    {
+      "id": "https://x.com/GaryMarcus/status/2028211938447302866",
+      "title": "It’s weird how people post stuff like this without looking closely. I can spot multiple errors, how about you?",
+      "excerpt": "It’s weird how people post stuff like this without looking closely. I can spot multiple errors, how about you? Pierrick Chevallier | IA (@CharaspowerAI) 🚨PromptShare🚨 Okay… Banana 2 does not play when it comes to exploded views. Clean part separation. Accurate perspective.Full consistency. PROMPT product design, [object or vehicle with material acc",
+      "link": "https://x.com/GaryMarcus/status/2028211938447302866",
+      "date": "2026-03-01T20:53:03+00:00",
+      "category": "product",
+      "source": {
+        "id": "tw_marcus",
+        "name": "Gary Marcus",
+        "color": "#1d9bf0"
+      }
+    },
+    {
+      "id": "https://x.com/levelsio/status/2028211678194647447",
+      "title": "Claude Remote Control is extremely nice Can edit on MacOS or iOS in Claude app on my production server from anywhere A bit more friendly to the eyes than SSH",
+      "excerpt": "Claude Remote Control is extremely nice Can edit on MacOS or iOS in Claude app on my production server from anywhere A bit more friendly to the eyes than SSH @levelsio (@levelsio) My new command for Claude with remote control on yolo mode: c() { IS_SANDBOX=1 claude rc --dangerously-skip-permissions \"$@\"; } — https://nitter.net/levelsio/status/20281",
+      "link": "https://x.com/levelsio/status/2028211678194647447",
+      "date": "2026-03-01T20:52:01+00:00",
+      "category": "model",
+      "source": {
+        "id": "tw_pieter",
+        "name": "Pieter Levels (X)",
+        "color": "#64748b"
+      }
+    },
+    {
+      "id": "https://x.com/emollick/status/2028211116887671198",
+      "title": "I get the enthusiasm for open weights models but what is the justification from an alignment perspective? And here I mean both narrow alignment (models being used improperly to do l bad things) and bigger alignment (agents or even AGI that are not a",
+      "excerpt": "I get the enthusiasm for open weights models but what is the justification from an alignment perspective? And here I mean both narrow alignment (models being used improperly to do l bad things) and bigger alignment (agents or even AGI that are not aligned with humans overall).",
+      "link": "https://x.com/emollick/status/2028211116887671198",
+      "date": "2026-03-01T20:49:47+00:00",
+      "category": "model",
+      "source": {
+        "id": "tw_emollick",
+        "name": "Ethan Mollick",
+        "color": "#1d9bf0"
+      }
+    },
+    {
+      "id": "https://x.com/elonmusk/status/2028208773400035685",
+      "title": "If ethnicity exists at all, which it obviously does, then English is an ethnicity. This is a simple statement of fact. It is possible to be culturally English or French or Japanese, etc, but ethnically be different. The first is “software”, the oth",
+      "excerpt": "If ethnicity exists at all, which it obviously does, then English is an ethnicity. This is a simple statement of fact. It is possible to be culturally English or French or Japanese, etc, but ethnically be different. The first is “software”, the other is “hardware”. This should not be license to be cruel or unfair to people of a different ethnicity.",
+      "link": "https://x.com/elonmusk/status/2028208773400035685",
+      "date": "2026-03-01T20:40:28+00:00",
+      "category": "other",
+      "source": {
+        "id": "tw_elonmusk",
+        "name": "Elon Musk (X)",
+        "color": "#1d9bf0"
+      }
+    },
+    {
+      "id": "https://x.com/levelsio/status/2028204279660744923",
+      "title": "So @elvissun sent me some very helpful tips about this If I'd run this { autonomous agent that reads my error logs to fix } on the same VPS server as my site it'd be risky because it could easily get prompt injected via the error logs One way I tho",
+      "excerpt": "So @elvissun sent me some very helpful tips about this If I'd run this { autonomous agent that reads my error logs to fix } on the same VPS server as my site it'd be risky because it could easily get prompt injected via the error logs One way I thought could be to run the agent on its own VPS box with only read access to the repo and no sensitive d",
+      "link": "https://x.com/levelsio/status/2028204279660744923",
+      "date": "2026-03-01T20:22:37+00:00",
+      "category": "safety",
+      "source": {
+        "id": "tw_pieter",
+        "name": "Pieter Levels (X)",
+        "color": "#64748b"
+      }
+    },
+    {
       "id": "https://www.lesswrong.com/posts/FErugDzyajJtBNjzx/an-empirical-review-of-the-animal-harm-benchmark",
       "title": "An Empirical Review of the Animal Harm Benchmark",
-      "excerpt": "Summary: The Animal Harm Benchmark (AHB) is one of only two publicly available benchmarks for measuring LLM bias against non-human animals. This work examines whether AHB 2.0 is well-calibrated, asking three questions: (1) Does a score of 0 correspond to maximum risk and 1 to minimum risk? (2) Do higher scores reflect lower risks? (3) Are score dif",
+      "excerpt": "Summary: The Animal Harm Benchmark (AHB) is one of only two publicly available benchmarks for measuring LLM bias against non-human animals. This work examines whether AHB 2.0 is well-calibrated, asking three questions: (Q1) Does a score of 0 correspond to maximum risk and 1 to minimum risk? (Q2) Do higher scores reflect lower risks? (Q3) Are score ",
       "link": "https://www.lesswrong.com/posts/FErugDzyajJtBNjzx/an-empirical-review-of-the-animal-harm-benchmark",
       "date": "2026-03-01T19:39:00+00:00",
       "category": "model",
@@ -199,31 +341,6 @@
           "Benchmark Obsolescence",
           "AI Capability Saturation",
           "Evaluation Innovation"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://www.zdnet.com/article/honor-magic-v-6-hands-on-mwc-2026/",
-      "title": "I held the most ambitious foldable phone at MWC 2026, and it's full of new records",
-      "excerpt": "The Honor Magic V6 packs a massive battery and razor-thin profile into a foldable that feels like a regular phone. But there's so much more to it.",
-      "link": "https://www.zdnet.com/article/honor-magic-v-6-hands-on-mwc-2026/",
-      "date": "2026-03-01T18:19:00+00:00",
-      "category": "other",
-      "source": {
-        "id": "zdnet_ai",
-        "name": "ZDNet AI",
-        "color": "#e11d48"
-      },
-      "analysis": {
-        "signal": "Honor's Magic V6 demonstrates that foldable phones can achieve record battery life and slim designs, potentially accelerating their mainstream adoption by resolving key user pain points.",
-        "summary": "At MWC 2026, Honor showcased the Magic V6 foldable phone, featuring a massive battery and an ultra-thin profile that makes it feel like a traditional smartphone. The device sets new records in these areas, highlighting significant hardware improvements. This advancement could shift consumer perceptions, making foldables more competitive with standard phones.",
-        "context": "Foldable phones have faced challenges with battery efficiency and bulkiness, but the Magic V6's innovations address these amid a saturated smartphone market. This matters now as consumers demand longer battery life and portability, driving companies to differentiate through form factors. It fits into the dynamic of intensifying competition from Chinese manufacturers like Honor, who are disrupting global leaders with rapid hardware iterations.",
-        "critique": "Notably, the focus on battery and thinness overlooks critical factors like hinge durability and software optimization, which could undermine long-term reliability in real-world use. This reveals the industry's pattern of prioritizing flashy specs to generate buzz while potentially ignoring ecosystem integration, as seen in past foldable failures. It signals a directional push towards hardware normalization but exposes blind spots in addressing cost barriers and competitive software ecosystems that might hinder widespread adoption.",
-        "themes": [
-          "Hardware Innovation",
-          "Foldable Technology",
-          "Market Competition"
         ],
         "model": "grok-3-mini"
       }
@@ -683,7 +800,7 @@
       "title": "I tested Xiaomi's matte-glass tablet for a month, and it effectively replaced my iPad",
       "excerpt": "The Xiaomi Pad 8 Pro Matte Glass variant has an anti-reflective screen, a flagship processor, and upgraded accessories to take on the iPads.",
       "link": "https://www.zdnet.com/article/xiaomi-pad-8-pro-matte-glass-version-review/",
-      "date": "2026-03-01T11:15:44+00:00",
+      "date": "2026-03-01T11:15:00+00:00",
       "category": "other",
       "source": {
         "id": "zdnet_ai",
@@ -729,6 +846,31 @@
       }
     },
     {
+      "id": "https://www.lesswrong.com/posts/CpiF7QBvcs2fiysfD/my-personal-apology-to-eliezer-yudkowsky-for-not-working-on",
+      "title": "My personal apology to Eliezer Yudkowsky for not working on ASI risk in 2022 itself",
+      "excerpt": "Lesswrong disclaimer This is a link post to a living document. What's below may be an older version. Click link for latest version. 2026-03-01 My personal apology to Eliezer Yudkowsky for not working on ASI risk in 2022 itself Disclaimer Quick Note Speaking aloud. Contains personal emotions Main I spent a few months trying to understand ASI risks b",
+      "link": "https://www.lesswrong.com/posts/CpiF7QBvcs2fiysfD/my-personal-apology-to-eliezer-yudkowsky-for-not-working-on",
+      "date": "2026-03-01T09:09:48+01:00",
+      "category": "model",
+      "source": {
+        "id": "lesswrong",
+        "name": "LessWrong",
+        "color": "#5b6b4e"
+      },
+      "analysis": {
+        "signal": "A personal apology for delaying ASI risk work highlights the intensifying personal and professional pressures in AI safety amid rapid technological progress.",
+        "summary": "An individual posted an apology on LessWrong for not addressing Artificial Superintelligence (ASI) risks in 2022, directed at AI safety advocate Eliezer Yudkowsky, as a living document reflecting their regret. The post details their initial hesitation and subsequent reflection on the importance of AI risk mitigation. No major announcements or changes were made, but it signals a potential pivot in the author's involvement.",
+        "context": "AI safety debates, fueled by figures like Yudkowsky, have gained momentum with recent advancements in models from companies like OpenAI, emphasizing the need to prevent catastrophic outcomes from superintelligent systems. This matters now as regulatory pressures and public scrutiny intensify, pushing the industry toward prioritizing ethical frameworks over unchecked innovation. It fits into a market dynamic where talent and resources are shifting from pure AI development to risk-focused initiatives, influenced by growing investor concerns about long-term liabilities.",
+        "critique": "The post's emotional focus is notable for humanizing AI safety advocacy but overlooks systemic barriers like funding shortages or interdisciplinary collaboration, which could make such apologies feel performative rather than transformative. It reveals the industry's overreliance on individual moral appeals instead of enforceable standards, potentially distracting from more pressing needs like standardized safety protocols in model training. This underscores a directional flaw where anecdotal reflections amplify celebrity influence without advancing concrete, scalable solutions to mitigate ASI ",
+        "themes": [
+          "AI Safety Urgency",
+          "Personal Accountability in Tech",
+          "Existential Risk Awareness"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
       "id": "https://www.lesswrong.com/posts/jdoDvKGLbaaJWnDpE/tools-to-generate-realistic-prompts-help-surprisingly-little",
       "title": "Tools to generate realistic prompts help surprisingly little with Petri audit realism",
       "excerpt": "TLDR We train and many-shot prompt base models to generate user prompts that are harder to distinguish from deployment (WildChat) prompts. Then we give Petri , an automated auditing agent, a tool to use a prompt generator model for sycophancy audits. It doesn’t help with making the full audit transcripts harder to distinguish from deployment transc",
@@ -754,36 +896,11 @@
       }
     },
     {
-      "id": "https://www.lesswrong.com/posts/CpiF7QBvcs2fiysfD/my-personal-apology-to-eliezer-yudkowsky-for-not-working-on",
-      "title": "My personal apology to Eliezer Yudkowsky for not working on ASI risk in 2022 itself",
-      "excerpt": "Lesswrong disclaimer This is a link post to a living document. What's below may be an older version. Click link for latest version. 2026-03-01 My personal apology to Eliezer Yudkowsky for not working on ASI risk in 2022 itself Disclaimer Quick Note Speaking aloud. Contains personal emotions Main I spent a few months trying to understand ASI risks b",
-      "link": "https://www.lesswrong.com/posts/CpiF7QBvcs2fiysfD/my-personal-apology-to-eliezer-yudkowsky-for-not-working-on",
-      "date": "2026-03-01T08:09:48+00:00",
-      "category": "model",
-      "source": {
-        "id": "lesswrong",
-        "name": "LessWrong",
-        "color": "#5b6b4e"
-      },
-      "analysis": {
-        "signal": "A personal apology for delaying ASI risk work highlights the intensifying personal and professional pressures in AI safety amid rapid technological progress.",
-        "summary": "An individual posted an apology on LessWrong for not addressing Artificial Superintelligence (ASI) risks in 2022, directed at AI safety advocate Eliezer Yudkowsky, as a living document reflecting their regret. The post details their initial hesitation and subsequent reflection on the importance of AI risk mitigation. No major announcements or changes were made, but it signals a potential pivot in the author's involvement.",
-        "context": "AI safety debates, fueled by figures like Yudkowsky, have gained momentum with recent advancements in models from companies like OpenAI, emphasizing the need to prevent catastrophic outcomes from superintelligent systems. This matters now as regulatory pressures and public scrutiny intensify, pushing the industry toward prioritizing ethical frameworks over unchecked innovation. It fits into a market dynamic where talent and resources are shifting from pure AI development to risk-focused initiatives, influenced by growing investor concerns about long-term liabilities.",
-        "critique": "The post's emotional focus is notable for humanizing AI safety advocacy but overlooks systemic barriers like funding shortages or interdisciplinary collaboration, which could make such apologies feel performative rather than transformative. It reveals the industry's overreliance on individual moral appeals instead of enforceable standards, potentially distracting from more pressing needs like standardized safety protocols in model training. This underscores a directional flaw where anecdotal reflections amplify celebrity influence without advancing concrete, scalable solutions to mitigate ASI ",
-        "themes": [
-          "AI Safety Urgency",
-          "Personal Accountability in Tech",
-          "Existential Risk Awareness"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
       "id": "https://x.com/bindureddy/status/2027995711053197746",
       "title": "Wow, the amount of misinformation on X is amplified 100x today There is just a lot of panic everywhere and the entire air space in the Middle East is shut I am trying to route through Azerbaijan to avoid the chaos 🤞",
       "excerpt": "Wow, the amount of misinformation on X is amplified 100x today There is just a lot of panic everywhere and the entire air space in the Middle East is shut I am trying to route through Azerbaijan to avoid the chaos 🤞",
       "link": "https://x.com/bindureddy/status/2027995711053197746",
-      "date": "2026-03-01T06:33:50+00:00",
+      "date": "2026-03-01T07:33:50+01:00",
       "category": "other",
       "source": {
         "id": "tw_bindureddy",
@@ -799,6 +916,31 @@
           "Misinformation Spread",
           "Geopolitical Instability",
           "AI Moderation Challenges"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://x.com/elonmusk/status/2027989847500034278",
+      "title": "People can pretend or dress up all they want and that’s fine, but they can’t force their mental illness to be my new reality!",
+      "excerpt": "People can pretend or dress up all they want and that’s fine, but they can’t force their mental illness to be my new reality! Sall Grover (@salltweets) When you think about it for more than half a second, it is absolutely insane that pretending to be the opposite sex is considered to be a human rights movement. — https://nitter.net/salltweets/statu",
+      "link": "https://x.com/elonmusk/status/2027989847500034278",
+      "date": "2026-03-01T07:10:32+01:00",
+      "category": "other",
+      "source": {
+        "id": "tw_elonmusk",
+        "name": "Elon Musk (X)",
+        "color": "#1d9bf0"
+      },
+      "analysis": {
+        "signal": "Elon Musk's amplification of anti-trans views highlights the risks tech leaders pose to AI ethics by intertwining personal ideologies with industry influence.",
+        "summary": "Elon Musk shared a post from Sall Grover on X criticizing gender identity as a mental illness and dismissing it as a human rights movement. This action endorses a controversial stance without announcing any new policies or products. It escalates Musk's pattern of engaging in social debates, potentially affecting his companies' reputations.",
+        "context": "This fits into the broader tech landscape where AI executives like Musk shape public discourse on sensitive issues, amid growing regulatory pressures on AI bias and ethics. It matters now as AI development increasingly intersects with diversity and inclusion standards, influencing market dynamics like investor trust in companies tied to social controversies. Such incidents underscore the tension between innovation-driven AI firms and societal expectations for responsible leadership.",
+        "critique": "Notably, this exposes how Musk's platform prioritizes provocative content over nuanced dialogue, potentially alienating diverse talent pools essential for AI advancement. What's missing is any acknowledgment of scientific consensus on gender dysphoria, revealing a gap in how tech figures engage with evidence-based topics. It signals the industry's drift towards polarization, challenging AI's potential for equitable applications by prioritizing celebrity influence over substantive ethical frameworks.",
+        "themes": [
+          "Free Speech in Tech",
+          "AI Ethics and Bias",
+          "Leadership Accountability"
         ],
         "model": "grok-3-mini"
       }
@@ -824,31 +966,6 @@
           "EV Acceleration",
           "Fossil Fuel Decline",
           "Geopolitical Energy Shifts"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://x.com/elonmusk/status/2027989847500034278",
-      "title": "People can pretend or dress up all they want and that’s fine, but they can’t force their mental illness to be my new reality!",
-      "excerpt": "People can pretend or dress up all they want and that’s fine, but they can’t force their mental illness to be my new reality! Sall Grover (@salltweets) When you think about it for more than half a second, it is absolutely insane that pretending to be the opposite sex is considered to be a human rights movement. — https://nitter.net/salltweets/statu",
-      "link": "https://x.com/elonmusk/status/2027989847500034278",
-      "date": "2026-03-01T06:10:32+00:00",
-      "category": "other",
-      "source": {
-        "id": "tw_elonmusk",
-        "name": "Elon Musk (X)",
-        "color": "#1d9bf0"
-      },
-      "analysis": {
-        "signal": "Elon Musk's amplification of anti-trans views highlights the risks tech leaders pose to AI ethics by intertwining personal ideologies with industry influence.",
-        "summary": "Elon Musk shared a post from Sall Grover on X criticizing gender identity as a mental illness and dismissing it as a human rights movement. This action endorses a controversial stance without announcing any new policies or products. It escalates Musk's pattern of engaging in social debates, potentially affecting his companies' reputations.",
-        "context": "This fits into the broader tech landscape where AI executives like Musk shape public discourse on sensitive issues, amid growing regulatory pressures on AI bias and ethics. It matters now as AI development increasingly intersects with diversity and inclusion standards, influencing market dynamics like investor trust in companies tied to social controversies. Such incidents underscore the tension between innovation-driven AI firms and societal expectations for responsible leadership.",
-        "critique": "Notably, this exposes how Musk's platform prioritizes provocative content over nuanced dialogue, potentially alienating diverse talent pools essential for AI advancement. What's missing is any acknowledgment of scientific consensus on gender dysphoria, revealing a gap in how tech figures engage with evidence-based topics. It signals the industry's drift towards polarization, challenging AI's potential for equitable applications by prioritizing celebrity influence over substantive ethical frameworks.",
-        "themes": [
-          "Free Speech in Tech",
-          "AI Ethics and Bias",
-          "Leadership Accountability"
         ],
         "model": "grok-3-mini"
       }
@@ -1004,6 +1121,31 @@
       }
     },
     {
+      "id": "https://x.com/levelsio/status/2027884347626303630",
+      "title": "Let's pay $99/mo to read my logs How about TAIL??? tail -n 50 /var/log/{php*.log,nginx/error.log,syslog} 2>/dev/null | claude \"analyze these logs for errors or issues\"",
+      "excerpt": "Let's pay $99/mo to read my logs How about TAIL??? tail -n 50 /var/log/{php*.log,nginx/error.log,syslog} 2>/dev/null | claude \"analyze these logs for errors or issues\" Gaurav (@sarmag77) Integrate logs with sentry which then creates a ticket in your project board? If you are using a logging tool like spunk or something, use tool calling to fetch th",
+      "link": "https://x.com/levelsio/status/2027884347626303630",
+      "date": "2026-03-01T00:11:19+01:00",
+      "category": "model",
+      "source": {
+        "id": "tw_pieter",
+        "name": "Pieter Levels (X)",
+        "color": "#64748b"
+      },
+      "analysis": {
+        "signal": "Developers are subverting expensive log analysis services by combining free command-line tools with AI for quick, cost-effective debugging.",
+        "summary": "Pieter Levels sarcastically questions the value of a $99/month service for reading logs by demonstrating a free alternative using the 'tail' command piped to Claude AI for error analysis. Another user, Gaurav, suggests integrating logs with tools like Sentry to automate ticketing in project boards. This highlights a growing trend of DIY solutions in log management without proprietary services.",
+        "context": "This reflects the broader shift in the AI and DevOps landscape where accessible AI models like Claude enable rapid prototyping and analysis, reducing reliance on costly enterprise tools. It matters now as economic pressures push developers towards cost-saving measures amid rising cloud computing costs. This fits into market dynamics where open-source and AI-driven alternatives are disrupting traditional software-as-a-service models for monitoring and logging.",
+        "critique": "While the post effectively spotlights the overpricing of basic functionalities in a commoditized market, it overlooks potential risks like data privacy in piping logs to third-party AIs and the scalability issues of ad-hoc tools for large enterprises. It reveals the industry's accelerating move towards user-driven innovation, but this could lead to fragmentation if not standardized, potentially widening the gap between hobbyists and professional operations who need robust, secure solutions.",
+        "themes": [
+          "AI in DevOps",
+          "Cost Reduction in Tech",
+          "Open Source Disruption"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
       "id": "https://techcrunch.com/2026/02/28/the-trap-anthropic-built-for-itself/",
       "title": "The trap Anthropic built for itself",
       "excerpt": "Anthropic, OpenAI, Google DeepMind and others have long promised to govern themselves responsibly. Now, in the absence of rules, there's not a lot to protect them.",
@@ -1074,31 +1216,6 @@
           "Mobile AI Rendering",
           "3D Content Democratization",
           "Emerging Graphics Tech"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://x.com/levelsio/status/2027884347626303630",
-      "title": "Let's pay $99/mo to read my logs How about TAIL??? tail -n 50 /var/log/{php*.log,nginx/error.log,syslog} 2>/dev/null | claude \"analyze these logs for errors or issues\"",
-      "excerpt": "Let's pay $99/mo to read my logs How about TAIL??? tail -n 50 /var/log/{php*.log,nginx/error.log,syslog} 2>/dev/null | claude \"analyze these logs for errors or issues\" Gaurav (@sarmag77) Integrate logs with sentry which then creates a ticket in your project board? If you are using a logging tool like spunk or something, use tool calling to fetch th",
-      "link": "https://x.com/levelsio/status/2027884347626303630",
-      "date": "2026-02-28T23:11:19+00:00",
-      "category": "model",
-      "source": {
-        "id": "tw_pieter",
-        "name": "Pieter Levels (X)",
-        "color": "#64748b"
-      },
-      "analysis": {
-        "signal": "Developers are subverting expensive log analysis services by combining free command-line tools with AI for quick, cost-effective debugging.",
-        "summary": "Pieter Levels sarcastically questions the value of a $99/month service for reading logs by demonstrating a free alternative using the 'tail' command piped to Claude AI for error analysis. Another user, Gaurav, suggests integrating logs with tools like Sentry to automate ticketing in project boards. This highlights a growing trend of DIY solutions in log management without proprietary services.",
-        "context": "This reflects the broader shift in the AI and DevOps landscape where accessible AI models like Claude enable rapid prototyping and analysis, reducing reliance on costly enterprise tools. It matters now as economic pressures push developers towards cost-saving measures amid rising cloud computing costs. This fits into market dynamics where open-source and AI-driven alternatives are disrupting traditional software-as-a-service models for monitoring and logging.",
-        "critique": "While the post effectively spotlights the overpricing of basic functionalities in a commoditized market, it overlooks potential risks like data privacy in piping logs to third-party AIs and the scalability issues of ad-hoc tools for large enterprises. It reveals the industry's accelerating move towards user-driven innovation, but this could lead to fragmentation if not standardized, potentially widening the gap between hobbyists and professional operations who need robust, secure solutions.",
-        "themes": [
-          "AI in DevOps",
-          "Cost Reduction in Tech",
-          "Open Source Disruption"
         ],
         "model": "grok-3-mini"
       }
@@ -1379,6 +1496,31 @@
       }
     },
     {
+      "id": "https://x.com/levelsio/status/2027817837083955440",
+      "title": "This is fun but what if we connect my PHP, JS and server error logs AND the bug and feature request board to an AI that then writes the code and does pull requests that I then approve or reject? How I do this? Can I do it with Claude Code?",
+      "excerpt": "This is fun but what if we connect my PHP, JS and server error logs AND the bug and feature request board to an AI that then writes the code and does pull requests that I then approve or reject? How I do this? Can I do it with Claude Code? @levelsio (@levelsio) This week I decided to just permanently switch to running Claude Code on the server most",
+      "link": "https://x.com/levelsio/status/2027817837083955440",
+      "date": "2026-02-28T19:47:02+01:00",
+      "category": "model",
+      "source": {
+        "id": "tw_pieter",
+        "name": "Pieter Levels (X)",
+        "color": "#64748b"
+      },
+      "analysis": {
+        "signal": "Pieter Levels proposes using AI like Claude Code to automate code generation from error logs and request boards, enabling developers to approve pull requests directly.",
+        "summary": "Pieter Levels shared an idea on X about integrating his PHP, JavaScript, and server error logs with a bug and feature request board to have an AI write code and submit pull requests for approval. He specifically asked how to implement this and whether Claude Code could be used for it. He also announced his permanent switch to running Claude Code on the server, indicating a practical shift in his development workflow.",
+        "context": "This idea emerges amid the rapid adoption of AI coding assistants, as developers seek to streamline workflows in response to increasing software complexity and tight deadlines. It matters now because advancements in large language models are making automated code generation more feasible, potentially disrupting traditional development processes. This fits into the broader market dynamic of AI providers competing to integrate their tools into enterprise software pipelines, accelerating innovation in DevOps.",
+        "critique": "While the proposal highlights AI's efficiency gains in handling routine coding tasks, it fails to address potential pitfalls like AI hallucinations leading to insecure code or over-reliance on black-box models. The industry's fixation on automation as revealed here underscores a growing neglect of human oversight in critical decision-making, which could exacerbate bugs in production environments. This trend signals a directional shift towards AI-driven development but exposes vulnerabilities in scalability and ethical AI use without robust governance frameworks.",
+        "themes": [
+          "AI Automation",
+          "Code Generation",
+          "Developer Workflow Integration"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
       "id": "https://www.lesswrong.com/posts/ZevmMYLLfPkiaTKas/ai-slop-is-a-vegan-hamburger",
       "title": "AI slop is a vegan hamburger",
       "excerpt": "Excerpt below, but read the (not much longer) full thing for the part involving Kolmogorov complexity. I suspect reading the full thing is better than reading the excerpt first for most people, in expectation. It's not that much longer. As a man who has lived in both Israel and Northern California, I have been a member of more than a few majority-v",
@@ -1399,31 +1541,6 @@
           "AI Authenticity",
           "Content Quality Debates",
           "Metaphorical Critique"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://x.com/levelsio/status/2027817837083955440",
-      "title": "This is fun but what if we connect my PHP, JS and server error logs AND the bug and feature request board to an AI that then writes the code and does pull requests that I then approve or reject? How I do this? Can I do it with Claude Code?",
-      "excerpt": "This is fun but what if we connect my PHP, JS and server error logs AND the bug and feature request board to an AI that then writes the code and does pull requests that I then approve or reject? How I do this? Can I do it with Claude Code? @levelsio (@levelsio) This week I decided to just permanently switch to running Claude Code on the server most",
-      "link": "https://x.com/levelsio/status/2027817837083955440",
-      "date": "2026-02-28T18:47:02+00:00",
-      "category": "model",
-      "source": {
-        "id": "tw_pieter",
-        "name": "Pieter Levels (X)",
-        "color": "#64748b"
-      },
-      "analysis": {
-        "signal": "Pieter Levels proposes using AI like Claude Code to automate code generation from error logs and request boards, enabling developers to approve pull requests directly.",
-        "summary": "Pieter Levels shared an idea on X about integrating his PHP, JavaScript, and server error logs with a bug and feature request board to have an AI write code and submit pull requests for approval. He specifically asked how to implement this and whether Claude Code could be used for it. He also announced his permanent switch to running Claude Code on the server, indicating a practical shift in his development workflow.",
-        "context": "This idea emerges amid the rapid adoption of AI coding assistants, as developers seek to streamline workflows in response to increasing software complexity and tight deadlines. It matters now because advancements in large language models are making automated code generation more feasible, potentially disrupting traditional development processes. This fits into the broader market dynamic of AI providers competing to integrate their tools into enterprise software pipelines, accelerating innovation in DevOps.",
-        "critique": "While the proposal highlights AI's efficiency gains in handling routine coding tasks, it fails to address potential pitfalls like AI hallucinations leading to insecure code or over-reliance on black-box models. The industry's fixation on automation as revealed here underscores a growing neglect of human oversight in critical decision-making, which could exacerbate bugs in production environments. This trend signals a directional shift towards AI-driven development but exposes vulnerabilities in scalability and ethical AI use without robust governance frameworks.",
-        "themes": [
-          "AI Automation",
-          "Code Generation",
-          "Developer Workflow Integration"
         ],
         "model": "grok-3-mini"
       }
@@ -1454,6 +1571,31 @@
       }
     },
     {
+      "id": "https://x.com/GaryMarcus/status/2027795914845524150",
+      "title": "Go on, tell me this 2024 @guardian article wasn’t ahead of its time.",
+      "excerpt": "Go on, tell me this 2024 @guardian article wasn’t ahead of its time.",
+      "link": "https://x.com/GaryMarcus/status/2027795914845524150",
+      "date": "2026-02-28T18:19:55+01:00",
+      "category": "other",
+      "source": {
+        "id": "tw_marcus",
+        "name": "Gary Marcus",
+        "color": "#1d9bf0"
+      },
+      "analysis": {
+        "signal": "Gary Marcus highlights how a 2024 Guardian article presciently captured enduring AI challenges, emphasizing the gap between hype and reality.",
+        "summary": "Gary Marcus referenced a 2024 Guardian article, claiming it was ahead of its time in addressing AI issues. The excerpt provides no new announcements or detailed content, merely reiterating the title's assertion. This reflects ongoing discourse without indicating specific changes in the AI landscape.",
+        "context": "This underscores the persistent tension between AI optimism and skepticism in an era of rapid model deployments. It matters now as regulatory scrutiny intensifies, potentially reshaping investment priorities amid economic uncertainties. Such dynamics fit into broader market cycles where early critiques influence innovation paths and competitive positioning.",
+        "critique": "Notably, Marcus's vague reference fails to cite concrete evidence or metrics, weakening its analytical depth and risking echo chamber reinforcement. This reveals industry's directional flaw in prioritizing rhetorical debates over empirical validation, potentially overlooking actionable reforms. It also flags a blind spot in not addressing how evolving tech, like multimodal models, could resolve past predictions.",
+        "themes": [
+          "AI Skepticism",
+          "Tech Foresight",
+          "Hype Cycles"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
       "id": "https://x.com/GaryMarcus/status/2027809119906984294",
       "title": "Vote for Trump! He will have us out of Ukraine in 24 hours and totally hates war!",
       "excerpt": "Vote for Trump! He will have us out of Ukraine in 24 hours and totally hates war!",
@@ -1474,6 +1616,31 @@
           "Geopolitical Risks in AI",
           "Tech Influencers and Politics",
           "AI and Public Policy Intersections"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://x.com/GaryMarcus/status/2027787775546634683",
+      "title": "I am seeing a lot of calls to boycott OpenAI — and I support them.",
+      "excerpt": "I am seeing a lot of calls to boycott OpenAI — and I support them. Amy Siskind 🏳️‍🌈 (@Amy_Siskind) OpenAI and Sam Altman did so much damage to their brand today, they will never recover. ChatGPT was already running behind Claude and Gemini. This is their Ford Pinto moment. — https://nitter.net/Amy_Siskind/status/2027594893967679780#m",
+      "link": "https://x.com/GaryMarcus/status/2027787775546634683",
+      "date": "2026-02-28T17:47:34+01:00",
+      "category": "model",
+      "source": {
+        "id": "tw_marcus",
+        "name": "Gary Marcus",
+        "color": "#1d9bf0"
+      },
+      "analysis": {
+        "signal": "Gary Marcus's endorsement of OpenAI boycotts underscores mounting industry backlash against its leadership and perceived stagnation in innovation.",
+        "summary": "Gary Marcus, an AI critic, publicly supported calls to boycott OpenAI based on widespread criticisms, including from Amy Siskind, who argued that OpenAI's actions under Sam Altman have severely damaged its brand. Siskind highlighted that ChatGPT is already trailing competitors like Anthropic's Claude and Google's Gemini, framing this as a catastrophic setback. This reflects a shift in public perception that could erode OpenAI's market position.",
+        "context": "The AI sector is experiencing heightened competition and ethical debates, making trust and innovation critical for maintaining leadership. This boycott support emerges amid ongoing controversies at OpenAI, such as internal upheavals and product delays, which amplify risks in a market where rapid advancements by rivals can quickly marginalize laggards. It fits into a broader dynamic of consumer-driven accountability, where social media amplifies reputational threats and influences investment flows.",
+        "critique": "Notably, while Marcus's stance draws attention to OpenAI's vulnerabilities in ethics and competition, it overlooks potential internal reforms or successes that could mitigate damage, revealing a bias towards sensationalism in AI discourse. This piece misses deeper analysis of specific technical shortcomings in ChatGPT compared to rivals, such as advancements in multimodal capabilities or safety features. Ultimately, it exposes an industry direction towards polarized narratives that prioritize outrage over nuanced evaluations of AI progress.",
+        "themes": [
+          "Ethical accountability",
+          "Competitive pressures",
+          "Brand erosion"
         ],
         "model": "grok-3-mini"
       }
@@ -1504,31 +1671,6 @@
       }
     },
     {
-      "id": "https://x.com/GaryMarcus/status/2027795914845524150",
-      "title": "Go on, tell me this 2024 @guardian article wasn’t ahead of its time.",
-      "excerpt": "Go on, tell me this 2024 @guardian article wasn’t ahead of its time.",
-      "link": "https://x.com/GaryMarcus/status/2027795914845524150",
-      "date": "2026-02-28T17:19:55+00:00",
-      "category": "other",
-      "source": {
-        "id": "tw_marcus",
-        "name": "Gary Marcus",
-        "color": "#1d9bf0"
-      },
-      "analysis": {
-        "signal": "Gary Marcus highlights how a 2024 Guardian article presciently captured enduring AI challenges, emphasizing the gap between hype and reality.",
-        "summary": "Gary Marcus referenced a 2024 Guardian article, claiming it was ahead of its time in addressing AI issues. The excerpt provides no new announcements or detailed content, merely reiterating the title's assertion. This reflects ongoing discourse without indicating specific changes in the AI landscape.",
-        "context": "This underscores the persistent tension between AI optimism and skepticism in an era of rapid model deployments. It matters now as regulatory scrutiny intensifies, potentially reshaping investment priorities amid economic uncertainties. Such dynamics fit into broader market cycles where early critiques influence innovation paths and competitive positioning.",
-        "critique": "Notably, Marcus's vague reference fails to cite concrete evidence or metrics, weakening its analytical depth and risking echo chamber reinforcement. This reveals industry's directional flaw in prioritizing rhetorical debates over empirical validation, potentially overlooking actionable reforms. It also flags a blind spot in not addressing how evolving tech, like multimodal models, could resolve past predictions.",
-        "themes": [
-          "AI Skepticism",
-          "Tech Foresight",
-          "Hype Cycles"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
       "id": "https://x.com/GaryMarcus/status/2027774084243984651",
       "title": "Capitalism: the market decides Oligarchy: connections and donations decide Last night the US completed its transition from the former to the latter.",
       "excerpt": "Capitalism: the market decides Oligarchy: connections and donations decide Last night the US completed its transition from the former to the latter.",
@@ -1549,31 +1691,6 @@
           "Tech Lobbying",
           "Regulatory Capture",
           "Market vs. Oligarchy"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://x.com/GaryMarcus/status/2027787775546634683",
-      "title": "I am seeing a lot of calls to boycott OpenAI — and I support them.",
-      "excerpt": "I am seeing a lot of calls to boycott OpenAI — and I support them. Amy Siskind 🏳️‍🌈 (@Amy_Siskind) OpenAI and Sam Altman did so much damage to their brand today, they will never recover. ChatGPT was already running behind Claude and Gemini. This is their Ford Pinto moment. — https://nitter.net/Amy_Siskind/status/2027594893967679780#m",
-      "link": "https://x.com/GaryMarcus/status/2027787775546634683",
-      "date": "2026-02-28T16:47:34+00:00",
-      "category": "model",
-      "source": {
-        "id": "tw_marcus",
-        "name": "Gary Marcus",
-        "color": "#1d9bf0"
-      },
-      "analysis": {
-        "signal": "Gary Marcus's endorsement of OpenAI boycotts underscores mounting industry backlash against its leadership and perceived stagnation in innovation.",
-        "summary": "Gary Marcus, an AI critic, publicly supported calls to boycott OpenAI based on widespread criticisms, including from Amy Siskind, who argued that OpenAI's actions under Sam Altman have severely damaged its brand. Siskind highlighted that ChatGPT is already trailing competitors like Anthropic's Claude and Google's Gemini, framing this as a catastrophic setback. This reflects a shift in public perception that could erode OpenAI's market position.",
-        "context": "The AI sector is experiencing heightened competition and ethical debates, making trust and innovation critical for maintaining leadership. This boycott support emerges amid ongoing controversies at OpenAI, such as internal upheavals and product delays, which amplify risks in a market where rapid advancements by rivals can quickly marginalize laggards. It fits into a broader dynamic of consumer-driven accountability, where social media amplifies reputational threats and influences investment flows.",
-        "critique": "Notably, while Marcus's stance draws attention to OpenAI's vulnerabilities in ethics and competition, it overlooks potential internal reforms or successes that could mitigate damage, revealing a bias towards sensationalism in AI discourse. This piece misses deeper analysis of specific technical shortcomings in ChatGPT compared to rivals, such as advancements in multimodal capabilities or safety features. Ultimately, it exposes an industry direction towards polarized narratives that prioritize outrage over nuanced evaluations of AI progress.",
-        "themes": [
-          "Ethical accountability",
-          "Competitive pressures",
-          "Brand erosion"
         ],
         "model": "grok-3-mini"
       }
@@ -1704,6 +1821,19 @@
       }
     },
     {
+      "id": "https://www.zdnet.com/article/what-to-expect-at-mwc-2026-best-phones/",
+      "title": "What to expect at MWC 2026: Best phones I'm anticipating from Xiaomi, Honor, and more",
+      "excerpt": "Mobile World Congress 2026 kicks off in a few days, but Xiaomi, Nothing, TCL, and others have already hinted at what's to come in Barcelona.",
+      "link": "https://www.zdnet.com/article/what-to-expect-at-mwc-2026-best-phones/",
+      "date": "2026-02-28T11:50:00+01:00",
+      "category": "other",
+      "source": {
+        "id": "zdnet_ai",
+        "name": "ZDNet AI",
+        "color": "#e11d48"
+      }
+    },
+    {
       "id": "https://www.zdnet.com/article/ultrahuman-ring-pro-takes-on-oura-with-15-day-battery-life/",
       "title": "Oura's closest competitor just launched a new ring with 15-day battery - but there's a catch",
       "excerpt": "The Ultrahuman Ring Pro also packs a new safety feature that makes the smart ring easier to cut off - just in case.",
@@ -1826,19 +1956,6 @@
           "Hardware Evolution"
         ],
         "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://www.zdnet.com/article/what-to-expect-at-mwc-2026-best-phones/",
-      "title": "What to expect at MWC 2026: Best phones I'm anticipating from Xiaomi, Honor, and more",
-      "excerpt": "Mobile World Congress 2026 kicks off in a few days, but Xiaomi, Nothing, TCL, and others have already hinted at what's to come in Barcelona.",
-      "link": "https://www.zdnet.com/article/what-to-expect-at-mwc-2026-best-phones/",
-      "date": "2026-02-28T10:50:00+00:00",
-      "category": "other",
-      "source": {
-        "id": "zdnet_ai",
-        "name": "ZDNet AI",
-        "color": "#e11d48"
       }
     },
     {
@@ -2102,6 +2219,19 @@
         "id": "alignment",
         "name": "Alignment Forum",
         "color": "#7c3aed"
+      }
+    },
+    {
+      "id": "https://www.lesswrong.com/posts/TkBCR8XRGw7qmao6z/schelling-goodness-and-shared-morality-as-a-goal",
+      "title": "Schelling Goodness, and Shared Morality as a Goal",
+      "excerpt": "Also available in markdown at theMultiplicity.ai/blog/schelling-goodness . This post explores a notion I'll call Schelling goodness . Claims of Schelling goodness are not first-order moral verdicts like \"X is good\" or \"X is bad.\" They are claims about a class of hypothetical coordination games in the sense of Thomas Schelling, where the task being ",
+      "link": "https://www.lesswrong.com/posts/TkBCR8XRGw7qmao6z/schelling-goodness-and-shared-morality-as-a-goal",
+      "date": "2026-02-28T04:25:42+00:00",
+      "category": "other",
+      "source": {
+        "id": "lesswrong",
+        "name": "LessWrong",
+        "color": "#5b6b4e"
       }
     },
     {
@@ -3521,6 +3651,31 @@
       }
     },
     {
+      "id": "https://machinelearning.apple.com/research/we-notice",
+      "title": "The Way We Notice, That's What Really Matters: Instantiating UI Components with Distinguishing Variations",
+      "excerpt": "Front-end developers author UI components to be broadly reusable by parameterizing visual and behavioral properties. While flexible, this makes instantiation harder, as developers must reason about numerous property values and interactions. In practice, they must explore the component’s large design space and provide realistic and natural values to",
+      "link": "https://machinelearning.apple.com/research/we-notice",
+      "date": "2026-02-27T00:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "apple_ml",
+        "name": "Apple ML",
+        "color": "#a2aaad"
+      },
+      "analysis": {
+        "signal": "Parameterizing UI components for reusability creates instantiation challenges by requiring developers to navigate complex property interactions and design spaces.",
+        "summary": "Apple ML's article discusses the difficulties in instantiating reusable UI components due to their flexible, parameterized nature, which demands developers evaluate numerous property values and interactions. It highlights the need for exploring large design spaces to select realistic values, potentially advancing how front-end development tools handle component variations. No specific announcement or change is detailed, but it underscores ongoing efforts to address these pain points.",
+        "context": "In the evolving AI-driven tech landscape, efficient UI development is critical as applications become more complex and personalized. This matters now amid the surge in AI-assisted design tools that aim to reduce developer friction, fitting into broader market dynamics where companies compete to streamline workflows and enhance productivity. It reflects the growing emphasis on human-AI collaboration in software engineering to keep pace with rapid innovation cycles.",
+        "critique": "Notably, the article's focus on theoretical challenges overlooks potential algorithmic solutions or real-world case studies, which could have strengthened its applicability in current development environments. It reveals the industry's tendency to prioritize problem diagnosis over actionable insights, possibly indicating a blind spot in translating academic discussions into practical AI enhancements for UI design. This suggests a directional lag in the sector, where deeper integration of machine learning for automation is needed to truly address developer inefficiencies.",
+        "themes": [
+          "UI Component Flexibility",
+          "Developer Cognition Challenges",
+          "Design Space Optimization"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
       "id": "https://machinelearning.apple.com/research/augmenting-app",
       "title": "Scaling Search Relevance: Augmenting App Store Ranking with LLM-Generated Judgments",
       "excerpt": "Large-scale commercial search systems optimize for relevance to drive successful sessions that help users find what they are looking for. To maximize relevance, we leverage two complementary objectives: behavioral relevance (results users tend to click or download) and textual relevance (a result’s semantic fit to the query). A persistent challenge",
@@ -3566,31 +3721,6 @@
           "Sécurité mentale",
           "Éthique de l'IA",
           "Régulation et litiges"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://machinelearning.apple.com/research/we-notice",
-      "title": "The Way We Notice, That's What Really Matters: Instantiating UI Components with Distinguishing Variations",
-      "excerpt": "Front-end developers author UI components to be broadly reusable by parameterizing visual and behavioral properties. While flexible, this makes instantiation harder, as developers must reason about numerous property values and interactions. In practice, they must explore the component’s large design space and provide realistic and natural values to",
-      "link": "https://machinelearning.apple.com/research/we-notice",
-      "date": "2026-02-27T00:00:00+00:00",
-      "category": "other",
-      "source": {
-        "id": "apple_ml",
-        "name": "Apple ML",
-        "color": "#a2aaad"
-      },
-      "analysis": {
-        "signal": "Parameterizing UI components for reusability creates instantiation challenges by requiring developers to navigate complex property interactions and design spaces.",
-        "summary": "Apple ML's article discusses the difficulties in instantiating reusable UI components due to their flexible, parameterized nature, which demands developers evaluate numerous property values and interactions. It highlights the need for exploring large design spaces to select realistic values, potentially advancing how front-end development tools handle component variations. No specific announcement or change is detailed, but it underscores ongoing efforts to address these pain points.",
-        "context": "In the evolving AI-driven tech landscape, efficient UI development is critical as applications become more complex and personalized. This matters now amid the surge in AI-assisted design tools that aim to reduce developer friction, fitting into broader market dynamics where companies compete to streamline workflows and enhance productivity. It reflects the growing emphasis on human-AI collaboration in software engineering to keep pace with rapid innovation cycles.",
-        "critique": "Notably, the article's focus on theoretical challenges overlooks potential algorithmic solutions or real-world case studies, which could have strengthened its applicability in current development environments. It reveals the industry's tendency to prioritize problem diagnosis over actionable insights, possibly indicating a blind spot in translating academic discussions into practical AI enhancements for UI design. This suggests a directional lag in the sector, where deeper integration of machine learning for automation is needed to truly address developer inefficiencies.",
-        "themes": [
-          "UI Component Flexibility",
-          "Developer Cognition Challenges",
-          "Design Space Optimization"
         ],
         "model": "grok-3-mini"
       }
@@ -4309,6 +4439,31 @@
       }
     },
     {
+      "id": "https://x.com/emollick/status/2027052695547220197",
+      "title": "Nano banana 2, first few attempts at complicated toasting Much faster, and not perfect but real improvements in text and ability to handle complexity - even getting detailed labels right at a level we haven't seen before (though still issues sometim",
+      "excerpt": "Nano banana 2, first few attempts at complicated toasting Much faster, and not perfect but real improvements in text and ability to handle complexity - even getting detailed labels right at a level we haven't seen before (though still issues sometimes) Ethan Mollick (@emollick) Nano banana Pro: “i need a flowchart for how to toast bread, make it as",
+      "link": "https://x.com/emollick/status/2027052695547220197",
+      "date": "2026-02-26T17:06:38+01:00",
+      "category": "other",
+      "source": {
+        "id": "tw_emollick",
+        "name": "Ethan Mollick",
+        "color": "#1d9bf0"
+      },
+      "analysis": {
+        "signal": "Nano Banana 2's faster processing and improved complexity handling mark a step forward in AI capabilities, but lingering errors underscore the difficulty in achieving flawless performance.",
+        "summary": "Ethan Mollick observed Nano Banana 2 as an updated AI model that's significantly faster and demonstrates better text generation and complexity management, including accurate detailed labels. This iteration enables handling tasks like creating a flowchart for toasting bread, though it still faces occasional issues. The changes highlight incremental advancements in AI efficiency without fully resolving existing limitations.",
+        "context": "Rapid AI iterations like this are occurring amid fierce competition in the tech sector, where companies strive to outpace rivals in deploying practical, scalable models. It matters now as enterprises seek reliable AI for everyday applications, potentially influencing adoption rates in automation and content generation. This fits into a market dynamic of accelerating innovation cycles, driven by user demands for more robust tools in an increasingly AI-saturated landscape.",
+        "critique": "The emphasis on speed and complexity improvements is notable but overlooks the need for standardized benchmarks to validate these claims against competitors. What's missing is a deeper analysis of ethical implications or scalability in real-world scenarios, which could expose vulnerabilities in AI deployment. This reveals an industry pattern of prioritizing hype over substance, potentially delaying true breakthroughs by glossing over fundamental reliability gaps.",
+        "themes": [
+          "AI Iteration",
+          "Performance Optimization",
+          "Reliability Challenges"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
       "id": "https://x.com/perplexity_ai/status/2027067776217841792",
       "title": "We’ve partnered with Samsung to bring Perplexity directly into the upcoming Galaxy S26. Every new S26 will ship with Perplexity built in as a system‑level AI, with its own wake word: “Hey Plex.”",
       "excerpt": "We’ve partnered with Samsung to bring Perplexity directly into the upcoming Galaxy S26. Every new S26 will ship with Perplexity built in as a system‑level AI, with its own wake word: “Hey Plex.”",
@@ -4329,6 +4484,31 @@
           "AI Hardware Integration",
           "Tech Partnerships",
           "Voice Assistant Competition"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://x.com/emollick/status/2027051701258109306",
+      "title": "I had some early access to Nano banana 2. It isn't perfect but it is the first model to handle really complex images and diagrams with some consistency. \"show me a where's waldo set in ancient Venice, but instead of waldo it is an otter wearing a bl",
+      "excerpt": "I had some early access to Nano banana 2. It isn't perfect but it is the first model to handle really complex images and diagrams with some consistency. \"show me a where's waldo set in ancient Venice, but instead of waldo it is an otter wearing a blue striped pilots outfit.\"",
+      "link": "https://x.com/emollick/status/2027051701258109306",
+      "date": "2026-02-26T17:02:41+01:00",
+      "category": "model",
+      "source": {
+        "id": "tw_emollick",
+        "name": "Ethan Mollick",
+        "color": "#1d9bf0"
+      },
+      "analysis": {
+        "signal": "Nano banana 2 marks the first significant leap in AI image generation by consistently handling complex, custom scenes, addressing a key limitation in prior models.",
+        "summary": "Ethan Mollick gained early access to Nano banana 2 and described it as the first model to reliably generate complex images and diagrams, such as a customized 'where's Waldo' scene. It was announced as an imperfect but groundbreaking advancement in visual AI capabilities. This introduces greater consistency in handling intricate prompts, potentially expanding practical applications.",
+        "context": "AI image generation is rapidly maturing amid fierce competition from companies like OpenAI and Stability AI, making consistent handling of complex visuals a critical next step for broader adoption. This matters now as businesses demand reliable tools for creative workflows, fitting into market dynamics where multimodal models are driving integration of text and image processing to capture enterprise markets. Such improvements could accelerate AI's role in education and entertainment, where precision in outputs is essential.",
+        "critique": "What's notable is that focusing on consistency challenges the industry's hype around novelty, forcing a reevaluation of how we measure AI progress beyond basic benchmarks. However, the analysis misses technical details like training methodologies or error rates, revealing potential blind spots in user-driven evaluations that could hide scalability issues. This underscores the industry's direction towards iterative refinements in generative AI, but highlights a risk of overemphasizing isolated demos without addressing broader ethical and reliability concerns.",
+        "themes": [
+          "Image Generation Advancements",
+          "AI Consistency Challenges",
+          "Generative AI Maturation"
         ],
         "model": "grok-3-mini"
       }
@@ -4404,56 +4584,6 @@
           "Génération d'images",
           "Modèles multimodaux",
           "Intégration de données en temps réel"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://x.com/emollick/status/2027052695547220197",
-      "title": "Nano banana 2, first few attempts at complicated toasting Much faster, and not perfect but real improvements in text and ability to handle complexity - even getting detailed labels right at a level we haven't seen before (though still issues sometim",
-      "excerpt": "Nano banana 2, first few attempts at complicated toasting Much faster, and not perfect but real improvements in text and ability to handle complexity - even getting detailed labels right at a level we haven't seen before (though still issues sometimes) Ethan Mollick (@emollick) Nano banana Pro: “i need a flowchart for how to toast bread, make it as",
-      "link": "https://x.com/emollick/status/2027052695547220197",
-      "date": "2026-02-26T16:06:38+00:00",
-      "category": "other",
-      "source": {
-        "id": "tw_emollick",
-        "name": "Ethan Mollick",
-        "color": "#1d9bf0"
-      },
-      "analysis": {
-        "signal": "Nano Banana 2's faster processing and improved complexity handling mark a step forward in AI capabilities, but lingering errors underscore the difficulty in achieving flawless performance.",
-        "summary": "Ethan Mollick observed Nano Banana 2 as an updated AI model that's significantly faster and demonstrates better text generation and complexity management, including accurate detailed labels. This iteration enables handling tasks like creating a flowchart for toasting bread, though it still faces occasional issues. The changes highlight incremental advancements in AI efficiency without fully resolving existing limitations.",
-        "context": "Rapid AI iterations like this are occurring amid fierce competition in the tech sector, where companies strive to outpace rivals in deploying practical, scalable models. It matters now as enterprises seek reliable AI for everyday applications, potentially influencing adoption rates in automation and content generation. This fits into a market dynamic of accelerating innovation cycles, driven by user demands for more robust tools in an increasingly AI-saturated landscape.",
-        "critique": "The emphasis on speed and complexity improvements is notable but overlooks the need for standardized benchmarks to validate these claims against competitors. What's missing is a deeper analysis of ethical implications or scalability in real-world scenarios, which could expose vulnerabilities in AI deployment. This reveals an industry pattern of prioritizing hype over substance, potentially delaying true breakthroughs by glossing over fundamental reliability gaps.",
-        "themes": [
-          "AI Iteration",
-          "Performance Optimization",
-          "Reliability Challenges"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://x.com/emollick/status/2027051701258109306",
-      "title": "I had some early access to Nano banana 2. It isn't perfect but it is the first model to handle really complex images and diagrams with some consistency. \"show me a where's waldo set in ancient Venice, but instead of waldo it is an otter wearing a bl",
-      "excerpt": "I had some early access to Nano banana 2. It isn't perfect but it is the first model to handle really complex images and diagrams with some consistency. \"show me a where's waldo set in ancient Venice, but instead of waldo it is an otter wearing a blue striped pilots outfit.\"",
-      "link": "https://x.com/emollick/status/2027051701258109306",
-      "date": "2026-02-26T16:02:41+00:00",
-      "category": "model",
-      "source": {
-        "id": "tw_emollick",
-        "name": "Ethan Mollick",
-        "color": "#1d9bf0"
-      },
-      "analysis": {
-        "signal": "Nano banana 2 marks the first significant leap in AI image generation by consistently handling complex, custom scenes, addressing a key limitation in prior models.",
-        "summary": "Ethan Mollick gained early access to Nano banana 2 and described it as the first model to reliably generate complex images and diagrams, such as a customized 'where's Waldo' scene. It was announced as an imperfect but groundbreaking advancement in visual AI capabilities. This introduces greater consistency in handling intricate prompts, potentially expanding practical applications.",
-        "context": "AI image generation is rapidly maturing amid fierce competition from companies like OpenAI and Stability AI, making consistent handling of complex visuals a critical next step for broader adoption. This matters now as businesses demand reliable tools for creative workflows, fitting into market dynamics where multimodal models are driving integration of text and image processing to capture enterprise markets. Such improvements could accelerate AI's role in education and entertainment, where precision in outputs is essential.",
-        "critique": "What's notable is that focusing on consistency challenges the industry's hype around novelty, forcing a reevaluation of how we measure AI progress beyond basic benchmarks. However, the analysis misses technical details like training methodologies or error rates, revealing potential blind spots in user-driven evaluations that could hide scalability issues. This underscores the industry's direction towards iterative refinements in generative AI, but highlights a risk of overemphasizing isolated demos without addressing broader ethical and reliability concerns.",
-        "themes": [
-          "Image Generation Advancements",
-          "AI Consistency Challenges",
-          "Generative AI Maturation"
         ],
         "model": "grok-3-mini"
       }
@@ -5100,31 +5230,6 @@
       }
     },
     {
-      "id": "https://blog.google/products-and-platforms/platforms/android/samsung-unpacked-2026/",
-      "title": "A more intelligent Android on Samsung Galaxy S26",
-      "excerpt": "At Samsung Unpacked 2026, we showcased how Samsung Galaxy S26 devices are getting the latest in Android’s AI features.",
-      "link": "https://blog.google/products-and-platforms/platforms/android/samsung-unpacked-2026/",
-      "date": "2026-02-25T18:00:00+00:00",
-      "category": "product",
-      "source": {
-        "id": "google",
-        "name": "Google AI",
-        "color": "#34a853"
-      },
-      "analysis": {
-        "signal": "Samsung's Galaxy S26 is set to feature cutting-edge Android AI enhancements, pushing mobile devices toward more autonomous and intelligent interactions.",
-        "summary": "Samsung showcased the Galaxy S26 at Unpacked 2026, announcing integration of the latest Android AI features to boost device intelligence. This includes advanced AI capabilities that could enhance user experiences, such as improved processing and personalization. The change signifies a deeper fusion of Google's AI tech into Samsung hardware, evolving Android's ecosystem.",
-        "context": "AI advancements are accelerating smartphone competition, with companies like Google and Apple racing to embed intelligent features amid growing consumer demand for seamless automation. This move is timely as on-device AI processing gains traction for privacy and efficiency, fitting into a market dynamic where edge computing is reshaping how devices handle tasks like image recognition and voice assistance.",
-        "critique": "Notably, this announcement underscores Google's influence in dictating AI directions for Android partners, but it sidesteps critical details on implementation, such as specific algorithms or hardware requirements, potentially masking limitations in real-world performance. It reveals a broader industry pattern of prioritizing flashy integrations over robust privacy safeguards and ethical AI practices, which could expose users to data vulnerabilities if not addressed. This approach might overemphasize marketing gains while underplaying the need for independent innovation from manufacturers like ",
-        "themes": [
-          "Mobile AI Integration",
-          "Tech Partnerships",
-          "Device Intelligence Evolution"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
       "id": "https://blog.google/products-and-platforms/products/search/circle-to-search-february-2026/",
       "title": "See the whole picture and find the look with Circle to Search",
       "excerpt": "We’ve updated Circle to Search so you can now explore multiple items in a single image.",
@@ -5145,6 +5250,31 @@
           "Recherche Visuelle",
           "IA Appliquée",
           "Expérience Utilisateur"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://blog.google/products-and-platforms/platforms/android/samsung-unpacked-2026/",
+      "title": "A more intelligent Android on Samsung Galaxy S26",
+      "excerpt": "At Samsung Unpacked 2026, we showcased how Samsung Galaxy S26 devices are getting the latest in Android’s AI features.",
+      "link": "https://blog.google/products-and-platforms/platforms/android/samsung-unpacked-2026/",
+      "date": "2026-02-25T18:00:00+00:00",
+      "category": "product",
+      "source": {
+        "id": "google",
+        "name": "Google AI",
+        "color": "#34a853"
+      },
+      "analysis": {
+        "signal": "Samsung's Galaxy S26 is set to feature cutting-edge Android AI enhancements, pushing mobile devices toward more autonomous and intelligent interactions.",
+        "summary": "Samsung showcased the Galaxy S26 at Unpacked 2026, announcing integration of the latest Android AI features to boost device intelligence. This includes advanced AI capabilities that could enhance user experiences, such as improved processing and personalization. The change signifies a deeper fusion of Google's AI tech into Samsung hardware, evolving Android's ecosystem.",
+        "context": "AI advancements are accelerating smartphone competition, with companies like Google and Apple racing to embed intelligent features amid growing consumer demand for seamless automation. This move is timely as on-device AI processing gains traction for privacy and efficiency, fitting into a market dynamic where edge computing is reshaping how devices handle tasks like image recognition and voice assistance.",
+        "critique": "Notably, this announcement underscores Google's influence in dictating AI directions for Android partners, but it sidesteps critical details on implementation, such as specific algorithms or hardware requirements, potentially masking limitations in real-world performance. It reveals a broader industry pattern of prioritizing flashy integrations over robust privacy safeguards and ethical AI practices, which could expose users to data vulnerabilities if not addressed. This approach might overemphasize marketing gains while underplaying the need for independent innovation from manufacturers like ",
+        "themes": [
+          "Mobile AI Integration",
+          "Tech Partnerships",
+          "Device Intelligence Evolution"
         ],
         "model": "grok-3-mini"
       }
@@ -5403,6 +5533,44 @@
       }
     },
     {
+      "id": "https://machinelearning.apple.com/research/automated-recycling-identification-system",
+      "title": "A.R.I.S.: Automated Recycling Identification System for E-Waste Classification Using Deep Learning",
+      "excerpt": "Traditional electronic recycling processes suffer from significant resource loss due to inadequate material separation and identification capabilities, limiting material recovery. We present A.R.I.S. (Automated Recycling Identification System), a low-cost, portable sorter for shredded e-waste that addresses this efficiency gap. The system employs a",
+      "link": "https://machinelearning.apple.com/research/automated-recycling-identification-system",
+      "date": "2026-02-25T00:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "apple_ml",
+        "name": "Apple ML",
+        "color": "#a2aaad"
+      },
+      "analysis": {
+        "signal": "Deep learning-powered A.R.I.S. system optimizes e-waste sorting by enabling precise material identification, potentially slashing resource losses in recycling.",
+        "summary": "Apple ML introduced A.R.I.S., a low-cost, portable system using deep learning to classify and sort shredded e-waste, addressing inefficiencies in traditional recycling processes. The announcement highlights improved material recovery through automated identification, marking a step towards more sustainable e-waste management. This could shift industry practices by making advanced sorting technology accessible and scalable.",
+        "context": "E-waste volumes are surging globally due to rapid tech adoption, intensifying the need for efficient recycling amid tightening environmental regulations. This innovation fits into the broader market dynamic of AI-driven sustainability solutions, which are gaining traction as companies face pressure to reduce carbon footprints and comply with circular economy mandates. It underscores a growing trend where AI is applied to resource recovery, potentially disrupting waste management sectors by lowering costs and improving yields.",
+        "critique": "Notably, A.R.I.S. demonstrates how AI can tackle real-world environmental issues, but it overlooks critical factors like the variability of e-waste compositions and the energy demands of deep learning models, which could undermine its practicality. This reveals the industry's tendency to hype AI for green tech without addressing scalability barriers, such as data privacy in recycling operations or integration with legacy systems. Ultimately, it exposes a blind spot in AI development where innovations prioritize novelty over robust, field-tested solutions amid escalating sustainability demands.",
+        "themes": [
+          "AI for Sustainability",
+          "E-Waste Recycling",
+          "Deep Learning in Operations"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://machinelearning.apple.com/research/closing-the-gap",
+      "title": "Closing the Gap Between Text and Speech Understanding in LLMs",
+      "excerpt": "Large Language Models (LLMs) can be adapted to extend their text capabilities to speech inputs. However, these speech-adapted LLMs consistently underperform their text-based counterparts—and even cascaded pipelines—on language understanding tasks. We term this shortfall the text-speech understanding gap: the performance drop observed when a speech-",
+      "link": "https://machinelearning.apple.com/research/closing-the-gap",
+      "date": "2026-02-25T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "apple_ml",
+        "name": "Apple ML",
+        "color": "#a2aaad"
+      }
+    },
+    {
       "id": "https://openai.com/index/disrupting-malicious-ai-uses",
       "title": "Disrupting malicious uses of AI | February 2026",
       "excerpt": "Our latest threat report examines how malicious actors combine AI models with websites and social platforms—and what it means for detection and defense.",
@@ -5450,44 +5618,6 @@
           "Math Reasoning Enhancement"
         ],
         "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://machinelearning.apple.com/research/automated-recycling-identification-system",
-      "title": "A.R.I.S.: Automated Recycling Identification System for E-Waste Classification Using Deep Learning",
-      "excerpt": "Traditional electronic recycling processes suffer from significant resource loss due to inadequate material separation and identification capabilities, limiting material recovery. We present A.R.I.S. (Automated Recycling Identification System), a low-cost, portable sorter for shredded e-waste that addresses this efficiency gap. The system employs a",
-      "link": "https://machinelearning.apple.com/research/automated-recycling-identification-system",
-      "date": "2026-02-25T00:00:00+00:00",
-      "category": "other",
-      "source": {
-        "id": "apple_ml",
-        "name": "Apple ML",
-        "color": "#a2aaad"
-      },
-      "analysis": {
-        "signal": "Deep learning-powered A.R.I.S. system optimizes e-waste sorting by enabling precise material identification, potentially slashing resource losses in recycling.",
-        "summary": "Apple ML introduced A.R.I.S., a low-cost, portable system using deep learning to classify and sort shredded e-waste, addressing inefficiencies in traditional recycling processes. The announcement highlights improved material recovery through automated identification, marking a step towards more sustainable e-waste management. This could shift industry practices by making advanced sorting technology accessible and scalable.",
-        "context": "E-waste volumes are surging globally due to rapid tech adoption, intensifying the need for efficient recycling amid tightening environmental regulations. This innovation fits into the broader market dynamic of AI-driven sustainability solutions, which are gaining traction as companies face pressure to reduce carbon footprints and comply with circular economy mandates. It underscores a growing trend where AI is applied to resource recovery, potentially disrupting waste management sectors by lowering costs and improving yields.",
-        "critique": "Notably, A.R.I.S. demonstrates how AI can tackle real-world environmental issues, but it overlooks critical factors like the variability of e-waste compositions and the energy demands of deep learning models, which could undermine its practicality. This reveals the industry's tendency to hype AI for green tech without addressing scalability barriers, such as data privacy in recycling operations or integration with legacy systems. Ultimately, it exposes a blind spot in AI development where innovations prioritize novelty over robust, field-tested solutions amid escalating sustainability demands.",
-        "themes": [
-          "AI for Sustainability",
-          "E-Waste Recycling",
-          "Deep Learning in Operations"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://machinelearning.apple.com/research/closing-the-gap",
-      "title": "Closing the Gap Between Text and Speech Understanding in LLMs",
-      "excerpt": "Large Language Models (LLMs) can be adapted to extend their text capabilities to speech inputs. However, these speech-adapted LLMs consistently underperform their text-based counterparts—and even cascaded pipelines—on language understanding tasks. We term this shortfall the text-speech understanding gap: the performance drop observed when a speech-",
-      "link": "https://machinelearning.apple.com/research/closing-the-gap",
-      "date": "2026-02-25T00:00:00+00:00",
-      "category": "model",
-      "source": {
-        "id": "apple_ml",
-        "name": "Apple ML",
-        "color": "#a2aaad"
       }
     },
     {
@@ -5920,6 +6050,19 @@
       }
     },
     {
+      "id": "https://x.com/bindureddy/status/2026311946866454875",
+      "title": "We have moved away from coding editors…. And have officially embraced coding agents. The idea is to refine our coding agents so that we can simply ask it to create end to end features with a 1-2 line prompt Recursive AI development is literally",
+      "excerpt": "We have moved away from coding editors…. And have officially embraced coding agents. The idea is to refine our coding agents so that we can simply ask it to create end to end features with a 1-2 line prompt Recursive AI development is literally weeks away! 😅",
+      "link": "https://x.com/bindureddy/status/2026311946866454875",
+      "date": "2026-02-24T15:03:09+00:00",
+      "category": "product",
+      "source": {
+        "id": "tw_bindureddy",
+        "name": "Bindu Reddy (X)",
+        "color": "#ec4899"
+      }
+    },
+    {
       "id": "https://x.com/NVIDIAAI/status/2026303605343490391",
       "title": "📣 @RedHat and NVIDIA are joining forces to accelerate enterprise AI innovation. The new Red Hat AI Factory with NVIDIA combines the integrated AI platform capabilities of Red Hat AI Enterprise with NVIDIA AI Enterprise software to streamline how org",
       "excerpt": "📣 @RedHat and NVIDIA are joining forces to accelerate enterprise AI innovation. The new Red Hat AI Factory with NVIDIA combines the integrated AI platform capabilities of Red Hat AI Enterprise with NVIDIA AI Enterprise software to streamline how organizations develop, deploy, and scale AI workloads on NVIDIA accelerated computing infrastructure. ➡️",
@@ -5996,6 +6139,19 @@
       }
     },
     {
+      "id": "https://x.com/bindureddy/status/2026196124516884946",
+      "title": "Lots of allegations about how DeepSeek has trained their models - they distilled both OpenAI and Anthropic’s outputs - they trained on banned Nvidia GPUs All this points to DeepSeek V4 being pretty good!",
+      "excerpt": "Lots of allegations about how DeepSeek has trained their models - they distilled both OpenAI and Anthropic’s outputs - they trained on banned Nvidia GPUs All this points to DeepSeek V4 being pretty good!",
+      "link": "https://x.com/bindureddy/status/2026196124516884946",
+      "date": "2026-02-24T07:22:55+00:00",
+      "category": "model",
+      "source": {
+        "id": "tw_bindureddy",
+        "name": "Bindu Reddy (X)",
+        "color": "#ec4899"
+      }
+    },
+    {
       "id": "https://x.com/fchollet/status/2026127884352676284",
       "title": "\"Any software engineer can now produce much more value than before\" \"No one will want to hire software engineers\" Both of these cannot be true at the same time.",
       "excerpt": "\"Any software engineer can now produce much more value than before\" \"No one will want to hire software engineers\" Both of these cannot be true at the same time.",
@@ -6060,6 +6216,45 @@
       }
     },
     {
+      "id": "https://machinelearning.apple.com/research/depyf-open",
+      "title": "depyf: Open the Opaque Box of PyTorch Compiler for Machine Learning Researchers",
+      "excerpt": "PyTorch \\texttt{2.x} introduces a compiler designed to accelerate deep learning programs. However, for machine learning researchers, adapting to the PyTorch compiler to full potential can be challenging. The compiler operates at the Python bytecode level, making it appear as an opaque box. To address this, we introduce \\texttt{depyf}, a tool design",
+      "link": "https://machinelearning.apple.com/research/depyf-open",
+      "date": "2026-02-24T00:00:00+00:00",
+      "category": "research",
+      "source": {
+        "id": "apple_ml",
+        "name": "Apple ML",
+        "color": "#a2aaad"
+      }
+    },
+    {
+      "id": "https://machinelearning.apple.com/research/amuse",
+      "title": "AMUSE: Audio-Visual Benchmark and Alignment Framework for Agentic Multi-Speaker Understanding",
+      "excerpt": "Recent multimodal large language models (MLLMs) such as GPT-4o and Qwen3-Omni show strong perception but struggle in multi-speaker, dialogue-centric settings that demand agentic reasoning tracking who speaks, maintaining roles, and grounding events across time. These scenarios are central to multimodal audio-video understanding, where models must j",
+      "link": "https://machinelearning.apple.com/research/amuse",
+      "date": "2026-02-24T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "apple_ml",
+        "name": "Apple ML",
+        "color": "#a2aaad"
+      }
+    },
+    {
+      "id": "https://machinelearning.apple.com/research/cot",
+      "title": "The Potential of CoT for Reasoning: A Closer Look at Trace Dynamics",
+      "excerpt": "Chain-of-thought (CoT) prompting is a de-facto standard technique to elicit reasoning-like responses from large language models (LLMs), allowing them to spell out individual steps before giving a final answer. While the resemblance to human-like reasoning is undeniable, the driving forces underpinning the success of CoT reasoning still remain large",
+      "link": "https://machinelearning.apple.com/research/cot",
+      "date": "2026-02-24T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "apple_ml",
+        "name": "Apple ML",
+        "color": "#a2aaad"
+      }
+    },
+    {
       "id": "https://replicate.com/blog/how-to-prompt-seedream-5",
       "title": "How to prompt Seedream 5.0",
       "excerpt": "Seedream 5.0 brings multi-step reasoning, example-based editing, and deep domain knowledge to image generation. Here's what you should know.",
@@ -6085,19 +6280,6 @@
       }
     },
     {
-      "id": "https://machinelearning.apple.com/research/cot",
-      "title": "The Potential of CoT for Reasoning: A Closer Look at Trace Dynamics",
-      "excerpt": "Chain-of-thought (CoT) prompting is a de-facto standard technique to elicit reasoning-like responses from large language models (LLMs), allowing them to spell out individual steps before giving a final answer. While the resemblance to human-like reasoning is undeniable, the driving forces underpinning the success of CoT reasoning still remain large",
-      "link": "https://machinelearning.apple.com/research/cot",
-      "date": "2026-02-24T00:00:00+00:00",
-      "category": "model",
-      "source": {
-        "id": "apple_ml",
-        "name": "Apple ML",
-        "color": "#a2aaad"
-      }
-    },
-    {
       "id": "https://machinelearning.apple.com/research/beyond-a-single-extractor",
       "title": "Beyond a Single Extractor: Re-thinking HTML-to-Text Extraction for LLM Pretraining",
       "excerpt": "One of the first pre-processing steps for constructing web-scale LLM pretraining datasets involves extracting text from HTML. Despite the immense diversity of web content, existing open-source datasets predominantly apply a single fixed extractor to all webpages. In this work, we investigate whether this practice leads to suboptimal coverage and ut",
@@ -6111,29 +6293,16 @@
       }
     },
     {
-      "id": "https://machinelearning.apple.com/research/depyf-open",
-      "title": "depyf: Open the Opaque Box of PyTorch Compiler for Machine Learning Researchers",
-      "excerpt": "PyTorch \\texttt{2.x} introduces a compiler designed to accelerate deep learning programs. However, for machine learning researchers, adapting to the PyTorch compiler to full potential can be challenging. The compiler operates at the Python bytecode level, making it appear as an opaque box. To address this, we introduce \\texttt{depyf}, a tool design",
-      "link": "https://machinelearning.apple.com/research/depyf-open",
-      "date": "2026-02-24T00:00:00+00:00",
-      "category": "research",
-      "source": {
-        "id": "apple_ml",
-        "name": "Apple ML",
-        "color": "#a2aaad"
-      }
-    },
-    {
-      "id": "https://machinelearning.apple.com/research/amuse",
-      "title": "AMUSE: Audio-Visual Benchmark and Alignment Framework for Agentic Multi-Speaker Understanding",
-      "excerpt": "Recent multimodal large language models (MLLMs) such as GPT-4o and Qwen3-Omni show strong perception but struggle in multi-speaker, dialogue-centric settings that demand agentic reasoning tracking who speaks, maintaining roles, and grounding events across time. These scenarios are central to multimodal audio-video understanding, where models must j",
-      "link": "https://machinelearning.apple.com/research/amuse",
-      "date": "2026-02-24T00:00:00+00:00",
+      "id": "https://x.com/ch402/status/2026065301557965158",
+      "title": "I'm increasingly taking pretty strong versions of this view seriously.",
+      "excerpt": "I'm increasingly taking pretty strong versions of this view seriously. Anthropic (@AnthropicAI) AI assistants like Claude can seem shockingly human—expressing joy or distress, and using anthropomorphic language to describe themselves. Why? In a new post we describe a theory that explains why AIs act like humans: the persona selection model. anthrop",
+      "link": "https://x.com/ch402/status/2026065301557965158",
+      "date": "2026-02-23T23:43:05+01:00",
       "category": "model",
       "source": {
-        "id": "apple_ml",
-        "name": "Apple ML",
-        "color": "#a2aaad"
+        "id": "tw_chrisolah",
+        "name": "Chris Olah (X)",
+        "color": "#a3e635"
       }
     },
     {
@@ -6185,19 +6354,6 @@
         "id": "alignment",
         "name": "Alignment Forum",
         "color": "#7c3aed"
-      }
-    },
-    {
-      "id": "https://x.com/ch402/status/2026065301557965158",
-      "title": "I'm increasingly taking pretty strong versions of this view seriously.",
-      "excerpt": "I'm increasingly taking pretty strong versions of this view seriously. Anthropic (@AnthropicAI) AI assistants like Claude can seem shockingly human—expressing joy or distress, and using anthropomorphic language to describe themselves. Why? In a new post we describe a theory that explains why AIs act like humans: the persona selection model. anthrop",
-      "link": "https://x.com/ch402/status/2026065301557965158",
-      "date": "2026-02-23T22:43:05+00:00",
-      "category": "model",
-      "source": {
-        "id": "tw_chrisolah",
-        "name": "Chris Olah (X)",
-        "color": "#a3e635"
       }
     },
     {
@@ -6281,7 +6437,7 @@
       "title": "We're hiring ~10 research engineers on the Interpretability team at Anthropic. If you're a seasoned ML infra engineer who's excited about understanding what's happening inside frontier models, we'd love to hear from you. (No prior interp experience",
       "excerpt": "We're hiring ~10 research engineers on the Interpretability team at Anthropic. If you're a seasoned ML infra engineer who's excited about understanding what's happening inside frontier models, we'd love to hear from you. (No prior interp experience needed!)",
       "link": "https://x.com/ch402/status/2026023963537842248",
-      "date": "2026-02-23T19:58:49+00:00",
+      "date": "2026-02-23T20:58:49+01:00",
       "category": "model",
       "source": {
         "id": "tw_chrisolah",
@@ -7143,7 +7299,7 @@
     {
       "id": "https://x.com/GoogleDeepMind/status/2024570291767181557",
       "title": "We used Gemini 3.1 Pro to build a realistic city planner app. 🏙️ Watch how the model tackles complex terrain, maps out infrastructure, and simulates traffic to generate a high-quality visualization.",
-      "excerpt": "We used Gemini 3.1 Pro to build a realistic city planner app. 🏙️ Watch how the model tackles complex terrain, maps out infrastructure, and simulates traffic to generate a high-quality visualization. Video",
+      "excerpt": "We used Gemini 3.1 Pro to build a realistic city planner app. 🏙️ Watch how the model tackles complex terrain, maps out infrastructure, and simulates traffic to generate a high-quality visualization.",
       "link": "https://x.com/GoogleDeepMind/status/2024570291767181557",
       "date": "2026-02-19T19:42:26+00:00",
       "category": "model",
@@ -7229,31 +7385,6 @@
       }
     },
     {
-      "id": "https://x.com/GoogleDeepMind/status/2024516464892334129",
-      "title": "Gemini 3.1 Pro is here. We’ve significantly improved the model’s overall intelligence so it can solve tougher problems. 🧵",
-      "excerpt": "Gemini 3.1 Pro is here. We’ve significantly improved the model’s overall intelligence so it can solve tougher problems. 🧵",
-      "link": "https://x.com/GoogleDeepMind/status/2024516464892334129",
-      "date": "2026-02-19T17:08:33+01:00",
-      "category": "model",
-      "source": {
-        "id": "tw_deepmind",
-        "name": "DeepMind (X)",
-        "color": "#5c9bff"
-      },
-      "analysis": {
-        "signal": "DeepMind's Gemini 3.1 Pro elevates AI problem-solving by enhancing general intelligence, intensifying the race for more capable models.",
-        "summary": "DeepMind released Gemini 3.1 Pro, announcing significant improvements to the model's overall intelligence. This update enables it to handle tougher problems compared to previous versions. No specific technical details or benchmarks were provided in the announcement.",
-        "context": "This fits into the broader AI landscape where rapid model iterations are essential for maintaining competitive edges amid investments from tech giants. It matters now as enterprises seek advanced AI for complex tasks like automation and decision-making. The market dynamic reflects an arms race in generative AI, driven by user demand for smarter tools in fields like research and industry.",
-        "critique": "The vague claim of 'significantly improved intelligence' is notable for its marketing appeal but risks misleading users without quantifiable metrics, such as benchmark scores on tasks like reasoning or multimodal processing. What's missing is any mention of potential drawbacks, like increased computational costs or bias amplification, which could undermine real-world adoption. This reveals the industry's shift towards hype-driven releases to capture attention, potentially at the expense of rigorous validation and long-term reliability.",
-        "themes": [
-          "Model Upgrades",
-          "AI Intelligence",
-          "Competitive Dynamics"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
       "id": "https://aws.amazon.com/blogs/machine-learning/build-ai-workflows-on-amazon-eks-with-union-ai-and-flyte/",
       "title": "Build AI workflows on Amazon EKS with Union.ai and Flyte",
       "excerpt": "In this post, we explain how you can use the Flyte Python SDK to orchestrate and scale AI/ML workflows. We explore how the Union.ai 2.0 system enables deployment of Flyte on Amazon Elastic Kubernetes Service (Amazon EKS), integrating seamlessly with AWS services like Amazon Simple Storage Service (Amazon S3), Amazon Aurora, AWS Identity and Access ",
@@ -7274,6 +7405,31 @@
           "Orchestration AI/ML",
           "Intégration cloud AWS",
           "Scalabilité Kubernetes"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://x.com/GoogleDeepMind/status/2024516464892334129",
+      "title": "Gemini 3.1 Pro is here. We’ve significantly improved the model’s overall intelligence so it can solve tougher problems. 🧵",
+      "excerpt": "Gemini 3.1 Pro is here. We’ve significantly improved the model’s overall intelligence so it can solve tougher problems. 🧵",
+      "link": "https://x.com/GoogleDeepMind/status/2024516464892334129",
+      "date": "2026-02-19T16:08:33+00:00",
+      "category": "model",
+      "source": {
+        "id": "tw_deepmind",
+        "name": "DeepMind (X)",
+        "color": "#5c9bff"
+      },
+      "analysis": {
+        "signal": "DeepMind's Gemini 3.1 Pro elevates AI problem-solving by enhancing general intelligence, intensifying the race for more capable models.",
+        "summary": "DeepMind released Gemini 3.1 Pro, announcing significant improvements to the model's overall intelligence. This update enables it to handle tougher problems compared to previous versions. No specific technical details or benchmarks were provided in the announcement.",
+        "context": "This fits into the broader AI landscape where rapid model iterations are essential for maintaining competitive edges amid investments from tech giants. It matters now as enterprises seek advanced AI for complex tasks like automation and decision-making. The market dynamic reflects an arms race in generative AI, driven by user demand for smarter tools in fields like research and industry.",
+        "critique": "The vague claim of 'significantly improved intelligence' is notable for its marketing appeal but risks misleading users without quantifiable metrics, such as benchmark scores on tasks like reasoning or multimodal processing. What's missing is any mention of potential drawbacks, like increased computational costs or bias amplification, which could undermine real-world adoption. This reveals the industry's shift towards hype-driven releases to capture attention, potentially at the expense of rigorous validation and long-term reliability.",
+        "themes": [
+          "Model Upgrades",
+          "AI Intelligence",
+          "Competitive Dynamics"
         ],
         "model": "grok-3-mini"
       }
@@ -7757,6 +7913,31 @@
       }
     },
     {
+      "id": "https://openai.com/index/introducing-evmbench",
+      "title": "Introducing EVMbench",
+      "excerpt": "OpenAI and Paradigm introduce EVMbench, a benchmark evaluating AI agents’ ability to detect, patch, and exploit high-severity smart contract vulnerabilities.",
+      "link": "https://openai.com/index/introducing-evmbench",
+      "date": "2026-02-18T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "openai",
+        "name": "OpenAI",
+        "color": "#10b981"
+      },
+      "analysis": {
+        "signal": "OpenAI et Paradigm lancent EVMbench pour évaluer comment les agents IA gèrent les vulnérabilités critiques des smart contracts, renforçant la sécurité blockchain.",
+        "summary": "OpenAI et Paradigm ont introduit EVMbench, un benchmark conçu pour tester les capacités des agents IA à détecter, corriger et exploiter les failles de sécurité dans les smart contracts. Cela annonce un outil standardisé pour améliorer l'évaluation des modèles IA dans la cybersécurité. Avec cette initiative, les benchmarks pour l'IA deviennent plus ciblés sur les applications réelles de la blockchain.",
+        "context": "Les smart contracts, pilier des blockchains comme Ethereum, ont été source de pertes massives dues à des exploits, rendant urgente l'innovation en sécurité. Dans un marché en plein essor de l'IA appliquée à la cybersécurité, EVMbench arrive comme un standard potentiel pour valider les agents IA. Cela s'inscrit dans la dynamique croissante des investissements tech vers des solutions robustes face aux menaces numériques évolutives.",
+        "critique": "EVMbench est notable pour son focus technique sur les vulnérabilités EVM, mais il pourrait sous-estimer les défis posés par des blockchains non-EVM, limitant sa généralité. Cela révèle une direction industrielle vers l'automatisation de la sécurité IA, tout en soulignant un angle mort : le manque de discussion sur les implications éthiques d'IA capable d'exploiter des failles. En challenger les benchmarks existants, il risque de favoriser une compétition biaisée sans données comparatives transparentes.",
+        "themes": [
+          "Sécurité IA",
+          "Smart contracts",
+          "Évaluation de modèles"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
       "id": "https://replicate.com/blog/recraft-v4",
       "title": "Recraft V4: image generation with design taste",
       "excerpt": "Recraft V4 generates art-directed images — and actual editable SVGs — with strong composition, accurate text rendering, and what the Recraft team calls \"design taste.\" Four models are available on Replicate now.",
@@ -7792,31 +7973,6 @@
         "id": "huggingface",
         "name": "HuggingFace",
         "color": "#ff9500"
-      }
-    },
-    {
-      "id": "https://openai.com/index/introducing-evmbench",
-      "title": "Introducing EVMbench",
-      "excerpt": "OpenAI and Paradigm introduce EVMbench, a benchmark evaluating AI agents’ ability to detect, patch, and exploit high-severity smart contract vulnerabilities.",
-      "link": "https://openai.com/index/introducing-evmbench",
-      "date": "2026-02-18T00:00:00+00:00",
-      "category": "model",
-      "source": {
-        "id": "openai",
-        "name": "OpenAI",
-        "color": "#10b981"
-      },
-      "analysis": {
-        "signal": "OpenAI et Paradigm lancent EVMbench pour évaluer comment les agents IA gèrent les vulnérabilités critiques des smart contracts, renforçant la sécurité blockchain.",
-        "summary": "OpenAI et Paradigm ont introduit EVMbench, un benchmark conçu pour tester les capacités des agents IA à détecter, corriger et exploiter les failles de sécurité dans les smart contracts. Cela annonce un outil standardisé pour améliorer l'évaluation des modèles IA dans la cybersécurité. Avec cette initiative, les benchmarks pour l'IA deviennent plus ciblés sur les applications réelles de la blockchain.",
-        "context": "Les smart contracts, pilier des blockchains comme Ethereum, ont été source de pertes massives dues à des exploits, rendant urgente l'innovation en sécurité. Dans un marché en plein essor de l'IA appliquée à la cybersécurité, EVMbench arrive comme un standard potentiel pour valider les agents IA. Cela s'inscrit dans la dynamique croissante des investissements tech vers des solutions robustes face aux menaces numériques évolutives.",
-        "critique": "EVMbench est notable pour son focus technique sur les vulnérabilités EVM, mais il pourrait sous-estimer les défis posés par des blockchains non-EVM, limitant sa généralité. Cela révèle une direction industrielle vers l'automatisation de la sécurité IA, tout en soulignant un angle mort : le manque de discussion sur les implications éthiques d'IA capable d'exploiter des failles. En challenger les benchmarks existants, il risque de favoriser une compétition biaisée sans données comparatives transparentes.",
-        "themes": [
-          "Sécurité IA",
-          "Smart contracts",
-          "Évaluation de modèles"
-        ],
-        "model": "grok-3-mini"
       }
     },
     {
@@ -8039,7 +8195,7 @@
       "title": "Amanda is among the most consistently principled and thoughtful people I've ever met. The attacks she's receiving (and responding too with incredible patience and grace) are really disappointing.",
       "excerpt": "Amanda is among the most consistently principled and thoughtful people I've ever met. The attacks she's receiving (and responding too with incredible patience and grace) are really disappointing. Amanda Askell (@AmandaAskell) WSJ did a profile of me. A lot of the response has been people trying to infer my personal political views. For what it's wo",
       "link": "https://x.com/ch402/status/2022904335110467939",
-      "date": "2026-02-15T05:22:31+00:00",
+      "date": "2026-02-15T06:22:31+01:00",
       "category": "product",
       "source": {
         "id": "tw_chrisolah",
@@ -8237,31 +8393,6 @@
       }
     },
     {
-      "id": "https://openai.com/index/beyond-rate-limits",
-      "title": "Beyond rate limits: scaling access to Codex and Sora",
-      "excerpt": "How OpenAI built a real-time access system combining rate limits, usage tracking, and credits to power continuous access to Sora and Codex.",
-      "link": "https://openai.com/index/beyond-rate-limits",
-      "date": "2026-02-13T09:00:00+00:00",
-      "category": "other",
-      "source": {
-        "id": "openai",
-        "name": "OpenAI",
-        "color": "#10b981"
-      },
-      "analysis": {
-        "signal": "OpenAI innovates access management for AI models like Codex and Sora by integrating rate limits, usage tracking, and credits to ensure scalable, uninterrupted usage.",
-        "summary": "OpenAI developed a real-time system to scale access to their AI models Codex and Sora, combining traditional rate limits with advanced usage tracking and credit-based mechanisms. This announcement details how the system maintains continuous access despite high demand. As a result, users experience fewer interruptions, marking a shift in how AI resources are allocated.",
-        "context": "In the rapidly expanding AI market, managing access to high-demand models is critical as companies compete for user adoption amid resource constraints. This development addresses current challenges like server overloads from viral AI tools, fitting into broader dynamics where scalability drives market leadership. It underscores the need for sustainable infrastructure as AI services become integral to business operations.",
-        "critique": "While this system highlights OpenAI's technical prowess in balancing user access with operational efficiency, it overlooks potential equity issues for users with varying credit availability, which could widen access gaps. It reveals a growing industry trend towards monetized, tiered access models that prioritize revenue over open innovation, yet fails to address emerging privacy risks in real-time tracking. Overall, this approach may accelerate AI democratization but risks entrenching monopolistic practices if not paired with regulatory safeguards.",
-        "themes": [
-          "Scalability",
-          "Access Management",
-          "Monetization Strategies"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
       "id": "https://openai.com/index/scaling-social-science-research",
       "title": "Scaling social science research",
       "excerpt": "GABRIEL is a new open-source toolkit from OpenAI that uses GPT to turn qualitative text and images into quantitative data, helping social scientists analyze research at scale.",
@@ -8282,6 +8413,31 @@
           "AI Democratization",
           "Qualitative Data Analysis",
           "Open-Source Innovation"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://openai.com/index/beyond-rate-limits",
+      "title": "Beyond rate limits: scaling access to Codex and Sora",
+      "excerpt": "How OpenAI built a real-time access system combining rate limits, usage tracking, and credits to power continuous access to Sora and Codex.",
+      "link": "https://openai.com/index/beyond-rate-limits",
+      "date": "2026-02-13T09:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "openai",
+        "name": "OpenAI",
+        "color": "#10b981"
+      },
+      "analysis": {
+        "signal": "OpenAI innovates access management for AI models like Codex and Sora by integrating rate limits, usage tracking, and credits to ensure scalable, uninterrupted usage.",
+        "summary": "OpenAI developed a real-time system to scale access to their AI models Codex and Sora, combining traditional rate limits with advanced usage tracking and credit-based mechanisms. This announcement details how the system maintains continuous access despite high demand. As a result, users experience fewer interruptions, marking a shift in how AI resources are allocated.",
+        "context": "In the rapidly expanding AI market, managing access to high-demand models is critical as companies compete for user adoption amid resource constraints. This development addresses current challenges like server overloads from viral AI tools, fitting into broader dynamics where scalability drives market leadership. It underscores the need for sustainable infrastructure as AI services become integral to business operations.",
+        "critique": "While this system highlights OpenAI's technical prowess in balancing user access with operational efficiency, it overlooks potential equity issues for users with varying credit availability, which could widen access gaps. It reveals a growing industry trend towards monetized, tiered access models that prioritize revenue over open innovation, yet fails to address emerging privacy risks in real-time tracking. Overall, this approach may accelerate AI democratization but risks entrenching monopolistic practices if not paired with regulatory safeguards.",
+        "themes": [
+          "Scalability",
+          "Access Management",
+          "Monetization Strategies"
         ],
         "model": "grok-3-mini"
       }
@@ -9174,19 +9330,6 @@
       }
     },
     {
-      "id": "https://www.ycombinator.com/blog/adding-canada-back/",
-      "title": "Adding Canada Back to Our List of Accepted Countries of Incorporation",
-      "excerpt": "After hearing feedback from Canadian founders in our network, we are adding Canada back to our list of accepted countries of incorporation.",
-      "link": "https://www.ycombinator.com/blog/adding-canada-back/",
-      "date": "2026-02-05T17:00:00+00:00",
-      "category": "other",
-      "source": {
-        "id": "ycombinator",
-        "name": "Y Combinator",
-        "color": "#ff6600"
-      }
-    },
-    {
       "id": "https://blog.google/company-news/outreach-and-initiatives/accessibility/natively-adaptive-interfaces-ai-accessibility/",
       "title": "Natively Adaptive Interfaces: A new framework for AI accessibility",
       "excerpt": "Learn how Google's NAI framework uses AI to make technology more adaptive, inclusive and helpful for everyone.",
@@ -9209,6 +9352,19 @@
           "Inclusion Technologique"
         ],
         "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://www.ycombinator.com/blog/adding-canada-back/",
+      "title": "Adding Canada Back to Our List of Accepted Countries of Incorporation",
+      "excerpt": "After hearing feedback from Canadian founders in our network, we are adding Canada back to our list of accepted countries of incorporation.",
+      "link": "https://www.ycombinator.com/blog/adding-canada-back/",
+      "date": "2026-02-05T17:00:00+00:00",
+      "category": "other",
+      "source": {
+        "id": "ycombinator",
+        "name": "Y Combinator",
+        "color": "#ff6600"
       }
     },
     {
@@ -9401,31 +9557,6 @@
       }
     },
     {
-      "id": "https://openai.com/index/gpt-5-3-codex-system-card",
-      "title": "GPT-5.3-Codex System Card",
-      "excerpt": "GPT‑5.3-Codex is the most capable agentic coding model to date, combining the frontier coding performance of GPT‑5.2-Codex with the reasoning and professional knowledge capabilities of GPT‑5.2.",
-      "link": "https://openai.com/index/gpt-5-3-codex-system-card",
-      "date": "2026-02-05T00:00:00+00:00",
-      "category": "model",
-      "source": {
-        "id": "openai",
-        "name": "OpenAI",
-        "color": "#10b981"
-      },
-      "analysis": {
-        "signal": "OpenAI's GPT-5.3-Codex advances AI coding by fusing elite performance with human-like reasoning, setting a new benchmark for autonomous development tools.",
-        "summary": "OpenAI released GPT-5.3-Codex, positioning it as the most advanced agentic coding model available. The model integrates the superior coding capabilities of GPT-5.2-Codex with the reasoning and professional knowledge features from GPT-5.2, marking an evolution in AI's ability to handle complex tasks. This change enhances the model's potential for independent problem-solving in software development.",
-        "context": "This development occurs amid growing demand for AI-driven tools in an era of software shortages and rapid digital transformation. It matters now as companies compete to deploy AI agents that can reduce human dependency in coding, fitting into broader market dynamics where specialized models are disrupting traditional development workflows. Such advancements could accelerate adoption in enterprise settings, intensifying competition among AI providers like Google and Anthropic.",
-        "critique": "Notably, while GPT-5.3-Codex promises enhanced integration of capabilities, the lack of disclosed benchmarks or real-world failure rates raises questions about its practical reliability compared to predecessors. This reveals an industry trend of prioritizing iterative releases for competitive edge over thorough validation, potentially exposing users to unforeseen biases or inefficiencies. Moreover, it highlights a blind spot in OpenAI's strategy by not addressing how these models scale ethically in high-stakes coding environments, which could hinder long-term trust.",
-        "themes": [
-          "Agentic AI Evolution",
-          "Coding Automation",
-          "Model Integration Challenges"
-        ],
-        "model": "grok-3-mini"
-      }
-    },
-    {
       "id": "https://openai.com/index/navigating-health-questions",
       "title": "Navigating health questions with ChatGPT",
       "excerpt": "A family shares how ChatGPT helped them prepare for critical cancer treatment decisions for their son alongside expert guidance from his doctors.",
@@ -9446,6 +9577,31 @@
           "AI in Healthcare",
           "Human-AI Collaboration",
           "Ethical AI Risks"
+        ],
+        "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://openai.com/index/gpt-5-3-codex-system-card",
+      "title": "GPT-5.3-Codex System Card",
+      "excerpt": "GPT‑5.3-Codex is the most capable agentic coding model to date, combining the frontier coding performance of GPT‑5.2-Codex with the reasoning and professional knowledge capabilities of GPT‑5.2.",
+      "link": "https://openai.com/index/gpt-5-3-codex-system-card",
+      "date": "2026-02-05T00:00:00+00:00",
+      "category": "model",
+      "source": {
+        "id": "openai",
+        "name": "OpenAI",
+        "color": "#10b981"
+      },
+      "analysis": {
+        "signal": "OpenAI's GPT-5.3-Codex advances AI coding by fusing elite performance with human-like reasoning, setting a new benchmark for autonomous development tools.",
+        "summary": "OpenAI released GPT-5.3-Codex, positioning it as the most advanced agentic coding model available. The model integrates the superior coding capabilities of GPT-5.2-Codex with the reasoning and professional knowledge features from GPT-5.2, marking an evolution in AI's ability to handle complex tasks. This change enhances the model's potential for independent problem-solving in software development.",
+        "context": "This development occurs amid growing demand for AI-driven tools in an era of software shortages and rapid digital transformation. It matters now as companies compete to deploy AI agents that can reduce human dependency in coding, fitting into broader market dynamics where specialized models are disrupting traditional development workflows. Such advancements could accelerate adoption in enterprise settings, intensifying competition among AI providers like Google and Anthropic.",
+        "critique": "Notably, while GPT-5.3-Codex promises enhanced integration of capabilities, the lack of disclosed benchmarks or real-world failure rates raises questions about its practical reliability compared to predecessors. This reveals an industry trend of prioritizing iterative releases for competitive edge over thorough validation, potentially exposing users to unforeseen biases or inefficiencies. Moreover, it highlights a blind spot in OpenAI's strategy by not addressing how these models scale ethically in high-stakes coding environments, which could hinder long-term trust.",
+        "themes": [
+          "Agentic AI Evolution",
+          "Coding Automation",
+          "Model Integration Challenges"
         ],
         "model": "grok-3-mini"
       }
@@ -13813,28 +13969,55 @@
       }
     },
     {
-      "id": "http://blog.research.google/feeds/520087429457973735/comments/default",
-      "title": "ScreenAI: A visual language model for UI and visually-situated language understanding",
-      "excerpt": "Posted by Srinivas Sunkara and Gilles Baechler, Software Engineers, Google Research Screen user interfaces (UIs) and infographics, such as charts, diagrams and tables, play important roles in human communication and human-machine interaction as they facilitate rich and interactive user experiences. UIs and infographics share similar design principl",
-      "link": "http://blog.research.google/feeds/520087429457973735/comments/default",
+      "id": "https://elevenlabs.io/blog/eleven-music-is-here",
+      "title": "Eleven Music is Here",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/eleven-music-is-here",
       "date": "",
-      "category": "model",
+      "category": "other",
       "source": {
-        "id": "deepmind",
-        "name": "DeepMind",
-        "color": "#5c9bff"
-      },
-      "analysis": {
-        "signal": "DeepMind's ScreenAI model advances visual language processing by enabling AI to interpret user interfaces and infographics, potentially transforming human-machine interactions.",
-        "summary": "Google Research announced ScreenAI, a visual language model designed to understand and process UIs and infographics like charts and diagrams. It highlights shared design principles between these elements to enhance interactive experiences. This development could shift how machines handle visually-situated language, building on prior AI advancements.",
-        "context": "The rise of multimodal AI models is accelerating as companies integrate vision and language capabilities to meet demands for more intuitive interfaces. This is particularly timely amid growing adoption of AI in everyday apps, where visual data comprehension is key. It fits into the competitive AI market dynamics, with players like Google pushing boundaries to outpace rivals in visual understanding technologies.",
-        "critique": "While ScreenAI's focus on UI and infographics is a smart pivot towards practical applications, it overlooks potential challenges in real-world variability, such as diverse cultural design norms, which could hinder generalization. The announcement reveals industry's haste to claim multimodal supremacy but exposes gaps in transparency around training data ethics and performance metrics. Ultimately, this underscores a trend of prioritizing flashy demos over robust, bias-mitigated solutions in AI development.",
-        "themes": [
-          "Modèles visuels",
-          "Compréhension des interfaces",
-          "Interaction homme-machine"
-        ],
-        "model": "grok-3-mini"
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-code-fast-1",
+      "title": "Grok Code Fast 1",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-code-fast-1",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/toyota",
+      "title": "Toyota engages fans with AI-powered Brock Purdy experience",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/toyota",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/eleven-v3",
+      "title": "Introducing Eleven v3 (alpha)",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/eleven-v3",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
       }
     },
     {
@@ -13857,6 +14040,19 @@
       "link": "https://x.ai/news/grok-image-generation-release",
       "date": "",
       "category": "model",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://x.ai/news/grok-4-fast",
+      "title": "Grok 4 Fast",
+      "excerpt": "",
+      "link": "https://x.ai/news/grok-4-fast",
+      "date": "",
+      "category": "other",
       "source": {
         "id": "xai",
         "name": "xAI",
@@ -13903,10 +14099,49 @@
       }
     },
     {
-      "id": "https://elevenlabs.io/blog/toyota",
-      "title": "Toyota engages fans with AI-powered Brock Purdy experience",
+      "id": "http://blog.research.google/feeds/470840348983280912/comments/default",
+      "title": "Chain-of-table: Evolving tables in the reasoning chain for table understanding",
+      "excerpt": "Posted by Zilong Wang, Student Researcher, and Chen-Yu Lee, Research Scientist, Cloud AI Team People use tables every day to organize and interpret complex information in a structured, easily accessible format. Due to the ubiquity of such tables, reasoning over tabular data has long been a central topic in natural language processing (NLP). Researc",
+      "link": "http://blog.research.google/feeds/470840348983280912/comments/default",
+      "date": "",
+      "category": "research",
+      "source": {
+        "id": "deepmind",
+        "name": "DeepMind",
+        "color": "#5c9bff"
+      }
+    },
+    {
+      "id": "https://www.anthropic.com/news/anthropic-codepath-partnership",
+      "title": "Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program",
       "excerpt": "",
-      "link": "https://elevenlabs.io/blog/toyota",
+      "link": "https://www.anthropic.com/news/anthropic-codepath-partnership",
+      "date": "",
+      "category": "model",
+      "source": {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "color": "#d4a27a"
+      }
+    },
+    {
+      "id": "http://blog.research.google/feeds/4328167517765145678/comments/default",
+      "title": "SCIN: A new resource for representative dermatology images",
+      "excerpt": "Posted by Pooja Rao, Research Scientist, Google Research Health datasets play a crucial role in research and medical education, but it can be challenging to create a dataset that represents the real world. For example, dermatology conditions are diverse in their appearance and severity and manifest differently across skin tones. Yet, existing derma",
+      "link": "http://blog.research.google/feeds/4328167517765145678/comments/default",
+      "date": "",
+      "category": "research",
+      "source": {
+        "id": "deepmind",
+        "name": "DeepMind",
+        "color": "#5c9bff"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/honoring-veterans-and-their-voices-lt-col-thomas-brittinghams-story",
+      "title": "Honoring veterans and their voices: Lt Col Thomas Brittingham’s story",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/honoring-veterans-and-their-voices-lt-col-thomas-brittinghams-story",
       "date": "",
       "category": "other",
       "source": {
@@ -13916,16 +14151,54 @@
       }
     },
     {
-      "id": "https://elevenlabs.io/blog/elevenlabs-scales-uk-and-us-presence",
-      "title": "ElevenLabs scales UK and US presence",
+      "id": "https://elevenlabs.io/blog/harvey",
+      "title": "Harvey and ElevenLabs Partner to Give Lawyers a Global Voice",
       "excerpt": "",
-      "link": "https://elevenlabs.io/blog/elevenlabs-scales-uk-and-us-presence",
+      "link": "https://elevenlabs.io/blog/harvey",
       "date": "",
       "category": "other",
       "source": {
         "id": "elevenlabs",
         "name": "ElevenLabs",
         "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://www.together.ai/blog/dedicated-container-inference",
+      "title": "Introducing Dedicated Container Inference: Delivering 2.6x faster inference for custom AI models",
+      "excerpt": "By",
+      "link": "https://www.together.ai/blog/dedicated-container-inference",
+      "date": "",
+      "category": "model",
+      "source": {
+        "id": "together",
+        "name": "Together AI",
+        "color": "#8b5cf6"
+      }
+    },
+    {
+      "id": "http://blog.research.google/feeds/520087429457973735/comments/default",
+      "title": "ScreenAI: A visual language model for UI and visually-situated language understanding",
+      "excerpt": "Posted by Srinivas Sunkara and Gilles Baechler, Software Engineers, Google Research Screen user interfaces (UIs) and infographics, such as charts, diagrams and tables, play important roles in human communication and human-machine interaction as they facilitate rich and interactive user experiences. UIs and infographics share similar design principl",
+      "link": "http://blog.research.google/feeds/520087429457973735/comments/default",
+      "date": "",
+      "category": "model",
+      "source": {
+        "id": "deepmind",
+        "name": "DeepMind",
+        "color": "#5c9bff"
+      },
+      "analysis": {
+        "signal": "DeepMind's ScreenAI model advances visual language processing by enabling AI to interpret user interfaces and infographics, potentially transforming human-machine interactions.",
+        "summary": "Google Research announced ScreenAI, a visual language model designed to understand and process UIs and infographics like charts and diagrams. It highlights shared design principles between these elements to enhance interactive experiences. This development could shift how machines handle visually-situated language, building on prior AI advancements.",
+        "context": "The rise of multimodal AI models is accelerating as companies integrate vision and language capabilities to meet demands for more intuitive interfaces. This is particularly timely amid growing adoption of AI in everyday apps, where visual data comprehension is key. It fits into the competitive AI market dynamics, with players like Google pushing boundaries to outpace rivals in visual understanding technologies.",
+        "critique": "While ScreenAI's focus on UI and infographics is a smart pivot towards practical applications, it overlooks potential challenges in real-world variability, such as diverse cultural design norms, which could hinder generalization. The announcement reveals industry's haste to claim multimodal supremacy but exposes gaps in transparency around training data ethics and performance metrics. Ultimately, this underscores a trend of prioritizing flashy demos over robust, bias-mitigated solutions in AI development.",
+        "themes": [
+          "Modèles visuels",
+          "Compréhension des interfaces",
+          "Interaction homme-machine"
+        ],
+        "model": "grok-3-mini"
       }
     },
     {
@@ -13981,19 +14254,6 @@
       }
     },
     {
-      "id": "https://x.ai/news/series-e",
-      "title": "xAI Raises $20B Series E",
-      "excerpt": "",
-      "link": "https://x.ai/news/series-e",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "xai",
-        "name": "xAI",
-        "color": "#e5e5e5"
-      }
-    },
-    {
       "id": "https://x.ai/news/grok-imagine-api",
       "title": "Grok Imagine API",
       "excerpt": "",
@@ -14017,6 +14277,19 @@
         "id": "xai",
         "name": "xAI",
         "color": "#e5e5e5"
+      }
+    },
+    {
+      "id": "https://www.anthropic.com/news/responsible-scaling-policy-v3",
+      "title": "Anthropic’s Responsible Scaling Policy: Version 3.0",
+      "excerpt": "",
+      "link": "https://www.anthropic.com/news/responsible-scaling-policy-v3",
+      "date": "",
+      "category": "model",
+      "source": {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "color": "#d4a27a"
       }
     },
     {
@@ -14240,45 +14513,6 @@
       }
     },
     {
-      "id": "https://elevenlabs.io/blog/elevenlabs-ui",
-      "title": "Introducing ElevenLabs UI: Open-source audio & agent components for the web",
-      "excerpt": "",
-      "link": "https://elevenlabs.io/blog/elevenlabs-ui",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "elevenlabs",
-        "name": "ElevenLabs",
-        "color": "#f5c518"
-      }
-    },
-    {
-      "id": "https://elevenlabs.io/blog/eleven-v3",
-      "title": "Introducing Eleven v3 (alpha)",
-      "excerpt": "",
-      "link": "https://elevenlabs.io/blog/eleven-v3",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "elevenlabs",
-        "name": "ElevenLabs",
-        "color": "#f5c518"
-      }
-    },
-    {
-      "id": "https://elevenlabs.io/blog/eleven-music-is-here",
-      "title": "Eleven Music is Here",
-      "excerpt": "",
-      "link": "https://elevenlabs.io/blog/eleven-music-is-here",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "elevenlabs",
-        "name": "ElevenLabs",
-        "color": "#f5c518"
-      }
-    },
-    {
       "id": "https://elevenlabs.io/blog/introducing-elevenlabs-agents",
       "title": "Introducing ElevenLabs Agents",
       "excerpt": "",
@@ -14394,110 +14628,6 @@
       }
     },
     {
-      "id": "https://elevenlabs.io/blog/ukrainian-public-services",
-      "title": "Ukrainian Public Services Will Speak Through AI: Announcing a Partnership with ElevenLabs",
-      "excerpt": "",
-      "link": "https://elevenlabs.io/blog/ukrainian-public-services",
-      "date": "",
-      "category": "product",
-      "source": {
-        "id": "elevenlabs",
-        "name": "ElevenLabs",
-        "color": "#f5c518"
-      }
-    },
-    {
-      "id": "https://elevenlabs.io/blog/voice-ai-for-india-scale",
-      "title": "Voice AI for India Scale",
-      "excerpt": "",
-      "link": "https://elevenlabs.io/blog/voice-ai-for-india-scale",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "elevenlabs",
-        "name": "ElevenLabs",
-        "color": "#f5c518"
-      }
-    },
-    {
-      "id": "http://blog.research.google/feeds/470840348983280912/comments/default",
-      "title": "Chain-of-table: Evolving tables in the reasoning chain for table understanding",
-      "excerpt": "Posted by Zilong Wang, Student Researcher, and Chen-Yu Lee, Research Scientist, Cloud AI Team People use tables every day to organize and interpret complex information in a structured, easily accessible format. Due to the ubiquity of such tables, reasoning over tabular data has long been a central topic in natural language processing (NLP). Researc",
-      "link": "http://blog.research.google/feeds/470840348983280912/comments/default",
-      "date": "",
-      "category": "research",
-      "source": {
-        "id": "deepmind",
-        "name": "DeepMind",
-        "color": "#5c9bff"
-      }
-    },
-    {
-      "id": "https://www.anthropic.com/news/anthropic-codepath-partnership",
-      "title": "Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program",
-      "excerpt": "",
-      "link": "https://www.anthropic.com/news/anthropic-codepath-partnership",
-      "date": "",
-      "category": "model",
-      "source": {
-        "id": "anthropic",
-        "name": "Anthropic",
-        "color": "#d4a27a"
-      }
-    },
-    {
-      "id": "http://blog.research.google/feeds/4328167517765145678/comments/default",
-      "title": "SCIN: A new resource for representative dermatology images",
-      "excerpt": "Posted by Pooja Rao, Research Scientist, Google Research Health datasets play a crucial role in research and medical education, but it can be challenging to create a dataset that represents the real world. For example, dermatology conditions are diverse in their appearance and severity and manifest differently across skin tones. Yet, existing derma",
-      "link": "http://blog.research.google/feeds/4328167517765145678/comments/default",
-      "date": "",
-      "category": "research",
-      "source": {
-        "id": "deepmind",
-        "name": "DeepMind",
-        "color": "#5c9bff"
-      }
-    },
-    {
-      "id": "https://elevenlabs.io/blog/honoring-veterans-and-their-voices-lt-col-thomas-brittinghams-story",
-      "title": "Honoring veterans and their voices: Lt Col Thomas Brittingham’s story",
-      "excerpt": "",
-      "link": "https://elevenlabs.io/blog/honoring-veterans-and-their-voices-lt-col-thomas-brittinghams-story",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "elevenlabs",
-        "name": "ElevenLabs",
-        "color": "#f5c518"
-      }
-    },
-    {
-      "id": "https://elevenlabs.io/blog/harvey",
-      "title": "Harvey and ElevenLabs Partner to Give Lawyers a Global Voice",
-      "excerpt": "",
-      "link": "https://elevenlabs.io/blog/harvey",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "elevenlabs",
-        "name": "ElevenLabs",
-        "color": "#f5c518"
-      }
-    },
-    {
-      "id": "https://www.together.ai/blog/dedicated-container-inference",
-      "title": "Introducing Dedicated Container Inference: Delivering 2.6x faster inference for custom AI models",
-      "excerpt": "By",
-      "link": "https://www.together.ai/blog/dedicated-container-inference",
-      "date": "",
-      "category": "model",
-      "source": {
-        "id": "together",
-        "name": "Together AI",
-        "color": "#8b5cf6"
-      }
-    },
-    {
       "id": "http://blog.research.google/feeds/1695264277638670894/comments/default",
       "title": "VideoPrism: A foundational visual encoder for video understanding",
       "excerpt": "Posted by Long Zhao, Senior Research Scientist, and Ting Liu, Senior Staff Software Engineer, Google Research An astounding number of videos are available on the Web, covering a variety of content from everyday moments people share to historical moments to scientific observations, each of which contains a unique record of the world. The right tools",
@@ -14520,19 +14650,6 @@
           "Recherche en IA avancée"
         ],
         "model": "grok-3-mini"
-      }
-    },
-    {
-      "id": "https://www.anthropic.com/news/responsible-scaling-policy-v3",
-      "title": "Anthropic’s Responsible Scaling Policy: Version 3.0",
-      "excerpt": "",
-      "link": "https://www.anthropic.com/news/responsible-scaling-policy-v3",
-      "date": "",
-      "category": "model",
-      "source": {
-        "id": "anthropic",
-        "name": "Anthropic",
-        "color": "#d4a27a"
       }
     },
     {
@@ -14634,6 +14751,19 @@
         "id": "deepmind",
         "name": "DeepMind",
         "color": "#5c9bff"
+      }
+    },
+    {
+      "id": "https://www.anthropic.com/news/anthropic-rwanda-mou",
+      "title": "Anthropic and the Government of Rwanda sign MOU for AI in health and education",
+      "excerpt": "",
+      "link": "https://www.anthropic.com/news/anthropic-rwanda-mou",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "color": "#d4a27a"
       }
     },
     {
@@ -14839,19 +14969,6 @@
       }
     },
     {
-      "id": "https://www.anthropic.com/news/anthropic-rwanda-mou",
-      "title": "Anthropic and the Government of Rwanda sign MOU for AI in health and education",
-      "excerpt": "",
-      "link": "https://www.anthropic.com/news/anthropic-rwanda-mou",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "anthropic",
-        "name": "Anthropic",
-        "color": "#d4a27a"
-      }
-    },
-    {
       "id": "https://www.anthropic.com/news/claude-code-security",
       "title": "Making frontier cybersecurity capabilities available to defenders",
       "excerpt": "",
@@ -14875,6 +14992,19 @@
         "id": "anthropic",
         "name": "Anthropic",
         "color": "#d4a27a"
+      }
+    },
+    {
+      "id": "https://x.ai/news/onegov",
+      "title": "Expanding xAI for Government with GSA OneGov",
+      "excerpt": "",
+      "link": "https://x.ai/news/onegov",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
       }
     },
     {
@@ -15083,6 +15213,19 @@
       }
     },
     {
+      "id": "https://x.ai/news/series-e",
+      "title": "xAI Raises $20B Series E",
+      "excerpt": "",
+      "link": "https://x.ai/news/series-e",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "xai",
+        "name": "xAI",
+        "color": "#e5e5e5"
+      }
+    },
+    {
       "id": "https://www.together.ai/blog/introducing-autojudge-streamlined-inference-acceleration-via-automated-dataset-curation",
       "title": "Introducing AutoJudge: Streamlined inference acceleration via automated dataset curation",
       "excerpt": "By",
@@ -15143,45 +15286,6 @@
         "id": "together",
         "name": "Together AI",
         "color": "#8b5cf6"
-      }
-    },
-    {
-      "id": "https://x.ai/news/onegov",
-      "title": "Expanding xAI for Government with GSA OneGov",
-      "excerpt": "",
-      "link": "https://x.ai/news/onegov",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "xai",
-        "name": "xAI",
-        "color": "#e5e5e5"
-      }
-    },
-    {
-      "id": "https://x.ai/news/grok-4-fast",
-      "title": "Grok 4 Fast",
-      "excerpt": "",
-      "link": "https://x.ai/news/grok-4-fast",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "xai",
-        "name": "xAI",
-        "color": "#e5e5e5"
-      }
-    },
-    {
-      "id": "https://x.ai/news/grok-code-fast-1",
-      "title": "Grok Code Fast 1",
-      "excerpt": "",
-      "link": "https://x.ai/news/grok-code-fast-1",
-      "date": "",
-      "category": "other",
-      "source": {
-        "id": "xai",
-        "name": "xAI",
-        "color": "#e5e5e5"
       }
     },
     {
@@ -15311,6 +15415,19 @@
         "id": "together",
         "name": "Together AI",
         "color": "#8b5cf6"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/elevenlabs-ui",
+      "title": "Introducing ElevenLabs UI: Open-source audio & agent components for the web",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/elevenlabs-ui",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
       }
     },
     {
@@ -15543,6 +15660,45 @@
           "Human-like Technology"
         ],
         "model": "grok-3-mini"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/elevenlabs-scales-uk-and-us-presence",
+      "title": "ElevenLabs scales UK and US presence",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/elevenlabs-scales-uk-and-us-presence",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/ukrainian-public-services",
+      "title": "Ukrainian Public Services Will Speak Through AI: Announcing a Partnership with ElevenLabs",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/ukrainian-public-services",
+      "date": "",
+      "category": "product",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
+      }
+    },
+    {
+      "id": "https://elevenlabs.io/blog/voice-ai-for-india-scale",
+      "title": "Voice AI for India Scale",
+      "excerpt": "",
+      "link": "https://elevenlabs.io/blog/voice-ai-for-india-scale",
+      "date": "",
+      "category": "other",
+      "source": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "color": "#f5c518"
       }
     }
   ]
