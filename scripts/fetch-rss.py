@@ -96,8 +96,8 @@ TIMEOUT = 15
 GROK_API_KEY   = os.environ.get("GROK_API_KEY", "")
 GROK_MODEL     = "grok-3-mini"
 GROK_URL       = "https://api.x.ai/v1/chat/completions"
-MAX_TO_ANALYZE = 50  # per run
-GROK_DELAY     = 0.8  # seconds between calls
+MAX_TO_ANALYZE = 40  # per run (reduced to avoid xAI rate limits)
+GROK_DELAY     = 1.5  # seconds between calls (increased to avoid rate limits)
 
 ANALYSIS_PROMPT = """You are an AI industry analyst for a tech intelligence feed (iamsupersocks.com).
 IMPORTANT: Always respond in English regardless of the source article language.
@@ -144,24 +144,34 @@ def call_grok(title, excerpt, source_name, category):
         "Authorization": f"Bearer {GROK_API_KEY}",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
     }, method="POST")
-    try:
-        with urlopen(req, timeout=25) as r:
-            resp = json.loads(r.read().decode("utf-8"))
-        text = resp["choices"][0]["message"]["content"]
-        result = json.loads(text)
-        if isinstance(result.get("signal"), str) and isinstance(result.get("summary"), str):
-            return {
-                "signal":  result.get("signal",  "")[:300],
-                "summary": result.get("summary", "")[:600],
-                "context": result.get("context", "")[:600],
-                "critique":result.get("critique","")[:600],
-                "themes":  [str(t)[:60] for t in result.get("themes", [])[:6]],
-                "model":   GROK_MODEL,
-            }
-    except HTTPError as e:
-        print(f"HTTP {e.code}", end=" ")
-    except Exception as e:
-        print(f"ERR({str(e)[:40]})", end=" ")
+    for attempt in range(3):
+        try:
+            with urlopen(req, timeout=30) as r:
+                resp = json.loads(r.read().decode("utf-8"))
+            text = resp["choices"][0]["message"]["content"]
+            result = json.loads(text)
+            if isinstance(result.get("signal"), str) and isinstance(result.get("summary"), str):
+                return {
+                    "signal":  result.get("signal",  "")[:300],
+                    "summary": result.get("summary", "")[:600],
+                    "context": result.get("context", "")[:600],
+                    "critique":result.get("critique","")[:600],
+                    "themes":  [str(t)[:60] for t in result.get("themes", [])[:6]],
+                    "model":   GROK_MODEL,
+                }
+            return None
+        except HTTPError as e:
+            if e.code == 429:
+                wait = 10 * (attempt + 1)
+                print(f"429(retry {attempt+1}, wait {wait}s)", end=" ", flush=True)
+                time.sleep(wait)
+                continue
+            print(f"HTTP {e.code}", end=" ")
+            return None
+        except Exception as e:
+            print(f"ERR({str(e)[:40]})", end=" ")
+            return None
+    print("GIVEUP", end=" ")
     return None
 
 # ---------------------------------------------------------------------------
