@@ -116,6 +116,7 @@ SOURCES = [
     {"id": "tw_scale_ai", "name": "Scale AI (X)",    "color": "#14b8a6", "type": "twitter", "url": "https://nitter.net/scale_ai/rss"},
     {"id": "tw_nvidia_corp","name":"NVIDIA (X)",     "color": "#76b900", "type": "twitter", "url": "https://nitter.net/nvidia/rss"},
     {"id": "tw_wb",       "name": "W&B (X)",         "color": "#ffbe00", "type": "twitter", "url": "https://nitter.net/weights_biases/rss"},
+    {"id": "tw_qwen",    "name": "Qwen (X)",        "color": "#6366f1", "type": "twitter", "url": "https://nitter.net/Alibaba_Qwen/rss"},
 ]
 
 # Category detection keywords
