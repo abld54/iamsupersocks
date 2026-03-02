@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Timeline — supersocks</title>
+<meta name="description" content="Timeline visualization of major LLM releases from 2020 to 2026. OpenAI, Anthropic, Meta, Google, and more.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg:       #000000;
+  --bg1:      #0a0a0f;
+  --bg2:      #0f0f1a;
+  --border:   rgba(0,220,255,0.12);
+  --border2:  rgba(0,220,255,0.25);
+  --cyan:     #00dcff;
+  --cyan2:    rgba(0,220,255,0.07);
+  --cyan3:    rgba(0,220,255,0.03);
+  --green:    #00ff88;
+  --text:     #c9d1d9;
+  --text2:    #8b949e;
+  --text3:    #484f58;
+  --white:    #ffffff;
+  --mono:     'JetBrains Mono', 'Courier New', monospace;
+  --sans:     'Inter', system-ui, sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { overflow-x:hidden; max-width:100vw; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
+  );
+}
+
+/* ─── TOP BAR ─── */
+#topbar {
+  position:sticky; top:0; z-index:100;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border2);
+  padding: 0 24px;
+  height: 52px;
+  display: flex; align-items:center; justify-content:space-between;
+  font-family: var(--mono);
+}
+
+.bar-left {
+  display:flex; align-items:center; gap:20px;
+}
+.bar-logo {
+  font-size: 0.75rem; font-weight:700; letter-spacing:3px;
+  color: var(--white); text-decoration:none;
+  text-transform:uppercase;
+}
+.bar-logo span { color: var(--cyan); }
+.bar-sep { color: var(--text3); }
+.bar-title {
+  font-size: 0.72rem; color: var(--cyan);
+  letter-spacing:2px; text-transform:uppercase;
+}
+
+.bar-right {
+  display:flex; align-items:center; gap:20px;
+}
+.bar-nav-link {
+  color:var(--text2); text-decoration:none;
+  font-size:0.65rem; letter-spacing:1px;
+  text-transform:uppercase; transition:color 0.2s;
+}
+.bar-nav-link:hover { color:var(--cyan); }
+
+/* ─── STATS BAR ─── */
+#stats-bar {
+  background: var(--bg1);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display:flex; gap:32px; align-items:center;
+  font-family: var(--mono); font-size:0.7rem;
+  overflow-x: auto;
+}
+.stat-item {
+  display:flex; flex-direction:column; gap:2px;
+  white-space:nowrap;
+}
+.stat-val {
+  font-size:1.1rem; font-weight:700;
+  color: var(--cyan); letter-spacing:1px;
+}
+.stat-lbl {
+  color: var(--text3); text-transform:uppercase; letter-spacing:2px;
+}
+.stat-divider {
+  width:1px; height:32px;
+  background: var(--border); flex-shrink:0;
+}
+
+/* ─── CONTROLS ─── */
+#controls {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex; gap: 14px; align-items: center;
+  flex-wrap: wrap;
+  position: sticky; top: 52px; z-index: 90;
+}
+.control-group {
+  display: flex; align-items: center; gap: 8px;
+}
+.control-label {
+  font-family: var(--mono); font-size: 0.6rem;
+  color: var(--text3); text-transform: uppercase;
+  letter-spacing: 2px; white-space: nowrap;
+}
+.btn {
+  font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  cursor: pointer; transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { border-color: var(--cyan); color: var(--cyan); background: var(--cyan2); }
+.btn.active {
+  background: var(--cyan); color: #000; border-color: var(--cyan);
+  font-weight: 700;
+}
+.btn.toggle-view {
+  background: var(--bg2);
+}
+select {
+  font-family: var(--mono); font-size: 0.65rem;
+  padding: 6px 12px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+}
+select:hover { border-color: var(--cyan); }
+
+/* ─── MAIN ─── */
+#main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px;
+  position: relative; z-index: 1;
+}
+
+/* ─── CHART VIEW ─── */
+#chart-view {
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  padding: 28px;
+  margin-bottom: 32px;
+}
+#chart-container {
+  position: relative;
+  height: 600px;
+}
+canvas {
+  max-width: 100%;
+}
+
+/* ─── LIST VIEW ─── */
+#list-view {
+  display: none;
+}
+.year-section {
+  margin-bottom: 40px;
+}
+.year-header {
+  font-family: var(--mono); font-size: 1.4rem;
+  font-weight: 700; color: var(--cyan);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border2);
+  display: flex; align-items: center; gap: 12px;
+}
+.year-count {
+  font-size: 0.7rem; color: var(--text3);
+  font-weight: 400; letter-spacing: 2px;
+}
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+.model-card {
+  background: var(--bg);
+  padding: 18px 20px;
+  position: relative;
+  transition: background 0.2s;
+}
+.model-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--org-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s;
+}
+.model-card:hover {
+  background: var(--bg2);
+}
+.model-card:hover::before {
+  transform: scaleX(1);
+}
+.model-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.model-name {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  flex: 1;
+}
+.model-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.badge {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.badge-open {
+  color: var(--green);
+  border-color: rgba(0,255,136,0.3);
+  background: rgba(0,255,136,0.07);
+}
+.badge-closed {
+  color: #ef4444;
+  border-color: rgba(239,68,68,0.3);
+  background: rgba(239,68,68,0.07);
+}
+.badge-moe {
+  color: #a855f7;
+  border-color: rgba(168,85,247,0.3);
+  background: rgba(168,85,247,0.07);
+}
+.badge-dense {
+  color: var(--text3);
+  border-color: var(--border);
+}
+.model-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text2);
+}
+.model-org {
+  color: var(--org-color);
+  font-weight: 600;
+}
+.model-params {
+  color: var(--text3);
+}
+.model-note {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text2);
+}
+
+/* ─── LEGEND ─── */
+#legend {
+  margin-top: 40px;
+  padding: 28px;
+  background: var(--bg1);
+  border: 1px solid var(--border);
+}
+.legend-title {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--cyan);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.legend-item:hover {
+  border-color: var(--cyan);
+  background: var(--cyan3);
+}
+.legend-item.inactive {
+  opacity: 0.4;
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.legend-name {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text);
+  flex: 1;
+}
+.legend-count {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--text3);
+}
+
+/* ─── FOOTER ─── */
+#footer {
+  margin-top: 60px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text3);
+  text-align: center;
+}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:768px) {
+  #topbar {
+    padding: 0 12px;
+    height: 48px;
+  }
+  .bar-left { gap: 10px; }
+  .bar-sep, .bar-title { display: none; }
+  .bar-logo { font-size: 0.7rem; }
+  
+  #stats-bar {
+    padding: 10px 12px;
+    gap: 12px;
+  }
+  .stat-val { font-size: 0.9rem; }
+  .stat-lbl { font-size: 0.5rem; }
+  
+  #controls {
+    padding: 10px 12px;
+    gap: 8px;
+    top: 48px;
+  }
+  .control-group { flex-wrap: wrap; }
+  
+  #main {
+    padding: 16px 12px;
+  }
+  
+  #chart-container {
+    height: 400px;
+  }
+  
+  .models-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .legend-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<nav id="topbar">
+  <div class="bar-left">
+    <a href="index.html" class="bar-logo">SUPER<span>SOCKS</span></a>
+    <span class="bar-sep">/</span>
+    <span class="bar-title">LLM TIMELINE</span>
+  </div>
+  <div class="bar-right">
+    <a href="veille.html" class="bar-nav-link">AI SIGNAL</a>
+  </div>
+</nav>
+
+<!-- STATS BAR -->
+<div id="stats-bar">
+  <div class="stat-item">
+    <div class="stat-val" id="stat-total">—</div>
+    <div class="stat-lbl">Models</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-val" id="stat-open">—</div>
+    <div class="stat-lbl">Open Source</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-val" id="stat-closed">—</div>
+    <div class="stat-lbl">Propriétaire</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-val" id="stat-moe">—</div>
+    <div class="stat-lbl">MoE</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-val" id="stat-dense">—</div>
+    <div class="stat-lbl">Dense</div>
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div id="controls">
+  <div class="control-group">
+    <span class="control-label">View:</span>
+    <button class="btn toggle-view active" onclick="setView('chart')">CHART</button>
+    <button class="btn toggle-view" onclick="setView('list')">LIST</button>
+  </div>
+  
+  <div class="control-group">
+    <span class="control-label">License:</span>
+    <button class="btn active" data-filter="license" data-value="all">ALL</button>
+    <button class="btn" data-filter="license" data-value="open">OPEN SOURCE</button>
+    <button class="btn" data-filter="license" data-value="closed">PROPRIÉTAIRE</button>
+  </div>
+  
+  <div class="control-group">
+    <span class="control-label">Org:</span>
+    <select id="org-filter">
+      <option value="all">ALL ORGS</option>
+    </select>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <!-- CHART VIEW -->
+  <div id="chart-view">
+    <div id="chart-container">
+      <canvas id="chart"></canvas>
+    </div>
+  </div>
+  
+  <!-- LIST VIEW -->
+  <div id="list-view"></div>
+  
+  <!-- LEGEND -->
+  <div id="legend">
+    <div class="legend-title">// Organizations</div>
+    <div class="legend-grid" id="legend-grid"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer">
+  // LLM TIMELINE — 2020-2026 — DATA COMPILED FROM PUBLIC ANNOUNCEMENTS
+</div>
+
+<script>
+// ── ORG COLORS ──
+const ORG_COLORS = {
+  "OpenAI": "#10a37f",
+  "Google": "#4285f4",
+  "Meta": "#0668E1",
+  "Anthropic": "#d4a574",
+  "Mistral AI": "#ff6b35",
+  "Alibaba": "#ff4400",
+  "DeepSeek": "#7c3aed",
+  "xAI": "#e0e0e0",
+  "EleutherAI": "#22c55e",
+  "BigScience": "#06b6d4",
+  "TII (UAE)": "#eab308",
+  "Microsoft": "#00a4ef",
+  "DeepMind": "#34a853",
+  "Moonshot AI": "#f472b6",
+  "Cohere": "#ff7a5c",
+  "Databricks": "#ff3621",
+  "AI21 Labs": "#6366f1",
+  "NVIDIA": "#76b900"
+};
+
+// ── MODELS DATA ──
+const MODELS_RAW = `
+GPT-3, OpenAI, 2020-06, 175B, closed, dense, Premier modèle massif, API only
+GPT-NeoX-20B, EleutherAI, 2022-02, 20B, open, dense, Premier gros modèle fully open
+Chinchilla, DeepMind, 2022-03, 70B, closed, dense, Scaling laws: moins de params, plus de data
+PaLM, Google, 2022-04, 540B, closed, dense, 540B params, record Google
+BLOOM, BigScience, 2022-07, 176B, open, dense, Multilingue, 46 langues
+ChatGPT (GPT-3.5), OpenAI, 2022-11, 175B, closed, dense, Explosion grand public
+LLaMA, Meta, 2023-02, 65B, open, dense, Révolution open-source, 7B→65B
+GPT-4, OpenAI, 2023-03, 1800B, closed, moe, ~1.8T params (rumeur MoE 8x220B)
+Falcon 40B, TII (UAE), 2023-05, 40B, open, dense, Top Open LLM Leaderboard
+LLaMA 2, Meta, 2023-07, 70B, open, dense, Commercial license, 7B→70B
+Mistral 7B, Mistral AI, 2023-09, 7B, open, dense, 7B bat LLaMA 2 13B
+Falcon 180B, TII (UAE), 2023-09, 180B, open, dense, 3.5T tokens
+Qwen-72B, Alibaba, 2023-11, 72B, open, dense, Premier gros Qwen
+Mixtral 8x7B, Mistral AI, 2023-12, 46.7B, open, moe, MoE: 8 experts, bat LLaMA 2 70B
+Gemini 1.0 Ultra, Google, 2024-02, 1500B, closed, moe, Multimodal, rivalise GPT-4
+Claude 3 Opus, Anthropic, 2024-03, null, closed, dense, Top benchmarks, taille non divulguée
+DBRX, Databricks, 2024-03, 132B, open, moe, 132B MoE, open-source
+LLaMA 3, Meta, 2024-04, 70B, open, dense, 8B & 70B, 15T tokens
+Phi-3, Microsoft, 2024-04, 14B, open, dense, Small mais puissant, données synthétiques
+Command R+, Cohere, 2024-04, 104B, open, dense, RAG optimized, 128K context
+Qwen2, Alibaba, 2024-06, 72B, open, dense, Amélioration multi-tâche
+Gemma 2, Google, 2024-06, 27B, open, dense, 9B & 27B, open weights
+Nemotron-4 340B, NVIDIA, 2024-06, 340B, open, dense, Synthetic data generation
+Mistral Large 2, Mistral AI, 2024-07, 123B, open, dense, 128K context
+LLaMA 3.1 405B, Meta, 2024-07, 405B, open, dense, Plus gros modèle open-source dense
+Grok-2, xAI, 2024-08, 314B, closed, moe, Intégré à X/Twitter
+Jamba 1.5, AI21 Labs, 2024-08, 398B, open, moe, SSM + Transformer hybrid, 256K context
+OpenAI o1, OpenAI, 2024-09, null, closed, dense, Reasoning model, chain-of-thought
+Qwen2.5, Alibaba, 2024-09, 72B, open, dense, Coder 32B rivalise modèles propriétaires
+DeepSeek-R1, DeepSeek, 2025-01, 671B, open, moe, Reasoning open-source, rivalise o1, coût très bas
+DeepSeek-V3, DeepSeek, 2025-01, 671B, open, moe, MoE 37B actifs, très efficient
+Gemini 2.0 Flash, Google, 2025-01, null, closed, moe, Speed-optimized, multimodal
+Phi-4, Microsoft, 2025-01, 14B, open, dense, 14B, top reasoning pour sa taille
+Claude Opus 4.5, Anthropic, 2025-02, null, closed, dense, Hybrid extended thinking
+Claude Sonnet 4.5, Anthropic, 2025-02, null, closed, dense, Hybrid reasoning
+Grok-3, xAI, 2025-02, null, closed, moe, Massive compute, 128K context
+Gemma 3, Google, 2025-03, 27B, open, dense, 1B→27B, multimodal
+Grok-3 Mini, xAI, 2025-03, null, closed, moe, Lightweight reasoning
+Grok-3 Mini (fast), xAI, 2025-03, null, closed, moe, Speed variant
+GPT-4.1, OpenAI, 2025-04, null, closed, dense, 1M tokens context
+LLaMA 4 Maverick, Meta, 2025-04, 402B, open, moe, MoE 17B actifs, 10M tokens context
+Qwen3, Alibaba, 2025-04, 235B, open, moe, 235B-A22B, hybrid thinking
+Claude Opus 4, Anthropic, 2025-05, null, closed, dense, Extended thinking, 200K context
+Mistral Medium 3, Mistral AI, 2025-05, null, open, dense, Multimodal frontier-class
+GPT-5, OpenAI, 2025-05, null, closed, dense, Flagship 2025
+Gemini 2.5 Flash, Google, 2025-05, null, closed, moe, Fast + thinking mode
+Claude Sonnet 4, Anthropic, 2025-06, null, closed, dense, Remplace Sonnet 3.5, coding leader
+Gemini 2.5 Pro, Google, 2025-06, null, closed, moe, N°1 benchmarks mid-2025
+Kimi K2, Moonshot AI, 2025-07, null, open, moe, Chinese LLM, open-research
+Qwen3-Coder, Alibaba, 2025-07, 30B, open, moe, 30B-A3B, code spécialisé
+Mistral Large 3, Mistral AI, 2025-12, null, open, moe, Apache 2.0, 256K context
+Codex 5.3, OpenAI, 2026-02, null, closed, dense, Top agentic coding, surpasses Opus 4
+Claude Opus 4.6, Anthropic, 2026-02, null, closed, dense, Latest Anthropic flagship
+Claude Sonnet 4.6, Anthropic, 2026-02, null, closed, dense, Latest Anthropic mid-tier
+GPT-5.3, OpenAI, 2026-02, null, closed, dense, Latest OpenAI reasoning model
+Qwen3.5, Alibaba, 2026-03, 35B, open, moe, MoE 35B-A3B, latest Qwen release
+`.trim();
+
+// ── PARSE MODELS ──
+function parseModels() {
+  return MODELS_RAW.split('\n').map(line => {
+    const [name, org, date, params, license, arch, ...noteParts] = line.split(',').map(s => s.trim());
+    const note = noteParts.join(', ');
+    
+    // Parse params: "175B" → 175, "null" → null
+    let paramsNum = null;
+    if (params && params !== 'null') {
+      const match = params.match(/(\d+\.?\d*)/);
+      if (match) paramsNum = parseFloat(match[1]);
+    }
+    
+    return {
+      name,
+      org,
+      date: new Date(date + '-01'),
+      dateStr: date,
+      params: paramsNum,
+      paramsStr: params,
+      license,
+      arch,
+      note,
+      color: ORG_COLORS[org] || '#ffffff'
+    };
+  }).filter(m => m.name);
+}
+
+let allModels = parseModels();
+let filteredModels = [...allModels];
+let currentView = 'chart';
+let filters = {
+  license: 'all',
+  org: 'all'
+};
+
+// ── UPDATE STATS ──
+function updateStats() {
+  const total = filteredModels.length;
+  const open = filteredModels.filter(m => m.license === 'open').length;
+  const closed = filteredModels.filter(m => m.license === 'closed').length;
+  const moe = filteredModels.filter(m => m.arch === 'moe').length;
+  const dense = filteredModels.filter(m => m.arch === 'dense').length;
+  
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-open').textContent = open;
+  document.getElementById('stat-closed').textContent = closed;
+  document.getElementById('stat-moe').textContent = moe;
+  document.getElementById('stat-dense').textContent = dense;
+}
+
+// ── APPLY FILTERS ──
+function applyFilters() {
+  filteredModels = allModels.filter(m => {
+    if (filters.license !== 'all' && m.license !== filters.license) return false;
+    if (filters.org !== 'all' && m.org !== filters.org) return false;
+    return true;
+  });
+  updateStats();
+  if (currentView === 'chart') renderChart();
+  else renderList();
+  updateLegend();
+}
+
+// ── RENDER CHART ──
+let chartInstance = null;
+
+function renderChart() {
+  const ctx = document.getElementById('chart').getContext('2d');
+  
+  // Prepare data points
+  const points = filteredModels
+    .filter(m => m.params !== null)
+    .map(m => ({
+      x: m.date.getTime(),
+      y: m.params,
+      model: m
+    }));
+  
+  // Group by org for datasets
+  const orgMap = {};
+  points.forEach(p => {
+    const org = p.model.org;
+    if (!orgMap[org]) orgMap[org] = [];
+    orgMap[org].push(p);
+  });
+  
+  const datasets = Object.keys(orgMap).map(org => {
+    const color = ORG_COLORS[org] || '#ffffff';
+    return {
+      label: org,
+      data: orgMap[org],
+      backgroundColor: color,
+      borderColor: color,
+      borderWidth: 2,
+      pointRadius: orgMap[org].map(p => {
+        // Size based on log(params)
+        const size = Math.log10(p.y) * 2.5;
+        return Math.max(4, Math.min(16, size));
+      }),
+      pointStyle: orgMap[org].map(p => p.model.arch === 'moe' ? 'triangle' : 'circle'),
+      pointHoverRadius: orgMap[org].map(p => {
+        const size = Math.log10(p.y) * 2.5;
+        return Math.max(6, Math.min(20, size + 2));
+      })
+    };
+  });
+  
+  if (chartInstance) chartInstance.destroy();
+  
+  chartInstance = new Chart(ctx, {
+    type: 'scatter',
+    data: { datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(10,10,15,0.95)',
+          titleColor: '#00dcff',
+          bodyColor: '#c9d1d9',
+          borderColor: 'rgba(0,220,255,0.25)',
+          borderWidth: 1,
+          padding: 12,
+          titleFont: { family: 'JetBrains Mono', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          displayColors: false,
+          callbacks: {
+            title: ctx => {
+              const p = ctx[0].raw;
+              return p.model.name;
+            },
+            label: ctx => {
+              const p = ctx.raw;
+              const m = p.model;
+              return [
+                `Org: ${m.org}`,
+                `Date: ${m.dateStr}`,
+                `Params: ${m.paramsStr}`,
+                `Type: ${m.arch.toUpperCase()}`,
+                `License: ${m.license === 'open' ? 'Open Source' : 'Propriétaire'}`,
+                m.note ? `Note: ${m.note}` : ''
+              ].filter(Boolean);
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          type: 'time',
+          time: {
+            unit: 'year',
+            displayFormats: { year: 'yyyy' }
+          },
+          min: new Date('2020-01-01').getTime(),
+          max: new Date('2027-01-01').getTime(),
+          grid: {
+            color: 'rgba(0,220,255,0.08)',
+            drawBorder: false
+          },
+          ticks: {
+            color: '#8b949e',
+            font: { family: 'JetBrains Mono', size: 11 }
+          }
+        },
+        y: {
+          type: 'logarithmic',
+          min: 1,
+          max: 10000,
+          grid: {
+            color: 'rgba(0,220,255,0.08)',
+            drawBorder: false
+          },
+          ticks: {
+            color: '#8b949e',
+            font: { family: 'JetBrains Mono', size: 11 },
+            callback: value => value >= 1000 ? (value/1000) + 'T' : value + 'B'
+          },
+          title: {
+            display: true,
+            text: 'Parameters (log scale)',
+            color: '#00dcff',
+            font: { family: 'JetBrains Mono', size: 12 }
+          }
+        }
+      }
+    }
+  });
+}
+
+// ── RENDER LIST ──
+function renderList() {
+  const byYear = {};
+  filteredModels.forEach(m => {
+    const year = m.date.getFullYear();
+    if (!byYear[year]) byYear[year] = [];
+    byYear[year].push(m);
+  });
+  
+  const years = Object.keys(byYear).sort((a, b) => b - a);
+  
+  let html = '';
+  years.forEach(year => {
+    const models = byYear[year];
+    html += `
+      <div class="year-section">
+        <div class="year-header">
+          ${year}
+          <span class="year-count">${models.length} models</span>
+        </div>
+        <div class="models-grid">
+          ${models.map(m => `
+            <div class="model-card" style="--org-color:${m.color}">
+              <div class="model-header">
+                <div class="model-name">${m.name}</div>
+                <div class="model-badges">
+                  <span class="badge badge-${m.license}">${m.license === 'open' ? 'Open' : 'Closed'}</span>
+                  <span class="badge badge-${m.arch}">${m.arch.toUpperCase()}</span>
+                </div>
+              </div>
+              <div class="model-meta">
+                <span class="model-org">${m.org}</span>
+                <span>•</span>
+                <span class="model-params">${m.paramsStr}</span>
+                <span>•</span>
+                <span>${m.dateStr}</span>
+              </div>
+              <div class="model-note">${m.note}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  });
+  
+  document.getElementById('list-view').innerHTML = html;
+}
+
+// ── LEGEND ──
+function updateLegend() {
+  const orgCounts = {};
+  filteredModels.forEach(m => {
+    orgCounts[m.org] = (orgCounts[m.org] || 0) + 1;
+  });
+  
+  const sorted = Object.entries(orgCounts).sort((a, b) => b[1] - a[1]);
+  
+  const html = sorted.map(([org, count]) => {
+    const color = ORG_COLORS[org] || '#ffffff';
+    const inactive = filters.org !== 'all' && filters.org !== org ? 'inactive' : '';
+    return `
+      <div class="legend-item ${inactive}" onclick="toggleOrg('${org}')">
+        <span class="legend-dot" style="background:${color}"></span>
+        <span class="legend-name">${org}</span>
+        <span class="legend-count">${count}</span>
+      </div>
+    `;
+  }).join('');
+  
+  document.getElementById('legend-grid').innerHTML = html;
+}
+
+function toggleOrg(org) {
+  if (filters.org === org) {
+    filters.org = 'all';
+    document.getElementById('org-filter').value = 'all';
+  } else {
+    filters.org = org;
+    document.getElementById('org-filter').value = org;
+  }
+  applyFilters();
+}
+
+// ── VIEW TOGGLE ──
+function setView(view) {
+  currentView = view;
+  document.querySelectorAll('.toggle-view').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  if (view === 'chart') {
+    document.getElementById('chart-view').style.display = 'block';
+    document.getElementById('list-view').style.display = 'none';
+    renderChart();
+  } else {
+    document.getElementById('chart-view').style.display = 'none';
+    document.getElementById('list-view').style.display = 'block';
+    renderList();
+  }
+}
+
+// ── FILTER HANDLERS ──
+document.querySelectorAll('.btn[data-filter="license"]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.btn[data-filter="license"]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filters.license = btn.dataset.value;
+    applyFilters();
+  });
+});
+
+document.getElementById('org-filter').addEventListener('change', e => {
+  filters.org = e.target.value;
+  applyFilters();
+});
+
+// ── POPULATE ORG DROPDOWN ──
+function populateOrgDropdown() {
+  const orgs = [...new Set(allModels.map(m => m.org))].sort();
+  const select = document.getElementById('org-filter');
+  orgs.forEach(org => {
+    const opt = document.createElement('option');
+    opt.value = org;
+    opt.textContent = org;
+    select.appendChild(opt);
+  });
+}
+
+// ── INIT ──
+function init() {
+  populateOrgDropdown();
+  updateStats();
+  renderChart();
+  updateLegend();
+}
+
+init();
+</script>
+
+</body>
+</html>
