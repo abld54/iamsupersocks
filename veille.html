@@ -8,6 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
 :root {
   --bg:       #000000;
@@ -367,6 +368,246 @@ body::before {
 .bar-sources-btn strong { color:var(--white); }
 .bar-sources-btn:hover { background:var(--cyan); color:#000; }
 .bar-sources-btn:hover strong { color:#000; }
+
+/* ─── MODELS BUTTON (topbar) ─── */
+.bar-models-btn {
+  background:none; border:1px solid var(--green); color:var(--green);
+  font-family:var(--mono); font-size:0.62rem; letter-spacing:2px;
+  padding:5px 14px; cursor:pointer; transition:all 0.2s;
+  white-space:nowrap;
+}
+.bar-models-btn:hover { background:var(--green); color:#000; }
+
+/* ═══ MODELS OVERLAY ═══ */
+#models-overlay {
+  display:none; position:fixed; inset:0; z-index:300;
+  background:rgba(0,0,0,0.95); backdrop-filter:blur(8px);
+  overflow-y:auto;
+}
+#models-overlay.open { display:block; }
+#models-overlay::-webkit-scrollbar { width:6px; }
+#models-overlay::-webkit-scrollbar-thumb { background:rgba(0,220,255,0.3); }
+
+#models-content {
+  max-width:1600px; margin:0 auto;
+  padding:80px 24px 60px;
+  position:relative;
+}
+
+#models-close {
+  position:fixed; top:20px; right:24px; z-index:310;
+  background:rgba(10,10,15,0.9); border:1px solid var(--border2);
+  color:var(--text2); font-family:var(--mono); font-size:0.7rem;
+  padding:8px 16px; cursor:pointer; letter-spacing:2px;
+  transition:all 0.2s; backdrop-filter:blur(12px);
+}
+#models-close:hover { color:var(--cyan); border-color:var(--cyan); }
+
+#models-overlay .models-header {
+  display:flex; align-items:baseline; gap:16px;
+  margin-bottom:40px; padding-bottom:16px;
+  border-bottom:2px solid var(--border2);
+}
+#models-overlay .models-title {
+  font-family:var(--mono); font-size:1.3rem; font-weight:700;
+  color:var(--white); text-transform:uppercase; letter-spacing:4px;
+}
+#models-overlay .models-subtitle {
+  font-family:var(--mono); font-size:0.65rem;
+  color:var(--text3); letter-spacing:2px;
+}
+
+/* Stats bar inside models overlay */
+#models-overlay #models-stats-bar {
+  background:var(--bg1); border:1px solid var(--border);
+  padding:12px 24px; display:flex; gap:32px; align-items:center;
+  font-family:var(--mono); font-size:0.7rem;
+  overflow-x:auto; margin-bottom:20px;
+}
+#models-overlay .models-stat-item {
+  display:flex; flex-direction:column; gap:2px; white-space:nowrap;
+}
+#models-overlay .models-stat-val {
+  font-size:1.1rem; font-weight:700;
+  color:var(--cyan); letter-spacing:1px;
+}
+#models-overlay .models-stat-lbl {
+  color:var(--text3); text-transform:uppercase; letter-spacing:2px;
+}
+#models-overlay .models-stat-divider {
+  width:1px; height:32px; background:var(--border); flex-shrink:0;
+}
+
+/* Controls */
+#models-overlay #models-controls {
+  background:var(--bg); border:1px solid var(--border);
+  padding:14px 24px; display:flex; gap:14px; align-items:center;
+  flex-wrap:wrap; margin-bottom:24px;
+}
+#models-overlay .models-control-group {
+  display:flex; align-items:center; gap:8px;
+}
+#models-overlay .models-control-label {
+  font-family:var(--mono); font-size:0.6rem;
+  color:var(--text3); text-transform:uppercase;
+  letter-spacing:2px; white-space:nowrap;
+}
+#models-overlay .models-btn {
+  font-family:var(--mono); font-size:0.65rem; font-weight:500;
+  text-transform:uppercase; letter-spacing:1.5px;
+  padding:6px 14px; background:transparent;
+  border:1px solid var(--border); color:var(--text2);
+  cursor:pointer; transition:all 0.15s; white-space:nowrap;
+}
+#models-overlay .models-btn:hover {
+  border-color:var(--cyan); color:var(--cyan); background:var(--cyan2);
+}
+#models-overlay .models-btn.active {
+  background:var(--cyan); color:#000; border-color:var(--cyan); font-weight:700;
+}
+#models-overlay .models-btn.toggle-view { background:var(--bg2); }
+#models-overlay select {
+  font-family:var(--mono); font-size:0.65rem;
+  padding:6px 12px; background:var(--bg2);
+  border:1px solid var(--border); color:var(--text);
+  cursor:pointer; outline:none;
+}
+#models-overlay select:hover { border-color:var(--cyan); }
+
+/* Chart view */
+#models-overlay #models-chart-view {
+  background:var(--bg1); border:1px solid var(--border);
+  padding:28px; margin-bottom:32px;
+}
+#models-overlay #models-chart-container {
+  position:relative; height:600px;
+}
+
+/* List view */
+#models-overlay #models-list-view { display:none; }
+#models-overlay .models-year-section { margin-bottom:40px; }
+#models-overlay .models-year-header {
+  font-family:var(--mono); font-size:1.4rem;
+  font-weight:700; color:var(--cyan);
+  margin-bottom:16px; padding-bottom:8px;
+  border-bottom:2px solid var(--border2);
+  display:flex; align-items:center; gap:12px;
+}
+#models-overlay .models-year-count {
+  font-size:0.7rem; color:var(--text3);
+  font-weight:400; letter-spacing:2px;
+}
+#models-overlay .models-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
+  gap:1px; background:var(--border);
+}
+#models-overlay .models-card {
+  background:var(--bg); padding:18px 20px;
+  position:relative; transition:background 0.2s;
+}
+#models-overlay .models-card::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:2px;
+  background:var(--org-color);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform 0.2s;
+}
+#models-overlay .models-card:hover { background:var(--bg2); }
+#models-overlay .models-card:hover::before { transform:scaleX(1); }
+#models-overlay .models-card-header {
+  display:flex; justify-content:space-between;
+  align-items:flex-start; gap:10px; margin-bottom:10px;
+}
+#models-overlay .models-card-name {
+  font-family:var(--mono); font-size:0.95rem; font-weight:700;
+  color:var(--white); flex:1;
+}
+#models-overlay .models-card-badges {
+  display:flex; gap:6px; flex-wrap:wrap;
+}
+#models-overlay .models-badge {
+  font-family:var(--mono); font-size:0.52rem;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:2px 6px; border:1px solid; white-space:nowrap;
+}
+#models-overlay .models-badge-open {
+  color:var(--green); border-color:rgba(0,255,136,0.3);
+  background:rgba(0,255,136,0.07);
+}
+#models-overlay .models-badge-closed {
+  color:#ef4444; border-color:rgba(239,68,68,0.3);
+  background:rgba(239,68,68,0.07);
+}
+#models-overlay .models-badge-moe {
+  color:#a855f7; border-color:rgba(168,85,247,0.3);
+  background:rgba(168,85,247,0.07);
+}
+#models-overlay .models-badge-dense {
+  color:var(--text3); border-color:var(--border);
+}
+#models-overlay .models-card-meta {
+  display:flex; gap:12px; margin-bottom:10px;
+  font-family:var(--mono); font-size:0.7rem; color:var(--text2);
+}
+#models-overlay .models-card-org {
+  color:var(--org-color); font-weight:600;
+}
+#models-overlay .models-card-params { color:var(--text3); }
+#models-overlay .models-card-note {
+  font-size:0.78rem; line-height:1.55; color:var(--text2);
+}
+
+/* Legend */
+#models-overlay #models-legend {
+  margin-top:40px; padding:28px;
+  background:var(--bg1); border:1px solid var(--border);
+}
+#models-overlay .models-legend-title {
+  font-family:var(--mono); font-size:0.7rem;
+  color:var(--cyan); letter-spacing:3px;
+  text-transform:uppercase; margin-bottom:18px;
+}
+#models-overlay .models-legend-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
+  gap:12px;
+}
+#models-overlay .models-legend-item {
+  display:flex; align-items:center; gap:10px;
+  padding:8px 12px; background:var(--bg2);
+  border:1px solid var(--border);
+  cursor:pointer; transition:all 0.2s;
+}
+#models-overlay .models-legend-item:hover {
+  border-color:var(--cyan); background:var(--cyan3);
+}
+#models-overlay .models-legend-item.inactive { opacity:0.4; }
+#models-overlay .models-legend-dot {
+  width:10px; height:10px; border-radius:50%; flex-shrink:0;
+}
+#models-overlay .models-legend-name {
+  font-family:var(--mono); font-size:0.68rem;
+  color:var(--text); flex:1;
+}
+#models-overlay .models-legend-count {
+  font-family:var(--mono); font-size:0.6rem; color:var(--text3);
+}
+
+/* Responsive for models overlay */
+@media(max-width:768px) {
+  #models-content { padding:60px 12px 40px; }
+  #models-close { top:12px; right:12px; }
+  #models-overlay #models-stats-bar { padding:10px 12px; gap:12px; }
+  #models-overlay .models-stat-val { font-size:0.9rem; }
+  #models-overlay .models-stat-lbl { font-size:0.5rem; }
+  #models-overlay #models-controls { padding:10px 12px; gap:8px; }
+  #models-overlay #models-chart-container { height:400px; }
+  #models-overlay .models-grid { grid-template-columns:1fr; }
+  #models-overlay .models-legend-grid {
+    grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
 
 /* ─── CTA AI_NOISE ─── */
 #cta-noise {
@@ -797,6 +1038,7 @@ body::before {
   .bar-right { gap:8px; }
   .bar-right .bar-stat { display:none; }
   .bar-sources-btn { font-size:0.55rem; padding:4px 10px; }
+  .bar-models-btn { font-size:0.55rem; padding:4px 10px; }
   .live-dot { font-size:0.6rem; }
   /* stats strip */
   #statsstrip { gap:12px; padding:10px 12px; flex-wrap:wrap; overflow-x:hidden; }
@@ -951,7 +1193,7 @@ body::before {
     <span class="bar-stat"><strong id="b-count">—</strong> ARTICLES</span>
     <button class="bar-sources-btn" onclick="openSrcModal()"><strong id="b-src">—</strong> SOURCES ›</button>
     <span class="bar-stat">UPDATED <strong id="b-age">—</strong></span>
-    <a href="models.html" class="bar-nav-link" style="color:var(--text2);text-decoration:none;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;">MODELS</a>
+    <button class="bar-models-btn" onclick="openModels()">📊 MODELS</button>
   </div>
 </nav>
 
@@ -1214,6 +1456,84 @@ body::before {
 </div>
 
 <button id="stb" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- MODELS OVERLAY -->
+<div id="models-overlay">
+  <button id="models-close" onclick="closeModels()">✕ CLOSE</button>
+  <div id="models-content">
+    <div class="models-header">
+      <span class="models-title">🧠 LLM TIMELINE</span>
+      <span class="models-subtitle">2020-2026 — Major releases from OpenAI, Anthropic, Meta, Google & more</span>
+    </div>
+
+    <!-- STATS BAR -->
+    <div id="models-stats-bar">
+      <div class="models-stat-item">
+        <div class="models-stat-val" id="models-stat-total">—</div>
+        <div class="models-stat-lbl">Models</div>
+      </div>
+      <div class="models-stat-divider"></div>
+      <div class="models-stat-item">
+        <div class="models-stat-val" id="models-stat-open">—</div>
+        <div class="models-stat-lbl">Open Source</div>
+      </div>
+      <div class="models-stat-divider"></div>
+      <div class="models-stat-item">
+        <div class="models-stat-val" id="models-stat-closed">—</div>
+        <div class="models-stat-lbl">Propriétaire</div>
+      </div>
+      <div class="models-stat-divider"></div>
+      <div class="models-stat-item">
+        <div class="models-stat-val" id="models-stat-moe">—</div>
+        <div class="models-stat-lbl">MoE</div>
+      </div>
+      <div class="models-stat-divider"></div>
+      <div class="models-stat-item">
+        <div class="models-stat-val" id="models-stat-dense">—</div>
+        <div class="models-stat-lbl">Dense</div>
+      </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div id="models-controls">
+      <div class="models-control-group">
+        <span class="models-control-label">View:</span>
+        <button class="models-btn toggle-view active" onclick="setModelsView('chart')">CHART</button>
+        <button class="models-btn toggle-view" onclick="setModelsView('list')">LIST</button>
+      </div>
+      
+      <div class="models-control-group">
+        <span class="models-control-label">License:</span>
+        <button class="models-btn active" data-filter="license" data-value="all">ALL</button>
+        <button class="models-btn" data-filter="license" data-value="open">OPEN SOURCE</button>
+        <button class="models-btn" data-filter="license" data-value="closed">PROPRIÉTAIRE</button>
+      </div>
+      
+      <div class="models-control-group">
+        <span class="models-control-label">Org:</span>
+        <select id="models-org-filter">
+          <option value="all">ALL ORGS</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- CHART VIEW -->
+    <div id="models-chart-view">
+      <div id="models-chart-container">
+        <canvas id="models-chart"></canvas>
+      </div>
+    </div>
+    
+    <!-- LIST VIEW -->
+    <div id="models-list-view"></div>
+    
+    <!-- LEGEND -->
+    <div id="models-legend">
+      <div class="models-legend-title">// Organizations</div>
+      <div class="models-legend-grid" id="models-legend-grid"></div>
+    </div>
+  </div>
+</div>
 
 <script>
 // ── STATE ──
@@ -1718,6 +2038,447 @@ window.addEventListener('scroll', () => {
 });
 
 init();
+
+// ═══════════════════════════════════════════════════════════════════════════
+// MODELS OVERLAY — LLM TIMELINE
+// ═══════════════════════════════════════════════════════════════════════════
+
+// ── ORG COLORS ──
+const MODELS_ORG_COLORS = {
+  "OpenAI": "#10a37f",
+  "Google": "#4285f4",
+  "Meta": "#0668E1",
+  "Anthropic": "#d4a574",
+  "Mistral AI": "#ff6b35",
+  "Alibaba": "#ff4400",
+  "DeepSeek": "#7c3aed",
+  "xAI": "#e0e0e0",
+  "EleutherAI": "#22c55e",
+  "BigScience": "#06b6d4",
+  "TII (UAE)": "#eab308",
+  "Microsoft": "#00a4ef",
+  "DeepMind": "#34a853",
+  "Moonshot AI": "#f472b6",
+  "Cohere": "#ff7a5c",
+  "Databricks": "#ff3621",
+  "AI21 Labs": "#6366f1",
+  "NVIDIA": "#76b900"
+};
+
+// ── MODELS DATA ──
+const MODELS_RAW = `
+GPT-3, OpenAI, 2020-06, 175B, closed, dense, Premier modèle massif, API only
+GPT-NeoX-20B, EleutherAI, 2022-02, 20B, open, dense, Premier gros modèle fully open
+Chinchilla, DeepMind, 2022-03, 70B, closed, dense, Scaling laws: moins de params, plus de data
+PaLM, Google, 2022-04, 540B, closed, dense, 540B params, record Google
+BLOOM, BigScience, 2022-07, 176B, open, dense, Multilingue, 46 langues
+ChatGPT (GPT-3.5), OpenAI, 2022-11, 175B, closed, dense, Explosion grand public
+LLaMA, Meta, 2023-02, 65B, open, dense, Révolution open-source, 7B→65B
+GPT-4, OpenAI, 2023-03, 1800B, closed, moe, ~1.8T params (rumeur MoE 8x220B)
+Falcon 40B, TII (UAE), 2023-05, 40B, open, dense, Top Open LLM Leaderboard
+LLaMA 2, Meta, 2023-07, 70B, open, dense, Commercial license, 7B→70B
+Mistral 7B, Mistral AI, 2023-09, 7B, open, dense, 7B bat LLaMA 2 13B
+Falcon 180B, TII (UAE), 2023-09, 180B, open, dense, 3.5T tokens
+Qwen-72B, Alibaba, 2023-11, 72B, open, dense, Premier gros Qwen
+Mixtral 8x7B, Mistral AI, 2023-12, 46.7B, open, moe, MoE: 8 experts, bat LLaMA 2 70B
+Gemini 1.0 Ultra, Google, 2024-02, 1500B, closed, moe, Multimodal, rivalise GPT-4
+Claude 3 Opus, Anthropic, 2024-03, null, closed, dense, Top benchmarks, taille non divulguée
+DBRX, Databricks, 2024-03, 132B, open, moe, 132B MoE, open-source
+LLaMA 3, Meta, 2024-04, 70B, open, dense, 8B & 70B, 15T tokens
+Phi-3, Microsoft, 2024-04, 14B, open, dense, Small mais puissant, données synthétiques
+Command R+, Cohere, 2024-04, 104B, open, dense, RAG optimized, 128K context
+Qwen2, Alibaba, 2024-06, 72B, open, dense, Amélioration multi-tâche
+Gemma 2, Google, 2024-06, 27B, open, dense, 9B & 27B, open weights
+Nemotron-4 340B, NVIDIA, 2024-06, 340B, open, dense, Synthetic data generation
+Mistral Large 2, Mistral AI, 2024-07, 123B, open, dense, 128K context
+LLaMA 3.1 405B, Meta, 2024-07, 405B, open, dense, Plus gros modèle open-source dense
+Grok-2, xAI, 2024-08, 314B, closed, moe, Intégré à X/Twitter
+Jamba 1.5, AI21 Labs, 2024-08, 398B, open, moe, SSM + Transformer hybrid, 256K context
+OpenAI o1, OpenAI, 2024-09, null, closed, dense, Reasoning model, chain-of-thought
+Qwen2.5, Alibaba, 2024-09, 72B, open, dense, Coder 32B rivalise modèles propriétaires
+DeepSeek-R1, DeepSeek, 2025-01, 671B, open, moe, Reasoning open-source, rivalise o1, coût très bas
+DeepSeek-V3, DeepSeek, 2025-01, 671B, open, moe, MoE 37B actifs, très efficient
+Gemini 2.0 Flash, Google, 2025-01, null, closed, moe, Speed-optimized, multimodal
+Phi-4, Microsoft, 2025-01, 14B, open, dense, 14B, top reasoning pour sa taille
+Claude Opus 4.5, Anthropic, 2025-02, null, closed, dense, Hybrid extended thinking
+Claude Sonnet 4.5, Anthropic, 2025-02, null, closed, dense, Hybrid reasoning
+Grok-3, xAI, 2025-02, null, closed, moe, Massive compute, 128K context
+Gemma 3, Google, 2025-03, 27B, open, dense, 1B→27B, multimodal
+Grok-3 Mini, xAI, 2025-03, null, closed, moe, Lightweight reasoning
+Grok-3 Mini (fast), xAI, 2025-03, null, closed, moe, Speed variant
+GPT-4.1, OpenAI, 2025-04, null, closed, dense, 1M tokens context
+LLaMA 4 Maverick, Meta, 2025-04, 402B, open, moe, MoE 17B actifs, 10M tokens context
+Qwen3, Alibaba, 2025-04, 235B, open, moe, 235B-A22B, hybrid thinking
+Claude Opus 4, Anthropic, 2025-05, null, closed, dense, Extended thinking, 200K context
+Mistral Medium 3, Mistral AI, 2025-05, null, open, dense, Multimodal frontier-class
+GPT-5, OpenAI, 2025-05, null, closed, dense, Flagship 2025
+Gemini 2.5 Flash, Google, 2025-05, null, closed, moe, Fast + thinking mode
+Claude Sonnet 4, Anthropic, 2025-06, null, closed, dense, Remplace Sonnet 3.5, coding leader
+Gemini 2.5 Pro, Google, 2025-06, null, closed, moe, N°1 benchmarks mid-2025
+Kimi K2, Moonshot AI, 2025-07, null, open, moe, Chinese LLM, open-research
+Qwen3-Coder, Alibaba, 2025-07, 30B, open, moe, 30B-A3B, code spécialisé
+Mistral Large 3, Mistral AI, 2025-12, null, open, moe, Apache 2.0, 256K context
+Codex 5.3, OpenAI, 2026-02, null, closed, dense, Top agentic coding, surpasses Opus 4
+Claude Opus 4.6, Anthropic, 2026-02, null, closed, dense, Latest Anthropic flagship
+Claude Sonnet 4.6, Anthropic, 2026-02, null, closed, dense, Latest Anthropic mid-tier
+GPT-5.3, OpenAI, 2026-02, null, closed, dense, Latest OpenAI reasoning model
+Qwen3.5, Alibaba, 2026-03, 35B, open, moe, MoE 35B-A3B, latest Qwen release
+`.trim();
+
+// ── PARSE MODELS ──
+function parseModels() {
+  return MODELS_RAW.split('\n').map(line => {
+    const [name, org, date, params, license, arch, ...noteParts] = line.split(',').map(s => s.trim());
+    const note = noteParts.join(', ');
+    
+    // Parse params: "175B" → 175, "null" → null
+    let paramsNum = null;
+    if (params && params !== 'null') {
+      const match = params.match(/(\d+\.?\d*)/);
+      if (match) paramsNum = parseFloat(match[1]);
+    }
+    
+    return {
+      name,
+      org,
+      date: new Date(date + '-01'),
+      dateStr: date,
+      params: paramsNum,
+      paramsStr: params,
+      license,
+      arch,
+      note,
+      color: MODELS_ORG_COLORS[org] || '#ffffff'
+    };
+  }).filter(m => m.name);
+}
+
+let allModels = [];
+let filteredModels = [];
+let currentModelsView = 'chart';
+let modelsFilters = {
+  license: 'all',
+  org: 'all'
+};
+
+// ── OPEN/CLOSE MODELS OVERLAY ──
+function openModels() {
+  // Initialize on first open
+  if (allModels.length === 0) {
+    allModels = parseModels();
+    filteredModels = [...allModels];
+    populateModelsOrgDropdown();
+    updateModelsStats();
+    renderModelsChart();
+    updateModelsLegend();
+  }
+  document.getElementById('models-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModels() {
+  document.getElementById('models-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ESC key to close
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('models-overlay').classList.contains('open')) {
+    closeModels();
+  }
+});
+
+// ── UPDATE STATS ──
+function updateModelsStats() {
+  const total = filteredModels.length;
+  const open = filteredModels.filter(m => m.license === 'open').length;
+  const closed = filteredModels.filter(m => m.license === 'closed').length;
+  const moe = filteredModels.filter(m => m.arch === 'moe').length;
+  const dense = filteredModels.filter(m => m.arch === 'dense').length;
+  
+  document.getElementById('models-stat-total').textContent = total;
+  document.getElementById('models-stat-open').textContent = open;
+  document.getElementById('models-stat-closed').textContent = closed;
+  document.getElementById('models-stat-moe').textContent = moe;
+  document.getElementById('models-stat-dense').textContent = dense;
+}
+
+// ── APPLY FILTERS ──
+function applyModelsFilters() {
+  filteredModels = allModels.filter(m => {
+    if (modelsFilters.license !== 'all' && m.license !== modelsFilters.license) return false;
+    if (modelsFilters.org !== 'all' && m.org !== modelsFilters.org) return false;
+    return true;
+  });
+  updateModelsStats();
+  if (currentModelsView === 'chart') renderModelsChart();
+  else renderModelsList();
+  updateModelsLegend();
+}
+
+// ── RENDER CHART ──
+let modelsChartInstance = null;
+
+function renderModelsChart() {
+  const ctx = document.getElementById('models-chart').getContext('2d');
+  
+  // Prepare data points
+  const points = filteredModels
+    .filter(m => m.params !== null)
+    .map(m => ({
+      x: m.date.getTime(),
+      y: m.params,
+      model: m
+    }));
+  
+  // Group by org for datasets
+  const orgMap = {};
+  points.forEach(p => {
+    const org = p.model.org;
+    if (!orgMap[org]) orgMap[org] = [];
+    orgMap[org].push(p);
+  });
+  
+  const datasets = Object.keys(orgMap).map(org => {
+    const color = MODELS_ORG_COLORS[org] || '#ffffff';
+    return {
+      label: org,
+      data: orgMap[org],
+      backgroundColor: color,
+      borderColor: color,
+      borderWidth: 2,
+      pointRadius: orgMap[org].map(p => {
+        // Size based on log(params)
+        const size = Math.log10(p.y) * 2.5;
+        return Math.max(4, Math.min(16, size));
+      }),
+      pointStyle: orgMap[org].map(p => p.model.arch === 'moe' ? 'triangle' : 'circle'),
+      pointHoverRadius: orgMap[org].map(p => {
+        const size = Math.log10(p.y) * 2.5;
+        return Math.max(6, Math.min(20, size + 2));
+      })
+    };
+  });
+  
+  if (modelsChartInstance) modelsChartInstance.destroy();
+  
+  modelsChartInstance = new Chart(ctx, {
+    type: 'scatter',
+    data: { datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(10,10,15,0.95)',
+          titleColor: '#00dcff',
+          bodyColor: '#c9d1d9',
+          borderColor: 'rgba(0,220,255,0.25)',
+          borderWidth: 1,
+          padding: 12,
+          titleFont: { family: 'JetBrains Mono', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          displayColors: false,
+          callbacks: {
+            title: ctx => {
+              const p = ctx[0].raw;
+              return p.model.name;
+            },
+            label: ctx => {
+              const p = ctx.raw;
+              const m = p.model;
+              return [
+                `Org: ${m.org}`,
+                `Date: ${m.dateStr}`,
+                `Params: ${m.paramsStr}`,
+                `Type: ${m.arch.toUpperCase()}`,
+                `License: ${m.license === 'open' ? 'Open Source' : 'Propriétaire'}`,
+                m.note ? `Note: ${m.note}` : ''
+              ].filter(Boolean);
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          type: 'time',
+          time: {
+            unit: 'year',
+            displayFormats: { year: 'yyyy' }
+          },
+          min: new Date('2020-01-01').getTime(),
+          max: new Date('2027-01-01').getTime(),
+          grid: {
+            color: 'rgba(0,220,255,0.08)',
+            drawBorder: false
+          },
+          ticks: {
+            color: '#8b949e',
+            font: { family: 'JetBrains Mono', size: 11 }
+          }
+        },
+        y: {
+          type: 'logarithmic',
+          min: 1,
+          max: 10000,
+          grid: {
+            color: 'rgba(0,220,255,0.08)',
+            drawBorder: false
+          },
+          ticks: {
+            color: '#8b949e',
+            font: { family: 'JetBrains Mono', size: 11 },
+            callback: value => value >= 1000 ? (value/1000) + 'T' : value + 'B'
+          },
+          title: {
+            display: true,
+            text: 'Parameters (log scale)',
+            color: '#00dcff',
+            font: { family: 'JetBrains Mono', size: 12 }
+          }
+        }
+      }
+    }
+  });
+}
+
+// ── RENDER LIST ──
+function renderModelsList() {
+  const byYear = {};
+  filteredModels.forEach(m => {
+    const year = m.date.getFullYear();
+    if (!byYear[year]) byYear[year] = [];
+    byYear[year].push(m);
+  });
+  
+  const years = Object.keys(byYear).sort((a, b) => b - a);
+  
+  let html = '';
+  years.forEach(year => {
+    const models = byYear[year];
+    html += `
+      <div class="models-year-section">
+        <div class="models-year-header">
+          ${year}
+          <span class="models-year-count">${models.length} models</span>
+        </div>
+        <div class="models-grid">
+          ${models.map(m => `
+            <div class="models-card" style="--org-color:${m.color}">
+              <div class="models-card-header">
+                <div class="models-card-name">${esc(m.name)}</div>
+                <div class="models-card-badges">
+                  <span class="models-badge models-badge-${m.license}">${m.license === 'open' ? 'Open' : 'Closed'}</span>
+                  <span class="models-badge models-badge-${m.arch}">${m.arch.toUpperCase()}</span>
+                </div>
+              </div>
+              <div class="models-card-meta">
+                <span class="models-card-org">${esc(m.org)}</span>
+                <span>•</span>
+                <span class="models-card-params">${esc(m.paramsStr)}</span>
+                <span>•</span>
+                <span>${m.dateStr}</span>
+              </div>
+              <div class="models-card-note">${esc(m.note)}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  });
+  
+  document.getElementById('models-list-view').innerHTML = html;
+}
+
+// ── LEGEND ──
+function updateModelsLegend() {
+  const orgCounts = {};
+  filteredModels.forEach(m => {
+    orgCounts[m.org] = (orgCounts[m.org] || 0) + 1;
+  });
+  
+  const sorted = Object.entries(orgCounts).sort((a, b) => b[1] - a[1]);
+  
+  const html = sorted.map(([org, count]) => {
+    const color = MODELS_ORG_COLORS[org] || '#ffffff';
+    const inactive = modelsFilters.org !== 'all' && modelsFilters.org !== org ? 'inactive' : '';
+    return `
+      <div class="models-legend-item ${inactive}" onclick="toggleModelsOrg('${esc(org)}')">
+        <span class="models-legend-dot" style="background:${color}"></span>
+        <span class="models-legend-name">${esc(org)}</span>
+        <span class="models-legend-count">${count}</span>
+      </div>
+    `;
+  }).join('');
+  
+  document.getElementById('models-legend-grid').innerHTML = html;
+}
+
+function toggleModelsOrg(org) {
+  if (modelsFilters.org === org) {
+    modelsFilters.org = 'all';
+    document.getElementById('models-org-filter').value = 'all';
+  } else {
+    modelsFilters.org = org;
+    document.getElementById('models-org-filter').value = org;
+  }
+  applyModelsFilters();
+}
+
+// ── VIEW TOGGLE ──
+function setModelsView(view) {
+  currentModelsView = view;
+  document.querySelectorAll('#models-controls .toggle-view').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  if (view === 'chart') {
+    document.getElementById('models-chart-view').style.display = 'block';
+    document.getElementById('models-list-view').style.display = 'none';
+    renderModelsChart();
+  } else {
+    document.getElementById('models-chart-view').style.display = 'none';
+    document.getElementById('models-list-view').style.display = 'block';
+    renderModelsList();
+  }
+}
+
+// ── FILTER HANDLERS ──
+document.addEventListener('DOMContentLoaded', () => {
+  // License filter buttons
+  const modelsControls = document.getElementById('models-controls');
+  if (modelsControls) {
+    modelsControls.addEventListener('click', e => {
+      const btn = e.target.closest('.models-btn[data-filter="license"]');
+      if (!btn) return;
+      modelsControls.querySelectorAll('.models-btn[data-filter="license"]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      modelsFilters.license = btn.dataset.value;
+      applyModelsFilters();
+    });
+  }
+
+  // Org filter dropdown
+  const orgFilter = document.getElementById('models-org-filter');
+  if (orgFilter) {
+    orgFilter.addEventListener('change', e => {
+      modelsFilters.org = e.target.value;
+      applyModelsFilters();
+    });
+  }
+});
+
+// ── POPULATE ORG DROPDOWN ──
+function populateModelsOrgDropdown() {
+  const orgs = [...new Set(allModels.map(m => m.org))].sort();
+  const select = document.getElementById('models-org-filter');
+  orgs.forEach(org => {
+    const opt = document.createElement('option');
+    opt.value = org;
+    opt.textContent = org;
+    select.appendChild(opt);
+  });
+}
 </script>
 </body>
 </html>
