@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <style>
 :root {
   --bg:       #000000;
@@ -369,244 +370,203 @@ body::before {
 .bar-sources-btn:hover { background:var(--cyan); color:#000; }
 .bar-sources-btn:hover strong { color:#000; }
 
-/* ─── MODELS BUTTON (topbar) ─── */
-.bar-models-btn {
-  background:none; border:1px solid var(--green); color:var(--green);
-  font-family:var(--mono); font-size:0.62rem; letter-spacing:2px;
-  padding:5px 14px; cursor:pointer; transition:all 0.2s;
-  white-space:nowrap;
-}
-.bar-models-btn:hover { background:var(--green); color:#000; }
 
-/* ═══ MODELS OVERLAY ═══ */
-#models-overlay {
-  display:none; position:fixed; inset:0; z-index:300;
-  background:rgba(0,0,0,0.95); backdrop-filter:blur(8px);
-  overflow-y:auto;
-}
-#models-overlay.open { display:block; }
-#models-overlay::-webkit-scrollbar { width:6px; }
-#models-overlay::-webkit-scrollbar-thumb { background:rgba(0,220,255,0.3); }
 
-#models-content {
-  max-width:1600px; margin:0 auto;
-  padding:80px 24px 60px;
-  position:relative;
+/* ─── MODELS TIMELINE SECTION ─── */
+#models-timeline {
+  background: var(--bg1);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 24px;
 }
+.mt-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.mt-header {
+  margin-bottom: 24px;
+}
+.mt-title {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.mt-subtitle {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text3);
+  margin-top: 6px;
+  font-family: var(--mono);
+  letter-spacing: 1px;
+}
+.mt-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.mt-control-group {
+  display: flex;
+  gap: 4px;
+}
+.mt-btn {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.mt-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+.mt-btn.active { background: var(--cyan); color: #000; border-color: var(--cyan); font-weight: 700; }
+.mt-select {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  padding: 5px 10px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+}
+.mt-select:hover { border-color: var(--cyan); }
+.mt-stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.mt-stat-val { font-weight: 700; color: var(--cyan); font-size: 0.85rem; margin-right: 4px; }
+.mt-green { color: #00ff88; }
+.mt-red { color: #ef4444; }
+.mt-purple { color: #a855f7; }
 
-#models-close {
-  position:fixed; top:20px; right:24px; z-index:310;
-  background:rgba(10,10,15,0.9); border:1px solid var(--border2);
-  color:var(--text2); font-family:var(--mono); font-size:0.7rem;
-  padding:8px 16px; cursor:pointer; letter-spacing:2px;
-  transition:all 0.2s; backdrop-filter:blur(12px);
+#mt-chart-wrap {
+  position: relative;
+  height: 500px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 16px;
+  margin-bottom: 20px;
 }
-#models-close:hover { color:var(--cyan); border-color:var(--cyan); }
-
-#models-overlay .models-header {
-  display:flex; align-items:baseline; gap:16px;
-  margin-bottom:40px; padding-bottom:16px;
-  border-bottom:2px solid var(--border2);
-}
-#models-overlay .models-title {
-  font-family:var(--mono); font-size:1.3rem; font-weight:700;
-  color:var(--white); text-transform:uppercase; letter-spacing:4px;
-}
-#models-overlay .models-subtitle {
-  font-family:var(--mono); font-size:0.65rem;
-  color:var(--text3); letter-spacing:2px;
-}
-
-/* Stats bar inside models overlay */
-#models-overlay #models-stats-bar {
-  background:var(--bg1); border:1px solid var(--border);
-  padding:12px 24px; display:flex; gap:32px; align-items:center;
-  font-family:var(--mono); font-size:0.7rem;
-  overflow-x:auto; margin-bottom:20px;
-}
-#models-overlay .models-stat-item {
-  display:flex; flex-direction:column; gap:2px; white-space:nowrap;
-}
-#models-overlay .models-stat-val {
-  font-size:1.1rem; font-weight:700;
-  color:var(--cyan); letter-spacing:1px;
-}
-#models-overlay .models-stat-lbl {
-  color:var(--text3); text-transform:uppercase; letter-spacing:2px;
-}
-#models-overlay .models-stat-divider {
-  width:1px; height:32px; background:var(--border); flex-shrink:0;
-}
-
-/* Controls */
-#models-overlay #models-controls {
-  background:var(--bg); border:1px solid var(--border);
-  padding:14px 24px; display:flex; gap:14px; align-items:center;
-  flex-wrap:wrap; margin-bottom:24px;
-}
-#models-overlay .models-control-group {
-  display:flex; align-items:center; gap:8px;
-}
-#models-overlay .models-control-label {
-  font-family:var(--mono); font-size:0.6rem;
-  color:var(--text3); text-transform:uppercase;
-  letter-spacing:2px; white-space:nowrap;
-}
-#models-overlay .models-btn {
-  font-family:var(--mono); font-size:0.65rem; font-weight:500;
-  text-transform:uppercase; letter-spacing:1.5px;
-  padding:6px 14px; background:transparent;
-  border:1px solid var(--border); color:var(--text2);
-  cursor:pointer; transition:all 0.15s; white-space:nowrap;
-}
-#models-overlay .models-btn:hover {
-  border-color:var(--cyan); color:var(--cyan); background:var(--cyan2);
-}
-#models-overlay .models-btn.active {
-  background:var(--cyan); color:#000; border-color:var(--cyan); font-weight:700;
-}
-#models-overlay .models-btn.toggle-view { background:var(--bg2); }
-#models-overlay select {
-  font-family:var(--mono); font-size:0.65rem;
-  padding:6px 12px; background:var(--bg2);
-  border:1px solid var(--border); color:var(--text);
-  cursor:pointer; outline:none;
-}
-#models-overlay select:hover { border-color:var(--cyan); }
-
-/* Chart view */
-#models-overlay #models-chart-view {
-  background:var(--bg1); border:1px solid var(--border);
-  padding:28px; margin-bottom:32px;
-}
-#models-overlay #models-chart-container {
-  position:relative; height:600px;
+#mt-list-wrap {
+  margin-bottom: 20px;
 }
 
-/* List view */
-#models-overlay #models-list-view { display:none; }
-#models-overlay .models-year-section { margin-bottom:40px; }
-#models-overlay .models-year-header {
-  font-family:var(--mono); font-size:1.4rem;
-  font-weight:700; color:var(--cyan);
-  margin-bottom:16px; padding-bottom:8px;
-  border-bottom:2px solid var(--border2);
-  display:flex; align-items:center; gap:12px;
+/* List view cards */
+.mt-year-section { margin-bottom: 32px; }
+.mt-year-header {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cyan);
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-#models-overlay .models-year-count {
-  font-size:0.7rem; color:var(--text3);
-  font-weight:400; letter-spacing:2px;
+.mt-year-count {
+  font-size: 0.6rem;
+  color: var(--text3);
+  font-weight: 400;
+  letter-spacing: 2px;
 }
-#models-overlay .models-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
-  gap:1px; background:var(--border);
+.mt-models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--border);
 }
-#models-overlay .models-card {
-  background:var(--bg); padding:18px 20px;
-  position:relative; transition:background 0.2s;
+.mt-card {
+  background: var(--bg);
+  padding: 14px 16px;
+  transition: background 0.2s;
 }
-#models-overlay .models-card::before {
-  content:''; position:absolute;
-  top:0; left:0; right:0; height:2px;
-  background:var(--org-color);
-  transform:scaleX(0); transform-origin:left;
-  transition:transform 0.2s;
+.mt-card:hover { background: var(--bg2); }
+.mt-card-name {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
 }
-#models-overlay .models-card:hover { background:var(--bg2); }
-#models-overlay .models-card:hover::before { transform:scaleX(1); }
-#models-overlay .models-card-header {
-  display:flex; justify-content:space-between;
-  align-items:flex-start; gap:10px; margin-bottom:10px;
+.mt-card-badges {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
 }
-#models-overlay .models-card-name {
-  font-family:var(--mono); font-size:0.95rem; font-weight:700;
-  color:var(--white); flex:1;
+.mt-badge {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border: 1px solid;
 }
-#models-overlay .models-card-badges {
-  display:flex; gap:6px; flex-wrap:wrap;
+.mt-badge-open { color: #00ff88; border-color: rgba(0,255,136,0.3); background: rgba(0,255,136,0.07); }
+.mt-badge-closed { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.07); }
+.mt-badge-moe { color: #a855f7; border-color: rgba(168,85,247,0.3); background: rgba(168,85,247,0.07); }
+.mt-badge-dense { color: var(--text3); border-color: var(--border); }
+.mt-card-meta {
+  display: flex;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--text3);
+  margin-bottom: 4px;
 }
-#models-overlay .models-badge {
-  font-family:var(--mono); font-size:0.52rem;
-  letter-spacing:1px; text-transform:uppercase;
-  padding:2px 6px; border:1px solid; white-space:nowrap;
-}
-#models-overlay .models-badge-open {
-  color:var(--green); border-color:rgba(0,255,136,0.3);
-  background:rgba(0,255,136,0.07);
-}
-#models-overlay .models-badge-closed {
-  color:#ef4444; border-color:rgba(239,68,68,0.3);
-  background:rgba(239,68,68,0.07);
-}
-#models-overlay .models-badge-moe {
-  color:#a855f7; border-color:rgba(168,85,247,0.3);
-  background:rgba(168,85,247,0.07);
-}
-#models-overlay .models-badge-dense {
-  color:var(--text3); border-color:var(--border);
-}
-#models-overlay .models-card-meta {
-  display:flex; gap:12px; margin-bottom:10px;
-  font-family:var(--mono); font-size:0.7rem; color:var(--text2);
-}
-#models-overlay .models-card-org {
-  color:var(--org-color); font-weight:600;
-}
-#models-overlay .models-card-params { color:var(--text3); }
-#models-overlay .models-card-note {
-  font-size:0.78rem; line-height:1.55; color:var(--text2);
-}
+.mt-card-org { font-weight: 600; }
+.mt-card-note { font-size: 0.7rem; color: var(--text2); line-height: 1.4; }
 
 /* Legend */
-#models-overlay #models-legend {
-  margin-top:40px; padding:28px;
-  background:var(--bg1); border:1px solid var(--border);
+.mt-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }
-#models-overlay .models-legend-title {
-  font-family:var(--mono); font-size:0.7rem;
-  color:var(--cyan); letter-spacing:3px;
-  text-transform:uppercase; margin-bottom:18px;
+.mt-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--text2);
 }
-#models-overlay .models-legend-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
-  gap:12px;
-}
-#models-overlay .models-legend-item {
-  display:flex; align-items:center; gap:10px;
-  padding:8px 12px; background:var(--bg2);
-  border:1px solid var(--border);
-  cursor:pointer; transition:all 0.2s;
-}
-#models-overlay .models-legend-item:hover {
-  border-color:var(--cyan); background:var(--cyan3);
-}
-#models-overlay .models-legend-item.inactive { opacity:0.4; }
-#models-overlay .models-legend-dot {
-  width:10px; height:10px; border-radius:50%; flex-shrink:0;
-}
-#models-overlay .models-legend-name {
-  font-family:var(--mono); font-size:0.68rem;
-  color:var(--text); flex:1;
-}
-#models-overlay .models-legend-count {
-  font-family:var(--mono); font-size:0.6rem; color:var(--text3);
-}
+.mt-legend-item:hover { border-color: var(--cyan); color: var(--white); }
+.mt-legend-item.inactive { opacity: 0.35; }
+.mt-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.mt-legend-count { color: var(--text3); margin-left: 2px; }
 
-/* Responsive for models overlay */
-@media(max-width:768px) {
-  #models-content { padding:60px 12px 40px; }
-  #models-close { top:12px; right:12px; }
-  #models-overlay #models-stats-bar { padding:10px 12px; gap:12px; }
-  #models-overlay .models-stat-val { font-size:0.9rem; }
-  #models-overlay .models-stat-lbl { font-size:0.5rem; }
-  #models-overlay #models-controls { padding:10px 12px; gap:8px; }
-  #models-overlay #models-chart-container { height:400px; }
-  #models-overlay .models-grid { grid-template-columns:1fr; }
-  #models-overlay .models-legend-grid {
-    grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));
-  }
+/* Responsive */
+@media(max-width:720px) {
+  #models-timeline { padding: 32px 12px; }
+  #mt-chart-wrap { height: 350px; padding: 8px; }
+  .mt-stats { gap: 12px; flex-wrap: wrap; }
+  .mt-models-grid { grid-template-columns: 1fr; }
+  .mt-controls { gap: 6px; }
+  .mt-btn { padding: 4px 8px; font-size: 0.55rem; }
 }
 
 /* ─── CTA AI_NOISE ─── */
@@ -1038,7 +998,6 @@ body::before {
   .bar-right { gap:8px; }
   .bar-right .bar-stat { display:none; }
   .bar-sources-btn { font-size:0.55rem; padding:4px 10px; }
-  .bar-models-btn { font-size:0.55rem; padding:4px 10px; }
   .live-dot { font-size:0.6rem; }
   /* stats strip */
   #statsstrip { gap:12px; padding:10px 12px; flex-wrap:wrap; overflow-x:hidden; }
@@ -1193,7 +1152,6 @@ body::before {
     <span class="bar-stat"><strong id="b-count">—</strong> ARTICLES</span>
     <button class="bar-sources-btn" onclick="openSrcModal()"><strong id="b-src">—</strong> SOURCES ›</button>
     <span class="bar-stat">UPDATED <strong id="b-age">—</strong></span>
-    <button class="bar-models-btn" onclick="openModels()">📊 MODELS</button>
   </div>
 </nav>
 
@@ -1267,6 +1225,51 @@ body::before {
         <span style="font-family:var(--mono);font-size:0.6rem;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-right:8px;">Sources →</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- MODELS TIMELINE (inline) -->
+<section id="models-timeline">
+  <div class="mt-inner">
+    <div class="mt-header">
+      <span class="mt-title">// LLM Timeline</span>
+      <span class="mt-subtitle">Every major model release from 2020 to 2026</span>
+    </div>
+    
+    <!-- Controls row -->
+    <div class="mt-controls">
+      <div class="mt-control-group">
+        <button class="mt-btn mt-view-btn active" onclick="setModelsView('chart')">CHART</button>
+        <button class="mt-btn mt-view-btn" onclick="setModelsView('list')">LIST</button>
+      </div>
+      <div class="mt-control-group">
+        <button class="mt-btn mt-license-btn active" data-value="all">ALL</button>
+        <button class="mt-btn mt-license-btn" data-value="open">🟢 OPEN</button>
+        <button class="mt-btn mt-license-btn" data-value="closed">🔴 CLOSED</button>
+      </div>
+      <select id="mt-org-filter" class="mt-select">
+        <option value="all">ALL ORGS</option>
+      </select>
+    </div>
+    
+    <!-- Stats mini row -->
+    <div class="mt-stats">
+      <span class="mt-stat"><span class="mt-stat-val" id="mt-total">—</span> models</span>
+      <span class="mt-stat"><span class="mt-stat-val mt-green" id="mt-open">—</span> open</span>
+      <span class="mt-stat"><span class="mt-stat-val mt-red" id="mt-closed">—</span> closed</span>
+      <span class="mt-stat"><span class="mt-stat-val mt-purple" id="mt-moe">—</span> MoE</span>
+    </div>
+    
+    <!-- Chart -->
+    <div id="mt-chart-wrap">
+      <canvas id="models-chart"></canvas>
+    </div>
+    
+    <!-- List (hidden by default) -->
+    <div id="mt-list-wrap" style="display:none"></div>
+    
+    <!-- Legend -->
+    <div class="mt-legend" id="mt-legend-grid"></div>
   </div>
 </section>
 
@@ -1456,84 +1459,6 @@ body::before {
 </div>
 
 <button id="stb" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<!-- MODELS OVERLAY -->
-<div id="models-overlay">
-  <button id="models-close" onclick="closeModels()">✕ CLOSE</button>
-  <div id="models-content">
-    <div class="models-header">
-      <span class="models-title">🧠 LLM TIMELINE</span>
-      <span class="models-subtitle">2020-2026 — Major releases from OpenAI, Anthropic, Meta, Google & more</span>
-    </div>
-
-    <!-- STATS BAR -->
-    <div id="models-stats-bar">
-      <div class="models-stat-item">
-        <div class="models-stat-val" id="models-stat-total">—</div>
-        <div class="models-stat-lbl">Models</div>
-      </div>
-      <div class="models-stat-divider"></div>
-      <div class="models-stat-item">
-        <div class="models-stat-val" id="models-stat-open">—</div>
-        <div class="models-stat-lbl">Open Source</div>
-      </div>
-      <div class="models-stat-divider"></div>
-      <div class="models-stat-item">
-        <div class="models-stat-val" id="models-stat-closed">—</div>
-        <div class="models-stat-lbl">Propriétaire</div>
-      </div>
-      <div class="models-stat-divider"></div>
-      <div class="models-stat-item">
-        <div class="models-stat-val" id="models-stat-moe">—</div>
-        <div class="models-stat-lbl">MoE</div>
-      </div>
-      <div class="models-stat-divider"></div>
-      <div class="models-stat-item">
-        <div class="models-stat-val" id="models-stat-dense">—</div>
-        <div class="models-stat-lbl">Dense</div>
-      </div>
-    </div>
-
-    <!-- CONTROLS -->
-    <div id="models-controls">
-      <div class="models-control-group">
-        <span class="models-control-label">View:</span>
-        <button class="models-btn toggle-view active" onclick="setModelsView('chart')">CHART</button>
-        <button class="models-btn toggle-view" onclick="setModelsView('list')">LIST</button>
-      </div>
-      
-      <div class="models-control-group">
-        <span class="models-control-label">License:</span>
-        <button class="models-btn active" data-filter="license" data-value="all">ALL</button>
-        <button class="models-btn" data-filter="license" data-value="open">OPEN SOURCE</button>
-        <button class="models-btn" data-filter="license" data-value="closed">PROPRIÉTAIRE</button>
-      </div>
-      
-      <div class="models-control-group">
-        <span class="models-control-label">Org:</span>
-        <select id="models-org-filter">
-          <option value="all">ALL ORGS</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- CHART VIEW -->
-    <div id="models-chart-view">
-      <div id="models-chart-container">
-        <canvas id="models-chart"></canvas>
-      </div>
-    </div>
-    
-    <!-- LIST VIEW -->
-    <div id="models-list-view"></div>
-    
-    <!-- LEGEND -->
-    <div id="models-legend">
-      <div class="models-legend-title">// Organizations</div>
-      <div class="models-legend-grid" id="models-legend-grid"></div>
-    </div>
-  </div>
-</div>
 
 <script>
 // ── STATE ──
@@ -1967,6 +1892,9 @@ async function init() {
     // Open panel if ?id= in URL
     const urlId = new URLSearchParams(location.search).get('id');
     if (urlId) openPanel(null, urlId);
+
+    // Initialize models timeline
+    initModelsTimeline();
   } catch(e) {
     loading.style.display = 'none';
     err.style.display = 'block';
@@ -2161,32 +2089,15 @@ let modelsFilters = {
   org: 'all'
 };
 
-// ── OPEN/CLOSE MODELS OVERLAY ──
-function openModels() {
-  // Initialize on first open
-  if (allModels.length === 0) {
-    allModels = parseModels();
-    filteredModels = [...allModels];
-    populateModelsOrgDropdown();
-    updateModelsStats();
-    renderModelsChart();
-    updateModelsLegend();
-  }
-  document.getElementById('models-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+// ── INIT MODELS TIMELINE (inline) ──
+function initModelsTimeline() {
+  allModels = parseModels();
+  filteredModels = [...allModels];
+  populateModelsOrgDropdown();
+  updateModelsStats();
+  renderModelsChart();
+  updateModelsLegend();
 }
-
-function closeModels() {
-  document.getElementById('models-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// ESC key to close
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && document.getElementById('models-overlay').classList.contains('open')) {
-    closeModels();
-  }
-});
 
 // ── UPDATE STATS ──
 function updateModelsStats() {
@@ -2194,13 +2105,11 @@ function updateModelsStats() {
   const open = filteredModels.filter(m => m.license === 'open').length;
   const closed = filteredModels.filter(m => m.license === 'closed').length;
   const moe = filteredModels.filter(m => m.arch === 'moe').length;
-  const dense = filteredModels.filter(m => m.arch === 'dense').length;
   
-  document.getElementById('models-stat-total').textContent = total;
-  document.getElementById('models-stat-open').textContent = open;
-  document.getElementById('models-stat-closed').textContent = closed;
-  document.getElementById('models-stat-moe').textContent = moe;
-  document.getElementById('models-stat-dense').textContent = dense;
+  document.getElementById('mt-total').textContent = total;
+  document.getElementById('mt-open').textContent = open;
+  document.getElementById('mt-closed').textContent = closed;
+  document.getElementById('mt-moe').textContent = moe;
 }
 
 // ── APPLY FILTERS ──
@@ -2248,26 +2157,54 @@ function renderModelsChart() {
       borderColor: color,
       borderWidth: 2,
       pointRadius: orgMap[org].map(p => {
-        // Size based on log(params)
-        const size = Math.log10(p.y) * 2.5;
-        return Math.max(4, Math.min(16, size));
+        // Bigger minimum: 5px, size based on log(params)
+        const size = Math.log10(p.y) * 2.8;
+        return Math.max(5, Math.min(18, size));
       }),
       pointStyle: orgMap[org].map(p => p.model.arch === 'moe' ? 'triangle' : 'circle'),
       pointHoverRadius: orgMap[org].map(p => {
-        const size = Math.log10(p.y) * 2.5;
-        return Math.max(6, Math.min(20, size + 2));
+        const size = Math.log10(p.y) * 2.8;
+        return Math.max(8, Math.min(22, size + 3));
       })
     };
   });
   
   if (modelsChartInstance) modelsChartInstance.destroy();
   
+  // Custom plugin to label major models
+  const labelPlugin = {
+    id: 'majorModelLabels',
+    afterDatasetsDraw: (chart) => {
+      const ctx = chart.ctx;
+      chart.data.datasets.forEach((dataset) => {
+        dataset.data.forEach((point) => {
+          const m = point.model;
+          // Label major models: > 300B params
+          if (m.params && m.params > 300) {
+            const meta = chart.getDatasetMeta(chart.data.datasets.indexOf(dataset));
+            const dataPoint = meta.data[dataset.data.indexOf(point)];
+            if (!dataPoint) return;
+            
+            ctx.save();
+            ctx.font = '10px JetBrains Mono';
+            ctx.fillStyle = dataset.backgroundColor;
+            ctx.textAlign = 'center';
+            ctx.fillText(m.name, dataPoint.x, dataPoint.y - 12);
+            ctx.restore();
+          }
+        });
+      });
+    }
+  };
+  
   modelsChartInstance = new Chart(ctx, {
     type: 'scatter',
     data: { datasets },
+    plugins: [labelPlugin],
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      backgroundColor: '#0a0a0f',
       plugins: {
         legend: { display: false },
         tooltip: {
@@ -2310,7 +2247,7 @@ function renderModelsChart() {
           min: new Date('2020-01-01').getTime(),
           max: new Date('2027-01-01').getTime(),
           grid: {
-            color: 'rgba(0,220,255,0.08)',
+            color: 'rgba(0,220,255,0.15)',
             drawBorder: false
           },
           ticks: {
@@ -2323,7 +2260,7 @@ function renderModelsChart() {
           min: 1,
           max: 10000,
           grid: {
-            color: 'rgba(0,220,255,0.08)',
+            color: 'rgba(0,220,255,0.15)',
             drawBorder: false
           },
           ticks: {
@@ -2358,29 +2295,27 @@ function renderModelsList() {
   years.forEach(year => {
     const models = byYear[year];
     html += `
-      <div class="models-year-section">
-        <div class="models-year-header">
+      <div class="mt-year-section">
+        <div class="mt-year-header">
           ${year}
-          <span class="models-year-count">${models.length} models</span>
+          <span class="mt-year-count">${models.length} models</span>
         </div>
-        <div class="models-grid">
+        <div class="mt-models-grid">
           ${models.map(m => `
-            <div class="models-card" style="--org-color:${m.color}">
-              <div class="models-card-header">
-                <div class="models-card-name">${esc(m.name)}</div>
-                <div class="models-card-badges">
-                  <span class="models-badge models-badge-${m.license}">${m.license === 'open' ? 'Open' : 'Closed'}</span>
-                  <span class="models-badge models-badge-${m.arch}">${m.arch.toUpperCase()}</span>
-                </div>
+            <div class="mt-card">
+              <div class="mt-card-name">${esc(m.name)}</div>
+              <div class="mt-card-badges">
+                <span class="mt-badge mt-badge-${m.license}">${m.license === 'open' ? 'Open' : 'Closed'}</span>
+                <span class="mt-badge mt-badge-${m.arch}">${m.arch.toUpperCase()}</span>
               </div>
-              <div class="models-card-meta">
-                <span class="models-card-org">${esc(m.org)}</span>
+              <div class="mt-card-meta">
+                <span class="mt-card-org" style="color:${m.color}">${esc(m.org)}</span>
                 <span>•</span>
-                <span class="models-card-params">${esc(m.paramsStr)}</span>
+                <span>${esc(m.paramsStr)}</span>
                 <span>•</span>
                 <span>${m.dateStr}</span>
               </div>
-              <div class="models-card-note">${esc(m.note)}</div>
+              <div class="mt-card-note">${esc(m.note)}</div>
             </div>
           `).join('')}
         </div>
@@ -2388,7 +2323,7 @@ function renderModelsList() {
     `;
   });
   
-  document.getElementById('models-list-view').innerHTML = html;
+  document.getElementById('mt-list-wrap').innerHTML = html;
 }
 
 // ── LEGEND ──
@@ -2404,24 +2339,24 @@ function updateModelsLegend() {
     const color = MODELS_ORG_COLORS[org] || '#ffffff';
     const inactive = modelsFilters.org !== 'all' && modelsFilters.org !== org ? 'inactive' : '';
     return `
-      <div class="models-legend-item ${inactive}" onclick="toggleModelsOrg('${esc(org)}')">
-        <span class="models-legend-dot" style="background:${color}"></span>
-        <span class="models-legend-name">${esc(org)}</span>
-        <span class="models-legend-count">${count}</span>
+      <div class="mt-legend-item ${inactive}" onclick="toggleModelsOrg('${esc(org)}')">
+        <span class="mt-legend-dot" style="background:${color}"></span>
+        <span>${esc(org)}</span>
+        <span class="mt-legend-count">${count}</span>
       </div>
     `;
   }).join('');
   
-  document.getElementById('models-legend-grid').innerHTML = html;
+  document.getElementById('mt-legend-grid').innerHTML = html;
 }
 
 function toggleModelsOrg(org) {
   if (modelsFilters.org === org) {
     modelsFilters.org = 'all';
-    document.getElementById('models-org-filter').value = 'all';
+    document.getElementById('mt-org-filter').value = 'all';
   } else {
     modelsFilters.org = org;
-    document.getElementById('models-org-filter').value = org;
+    document.getElementById('mt-org-filter').value = org;
   }
   applyModelsFilters();
 }
@@ -2429,37 +2364,34 @@ function toggleModelsOrg(org) {
 // ── VIEW TOGGLE ──
 function setModelsView(view) {
   currentModelsView = view;
-  document.querySelectorAll('#models-controls .toggle-view').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.mt-view-btn').forEach(btn => btn.classList.remove('active'));
   event.target.classList.add('active');
   
   if (view === 'chart') {
-    document.getElementById('models-chart-view').style.display = 'block';
-    document.getElementById('models-list-view').style.display = 'none';
+    document.getElementById('mt-chart-wrap').style.display = 'block';
+    document.getElementById('mt-list-wrap').style.display = 'none';
     renderModelsChart();
   } else {
-    document.getElementById('models-chart-view').style.display = 'none';
-    document.getElementById('models-list-view').style.display = 'block';
+    document.getElementById('mt-chart-wrap').style.display = 'none';
+    document.getElementById('mt-list-wrap').style.display = 'block';
     renderModelsList();
   }
 }
 
 // ── FILTER HANDLERS ──
-document.addEventListener('DOMContentLoaded', () => {
-  // License filter buttons
-  const modelsControls = document.getElementById('models-controls');
-  if (modelsControls) {
-    modelsControls.addEventListener('click', e => {
-      const btn = e.target.closest('.models-btn[data-filter="license"]');
-      if (!btn) return;
-      modelsControls.querySelectorAll('.models-btn[data-filter="license"]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      modelsFilters.license = btn.dataset.value;
-      applyModelsFilters();
-    });
-  }
+// License filter buttons
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.mt-license-btn');
+  if (!btn) return;
+  document.querySelectorAll('.mt-license-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  modelsFilters.license = btn.dataset.value;
+  applyModelsFilters();
+});
 
-  // Org filter dropdown
-  const orgFilter = document.getElementById('models-org-filter');
+// Org filter dropdown
+document.addEventListener('DOMContentLoaded', () => {
+  const orgFilter = document.getElementById('mt-org-filter');
   if (orgFilter) {
     orgFilter.addEventListener('change', e => {
       modelsFilters.org = e.target.value;
@@ -2471,7 +2403,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── POPULATE ORG DROPDOWN ──
 function populateModelsOrgDropdown() {
   const orgs = [...new Set(allModels.map(m => m.org))].sort();
-  const select = document.getElementById('models-org-filter');
+  const select = document.getElementById('mt-org-filter');
   orgs.forEach(org => {
     const opt = document.createElement('option');
     opt.value = org;
