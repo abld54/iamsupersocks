@@ -265,6 +265,23 @@ body::before {
 .card-foot-arrow { transition:transform 0.15s; }
 .card:hover .card-foot-arrow { transform:translateX(4px); }
 
+/* ─── STARS (GTA wanted level) ─── */
+.card-stars {
+  display:flex; align-items:center; gap:1px;
+  line-height:1;
+}
+.star {
+  font-size:0.65rem;
+  color: var(--text3);
+  transition: color 0.15s;
+}
+.star.on-1 { color:#555; }
+.star.on-2 { color:#888; }
+.star.on-3 { color:#f0c040; }
+.star.on-4 { color:#f5a800; }
+.star.on-5 { color:#ff6b00; text-shadow:0 0 6px #ff6b0080; }
+.card:hover .star.on { opacity:0.85; }
+
 /* ─── STATES ─── */
 #loading {
   grid-column:1/-1;
@@ -1489,12 +1506,54 @@ function esc(s) {
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// ── STAR RATING (GTA wanted level) ──
+function getStars(a) {
+  if (!a.analysis) return 0;
+
+  let score = 1; // base: has analysis
+
+  // Category weight
+  const catScore = { models: 2, research: 1, safety: 1, products: 1, other: 0 };
+  score += (catScore[a.category] || 0);
+
+  // Primary lab source (not twitter)
+  const srcId = (a.source && a.source.id) ? a.source.id : '';
+  const topLabs = ['openai', 'anthropic', 'deepmind', 'google', 'xai', 'meta', 'mistral', 'huggingface', 'gemini'];
+  const isPrimary = !srcId.startsWith('tw_') && topLabs.some(s => srcId.includes(s));
+  if (isPrimary) score = Math.min(5, score + 1);
+
+  // Summary mentions a significant event
+  const text = [
+    a.analysis.signal || '', a.analysis.summary || '',
+    a.analysis.context || '', a.title || ''
+  ].join(' ').toLowerCase();
+  const bigEvents = ['releases', 'announces', 'launches', 'introduces', 'raises', 'acquires',
+    'beats', 'surpasses', 'tops', 'breakthrough', 'new model', 'state-of-the-art', 'open-source',
+    'record', 'first ever', 'sota', '#1', 'n°1', 'leaderboard'];
+  if (bigEvents.some(w => text.includes(w))) score = Math.min(5, score + 1);
+
+  return Math.min(5, Math.max(1, score));
+}
+
+function renderStars(n) {
+  if (n === 0) return '';
+  const colors = ['', 'on-1', 'on-2', 'on-3', 'on-4', 'on-5'];
+  const cls = colors[n] || 'on-3';
+  let html = '<div class="card-stars">';
+  for (let i = 1; i <= 5; i++) {
+    html += `<span class="star ${i <= n ? cls : ''}">${i <= n ? '★' : '☆'}</span>`;
+  }
+  html += '</div>';
+  return html;
+}
+
 // ── RENDER ──
 function renderCard(a) {
   const d = a.date ? new Date(a.date) : null;
   const ago = timeAgo(d);
   const cat = a.category || 'other';
   const color = a.source.color || '#00dcff';
+  const stars = getStars(a);
 
   return `<a class="card" href="article.html?id=${encodeURIComponent(a.id)}"
     data-src="${esc(a.source.id)}" data-cat="${esc(cat)}" data-id="${esc(a.id)}"
@@ -1509,7 +1568,7 @@ function renderCard(a) {
     </div>
     <div class="card-title">${esc(a.title)}</div>
     ${a.excerpt ? `<p class="card-excerpt">${esc(a.excerpt)}</p>` : ''}
-    <div class="card-foot"><span>View</span><span class="card-foot-arrow">→</span></div>
+    <div class="card-foot">${renderStars(stars)}<span class="card-foot-arrow">→</span></div>
   </a>`;
 }
 
