@@ -390,7 +390,12 @@ canvas {
   }
   
   #chart-container {
-    height: 400px;
+    height: 380px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #chart-container canvas {
+    min-width: 640px;
   }
   
   .models-grid {
@@ -671,14 +676,16 @@ function renderChart() {
       borderColor: color,
       borderWidth: 2,
       pointRadius: orgMap[org].map(p => {
-        // Size based on log(params)
-        const size = Math.log10(p.y) * 2.5;
-        return Math.max(4, Math.min(16, size));
+        // Size based on log(params), smaller on mobile
+        const isMobile = window.innerWidth < 768;
+        const size = Math.log10(p.y) * (isMobile ? 1.8 : 2.5);
+        return Math.max(isMobile ? 3 : 4, Math.min(isMobile ? 10 : 16, size));
       }),
       pointStyle: orgMap[org].map(p => p.model.arch === 'moe' ? 'triangle' : 'circle'),
       pointHoverRadius: orgMap[org].map(p => {
-        const size = Math.log10(p.y) * 2.5;
-        return Math.max(6, Math.min(20, size + 2));
+        const isMobile = window.innerWidth < 768;
+        const size = Math.log10(p.y) * (isMobile ? 1.8 : 2.5);
+        return Math.max(isMobile ? 5 : 6, Math.min(isMobile ? 12 : 20, size + 2));
       })
     };
   });
@@ -897,7 +904,17 @@ function populateOrgDropdown() {
 function init() {
   populateOrgDropdown();
   updateStats();
-  renderChart();
+  const isMobile = window.innerWidth < 768;
+  if (isMobile) {
+    currentView = 'list';
+    document.querySelectorAll('.toggle-view').forEach(btn => btn.classList.remove('active'));
+    document.querySelector('.toggle-view[onclick*="list"]').classList.add('active');
+    document.getElementById('chart-view').style.display = 'none';
+    document.getElementById('list-view').style.display = 'block';
+    renderList();
+  } else {
+    renderChart();
+  }
   updateLegend();
 }
 
