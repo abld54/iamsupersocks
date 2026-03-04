@@ -2071,7 +2071,8 @@ const LAB_DOMAINS = {
   "Alibaba Qwen": "alibaba.com",
   "Holistic AI": "holisticai.com",
   "Eureka Labs": "eurekalabs.ai",
-  "Apple": "apple.com",
+  "Inflection AI": "inflection.ai",
+  "Microsoft AI": "microsoft.com",
 };
 
 const LAB_COLORS = {
@@ -2086,7 +2087,8 @@ const LAB_COLORS = {
   "Alibaba Qwen": "#ff6a00",
   "Holistic AI": "#6366f1",
   "Eureka Labs": "#f59e0b",
-  "Apple": "#a3a3a3",
+  "Inflection AI": "#7dd3fc",
+  "Microsoft AI": "#00a4ef",
   "—": "#555",
 };
 
@@ -2118,7 +2120,7 @@ const MERCATO = [
     role: "Co-founder & Researcher → Alignment",
     note: "OpenAI co-founder and creator of PPO (Proximal Policy Optimization). Left in August 2024 to join Anthropic and focus on AI alignment research.",
     date: "2024-08-06",
-    link: "https://x.com/johnschulman2/status/1820861677688668549",
+    link: "https://x.com/search?q=from%3Ajohnschulman2+Anthropic&f=top",
     linkLabel: "→ ANNOUNCEMENT"
   },
   {
@@ -2127,8 +2129,8 @@ const MERCATO = [
     to: "Anthropic", toColor: "#d4a574",
     role: "Head of Alignment → Safety Research",
     note: "Led OpenAI's Superalignment team. Left amid internal tensions over safety priorities. Publicly stated that safety had been \"downgraded\" in favour of products.",
-    date: "2024-05-14",
-    link: "https://x.com/janleike/status/1790463978297200891",
+    date: "2024-05-17",
+    link: "https://x.com/search?q=from%3Ajanleike+OpenAI+downgraded&f=top",
     linkLabel: "→ FAREWELL THREAD"
   },
   {
@@ -2138,17 +2140,18 @@ const MERCATO = [
     role: "Co-founder & CSO → Co-founder SSI",
     note: "OpenAI co-founder and Chief Scientist from day one. Founded Safe Superintelligence Inc. (SSI) with Daniel Gross and Daniel Levy — single mission: safe superintelligence.",
     date: "2024-05-14",
-    link: "https://x.com/ilyasut/status/1790517050584621311",
+    link: "https://x.com/search?q=from%3Ailyasut+SSI+superintelligence&f=top",
     linkLabel: "→ ANNOUNCEMENT"
   },
   {
-    name: "Kyle Kosic",
-    from: "xAI", fromColor: "#e0e0e0",
-    to: "OpenAI", toColor: "#10a37f",
-    role: "Co-founder & Infra Lead → Engineering",
-    note: "Co-founder and infrastructure lead at xAI (Grok). Left in 2024 to join OpenAI. One of several xAI co-founders to exit the company.",
-    date: "2024-06-01",
-    link: "https://x.com/kylekosic",
+    name: "Chris Olah",
+    from: "Google DeepMind", fromColor: "#34a853",
+    to: "Anthropic", toColor: "#d4a574",
+    role: "Research Scientist → Co-founder",
+    note: "Pioneered neural network interpretability research at Google Brain (Distill.pub). Left in 2021 to co-found Anthropic — where he continues to lead mechanistic interpretability, the field he effectively invented.",
+    date: "2021-05-28",
+    badge: "CONFIRMED",
+    link: "https://x.com/ch402",
     linkLabel: "→ PROFILE"
   },
   {
@@ -2189,7 +2192,7 @@ const MERCATO = [
     note: "One of OpenAI's founding members and former Director of AI at Tesla. Left OpenAI in February 2024 to build Eureka Labs, an AI-native education company aiming to make anyone an expert in anything.",
     date: "2024-02-13",
     badge: "CONFIRMED",
-    link: "https://x.com/karpathy/status/1756380066580455557",
+    link: "https://x.com/search?q=from%3Akarpathy+leaving+OpenAI&f=top",
     linkLabel: "→ FAREWELL POST"
   },
   {
@@ -2200,7 +2203,7 @@ const MERCATO = [
     note: "OpenAI's Chief Technology Officer since 2022. Announced her resignation on September 26, 2024 — the same day as CRO Bob McGrew and VP Research Barret Zoph. Left to start her own AI company.",
     date: "2024-09-26",
     badge: "CONFIRMED",
-    link: "https://x.com/miramurati/status/1839025700009030027",
+    link: "https://x.com/search?q=from%3Amiramurati+leaving&f=top",
     linkLabel: "→ ANNOUNCEMENT"
   },
   {
@@ -2208,10 +2211,10 @@ const MERCATO = [
     from: "OpenAI", fromColor: "#10a37f",
     to: "—", toColor: "#555",
     role: "Co-founder & President → Departed",
-    note: "OpenAI's co-founder and President. Announced a sabbatical in August 2024 while Sam Altman and the board publicly rebuilt trust post-governance crisis. Confirmed his departure from OpenAI later that year.",
-    date: "2024-08-06",
+    note: "OpenAI's co-founder and President. Announced a sabbatical in August 2024 following the governance crisis. Confirmed his full departure from OpenAI later that year.",
+    date: "2024-08-05",
     badge: "CONFIRMED",
-    link: "https://x.com/gdb/status/1820955987136573948",
+    link: "https://x.com/search?q=from%3Agdb+sabbatical+OpenAI&f=top",
     linkLabel: "→ STATEMENT"
   },
   {
@@ -2224,6 +2227,28 @@ const MERCATO = [
     badge: "CONFIRMED",
     link: "https://x.com/barret_zoph",
     linkLabel: "→ PROFILE"
+  },
+  {
+    name: "Mustafa Suleyman",
+    from: "Inflection AI", fromColor: "#7dd3fc",
+    to: "Microsoft AI", toColor: "#00a4ef",
+    role: "Co-founder & CEO → CEO Microsoft AI",
+    note: "DeepMind co-founder (2010), left Google in 2022 to co-found Inflection AI. In March 2024, Microsoft hired him and most of Inflection's team — Mustafa became CEO of Microsoft AI, overseeing Copilot and consumer AI products.",
+    date: "2024-03-19",
+    badge: "CONFIRMED",
+    link: "https://x.com/search?q=from%3Amustwai+Microsoft&f=top",
+    linkLabel: "→ ANNOUNCEMENT"
+  },
+  {
+    name: "Dario Amodei",
+    from: "OpenAI", fromColor: "#10a37f",
+    to: "Anthropic", toColor: "#d4a574",
+    role: "VP Research → Co-founder & CEO",
+    note: "OpenAI's VP of Research until 2021. Co-founded Anthropic with his sister Daniela and 7 former OpenAI colleagues. Now the single most important challenger to OpenAI in frontier AI.",
+    date: "2021-05-28",
+    badge: "CONFIRMED",
+    link: "https://x.com/search?q=from%3Adarioamodei+Anthropic+founding&f=top",
+    linkLabel: "→ FOUNDING"
   }
 ];
 
