@@ -336,8 +336,8 @@ body::before {
   box-shadow: 0 0 12px rgba(0,0,0,0.4);
 }
 .trf-logo img {
-  width: 28px; height: 28px; object-fit: contain;
-  filter: brightness(1.1);
+  width: 36px; height: 36px; object-fit: contain;
+  filter: brightness(1.05);
 }
 .trf-logo .trf-initial {
   font-family: var(--mono); font-size: 1.1rem; font-weight: 900;
@@ -2062,14 +2062,16 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSrcModa
 const LAB_DOMAINS = {
   "OpenAI": "openai.com",
   "Anthropic": "anthropic.com",
-  "Google DeepMind": "deepmind.google",
-  "Meta AI": "meta.ai",
+  "Google DeepMind": "deepmind.com",
+  "Meta AI": "meta.com",
   "xAI": "x.ai",
   "Mistral": "mistral.ai",
   "Hugging Face": "huggingface.co",
   "Safe Superintelligence": "ssi.inc",
-  "Alibaba Qwen": "qwenlm.github.io",
+  "Alibaba Qwen": "alibaba.com",
   "Holistic AI": "holisticai.com",
+  "Eureka Labs": "eurekalabs.ai",
+  "Apple": "apple.com",
 };
 
 const LAB_COLORS = {
@@ -2083,6 +2085,8 @@ const LAB_COLORS = {
   "Safe Superintelligence": "#7c3aed",
   "Alibaba Qwen": "#ff6a00",
   "Holistic AI": "#6366f1",
+  "Eureka Labs": "#f59e0b",
+  "Apple": "#a3a3a3",
   "—": "#555",
 };
 
@@ -2176,6 +2180,50 @@ const MERCATO = [
     date: "2023-06-01",
     link: "https://holisticai.com",
     linkLabel: "→ COMPANY"
+  },
+  {
+    name: "Andrej Karpathy",
+    from: "OpenAI", fromColor: "#10a37f",
+    to: "Eureka Labs", toColor: "#f59e0b",
+    role: "Founding Member → Founder/CEO",
+    note: "One of OpenAI's founding members and former Director of AI at Tesla. Left OpenAI in February 2024 to build Eureka Labs, an AI-native education company aiming to make anyone an expert in anything.",
+    date: "2024-02-13",
+    badge: "CONFIRMED",
+    link: "https://x.com/karpathy/status/1756380066580455557",
+    linkLabel: "→ FAREWELL POST"
+  },
+  {
+    name: "Mira Murati",
+    from: "OpenAI", fromColor: "#10a37f",
+    to: "—", toColor: "#555",
+    role: "CTO → Independent Founder",
+    note: "OpenAI's Chief Technology Officer since 2022. Announced her resignation on September 26, 2024 — the same day as CRO Bob McGrew and VP Research Barret Zoph. Left to start her own AI company.",
+    date: "2024-09-26",
+    badge: "CONFIRMED",
+    link: "https://x.com/miramurati/status/1839025700009030027",
+    linkLabel: "→ ANNOUNCEMENT"
+  },
+  {
+    name: "Greg Brockman",
+    from: "OpenAI", fromColor: "#10a37f",
+    to: "—", toColor: "#555",
+    role: "Co-founder & President → Departed",
+    note: "OpenAI's co-founder and President. Announced a sabbatical in August 2024 while Sam Altman and the board publicly rebuilt trust post-governance crisis. Confirmed his departure from OpenAI later that year.",
+    date: "2024-08-06",
+    badge: "CONFIRMED",
+    link: "https://x.com/gdb/status/1820955987136573948",
+    linkLabel: "→ STATEMENT"
+  },
+  {
+    name: "Barret Zoph",
+    from: "OpenAI", fromColor: "#10a37f",
+    to: "—", toColor: "#555",
+    role: "VP Research → Independent",
+    note: "VP of Research at OpenAI, co-creator of Neural Architecture Search. Resigned September 2024 alongside Mira Murati and Bob McGrew in a mass exodus from OpenAI leadership.",
+    date: "2024-09-26",
+    badge: "CONFIRMED",
+    link: "https://x.com/barret_zoph",
+    linkLabel: "→ PROFILE"
   }
 ];
 
@@ -2187,23 +2235,25 @@ function renderMercato() {
     return;
   }
 
-  function logoUrl(lab) {
+  function logoUrl(lab, overrideUrl) {
+    if (overrideUrl) return overrideUrl;
     const d = LAB_DOMAINS[lab];
-    return d ? `https://www.google.com/s2/favicons?domain=${d}&sz=64` : null;
+    return d ? `https://logo.clearbit.com/${d}` : null;
   }
 
-  grid.innerHTML = MERCATO.map(t => {
+  const sorted = [...MERCATO].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  grid.innerHTML = sorted.map(t => {
     const dateStr = t.date ? new Date(t.date).toLocaleDateString('en-US', { year:'numeric', month:'short' }) : '';
     const fromColor = t.fromColor || LAB_COLORS[t.from] || '#888';
     const toColor   = t.toColor   || LAB_COLORS[t.to]   || '#00dcff';
     const linkAttr  = t.link ? `href="${t.link}" target="_blank" rel="noopener"` : '';
     const linkLabel = t.linkLabel || '→ SOURCE';
 
-    function logoHtml(lab, color) {
-      const url = logoUrl(lab);
+    function logoHtml(lab, color, overrideUrl) {
+      const url = logoUrl(lab, overrideUrl);
       const initial = lab.replace('—','?')[0].toUpperCase();
       const imgTag = url
-        ? `<img src="${url}" alt="${esc(lab)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="trf-initial" style="display:none">${initial}</span>`
+        ? `<img src="${url}" alt="${esc(lab)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:32px;height:32px;object-fit:contain;filter:brightness(1.1)"><span class="trf-initial" style="display:none">${initial}</span>`
         : `<span class="trf-initial">${initial}</span>`;
       return `<div class="trf-logo" style="--logo-color:${color}">${imgTag}</div>`;
     }
@@ -2215,7 +2265,7 @@ function renderMercato() {
     return `<a class="transfer-card" ${linkAttr} style="--t-from-color:${fromColor};--t-to-color:${toColor};">
   <div class="trf-clubs">
     <div class="trf-side">
-      ${logoHtml(t.from, fromColor)}
+      ${logoHtml(t.from, fromColor, t.fromLogo)}
       <div class="trf-lab" style="color:${fromColor}">${esc(t.from)}</div>
     </div>
     <div class="trf-arrow-zone">
@@ -2223,10 +2273,10 @@ function renderMercato() {
         <line x1="0" y1="10" x2="38" y2="10" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
         <polyline points="30,3 42,10 30,17" fill="none" stroke="rgba(0,220,255,0.6)" stroke-width="2" stroke-linejoin="round"/>
       </svg>
-      <span class="trf-badge">CONFIRMED</span>
+      <span class="trf-badge">${t.badge || 'CONFIRMED'}</span>
     </div>
     <div class="trf-side">
-      ${logoHtml(t.to, toColor)}
+      ${logoHtml(t.to, toColor, t.toLogo)}
       <div class="trf-lab" style="color:${toColor}">${esc(t.to)}</div>
     </div>
   </div>
