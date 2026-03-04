@@ -295,62 +295,105 @@ body::before {
 .mercato-desc { font-family: var(--mono); font-size: 0.6rem; color: var(--text3); margin-bottom: 22px; line-height: 1.6; }
 .mercato-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
 }
+
+/* Football-style transfer card */
 .transfer-card {
   background: var(--bg1);
   border: 1px solid var(--border);
-  border-radius: 2px;
-  padding: 18px 20px;
+  border-radius: 4px;
+  padding: 0;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.2s;
-  text-decoration: none; color: inherit; display: block;
+  transition: border-color 0.2s, transform 0.15s;
+  text-decoration: none; color: inherit; display: flex; flex-direction: column;
 }
 .transfer-card::before {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--t-from-color, #555) 0%, var(--t-to-color, #00dcff) 100%);
 }
-.transfer-card:hover { border-color: rgba(0,220,255,0.28); }
-.transfer-clubs {
-  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+.transfer-card:hover { border-color: rgba(0,220,255,0.32); transform: translateY(-1px); }
+
+/* Top section: FROM logo → BIG ARROW → TO logo */
+.trf-clubs {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 20px 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
 }
-.transfer-club {
-  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 1.5px; font-weight: 700;
-  padding: 3px 8px; border-radius: 2px; border: 1px solid currentColor; white-space: nowrap;
+.trf-side {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  flex: 0 0 auto; width: 84px;
 }
-.transfer-arrow-icon { font-size: 0.85rem; color: var(--text3); flex: 1; text-align: center; }
-.transfer-badge {
-  font-family: var(--mono); font-size: 0.5rem; letter-spacing: 2px;
+.trf-logo {
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 2px solid var(--logo-color, #555);
+  background: rgba(0,0,0,0.4);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; position: relative;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+.trf-logo img {
+  width: 28px; height: 28px; object-fit: contain;
+  filter: brightness(1.1);
+}
+.trf-logo .trf-initial {
+  font-family: var(--mono); font-size: 1.1rem; font-weight: 900;
+  color: var(--logo-color, #aaa);
+  position: absolute; /* shown on img error */
+}
+.trf-lab {
+  font-family: var(--mono); font-size: 0.52rem; letter-spacing: 1px;
+  color: var(--logo-color, #888); text-align: center;
+  max-width: 84px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* Arrow zone */
+.trf-arrow-zone {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.trf-arrow-svg {
+  display: block;
+}
+.trf-badge {
+  font-family: var(--mono); font-size: 0.44rem; letter-spacing: 2px;
   padding: 2px 6px; border-radius: 2px;
-  background: rgba(0,220,255,0.07); color: var(--cyan); border: 1px solid rgba(0,220,255,0.18);
-  margin-left: auto; white-space: nowrap;
+  background: rgba(0,220,255,0.07); color: var(--cyan); border: 1px solid rgba(0,220,255,0.14);
+  white-space: nowrap;
 }
-.transfer-name {
-  font-size: 1rem; font-weight: 800; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--text1); margin-bottom: 3px;
+
+/* Bottom: name, role, note, foot */
+.trf-body { padding: 0 18px 16px; flex: 1; display: flex; flex-direction: column; }
+.trf-name {
+  font-size: 1rem; font-weight: 900; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text1); margin-bottom: 2px;
 }
-.transfer-role {
-  font-family: var(--mono); font-size: 0.6rem; color: var(--text3);
+.trf-role {
+  font-family: var(--mono); font-size: 0.58rem; color: var(--text3);
   letter-spacing: 0.5px; margin-bottom: 10px;
 }
-.transfer-note {
-  font-size: 0.78rem; color: var(--text2); line-height: 1.55;
-  border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px;
+.trf-note {
+  font-size: 0.76rem; color: var(--text2); line-height: 1.55;
+  border-top: 1px solid var(--border); padding-top: 10px;
+  flex: 1;
 }
-.transfer-foot {
+.trf-foot {
   display: flex; align-items: center; justify-content: space-between;
-  margin-top: 12px; font-family: var(--mono); font-size: 0.58rem; color: var(--text3);
+  margin-top: 12px; font-family: var(--mono); font-size: 0.56rem; color: var(--text3);
 }
-.transfer-link {
-  color: var(--cyan); text-decoration: none; opacity: 0.8; transition: opacity 0.15s;
+.trf-post-link {
+  color: var(--cyan); opacity: 0.8; transition: opacity 0.15s;
+  display: flex; align-items: center; gap: 4px;
 }
-.transfer-link:hover { opacity: 1; }
+.trf-post-link:hover { opacity: 1; }
+
 @media (max-width: 640px) {
   .mercato-grid { grid-template-columns: 1fr; }
   .mercato-inner { padding: 0 16px; }
+  .trf-side { width: 72px; }
+  .trf-logo { width: 42px; height: 42px; }
 }
 
 /* ─── STATES ─── */
@@ -1365,10 +1408,10 @@ body::before {
 <section id="mercato">
   <div class="mercato-inner">
     <div class="mercato-header">
-      <span class="mercato-title">// MERCATO</span>
-      <span class="mercato-subtitle">TALENT MOVES — AI LABS</span>
+      <span class="mercato-title">// TRANSFERS</span>
+      <span class="mercato-subtitle">AI LAB TALENT MOVES</span>
     </div>
-    <div class="mercato-desc">Chercheurs, VP, fondateurs — qui va où. La vraie matière première de l'IA.</div>
+    <div class="mercato-desc">Researchers, VPs, co-founders — who goes where. The real raw material of AI.</div>
     <div class="mercato-grid" id="mercato-grid"></div>
   </div>
 </section>
@@ -2016,127 +2059,185 @@ function closeSrcModal() {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSrcModal(); });
 
 // ── MERCATO DATA ──
+const LAB_DOMAINS = {
+  "OpenAI": "openai.com",
+  "Anthropic": "anthropic.com",
+  "Google DeepMind": "deepmind.google",
+  "Meta AI": "meta.ai",
+  "xAI": "x.ai",
+  "Mistral": "mistral.ai",
+  "Hugging Face": "huggingface.co",
+  "Safe Superintelligence": "ssi.inc",
+  "Alibaba Qwen": "qwenlm.github.io",
+  "Holistic AI": "holisticai.com",
+};
+
+const LAB_COLORS = {
+  "OpenAI": "#10a37f",
+  "Anthropic": "#d4a574",
+  "Google DeepMind": "#34a853",
+  "Meta AI": "#0668E1",
+  "xAI": "#e0e0e0",
+  "Mistral": "#ff6b35",
+  "Hugging Face": "#ffd21e",
+  "Safe Superintelligence": "#7c3aed",
+  "Alibaba Qwen": "#ff6a00",
+  "Holistic AI": "#6366f1",
+  "—": "#555",
+};
+
 const MERCATO = [
-  {
-    name: "Junyang Lin",
-    from: "Alibaba Qwen", fromColor: "#ff6a00",
-    to: "—", toColor: "#666",
-    role: "Tech Lead Qwen → Free Agent",
-    note: "Lead technique de l'équipe Qwen (modèles open-weights chinois). Annonce son départ le 5 mars 2026 après la sortie de Qwen 3. Destination inconnue.",
-    date: "2026-03-05",
-    link: "https://techcrunch.com"
-  },
   {
     name: "Max Schwarzer",
     from: "OpenAI", fromColor: "#10a37f",
     to: "Anthropic", toColor: "#d4a574",
-    role: "VP Post-Training → RL Research",
-    note: "Led post-training for GPT-5, 5.1, 5.2 et 5.3-Codex pendant un an. Rejoint Anthropic pour repartir dans la recherche fondamentale RL.",
+    role: "VP Post-Training → RL Researcher",
+    note: "Led post-training for GPT-5, 5.1, 5.2 and 5.3-Codex for a year at OpenAI. Joined Anthropic to return to fundamental reinforcement learning research.",
     date: "2026-03-03",
-    link: "https://x.com/max_a_schwarzer/status/2028939154944585989"
+    link: "https://x.com/max_a_schwarzer/status/2028939154944585989",
+    linkLabel: "→ FAREWELL POST"
+  },
+  {
+    name: "Junyang Lin",
+    from: "Alibaba Qwen", fromColor: "#ff6a00",
+    to: "—", toColor: "#555",
+    role: "Qwen Tech Lead → Free Agent",
+    note: "Technical lead of the Qwen team (open-weight Chinese models). Announced departure March 5, 2026 following the Qwen 3 launch. Next destination unknown.",
+    date: "2026-03-05",
+    link: "https://x.com/search?q=Junyang+Lin+Qwen",
+    linkLabel: "→ SEE THREAD"
   },
   {
     name: "John Schulman",
     from: "OpenAI", fromColor: "#10a37f",
     to: "Anthropic", toColor: "#d4a574",
-    role: "Co-founder & Research → Alignment Research",
-    note: "Co-fondateur d'OpenAI, créateur de PPO (Proximal Policy Optimization). Part en août 2024 pour rejoindre Anthropic et travailler sur l'alignment.",
+    role: "Co-founder & Researcher → Alignment",
+    note: "OpenAI co-founder and creator of PPO (Proximal Policy Optimization). Left in August 2024 to join Anthropic and focus on AI alignment research.",
     date: "2024-08-06",
-    link: "https://x.com/johnschulman2"
-  },
-  {
-    name: "Noam Brown",
-    from: "Meta AI", fromColor: "#0668E1",
-    to: "OpenAI", toColor: "#10a37f",
-    role: "Research Scientist → Reasoning Lead",
-    note: "Créateur de Libratus, Pluribus (poker AI) et CICERO (Diplomacy AI) chez Meta. Rejoint OpenAI pour diriger la recherche sur les modèles de raisonnement (o1, o3).",
-    date: "2023-09-01",
-    link: "https://x.com/polynoamial"
-  },
-  {
-    name: "Kyle Kosic",
-    from: "xAI", fromColor: "#e0e0e0",
-    to: "OpenAI", toColor: "#10a37f",
-    role: "Co-founder Infrastructure → Engineering",
-    note: "Co-fondateur et lead infra de xAI (Grok). Quitte en 2024 pour rejoindre OpenAI. Un des 7 co-fondateurs de xAI à avoir quitté la structure.",
-    date: "2024-06-01",
-    link: "https://x.com/kylekosic"
+    link: "https://x.com/johnschulman2/status/1820861677688668549",
+    linkLabel: "→ ANNOUNCEMENT"
   },
   {
     name: "Jan Leike",
     from: "OpenAI", fromColor: "#10a37f",
     to: "Anthropic", toColor: "#d4a574",
     role: "Head of Alignment → Safety Research",
-    note: "Dirigeait l'équipe Superalignment d'OpenAI. Part après des tensions sur les priorités sécurité. Annonce publiquement que la sécurité a été rétrogradée derrière les produits.",
+    note: "Led OpenAI's Superalignment team. Left amid internal tensions over safety priorities. Publicly stated that safety had been \"downgraded\" in favour of products.",
     date: "2024-05-14",
-    link: "https://x.com/janleike/status/1790463978297200891"
+    link: "https://x.com/janleike/status/1790463978297200891",
+    linkLabel: "→ FAREWELL THREAD"
   },
   {
     name: "Ilya Sutskever",
     from: "OpenAI", fromColor: "#10a37f",
     to: "Safe Superintelligence", toColor: "#7c3aed",
     role: "Co-founder & CSO → Co-founder SSI",
-    note: "Co-fondateur et chief scientist d'OpenAI depuis le début. Fonde Safe Superintelligence Inc. (SSI) avec Daniel Gross et Daniel Levy — mission unique : la superintelligence sûre.",
+    note: "OpenAI co-founder and Chief Scientist from day one. Founded Safe Superintelligence Inc. (SSI) with Daniel Gross and Daniel Levy — single mission: safe superintelligence.",
     date: "2024-05-14",
-    link: "https://ssi.inc"
+    link: "https://x.com/ilyasut/status/1790517050584621311",
+    linkLabel: "→ ANNOUNCEMENT"
+  },
+  {
+    name: "Kyle Kosic",
+    from: "xAI", fromColor: "#e0e0e0",
+    to: "OpenAI", toColor: "#10a37f",
+    role: "Co-founder & Infra Lead → Engineering",
+    note: "Co-founder and infrastructure lead at xAI (Grok). Left in 2024 to join OpenAI. One of several xAI co-founders to exit the company.",
+    date: "2024-06-01",
+    link: "https://x.com/kylekosic",
+    linkLabel: "→ PROFILE"
+  },
+  {
+    name: "Noam Brown",
+    from: "Meta AI", fromColor: "#0668E1",
+    to: "OpenAI", toColor: "#10a37f",
+    role: "Research Scientist → Reasoning Lead",
+    note: "Creator of Libratus, Pluribus (poker AI) and CICERO (Diplomacy AI) at Meta FAIR. Joined OpenAI to lead reasoning model research (o1, o3 series).",
+    date: "2023-09-01",
+    link: "https://x.com/polynoamial",
+    linkLabel: "→ PROFILE"
   },
   {
     name: "Sholto Douglas",
     from: "Google DeepMind", fromColor: "#34a853",
     to: "Anthropic", toColor: "#d4a574",
     role: "Research Scientist → Research",
-    note: "Chercheur majeur chez DeepMind, co-auteur de travaux sur les long-context transformers. Rejoint la cohorte croissante d'ex-Google chez Anthropic.",
+    note: "Key researcher at DeepMind, co-author of landmark work on long-context transformers. Joined the growing pool of ex-Google researchers at Anthropic.",
     date: "2024-03-01",
-    link: "https://x.com/sholto_douglas"
+    link: "https://x.com/sholto_douglas",
+    linkLabel: "→ PROFILE"
   },
   {
     name: "Tom Brown",
     from: "OpenAI", fromColor: "#10a37f",
     to: "Holistic AI", toColor: "#6366f1",
     role: "Lead Author GPT-3 → Co-founder",
-    note: "Lead author du paper GPT-3 original (2020). Fonde Holistic AI après plusieurs années chez OpenAI.",
+    note: "Lead author of the original GPT-3 paper (2020). Founded Holistic AI after several years at OpenAI.",
     date: "2023-06-01",
-    link: "https://holisticai.com"
+    link: "https://holisticai.com",
+    linkLabel: "→ COMPANY"
   }
 ];
-
-const LAB_COLORS = {
-  "OpenAI": "#10a37f",
-  "Anthropic": "#d4a574",
-  "Google DeepMind": "#34a853",
-  "Meta": "#0668E1",
-  "xAI": "#e0e0e0",
-  "Mistral": "#ff6b35",
-  "Hugging Face": "#ffd21e",
-  "Safe Superintelligence": "#7c3aed",
-  "Qwen / Alibaba": "#ff6a00",
-  "Holistic AI": "#6366f1",
-};
 
 function renderMercato() {
   const grid = document.getElementById('mercato-grid');
   if (!grid) return;
-  if (!MERCATO.length) { grid.innerHTML = '<div style="font-family:var(--mono);font-size:0.65rem;color:var(--text3);padding:20px 0;">// NO MOVES TRACKED YET</div>'; return; }
+  if (!MERCATO.length) {
+    grid.innerHTML = '<div style="font-family:var(--mono);font-size:0.65rem;color:var(--text3);padding:20px 0;">// NO MOVES TRACKED YET</div>';
+    return;
+  }
+
+  function logoUrl(lab) {
+    const d = LAB_DOMAINS[lab];
+    return d ? `https://www.google.com/s2/favicons?domain=${d}&sz=64` : null;
+  }
 
   grid.innerHTML = MERCATO.map(t => {
-    const dateStr = t.date ? new Date(t.date).toLocaleDateString('fr-FR', { year:'numeric', month:'short' }) : '';
+    const dateStr = t.date ? new Date(t.date).toLocaleDateString('en-US', { year:'numeric', month:'short' }) : '';
     const fromColor = t.fromColor || LAB_COLORS[t.from] || '#888';
     const toColor   = t.toColor   || LAB_COLORS[t.to]   || '#00dcff';
     const linkAttr  = t.link ? `href="${t.link}" target="_blank" rel="noopener"` : '';
-    const tag = t.link ? `<a class="transfer-link" href="${t.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">→ SOURCE</a>` : '';
+    const linkLabel = t.linkLabel || '→ SOURCE';
+
+    function logoHtml(lab, color) {
+      const url = logoUrl(lab);
+      const initial = lab.replace('—','?')[0].toUpperCase();
+      const imgTag = url
+        ? `<img src="${url}" alt="${esc(lab)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="trf-initial" style="display:none">${initial}</span>`
+        : `<span class="trf-initial">${initial}</span>`;
+      return `<div class="trf-logo" style="--logo-color:${color}">${imgTag}</div>`;
+    }
+
+    const postLink = t.link
+      ? `<a class="trf-post-link" href="${t.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${linkLabel}</a>`
+      : '';
+
     return `<a class="transfer-card" ${linkAttr} style="--t-from-color:${fromColor};--t-to-color:${toColor};">
-  <div class="transfer-clubs">
-    <span class="transfer-club" style="color:${fromColor};border-color:${fromColor};">${esc(t.from)}</span>
-    <span class="transfer-arrow-icon">→</span>
-    <span class="transfer-club" style="color:${toColor};border-color:${toColor};">${esc(t.to)}</span>
-    <span class="transfer-badge">CONFIRMED</span>
+  <div class="trf-clubs">
+    <div class="trf-side">
+      ${logoHtml(t.from, fromColor)}
+      <div class="trf-lab" style="color:${fromColor}">${esc(t.from)}</div>
+    </div>
+    <div class="trf-arrow-zone">
+      <svg class="trf-arrow-svg" width="48" height="20" viewBox="0 0 48 20" fill="none">
+        <line x1="0" y1="10" x2="38" y2="10" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <polyline points="30,3 42,10 30,17" fill="none" stroke="rgba(0,220,255,0.6)" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+      <span class="trf-badge">CONFIRMED</span>
+    </div>
+    <div class="trf-side">
+      ${logoHtml(t.to, toColor)}
+      <div class="trf-lab" style="color:${toColor}">${esc(t.to)}</div>
+    </div>
   </div>
-  <div class="transfer-name">${esc(t.name)}</div>
-  <div class="transfer-role">${esc(t.role)}</div>
-  <div class="transfer-note">${esc(t.note)}</div>
-  <div class="transfer-foot">
-    <span>${dateStr}</span>
-    ${tag}
+  <div class="trf-body">
+    <div class="trf-name">${esc(t.name)}</div>
+    <div class="trf-role">${esc(t.role)}</div>
+    <div class="trf-note">${esc(t.note)}</div>
+    <div class="trf-foot">
+      <span>${dateStr}</span>
+      ${postLink}
+    </div>
   </div>
 </a>`;
   }).join('');
